@@ -36,7 +36,7 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   background:
     radial-gradient(600px 280px at 50% 35%, rgba(230,58,101,0.18), transparent 70%),
-    url("../fotos/hero-hombrealfondo.png") center/cover no-repeat;
+    url("../fotos/hero-hombrealfondo.png?v=20260305") center/cover no-repeat;
 }
 
 .hero-grid {

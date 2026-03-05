@@ -11,69 +11,142 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <header class="hero" id="top">
+  <header class="hero hero-centered" id="top">
     <nav class="nav">
-      <div class="logo">
+      <a class="logo" href="#inicio" aria-label="Ir al inicio">
         <img src="assets/logo/picea_logo_transparent.png" alt="Picea Digital" class="logo-img" />
-      </div>
+      </a>
       <div class="nav-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#demos">Demos</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Diseño y desarrollo web</a>
       </div>
-      <a class="btn" href="#cta">Hablar</a>
+      <a class="btn btn-contact" href="#cta">
+        <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
+        Contacto
+      </a>
     </nav>
 
     <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Picea Digital</p>
-        <h1>Landing pages que convierten
-          <span class="accent">visitas en consultas por WhatsApp</span>
+      <div class="hero-copy" id="inicio">
+        <p class="eyebrow eyebrow-pill">Ideas que crecen</p>
+        <h1>Transformamos tu marca en
+          <span>una máquina de crecimiento digital</span>
         </h1>
-        <p class="lead">Landing pages que convierten visitas en consultas por WhatsApp. Mensaje claro, estructura simple y foco en conversión.</p>
+        <p class="lead">Creamos interfaces que atraen y convierten. Transformá tu tráfico en clientes reales.</p>
         <div class="hero-cta">
-          <a class="btn" href="https://wa.me/595981236300?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20info%20sobre%20los%20planes%20de%20Picea%20Digital.%20Gracias.">Hablar por WhatsApp</a>
-          <a class="btn btn-ghost" href="#servicios">Ver paquete esencial</a>
+          <a class="btn" href="https://wa.me/595981236300?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20info%20sobre%20los%20planes%20de%20Picea%20Digital.%20Gracias.">
+            <span class="btn-icon btn-icon--whatsapp" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                <path d="M12.04 2.01c-5.51 0-9.99 4.48-9.99 9.99 0 1.76.46 3.47 1.34 4.99L2 22l5.14-1.35c1.45.79 3.08 1.2 4.74 1.2h.01c5.51 0 9.99-4.48 9.99-9.99s-4.48-9.99-9.99-9.99zm0 18.14h-.01c-1.5 0-2.97-.4-4.26-1.16l-.3-.18-3.05.8.82-2.97-.2-.31a8.13 8.13 0 0 1-1.24-4.33c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13 0 4.48-3.65 8.13-8.13 8.13zm4.48-6.1c-.25-.12-1.48-.73-1.7-.82-.23-.08-.4-.12-.56.12-.16.25-.64.82-.79.99-.15.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.1-.5.1-.1.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.83-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.74 2.66 4.2 3.73.59.25 1.05.4 1.41.52.59.19 1.12.16 1.54.1.47-.07 1.48-.6 1.69-1.19.21-.59.21-1.1.15-1.19-.06-.1-.22-.16-.47-.29z"/>
+              </svg>
+            </span>
+            Hablemos de tu proyecto
+          </a>
         </div>
-        <div class="meta">
-          <span>Entrega 4-7 días</span>
-          <span>Precios claros</span>
-          <span>Optimizado para conversión</span>
-        </div>
-      </div>
-
-      <div class="hero-media">
-        <div class="blob"></div>
-        <picture>
-          <source media="(max-width: 640px)" srcset="assets/hero/antes%20y%20despues%209%2016.png" />
-          <img src="assets/hero/hero%20anets%20y%20despues%20con%20responsive%20en%20imagen.png" alt="Antes y después con responsive" />
-        </picture>
-        <div class="badge">Gs. 520.000</div>
+        <a class="scroll-down" href="#porque" aria-label="Ir a la siguiente sección">
+          <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </div>
   </header>
 
   <main>
+    <section class="section why reveal" id="porque">
+      <div class="section-title">
+        <p class="eyebrow eyebrow-pill eyebrow-with-icon">
+          <span class="eyebrow-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+              <path d="M12 3l2.6 5.2 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8L12 3z" fill="currentColor"/>
+            </svg>
+          </span>
+          Calidad que convierte
+        </p>
+        <h2>¿Por qué Picea?</h2>
+        <p>Diseño claro, mensaje directo y foco en resultados reales.</p>
+      </div>
+      <div class="why-grid">
+        <article class="why-card">
+          <span class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+              <path d="M6 7h12a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H11l-4 3v-3H6a3 3 0 0 1-3-3v-4a3 3 0 0 1 3-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3>Mensaje que se entiende</h3>
+          <p>Ordenamos tu propuesta para que el visitante sepa qué ofrecés y cómo contactarte.</p>
+        </article>
+        <article class="why-card">
+          <span class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+              <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3>Diseño limpio y rápido</h3>
+          <p>Landing liviana, pensada para cargar rápido y verse bien en dispositivos móviles.</p>
+        </article>
+        <article class="why-card">
+          <span class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+              <path d="M7 4h10a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H9l-5 3v-3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 10h6m-6 4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <h3>CTA claro a WhatsApp y formulario</h3>
+          <p>Botones y formulario listos para que te contacten sin fricción.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section reveal" id="servicios">
       <div class="section-title">
-        <h2>Servicios y paquetes</h2>
-        <p>Paquete esencial definido y opciones de referencia.</p>
+        <h2>Planes de diseño web</h2>
       </div>
       <div class="service-grid">
-        <article>
-          <h3>Esencial</h3>
-          <p>Gs. 520.000</p>
-          <p>Incluye</p>
+        <article class="featured-card">
+          <div class="plan-header">
+            <h3>Esencial</h3>
+            <span class="price-badge">Promo</span>
+          </div>
+          <p class="price">
+            <span class="price-now">Gs. 520.000</span>
+            <span class="price-old">Gs. 800.000</span>
+          </p>
+          <p>Estructura y diseño</p>
           <ul>
-            <li>Landing (máx. 6 secciones)</li>
-            <li>Copy básico (textos clave y CTA)</li>
-            <li>Responsive (celular)</li>
-            <li>SEO básico (títulos y estructura)</li>
-            <li>Hosting gratis 1 año (landing estática)</li>
+            <li>Landing profesional <strong class="highlight">(hasta 6 secciones)</strong></li>
+            <li>Diseño responsive <strong class="highlight">(optimizado para móvil)</strong></li>
+            <li>Textos persuasivos enfocados en ventas</li>
           </ul>
-          <p>Detalles</p>
+          <p>Tecnología y SEO</p>
           <ul>
-            <li>CTA + formulario o WhatsApp</li>
-            <li>3 rondas de cambios (feedback)</li>
+            <li class="has-icon">
+              <span class="list-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                  <rect x="4" y="4" width="16" height="6" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+                  <rect x="4" y="14" width="16" height="6" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+                  <circle cx="8" cy="7" r="1.1" fill="currentColor"></circle>
+                  <circle cx="8" cy="17" r="1.1" fill="currentColor"></circle>
+                </svg>
+              </span>
+              <strong>Hosting de alta velocidad gratis por 1 año</strong>
+            </li>
+            <li class="has-icon">
+              <span class="list-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                  <rect x="5" y="10" width="14" height="10" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                </svg>
+              </span>
+              SSL incluido
+            </li>
+            <li>SEO básico para Google</li>
+          </ul>
+          <p>Conversión</p>
+          <ul>
+            <li>Botón directo a <strong class="highlight">WhatsApp + formulario</strong></li>
+            <li>3 rondas de ajustes</li>
+            <li>Entrega en <strong class="highlight">4-7</strong> días hábiles</li>
           </ul>
         </article>
         <article>
@@ -100,93 +173,31 @@
       </div>
     </section>
 
-    <section class="section brands reveal" id="marcas">
-      <div class="section-title">
-        <h2>Tecnologías y foco</h2>
-        <p>Stack liviano, performance y conversión.</p>
-      </div>
-      <div class="logo-marquee">
-        <div class="logo-track">
-          <span class="logo-pill">HTML</span>
-          <span class="logo-pill">CSS</span>
-          <span class="logo-pill">JavaScript</span>
-          <span class="logo-pill">Performance</span>
-          <span class="logo-pill">SEO básico</span>
-          <span class="logo-pill">WhatsApp</span>
-          <span class="logo-pill">Hosting</span>
-          <span class="logo-pill">Responsive</span>
-          <span class="logo-pill">HTML</span>
-          <span class="logo-pill">CSS</span>
-          <span class="logo-pill">JavaScript</span>
-          <span class="logo-pill">Performance</span>
-          <span class="logo-pill">SEO básico</span>
-          <span class="logo-pill">WhatsApp</span>
-          <span class="logo-pill">Hosting</span>
-          <span class="logo-pill">Responsive</span>
+    <section class="section portfolio reveal" id="portfolio">
+      <div class="portfolio-content">
+        <div class="portfolio-head">
+          <p class="eyebrow eyebrow-with-icon">
+            <span class="eyebrow-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                <path d="M12 3l2.2 4.4L19 8l-3.8 3.7L16 17l-4-2.1L8 17l.8-5.3L5 8l4.8-.6L12 3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+            Diseño con impacto
+          </p>
+          <h2>¿Necesitás una web?</h2>
+          <a class="btn btn-ghost portfolio-btn" href="#cta">
+            Ver portafolio
+            <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
+          </a>
+          <p>Ofrecemos diseño y desarrollo web para quienes buscan una presencia online profesional y confiable.</p>
+          <p>Ya sea para tu negocio, un proyecto personal o cualquier otra idea, estamos listos para acompañarte.</p>
+        </div>
+        <div class="portfolio-media">
+          <img src="./assets/fotos/portfolio-tuempresa.png" alt="Vista de diseños web de Picea Digital" loading="lazy">
         </div>
       </div>
     </section>
 
-    <section class="section band reveal" id="demos">
-      <div class="section-title">
-        <h2>Demos</h2>
-        <p>Ejemplos de estilo y estructura.</p>
-      </div>
-      <div class="demo-carousel">
-        <button class="carousel-btn prev" aria-label="Demo anterior">‹</button>
-        <div class="carousel-track">
-          <article class="demo-slide">
-          <img src="assets/demos/peluqueria/demo%20peluqueria.png" alt="Demo Peluquería" />
-          <div class="demo-body">
-            <h3>Peluquería</h3>
-            <p>Landing con servicios, CTA y galería.</p>
-            <ul>
-              <li>CTA WhatsApp</li>
-              <li>Secciones claras</li>
-              <li>Responsive</li>
-            </ul>
-            <div class="demo-actions">
-              <a class="btn btn-ghost" href="https://demo.piceadigital.com/peluqueria" target="_blank" rel="noreferrer">Ver demo</a>
-              <a class="btn" href="https://wa.me/595981236300?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20info%20sobre%20los%20planes%20de%20Picea%20Digital.%20Gracias.">Quiero uno así</a>
-            </div>
-          </div>
-          </article>
-          <article class="demo-slide">
-          <img src="assets/demos/peluqueria/demo%20clinica%20odontologica.png" alt="Demo Clínica odontológica" />
-          <div class="demo-body">
-            <h3>Clínica</h3>
-            <p>Enfoque en confianza y reservas.</p>
-            <ul>
-              <li>Sección de servicios</li>
-              <li>CTA directo</li>
-              <li>FAQ básico</li>
-            </ul>
-            <div class="demo-actions">
-              <a class="btn btn-ghost" href="https://demo.piceadigital.com/clinica" target="_blank" rel="noreferrer">Ver demo</a>
-              <a class="btn" href="https://wa.me/595981236300?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20info%20sobre%20los%20planes%20de%20Picea%20Digital.%20Gracias.">Quiero uno así</a>
-            </div>
-          </div>
-          </article>
-          <article class="demo-slide">
-          <img src="assets/demos/peluqueria/demo%20conscionaria.png" alt="Demo Concesionaria" />
-          <div class="demo-body">
-            <h3>Concesionaria</h3>
-            <p>Catálogo simple y cotización rápida.</p>
-            <ul>
-              <li>Bloques de modelos</li>
-              <li>Precios claros</li>
-              <li>WhatsApp directo</li>
-            </ul>
-            <div class="demo-actions">
-              <a class="btn btn-ghost" href="https://demo.piceadigital.com/concesionaria" target="_blank" rel="noreferrer">Ver demo</a>
-              <a class="btn" href="https://wa.me/595981236300?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20info%20sobre%20los%20planes%20de%20Picea%20Digital.%20Gracias.">Quiero uno así</a>
-            </div>
-          </div>
-          </article>
-        </div>
-        <button class="carousel-btn next" aria-label="Demo siguiente">›</button>
-      </div>
-    </section>
 
     <section class="section reveal" id="proceso">
       <div class="section-title">
@@ -227,38 +238,103 @@
 
     <section class="section reveal" id="faq">
       <div class="section-title">
-        <h2>Preguntas rápidas</h2>
-        <p>Respuestas cortas a lo más común.</p>
+        <p class="eyebrow eyebrow-with-icon faq-label">
+          <span class="eyebrow-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
+              <path d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.6-1.8 1.1-1.8 2.3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+              <circle cx="12" cy="17" r="1" fill="currentColor"></circle>
+            </svg>
+          </span>
+          FAQ'S
+        </p>
+        <h2>Preguntas frecuentes</h2>
       </div>
       <div class="faq">
         <details open>
-          <summary>¿Qué necesito para empezar?</summary>
-          <p>Logo, datos de contacto, una idea clara de tu servicio y fotos si tenés. Si ya tenés dominio, también.</p>
+          <summary>¿Qué información debo enviar para empezar?</summary>
+          <p>Es necesario enviar previamente:</p>
+          <ul>
+            <li>Textos</li>
+            <li>Imágenes</li>
+            <li>Colores e identidad visual</li>
+            <li>Cantidad de secciones del sitio (por ejemplo: Inicio, Servicios, Contacto, etc.)</li>
+            <li>Qué contenido irá en cada sección</li>
+          </ul>
+          <p>Los textos no necesitan ser definitivos, pero sí claros y orientativos.</p>
         </details>
         <details open>
           <summary>¿Cuánto tarda la entrega?</summary>
           <p>Entre 5 y 7 días hábiles, desde que tenemos brief completo y anticipo.</p>
         </details>
+        <details>
+          <summary>¿Cuándo comienzan a contarse los tiempos de desarrollo?</summary>
+          <p>Los tiempos de desarrollo comienzan una vez recibido:</p>
+          <ul>
+            <li>El 100% del material solicitado</li>
+            <li>El pago inicial</li>
+          </ul>
+        </details>
+        <details>
+          <summary>¿El dominio (ej: tunegocio.com) está incluido?</summary>
+          <p>No. El dominio (por ejemplo: tunegocio.com) corre por cuenta del cliente. Si ya tenés uno, lo conectamos sin problema. Si no tenés, te asesoramos para comprarlo.</p>
+        </details>
         <details open>
-          <summary>¿Cómo se paga?</summary>
+          <summary>¿Cuáles son las condiciones de pago?</summary>
           <p>50% anticipo para iniciar y 50% al entregar.</p>
-        </details>
-        <details>
-          <summary>¿El hosting está incluido?</summary>
-          <p>Sí: hosting gratis por 1 año para una landing estática (HTML/CSS/JS). Dominio y correo corporativo no están incluidos.</p>
-        </details>
-        <details>
-          <summary>¿Cuántas revisiones incluye?</summary>
-          <p>El paquete esencial incluye 3 rondas de cambios (ajustes por feedback). Cambios fuera del alcance se cotizan aparte.</p>
         </details>
       </div>
     </section>
 
-    <section class="section cta reveal" id="cta">
-      <div class="cta-box">
-        <h2>Listo para tu landing?</h2>
-        <p>Escribinos y te respondemos rápido.</p>
-        <a class="btn" href="https://wa.me/595981236300?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20info%20sobre%20los%20planes%20de%20Picea%20Digital.%20Gracias.">Hablar por WhatsApp</a>
+    <section class="section contact reveal" id="cta">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-head">
+            <p class="eyebrow eyebrow-pill">Contactanos</p>
+            <h2>Disponibles 24/7</h2>
+            <p>Podés contactarnos por WhatsApp o completando el formulario en esta página. Nos esforzamos por responder con rapidez y esperamos poder ayudarte muy pronto.</p>
+          </div>
+          <a class="contact-card" href="https://wa.me/595981236300?text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20recibir%20info%20sobre%20los%20planes%20de%20Picea%20Digital.%20Gracias.">
+            <img class="contact-avatar" src="assets/fotos/asesormarcos.png" alt="Asesor Marcos" />
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                <path d="M12.04 2.01c-5.51 0-9.99 4.48-9.99 9.99 0 1.76.46 3.47 1.34 4.99L2 22l5.14-1.35c1.45.79 3.08 1.2 4.74 1.2h.01c5.51 0 9.99-4.48 9.99-9.99s-4.48-9.99-9.99-9.99zm0 18.14h-.01c-1.5 0-2.97-.4-4.26-1.16l-.3-.18-3.05.8.82-2.97-.2-.31a8.13 8.13 0 0 1-1.24-4.33c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13 0 4.48-3.65 8.13-8.13 8.13zm4.48-6.1c-.25-.12-1.48-.73-1.7-.82-.23-.08-.4-.12-.56.12-.16.25-.64.82-.79.99-.15.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.1-.5.1-.1.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.83-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.74 2.66 4.2 3.73.59.25 1.05.4 1.41.52.59.19 1.12.16 1.54.1.47-.07 1.48-.6 1.69-1.19.21-.59.21-1.1.15-1.19-.06-.1-.22-.16-.47-.29z"/>
+              </svg>
+            </span>
+            <div>
+              <strong>WhatsApp directo</strong>
+              <span>+595 981 236 300</span>
+            </div>
+          </a>
+          <p class="contact-note">
+            <span class="note-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                <path d="M7 2v3M17 2v3M3.5 7.5h17M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            Atención rápida y personalizada.
+          </p>
+        </div>
+        <div class="contact-form">
+          <form class="cta-form" action="https://script.google.com/macros/s/AKfycbz0YRmisN-a58GRP3Gdpso1Hv2mwZzIdmFskJD04IguKKli63tNQeQ8Q4O7JSWAy-pYYQ/exec" method="POST" target="form-target" enctype="application/x-www-form-urlencoded">
+            <label>
+              Nombre
+              <input type="text" name="nombre" placeholder="Tu nombre" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="Tu email" required />
+            </label>
+            <label>
+              Consulta
+              <textarea name="consulta" rows="4" placeholder="Contanos sobre tu proyecto" required></textarea>
+            </label>
+            <button class="btn" type="submit">Enviar consulta</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <iframe class="form-target" name="form-target" title="form-submit"></iframe>
+          <p class="form-note">Tus datos están protegidos. No hacemos spam.</p>
+        </div>
       </div>
     </section>
   </main>

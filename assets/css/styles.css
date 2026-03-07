@@ -1449,9 +1449,9 @@ h1 {
 
 @media (max-width: 640px) {
   .hero {
-    background-image: url("../fotos/hero%20hombrealfondo%209%2016.png?v=20260305");
-    background-position: center;
-    background-size: cover;
+    background:
+      radial-gradient(600px 280px at 50% 35%, rgba(230,58,101,0.18), transparent 70%),
+      url("../fotos/hero-hombrealfondo%209%2016.png?v=20260305") center/cover no-repeat;
   }
 }
 

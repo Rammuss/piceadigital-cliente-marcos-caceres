@@ -13,6 +13,38 @@ const observer = new IntersectionObserver(
 
 revealItems.forEach((item) => observer.observe(item));
 
+const typewriterCards = document.querySelectorAll(".typewriter-text");
+typewriterCards.forEach((el) => {
+  const text = el.textContent.trim();
+  el.dataset.text = text;
+  el.textContent = "";
+});
+
+const typeObserver = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const p = entry.target;
+      if (p.dataset.typed === "true") return;
+      const text = p.dataset.text || "";
+      let i = 0;
+      p.dataset.typed = "true";
+      const step = () => {
+        i += 2;
+        p.textContent = text.slice(0, i);
+        if (i < text.length) {
+          requestAnimationFrame(step);
+        }
+      };
+      requestAnimationFrame(step);
+      obs.unobserve(p);
+    });
+  },
+  { threshold: 0.4 }
+);
+
+typewriterCards.forEach((el) => typeObserver.observe(el));
+
 const track = document.querySelector(".carousel-track");
 const prevBtn = document.querySelector(".carousel-btn.prev");
 const nextBtn = document.querySelector(".carousel-btn.next");
@@ -70,3 +102,43 @@ document.querySelectorAll("[data-copy]").forEach((btn) => {
     }
   });
 });
+
+const nav = document.querySelector(".nav");
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelectorAll(".nav-links a");
+const navOverlay = document.querySelector(".nav-overlay");
+
+if (nav && navToggle) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!nav.classList.contains("is-open")) return;
+    if (nav.contains(event.target)) return;
+    nav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  });
+
+  if (navOverlay) {
+    navOverlay.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 640) {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}

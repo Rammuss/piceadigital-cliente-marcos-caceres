@@ -17,15 +17,22 @@
       <a class="logo" href="#inicio" aria-label="Ir al inicio">
         <img src="assets/logo/picea_logo_transparent.png" alt="Picea Digital" class="logo-img" />
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Diseño y desarrollo web</a>
+        <a class="nav-cta" href="#cta">Contacto</a>
       </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
       <a class="btn btn-contact" href="#cta">
         <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
         Contacto
       </a>
     </nav>
+    <div class="nav-overlay" aria-hidden="true"></div>
 
     <div class="hero-grid">
       <div class="hero-copy" id="inicio">
@@ -68,25 +75,25 @@
         <p>Diseño claro, mensaje directo y foco en resultados reales.</p>
       </div>
       <div class="why-grid">
-        <article class="why-card">
+        <article class="why-card typewriter">
           <span class="why-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
               <path d="M6 7h12a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H11l-4 3v-3H6a3 3 0 0 1-3-3v-4a3 3 0 0 1 3-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
           <h3>Mensaje que se entiende</h3>
-          <p>Ordenamos tu propuesta para que el visitante sepa qué ofrecés y cómo contactarte.</p>
+          <p class="typewriter-text">Ordenamos tu propuesta para que el visitante sepa qué ofrecés y cómo contactarte.</p>
         </article>
-        <article class="why-card">
+        <article class="why-card typewriter">
           <span class="why-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
               <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             </svg>
           </span>
           <h3>Diseño limpio y rápido</h3>
-          <p>Landing liviana, pensada para cargar rápido y verse bien en dispositivos móviles.</p>
+          <p class="typewriter-text">Landing liviana, pensada para cargar rápido y verse bien en dispositivos móviles.</p>
         </article>
-        <article class="why-card">
+        <article class="why-card typewriter">
           <span class="why-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
               <path d="M7 4h10a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H9l-5 3v-3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -94,7 +101,7 @@
             </svg>
           </span>
           <h3>CTA claro a WhatsApp y formulario</h3>
-          <p>Botones y formulario listos para que te contacten sin fricción.</p>
+          <p class="typewriter-text">Botones y formulario listos para que te contacten sin fricción.</p>
         </article>
       </div>
     </section>
@@ -215,11 +222,10 @@
         <article class="custom-card plan-card">
           <div class="custom-header">
             <h3>Plan a medida</h3>
-            <span class="custom-badge">Propuesta personalizada</span>
           </div>
-          <p class="plan-kicker plan-kicker--custom">Solución adaptada a tu proyecto</p>
-          <p class="custom-price">Cotización según alcance</p>
-          <p class="custom-note">Ideal para proyectos que necesitan una estructura más personalizada, más páginas o funcionalidades puntuales.</p>
+          <p class="plan-kicker plan-kicker--custom">Para proyectos con necesidades especificas</p>
+          <p class="custom-price">Cotizacion segun alcance</p>
+          <p class="custom-note">Ideal si necesitas mas paginas, funciones puntuales o una estructura pensada para tu negocio.</p>
           <ul class="custom-list">
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -228,7 +234,7 @@
                   <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              Definimos juntos el alcance ideal
+              Alcance definido segun tus objetivos
             </li>
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -237,7 +243,7 @@
                   <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              Diseño personalizado para tu marca
+              Diseno alineado a tu marca
             </li>
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -246,7 +252,7 @@
                   <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              Más secciones o páginas según necesidad
+              Secciones o paginas adicionales
             </li>
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -255,7 +261,7 @@
                   <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              Formularios adaptados a tu proceso de contacto
+              Formularios segun tu canal de contacto
             </li>
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -264,11 +270,11 @@
                   <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              Pixel y GA4 (configuración básica)
+              Integracion basica de Pixel y GA4
             </li>
           </ul>
           <a class="btn plan-cta plan-cta--custom" href="#cta">
-            Quiero una propuesta
+            Solicitar presupuesto
             <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
           </a>
         </article>
@@ -291,8 +297,8 @@
             Ver portafolio
             <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
           </a>
-          <p>Ofrecemos diseño y desarrollo web para quienes buscan una presencia online profesional y confiable.</p>
-          <p>Ya sea para tu negocio, un proyecto personal o cualquier otra idea, estamos listos para acompañarte.</p>
+          <p class="typewriter-text">Ofrecemos diseño y desarrollo web para quienes buscan una presencia online profesional y confiable.</p>
+          <p class="typewriter-text">Ya sea para tu negocio, un proyecto personal o cualquier otra idea, estamos listos para acompañarte.</p>
         </div>
         <div class="portfolio-media">
           <img src="./assets/fotos/portfolio-tuempresa.png" alt="Vista de diseños web de Picea Digital" loading="lazy">

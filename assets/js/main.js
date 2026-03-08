@@ -14,36 +14,53 @@ const observer = new IntersectionObserver(
 revealItems.forEach((item) => observer.observe(item));
 
 const typewriterCards = document.querySelectorAll(".typewriter-text");
+let suspendTypewriter = false;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const completeTypewriter = () => {
+  typewriterCards.forEach((el) => {
+    if (el.dataset.typed === "true") return;
+    const text = el.dataset.text || el.textContent;
+    el.textContent = text;
+    el.dataset.typed = "true";
+  });
+};
+
 typewriterCards.forEach((el) => {
   const text = el.textContent.trim();
   el.dataset.text = text;
   el.textContent = "";
 });
 
-const typeObserver = new IntersectionObserver(
-  (entries, obs) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const p = entry.target;
-      if (p.dataset.typed === "true") return;
-      const text = p.dataset.text || "";
-      let i = 0;
-      p.dataset.typed = "true";
-      const step = () => {
-        i += 2;
-        p.textContent = text.slice(0, i);
-        if (i < text.length) {
-          requestAnimationFrame(step);
-        }
-      };
-      requestAnimationFrame(step);
-      obs.unobserve(p);
-    });
-  },
-  { threshold: 0.4 }
-);
+if (prefersReducedMotion) {
+  completeTypewriter();
+} else {
+  const typeObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        if (suspendTypewriter) return;
+        const p = entry.target;
+        if (p.dataset.typed === "true") return;
+        const text = p.dataset.text || "";
+        let i = 0;
+        p.dataset.typed = "true";
+        const step = () => {
+          i += 2;
+          p.textContent = text.slice(0, i);
+          if (i < text.length) {
+            requestAnimationFrame(step);
+          }
+        };
+        requestAnimationFrame(step);
+        obs.unobserve(p);
+      });
+    },
+    { threshold: 0.4 }
+  );
 
-typewriterCards.forEach((el) => typeObserver.observe(el));
+  typewriterCards.forEach((el) => typeObserver.observe(el));
+}
 
 const track = document.querySelector(".carousel-track");
 const prevBtn = document.querySelector(".carousel-btn.prev");
@@ -140,6 +157,40 @@ if (nav && navToggle) {
       nav.classList.remove("is-open");
       navToggle.setAttribute("aria-expanded", "false");
     }
+  });
+}
+
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+if (anchorLinks.length) {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const getOffset = () => {
+    const navEl = document.querySelector(".nav");
+    return navEl ? navEl.getBoundingClientRect().height : 0;
+  };
+
+  anchorLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const hash = link.getAttribute("href");
+      if (!hash || hash === "#") return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      event.preventDefault();
+      suspendTypewriter = true;
+      completeTypewriter();
+      const top = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      window.scrollTo({ top, behavior: prefersReduced ? "auto" : "smooth" });
+      // Reajuste para evitar cortes por cargas tardías (fonts/imágenes)
+      setTimeout(() => {
+        const newTop = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+        window.scrollTo({ top: newTop, behavior: "auto" });
+      }, 450);
+      setTimeout(() => {
+        const finalTop = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+        window.scrollTo({ top: finalTop, behavior: "auto" });
+        suspendTypewriter = false;
+      }, 900);
+      history.pushState(null, "", hash);
+    });
   });
 }
 

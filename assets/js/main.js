@@ -142,3 +142,40 @@ if (nav && navToggle) {
     }
   });
 }
+
+const themeToggle = document.querySelector(".theme-toggle");
+const THEME_KEY = "picea-theme";
+
+const applyTheme = (mode) => {
+  const isLight = mode === "light";
+  document.body.classList.toggle("theme-light", isLight);
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-pressed", String(isLight));
+    const icon = themeToggle.querySelector("span");
+    if (icon) icon.textContent = isLight ? "☀️" : "🌙";
+  }
+  try {
+    localStorage.setItem(THEME_KEY, mode);
+  } catch (error) {
+    // ignore
+  }
+};
+
+if (themeToggle) {
+  let saved = null;
+  try {
+    saved = localStorage.getItem(THEME_KEY);
+  } catch (error) {
+    saved = null;
+  }
+  if (saved === "light" || saved === "dark") {
+    applyTheme(saved);
+  } else {
+    applyTheme("dark");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const next = document.body.classList.contains("theme-light") ? "dark" : "light";
+    applyTheme(next);
+  });
+}

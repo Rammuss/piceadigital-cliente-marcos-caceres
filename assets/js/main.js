@@ -167,6 +167,11 @@ if (anchorLinks.length) {
     const navEl = document.querySelector(".nav");
     return navEl ? navEl.getBoundingClientRect().height : 0;
   };
+  let scrollTimeouts = [];
+  const clearScrollTimeouts = () => {
+    scrollTimeouts.forEach((t) => clearTimeout(t));
+    scrollTimeouts = [];
+  };
 
   anchorLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -175,20 +180,22 @@ if (anchorLinks.length) {
       const target = document.querySelector(hash);
       if (!target) return;
       event.preventDefault();
+      clearScrollTimeouts();
       suspendTypewriter = true;
       completeTypewriter();
-      const top = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      const isHero = hash === "#inicio" || hash === "#top";
+      const top = isHero ? 0 : target.getBoundingClientRect().top + window.pageYOffset - getOffset();
       window.scrollTo({ top, behavior: prefersReduced ? "auto" : "smooth" });
       // Reajuste para evitar cortes por cargas tardías (fonts/imágenes)
-      setTimeout(() => {
-        const newTop = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      scrollTimeouts.push(setTimeout(() => {
+        const newTop = isHero ? 0 : target.getBoundingClientRect().top + window.pageYOffset - getOffset();
         window.scrollTo({ top: newTop, behavior: "auto" });
-      }, 450);
-      setTimeout(() => {
-        const finalTop = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+      }, 450));
+      scrollTimeouts.push(setTimeout(() => {
+        const finalTop = isHero ? 0 : target.getBoundingClientRect().top + window.pageYOffset - getOffset();
         window.scrollTo({ top: finalTop, behavior: "auto" });
         suspendTypewriter = false;
-      }, 900);
+      }, 900));
       history.pushState(null, "", hash);
     });
   });

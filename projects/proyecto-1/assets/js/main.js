@@ -34,3 +34,34 @@ if (navToggle && navLinks) {
     navToggle.setAttribute("aria-expanded", "false");
   });
 }
+
+document.querySelectorAll("[data-copy]").forEach((btn) => {
+  btn.addEventListener("click", async () => {
+    const value = btn.dataset.copy;
+    try {
+      await navigator.clipboard.writeText(value);
+      btn.textContent = "Copiado";
+      setTimeout(() => { btn.textContent = "Copiar"; }, 1500);
+    } catch (error) {
+      btn.textContent = "Error";
+      setTimeout(() => { btn.textContent = "Copiar"; }, 1500);
+    }
+  });
+});
+
+const waTrigger = document.querySelector("[data-wa-trigger]");
+const waModal = document.querySelector(".wa-modal");
+
+if (waTrigger && waModal) {
+  const closeModal = () => waModal.classList.remove("is-open");
+  waTrigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    waModal.classList.add("is-open");
+  });
+  waModal.querySelectorAll(".wa-close").forEach((btn) => {
+    btn.addEventListener("click", closeModal);
+  });
+  waModal.addEventListener("click", (event) => {
+    if (event.target === waModal) closeModal();
+  });
+}

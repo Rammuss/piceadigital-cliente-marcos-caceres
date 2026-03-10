@@ -34,8 +34,8 @@
       </div>
     </nav>
 
-    <div class="container hero-grid">
-      <div>
+    <div class="container hero-grid hero-animate">
+      <div class="hero-text">
         <p class="eyebrow">Clínica Estética Aura</p>
         <h1>Realzá tu belleza con tratamientos estéticos profesionales</h1>
         <p class="lead">Tecnología avanzada y especialistas certificados para resultados naturales.</p>
@@ -44,7 +44,7 @@
           <a class="btn btn-outline" href="#tratamientos">Ver tratamientos</a>
         </div>
       </div>
-      <div class="hero-media">
+      <div class="hero-media hero-image">
         <div class="hero-photo"></div>
       </div>
     </div>
@@ -54,28 +54,56 @@
     <section class="section benefits-strip" id="beneficios">
       <div class="container">
         <div class="benefits-row">
-          <div class="benefit-item">
+          <div class="benefit-item reveal-up">
             <span class="benefit-icon" aria-hidden="true">★</span>
             <div>
               <strong>+500 pacientes</strong>
               <span>Resultados reales</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <div class="benefit-item reveal-up">
             <span class="benefit-icon" aria-hidden="true">✓</span>
             <div>
               <strong>Profesionales certificados</strong>
               <span>Equipo con experiencia</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <div class="benefit-item reveal-up">
             <span class="benefit-icon" aria-hidden="true">✦</span>
             <div>
               <strong>Tecnología avanzada</strong>
               <span>Equipos de última generación</span>
             </div>
           </div>
-          <div class="benefit-item">
+          <div class="benefit-item reveal-up">
+            <span class="benefit-icon" aria-hidden="true">♡</span>
+            <div>
+              <strong>Atención personalizada</strong>
+              <span>Seguimiento cercano</span>
+            </div>
+          </div>
+          <div class="benefit-item benefit-dup" aria-hidden="true">
+            <span class="benefit-icon" aria-hidden="true">★</span>
+            <div>
+              <strong>+500 pacientes</strong>
+              <span>Resultados reales</span>
+            </div>
+          </div>
+          <div class="benefit-item benefit-dup" aria-hidden="true">
+            <span class="benefit-icon" aria-hidden="true">✓</span>
+            <div>
+              <strong>Profesionales certificados</strong>
+              <span>Equipo con experiencia</span>
+            </div>
+          </div>
+          <div class="benefit-item benefit-dup" aria-hidden="true">
+            <span class="benefit-icon" aria-hidden="true">✦</span>
+            <div>
+              <strong>Tecnología avanzada</strong>
+              <span>Equipos de última generación</span>
+            </div>
+          </div>
+          <div class="benefit-item benefit-dup" aria-hidden="true">
             <span class="benefit-icon" aria-hidden="true">♡</span>
             <div>
               <strong>Atención personalizada</strong>
@@ -89,34 +117,52 @@
     <section class="section" id="tratamientos">
       <div class="container">
         <p class="eyebrow">Tratamientos destacados</p>
-        <div class="grid-4" style="margin-top: 18px;">
-          <article class="card">
+        <div class="grid-4 treatments-grid" style="margin-top: 18px;">
+          <article class="card treatment-card reveal-up" style="transition-delay: 0ms;">
+            <span class="treatment-badge">Más elegido</span>
             <div class="card-media">
               <img src="assets/img-tratamiento/depilacion-laser.png" alt="Depilación láser" />
             </div>
             <h3>Depilación láser</h3>
             <p>Resultados visibles con protocolos seguros y personalizados.</p>
+            <div class="treatment-chips">
+              <span>Sesión 30–45 min</span>
+              <span>Sin dolor</span>
+            </div>
           </article>
-          <article class="card">
+          <article class="card treatment-card reveal-up" style="transition-delay: 80ms;">
+            <span class="treatment-badge">Resultados naturales</span>
             <div class="card-media">
               <img src="assets/img-tratamiento/Rejuvenecimiento-facial.png" alt="Rejuvenecimiento facial" />
             </div>
             <h3>Rejuvenecimiento facial</h3>
             <p>Mejorá textura y luminosidad con tecnología avanzada.</p>
+            <div class="treatment-chips">
+              <span>Sin tiempo de reposo</span>
+              <span>Mejora gradual</span>
+            </div>
           </article>
-          <article class="card">
+          <article class="card treatment-card reveal-up" style="transition-delay: 160ms;">
             <div class="card-media">
               <img src="assets/img-tratamiento/tratamientos-corporales.png" alt="Tratamientos corporales" />
             </div>
             <h3>Tratamientos corporales</h3>
             <p>Modelado y tonificación según tu objetivo.</p>
+            <div class="treatment-chips">
+              <span>Plan personalizado</span>
+              <span>Resultados progresivos</span>
+            </div>
           </article>
-          <article class="card">
+          <article class="card treatment-card reveal-up" style="transition-delay: 240ms;">
             <div class="card-media">
               <img src="assets/img-tratamiento/Limpieza-facial-profunda.png" alt="Limpieza profunda" />
             </div>
             <h3>Limpieza profunda</h3>
             <p>Renová tu piel con un cuidado profesional.</p>
+            <div class="treatment-chips">
+              <span>Para todo tipo de piel</span>
+              <span>Recuperación rápida</span>
+            </div>
           </article>
         </div>
       </div>
@@ -140,21 +186,21 @@
             <p class="lead">Combinamos diagnóstico clínico, tecnología segura y seguimiento para que cada tratamiento se note y se sienta natural.</p>
           </div>
           <div class="why-cards">
-            <article class="why-card">
+            <article class="why-card reveal-up" style="transition-delay: 0ms;">
               <span class="why-icon" aria-hidden="true">✓</span>
               <div>
                 <h3>Profesionales certificados</h3>
                 <p>Equipo con experiencia clínica y protocolos claros.</p>
               </div>
             </article>
-            <article class="why-card">
+            <article class="why-card reveal-up" style="transition-delay: 80ms;">
               <span class="why-icon" aria-hidden="true">✦</span>
               <div>
                 <h3>Tecnología de última generación</h3>
                 <p>Equipos precisos que cuidan tu piel y optimizan resultados.</p>
               </div>
             </article>
-            <article class="why-card">
+            <article class="why-card reveal-up" style="transition-delay: 160ms;">
               <span class="why-icon" aria-hidden="true">♡</span>
               <div>
                 <h3>Atención personalizada</h3>
@@ -169,7 +215,10 @@
     <section class="section" id="testimonios">
       <div class="container">
         <p class="eyebrow">Testimonios</p>
-        <div class="testimonials" style="margin-top: 18px;">
+        <h2 class="section-title">Pacientes reales, resultados reales</h2>
+        <p class="section-subtitle">Valoraciones verificadas y experiencias con seguimiento clínico.</p>
+        <div class="testimonials-carousel" style="margin-top: 18px;">
+          <div class="testimonials-track">
           <article class="testimonial-card">
             <div class="testimonial-header">
               <div class="testimonial-avatar">
@@ -209,6 +258,46 @@
             <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
             <p>“Atención cercana y resultados naturales.”</p>
           </article>
+          <article class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="assets/img-testimonio/testimonio1.png" alt="" />
+              </div>
+              <div>
+                <strong>Carolina M.</strong>
+                <span>Rejuvenecimiento facial</span>
+              </div>
+            </div>
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p>“Me explicaron todo el proceso y el resultado fue increíble.”</p>
+          </article>
+          <article class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="assets/img-testimonio/testimonio2.png" alt="" />
+              </div>
+              <div>
+                <strong>Julia R.</strong>
+                <span>Depilación láser</span>
+              </div>
+            </div>
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p>“Lugar súper profesional. Volvería sin dudar.”</p>
+          </article>
+          <article class="testimonial-card" aria-hidden="true">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="assets/img-testimonio/testimonio3.png" alt="" />
+              </div>
+              <div>
+                <strong>María P.</strong>
+                <span>Limpieza profunda</span>
+              </div>
+            </div>
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p>“Atención cercana y resultados naturales.”</p>
+          </article>
+          </div>
         </div>
       </div>
     </section>
@@ -218,28 +307,28 @@
         <p class="eyebrow">Proceso de atención</p>
         <div class="process-timeline" style="margin-top: 18px;">
           <div class="process-line" aria-hidden="true"></div>
-          <article class="process-step">
+          <article class="process-step reveal-up" style="transition-delay: 0ms;">
             <span class="process-dot">1</span>
             <div>
               <h3>Evaluación</h3>
               <p>Relevamos tu caso y objetivos estéticos.</p>
             </div>
           </article>
-          <article class="process-step">
+          <article class="process-step reveal-up" style="transition-delay: 80ms;">
             <span class="process-dot">2</span>
             <div>
               <h3>Plan personalizado</h3>
               <p>Definimos el tratamiento ideal para vos.</p>
             </div>
           </article>
-          <article class="process-step">
+          <article class="process-step reveal-up" style="transition-delay: 160ms;">
             <span class="process-dot">3</span>
             <div>
               <h3>Sesiones</h3>
               <p>Aplicamos protocolos seguros y efectivos.</p>
             </div>
           </article>
-          <article class="process-step">
+          <article class="process-step reveal-up" style="transition-delay: 240ms;">
             <span class="process-dot">4</span>
             <div>
               <h3>Seguimiento</h3>
@@ -408,7 +497,7 @@
       <p>Te respondemos rápido para coordinar tu consulta.</p>
       <div class="wa-actions">
         <a class="btn" href="https://wa.me/595981000000">Ir a WhatsApp</a>
-        <button class="btn btn-outline wa-close" type="button">Cancelar</button>
+        <button class="btn btn-outline wa-cancel" type="button">Cancelar</button>
       </div>
     </div>
   </div>

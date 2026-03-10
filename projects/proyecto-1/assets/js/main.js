@@ -61,7 +61,42 @@ if (waTrigger && waModal) {
   waModal.querySelectorAll(".wa-close").forEach((btn) => {
     btn.addEventListener("click", closeModal);
   });
+  waModal.querySelectorAll(".wa-cancel").forEach((btn) => {
+    btn.addEventListener("click", closeModal);
+  });
   waModal.addEventListener("click", (event) => {
     if (event.target === waModal) closeModal();
   });
+}
+
+const revealItems = document.querySelectorAll(".reveal-up");
+if (revealItems.length) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
+
+const processTimeline = document.querySelector(".process-timeline");
+if (processTimeline) {
+  const processObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          processObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+  processObserver.observe(processTimeline);
 }

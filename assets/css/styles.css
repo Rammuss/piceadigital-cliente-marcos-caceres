@@ -1232,6 +1232,7 @@ body.theme-light .price-badge {
   box-shadow: 0 18px 32px rgba(0,0,0,0.35);
 }
 
+
 .portfolio-head .btn {
   margin: 14px 0 10px;
   padding: 12px 22px;
@@ -1256,6 +1257,86 @@ body.theme-light .price-badge {
     0 14px 26px rgba(230,58,101,0.35),
     0 0 22px rgba(230,58,101,0.35);
   border-color: transparent;
+}
+
+.portfolio-hero {
+  min-height: 70svh;
+  background:
+    radial-gradient(600px 280px at 50% 35%, rgba(230,58,101,0.18), transparent 70%),
+    url("../fotos/hero-hombrealfondo.png?v=20260305") center/cover no-repeat;
+}
+
+.portfolio-page {
+  padding-top: 24px;
+}
+
+.portfolio-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.portfolio-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  min-height: 320px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 22px 40px rgba(0,0,0,0.4);
+}
+
+.portfolio-card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #17151a;
+  overflow: hidden;
+}
+
+.portfolio-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-card-body {
+  padding: 16px 18px 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.portfolio-card-body h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.portfolio-card-body p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.portfolio-tag {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.portfolio-link {
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .contact-head {
@@ -1542,6 +1623,7 @@ body.theme-light .cta-form textarea::placeholder {
   .service-grid, .info, .steps { grid-template-columns: 1fr 1fr; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .portfolio-content { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
   .portfolio-media { justify-content: flex-start; }
   .hero-media { min-height: 0; aspect-ratio: 16 / 9; }
   .demo-carousel { grid-template-columns: 1fr; }
@@ -1553,6 +1635,7 @@ body.theme-light .cta-form textarea::placeholder {
   .service-grid, .info, .steps { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
   .footer { flex-direction: column; gap: 12px; }
   .nav {
     grid-template-columns: auto 1fr auto;

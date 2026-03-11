@@ -1059,7 +1059,7 @@ footer {
     display: flex !important;
     gap: 14px;
     width: max-content;
-    animation: benefitsScroll 24s linear infinite;
+    animation: none;
     flex-wrap: nowrap;
     align-items: center;
   }

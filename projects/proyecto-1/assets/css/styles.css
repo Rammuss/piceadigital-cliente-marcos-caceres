@@ -525,6 +525,12 @@ h1 {
   font: inherit;
 }
 
+.cta-box .btn {
+  padding: 14px 22px;
+  font-size: 1rem;
+  min-height: 52px;
+}
+
 .why-layout {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -925,8 +931,8 @@ footer {
   position: fixed;
   right: 24px;
   bottom: 24px;
-  width: 54px;
-  height: 54px;
+  width: 78px;
+  height: 78px;
   border-radius: 50%;
   background: #ffffff;
   color: #25d366;
@@ -943,8 +949,8 @@ footer {
 }
 
 .wa-float img {
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   display: block;
 }
 
@@ -1004,7 +1010,7 @@ footer {
   color: var(--muted);
 }
 
- $matches[0] + $insert @media (max-width: 900px) {
+@media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .grid-4, .grid-3, .testimonials { grid-template-columns: 1fr 1fr; }
   .cta-grid { grid-template-columns: 1fr; }
@@ -1064,6 +1070,29 @@ footer {
   .benefit-dup {
     display: flex !important;
   }
+  .hero-text {
+    order: 1;
+  }
+  .hero-image {
+    display: none;
+  }
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(250,247,245,0.65), rgba(250,247,245,0.5)),
+      url("../img/foto-elegante.png") center/cover no-repeat;
+  }
+  .why-intro {
+    padding-left: 0;
+  }
+  .why-intro::before {
+    display: none;
+  }
+  .why-intro h2 {
+    font-size: 1.6rem;
+  }
+  .why-cards {
+    margin-top: 16px;
+  }
   .footer {
     flex-direction: column;
     text-align: center;
@@ -1100,6 +1129,10 @@ footer {
   display: flex;
   gap: 12px;
   align-items: center;
+}
+
+.benefit-item.benefit-dup {
+  display: none;
 }
 
 .benefit-icon {

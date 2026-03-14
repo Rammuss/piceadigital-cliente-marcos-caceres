@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Altos del Prado | Premium Real Estate Development Asunción</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter and Montserrat -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest-green': '#1A3C34',
+                        'gold-accent': '#C5A059',
+                        'soft-gray': '#F9FAFB',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+<style>
+        .nav-transition { transition: all 0.4s ease; }
+        .hover-lift { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease; }
+        .hover-lift:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+        
+        html, body {
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.7) 100%);
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.active {
+            display: block;
+        }
+        .floorplan-thumb {
+            filter: grayscale(1) contrast(1.2);
+            transition: all 0.5s ease;
+        }
+        .group:hover .floorplan-thumb {
+            filter: grayscale(0) contrast(1);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans selection:bg-gold-accent selection:text-white">
+<!-- Header & Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 nav-transition bg-transparent" id="main-header">
+<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center">
+<a class="text-xl md:text-2xl font-display font-bold text-white tracking-wider" href="#">ALTOS DEL PRADO</a>
+</div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center space-x-8 text-white font-medium text-xs lg:text-sm uppercase tracking-widest">
+<a class="hover:text-gold-accent transition-colors" href="#gallery">Gallery</a>
+<a class="hover:text-gold-accent transition-colors" href="#units">Available Units</a>
+<a class="hover:text-gold-accent transition-colors" href="#amenities">Amenities</a>
+<a class="hover:text-gold-accent transition-colors" href="#location">Location</a>
+<!-- Language Switcher -->
+<div class="relative group flex items-center cursor-pointer">
+<button aria-haspopup="true" class="flex items-center hover:text-gold-accent transition-colors uppercase tracking-widest focus:outline-none">
+                    EN
+                    <span class="material-symbols-outlined text-sm ml-1">expand_more</span>
+</button>
+<div class="absolute top-full right-0 mt-2 w-24 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-sm overflow-hidden">
+<a class="block px-4 py-3 text-xs font-medium text-forest-green hover:bg-soft-gray uppercase tracking-widest transition" href="#">ES</a>
+</div>
+</div>
+<a class="bg-gold-accent hover:bg-white hover:text-forest-green text-white px-6 py-3 rounded-sm transition-all duration-300 shadow-lg font-semibold" href="#contact">Inquire Now</a>
+</div>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle menu" class="md:hidden text-white p-2 focus:outline-none" id="menu-toggle">
+<svg class="h-8 w-8" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</nav>
+<!-- Mobile Menu -->
+<div class="md:hidden bg-forest-green text-white px-6 py-8 absolute top-full left-0 w-full shadow-2xl border-t border-white/10" id="mobile-menu">
+<div class="flex flex-col space-y-6 text-sm uppercase tracking-widest">
+<a class="mobile-nav-link" href="#gallery">Gallery</a>
+<a class="mobile-nav-link" href="#units">Available Units</a>
+<a class="mobile-nav-link" href="#amenities">Amenities</a>
+<a class="mobile-nav-link" href="#location">Location</a>
+<hr class="border-white/10"/>
+<div class="flex justify-between items-center">
+<span>Language</span>
+<div class="space-x-4">
+<a class="font-bold text-gold-accent underline" href="#">EN</a>
+<a class="opacity-60" href="#">ES</a>
+</div>
+</div>
+<a class="bg-gold-accent text-white px-6 py-4 rounded-sm text-center font-bold" href="#contact">Inquire Now</a>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<img alt="Modern residential building in Asunción" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO9Y16dwrggKVoFpikThElfDKnOECzevnfkcPZfrpdvlQLDAtJ1wRln9jeXM-3q5J1Gq61x8LKh-N8yHMTR0A6A3OS-dkH_Yui8CaifiWUKIx9PESkuUWqPUO500S_eSC7NGZ2PmLWmZZSnVvNDui-1tz_xKz9lD54CLwVQLg1h0IzKB3sZBmpOnDSfuyRXTk5aN9JpJV0TKlwP5mIKuiQfJHPATbUskJvbaaKCkX-xxf9KquSuvqZXFtX4IAm3Dg8_Dcogc23I3g"/>
+<div class="absolute inset-0 hero-overlay"></div>
+<div class="relative z-10 text-center px-6 max-w-5xl">
+<h1 class="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+                Modern Living in the Heart of Asunción
+            </h1>
+<p class="text-lg md:text-2xl text-white/90 font-light mb-8 max-w-2xl mx-auto">
+                Discover your next investment in the city's most vibrant residential district.
+            </p>
+<!-- Highlight Badges -->
+<div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-12">
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-gold-accent text-xl">location_on</span>
+<span class="text-white text-xs uppercase tracking-widest font-medium">Prime Location</span>
+</div>
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-gold-accent text-xl">payments</span>
+<span class="text-white text-xs uppercase tracking-widest font-medium">From $85,000</span>
+</div>
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-gold-accent text-xl">hotel_class</span>
+<span class="text-white text-xs uppercase tracking-widest font-medium">Premium Amenities</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<a class="w-full sm:w-auto px-12 py-5 bg-gold-accent text-white font-bold rounded-sm hover:bg-white hover:text-forest-green transition-all duration-300 text-center uppercase tracking-[0.2em] text-sm shadow-2xl" href="#contact">
+                    Request Catalog
+                </a>
+<a class="w-full sm:w-auto px-12 py-5 border border-white/50 text-white font-bold rounded-sm hover:bg-white/10 hover:border-white transition-all duration-300 text-center uppercase tracking-[0.2em] text-sm backdrop-blur-sm" href="#units">
+                    View Availability
+                </a>
+</div>
+</div>
+</section>
+<!-- Quick Info Bar -->
+<section class="bg-forest-green py-10 text-white relative z-20">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 items-center text-center">
+<div data-purpose="info-item">
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Location</span>
+<p class="font-medium">Asunción, PY</p>
+</div>
+<div data-purpose="info-item">
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Units</span>
+<p class="font-medium">Studio, 1-2 BR</p>
+</div>
+<div data-purpose="info-item">
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Size</span>
+<p class="font-medium">45 - 120 m²</p>
+</div>
+<div data-purpose="info-item">
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Price</span>
+<p class="font-medium">From $85,000</p>
+</div>
+<div class="col-span-2 md:col-span-1 border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0" data-purpose="info-item">
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Status</span>
+<p class="font-medium">Under Construction</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-24 bg-white" id="gallery">
+<div class="container mx-auto px-6">
+<div class="mb-16">
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4">Designed for Modern Living</h2>
+<p class="text-3xl md:text-5xl font-display font-light leading-tight max-w-2xl">Spaces designed for modern urban living.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-7 aspect-[4/3] md:aspect-auto md:h-[600px] relative group overflow-hidden rounded-sm">
+<img alt="Living Room" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdbx7aTiPJPXdjFySEgNrcnRKd8eJNLRKS3sHgfBfFqG_7TASwTV0BzeAiHTe0YmRrRigBHQOiFBXzfig7wp1SRVpsVfF3pPPHHCBavbgkueVKL-XTuOG83bA9CQbSUikMsnWG9GNKRW8TRI7pNOSzePSPBUS6KRY3h0v8DmcDlPTdWUVCqO--ueZd3ePings7-miewdzdTeu9ZFxEdc3wgNvV8YGDEPJYrla4SkmUCLonLFvcEi7S8A3vajRNyvhEx-ZkZuB51y8"/>
+<div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
+<span class="text-white font-display text-2xl font-light">Sophisticated Interiors</span>
+</div>
+</div>
+<div class="md:col-span-5 grid grid-rows-2 gap-6 h-[500px] md:h-[600px]">
+<div class="relative group overflow-hidden rounded-sm">
+<img alt="Kitchen Area" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhOgl5DRjqtzyH1MMRi63a3IgbRS8nrOUh1ZFyKMuBjK4QueVB_uuHYnjXBof8sHpnEbTXZexVZqE9MMNoJb-Rp_Aj3BcG1kOEMUTbFtyw7K7rtB2T6YKXO73XHWebQrMRJ8TKibffTkVRQvczKmAW_A-YPzqRI6WoY9M6HxSpgcGR7HDCCwbIVqHCoSjqvmTUi3rwYU4SxkIRrzN9b2bksRK57CZZGtfpkAzoKTlHwJcJiWobEDaCzC5sQyMnyfCOt_S9rA74_cY"/>
+<div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+<span class="text-white font-display text-xl font-light">Culinary Excellence</span>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-sm">
+<img alt="Rooftop View" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGi4-2RcapLkOue-z_qyi0L65_x-t_5Rg3CM0BoqqJHfBMWWBjPMqBikwDZ47TLCcfqJntBJ1bLQ-BOdW2MGMJz6CZLYSwLZonw57mFczc9ELkKLmokObGy_faO2aZwbuOtiGXho9TrZLC1E_21YnEW-w9tWG63Kxl8HEISqJorFVlAb7KzGl6zN-MWqfn6mial1TicxNqiFb04fNWk0hS4TUTBF7ug3Z3MAW5DSKQJK0oWwuqTXFsVWabvtH6lhU7VqseIocQ6Vk"/>
+<div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+<span class="text-white font-display text-xl font-light">Panoramic Horizons</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Available Units Section -->
+<section class="py-24 bg-soft-gray" id="units">
+<div class="container mx-auto px-6">
+<div class="text-center mb-20">
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4">Floor Plans</h2>
+<p class="text-4xl md:text-5xl font-display font-light">Available Units</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-12">
+<!-- Studio Card -->
+<article class="flex flex-col bg-white overflow-hidden group hover-lift rounded-sm">
+<div class="relative h-72 overflow-hidden bg-white flex items-center justify-center p-12 border-b border-gray-100">
+<img alt="Studio Floor Plan" class="max-h-full floorplan-thumb" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG32d06Bfe7KEOhuJVEBVbqcEvz19zwiLWg8SylU7y3ohvSsv9dKS_rdDLF12cEikjHoxNeKZhIrgIAPowUR8yZDMrEwvTGlktuu6kDlYkcviW-eSRBG6o1f6qIIzZUhaDe9imdUtin4rG7BArFLju8pRnevL-OCV9u0qezd86FJMX9emGNDCdPzx8Sz4eHoPaK9kAcuQqx2vk-YImKVkb86AM5jk-5j90VsQI0ZnL_ekn6KkD1W8_OwKut_EsjOjV-xBhK9jS5Ps"/>
+<div class="absolute top-4 left-4 bg-forest-green text-white text-[10px] uppercase tracking-widest px-3 py-1 font-bold">Limited Availability</div>
+</div>
+<div class="p-8 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-display font-semibold text-forest-green">Studio Deluxe</h4>
+<p class="text-gray-400 text-xs font-medium mt-1">From <span class="text-gold-accent text-2xl font-bold ml-1">$85,000</span></p>
+</div>
+<span class="text-forest-green/40 font-bold text-lg">45 m²</span>
+</div>
+<p class="text-gray-500 font-light leading-relaxed mb-8 text-sm">Efficient open-plan living with integrated kitchen and luxury bath. Perfect for high-yield investment.</p>
+<a class="block w-full text-center bg-forest-green text-white hover:bg-gold-accent py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg" href="#contact">
+                            Request Availability
+                        </a>
+</div>
+</article>
+<!-- 1BR Card -->
+<article class="flex flex-col bg-white overflow-hidden group hover-lift rounded-sm scale-105 z-10 ring-1 ring-gold-accent/20">
+<div class="relative h-72 overflow-hidden bg-white flex items-center justify-center p-12 border-b border-gray-100">
+<img alt="1BR Floor Plan" class="max-h-full floorplan-thumb" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz0SJuL3Icf_2HL7OFMzX8kVsVMJACUvE2lZBrcDc_SZlhNUqKgwxetqRNvOUrOnGDAEUT5f-PP_Mdmi355fM_bb4zvrjF9PQaoGbzp_CL8XcohFAkHIezydW5AXjb3zKBEvW7EPBqANpCu3TMOem9BXs25D55xhmZQBGrScvgsHdleKdn1XQOrqvwXMiyMPJkaJnGW2v_vHPdsB_nu-jEYjk5L7o2Tz0LzPB7dmtuXOWFcj5dXwWQggk7dlEBFA9V0VVtLNEGeYs"/>
+<div class="absolute top-4 left-4 bg-gold-accent text-white text-[10px] uppercase tracking-widest px-3 py-1 font-bold">Best Seller</div>
+</div>
+<div class="p-8 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-display font-semibold text-forest-green">Executive 1BR</h4>
+<p class="text-gray-400 text-xs font-medium mt-1">From <span class="text-gold-accent text-2xl font-bold ml-1">$125,000</span></p>
+</div>
+<span class="text-forest-green/40 font-bold text-lg">68 m²</span>
+</div>
+<p class="text-gray-500 font-light leading-relaxed mb-8 text-sm">Spacious one-bedroom residence with private terrace and premium master suite finishes.</p>
+<a class="block w-full text-center bg-gold-accent text-white hover:bg-forest-green py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg" href="#contact">
+                            Request Availability
+                        </a>
+</div>
+</article>
+<!-- 2BR Card -->
+<article class="flex flex-col bg-white overflow-hidden group hover-lift rounded-sm">
+<div class="relative h-72 overflow-hidden bg-white flex items-center justify-center p-12 border-b border-gray-100">
+<img alt="2BR Floor Plan" class="max-h-full floorplan-thumb" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMEkNM_LftivlLQIe4T4xd9HQ0otPYUi7ZsWCPNwDaUXf2SPq-Cx2f0qQCZr1-tNbsf2tTt64czHAMuZvaH0h_TBbhmKo1meysqxZuJfiUXLy-jS8XSUNrjK_3bVxplmqEmUdP3qq3Jw67SAN7xMOwl3aU4nJqAfVWT7-GX1nxDL9cG_QktfA5e5WIFYRUasLh5SX_HM5Yh-GOBMHOTcM5dBK1GNHv-ta7U6EoaYwGGg0WHlpFUeIAAqWI2V1AAKZXw0qWZOFd6yk"/>
+</div>
+<div class="p-8 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-display font-semibold text-forest-green">Family Suite 2BR</h4>
+<p class="text-gray-400 text-xs font-medium mt-1">From <span class="text-gold-accent text-2xl font-bold ml-1">$195,000</span></p>
+</div>
+<span class="text-forest-green/40 font-bold text-lg">112 m²</span>
+</div>
+<p class="text-gray-500 font-light leading-relaxed mb-8 text-sm">Corner residence featuring expansive living area, laundry room, and panoramic floor-to-ceiling city views.</p>
+<a class="block w-full text-center bg-forest-green text-white hover:bg-gold-accent py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg" href="#contact">
+                            Request Availability
+                        </a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Amenities Section -->
+<section class="relative bg-forest-green text-white overflow-hidden" id="amenities">
+<div class="flex flex-col lg:flex-row">
+<div class="lg:w-1/2 p-12 md:p-24 flex flex-col justify-center">
+<div class="max-w-xl">
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-6">Elevated Lifestyle</h2>
+<p class="text-4xl md:text-5xl font-display font-light mb-16">Premium Amenities</p>
+<div class="grid grid-cols-2 gap-x-12 gap-y-16">
+<div class="flex flex-col items-start group">
+<span class="material-symbols-outlined text-5xl text-gold-accent mb-6 transition-transform group-hover:scale-110">deck</span>
+<h4 class="font-bold uppercase tracking-[0.15em] text-[11px] mb-3">Rooftop Lounge</h4>
+<p class="text-white/50 text-xs leading-relaxed">Elegant skyline views designed for sophisticated social gatherings.</p>
+</div>
+<div class="flex flex-col items-start group">
+<span class="material-symbols-outlined text-5xl text-gold-accent mb-6 transition-transform group-hover:scale-110">pool</span>
+<h4 class="font-bold uppercase tracking-[0.15em] text-[11px] mb-3">Infinity Pool</h4>
+<p class="text-white/50 text-xs leading-relaxed">Relax above the city in our heated, sunset-facing infinity pool.</p>
+</div>
+<div class="flex flex-col items-start group">
+<span class="material-symbols-outlined text-5xl text-gold-accent mb-6 transition-transform group-hover:scale-110">fitness_center</span>
+<h4 class="font-bold uppercase tracking-[0.15em] text-[11px] mb-3">Fitness Center</h4>
+<p class="text-white/50 text-xs leading-relaxed">State-of-the-art cardiovascular equipment and private yoga space.</p>
+</div>
+<div class="flex flex-col items-start group">
+<span class="material-symbols-outlined text-5xl text-gold-accent mb-6 transition-transform group-hover:scale-110">laptop_mac</span>
+<h4 class="font-bold uppercase tracking-[0.15em] text-[11px] mb-3">Coworking Space</h4>
+<p class="text-white/50 text-xs leading-relaxed">High-speed connectivity and quiet zones for modern professionals.</p>
+</div>
+<div class="flex flex-col items-start group">
+<span class="material-symbols-outlined text-5xl text-gold-accent mb-6 transition-transform group-hover:scale-110">security</span>
+<h4 class="font-bold uppercase tracking-[0.15em] text-[11px] mb-3">24h Security</h4>
+<p class="text-white/50 text-xs leading-relaxed">Full CCTV coverage and premium concierge service at all times.</p>
+</div>
+<div class="flex flex-col items-start group">
+<span class="material-symbols-outlined text-5xl text-gold-accent mb-6 transition-transform group-hover:scale-110">directions_car</span>
+<h4 class="font-bold uppercase tracking-[0.15em] text-[11px] mb-3">Private Parking</h4>
+<p class="text-white/50 text-xs leading-relaxed">Secure underground spaces with dedicated EV charging stations.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 relative h-[600px] lg:h-auto overflow-hidden">
+<img alt="Luxury Rooftop Pool" class="absolute inset-0 w-full h-full object-cover transition duration-[2000ms] hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGi4-2RcapLkOue-z_qyi0L65_x-t_5Rg3CM0BoqqJHfBMWWBjPMqBikwDZ47TLCcfqJntBJ1bLQ-BOdW2MGMJz6CZLYSwLZonw57mFczc9ELkKLmokObGy_faO2aZwbuOtiGXho9TrZLC1E_21YnEW-w9tWG63Kxl8HEISqJorFVlAb7KzGl6zN-MWqfn6mial1TicxNqiFb04fNWk0hS4TUTBF7ug3Z3MAW5DSKQJK0oWwuqTXFsVWabvtH6lhU7VqseIocQ6Vk"/>
+<div class="absolute inset-0 bg-forest-green/10"></div>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section class="py-24 bg-white" id="location">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+<div>
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-6">Connectivity</h2>
+<h3 class="text-4xl md:text-5xl font-display font-light mb-8">Prime Location in Asunción</h3>
+<p class="text-gray-500 mb-12 text-lg font-light leading-relaxed">
+                        Strategically positioned in the heart of the city's growth, Altos del Prado offers unmatched connectivity to the most relevant commercial and financial hubs.
+                    </p>
+<div class="space-y-8">
+<div class="flex items-start gap-6 group">
+<div class="w-14 h-14 bg-forest-green flex-shrink-0 flex items-center justify-center text-white rounded-sm group-hover:bg-gold-accent transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<div>
+<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2">5 min from Shopping del Sol</h5>
+<p class="text-xs text-gray-500 leading-relaxed">Immediate access to the country's most exclusive luxury shopping, dining, and entertainment center.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 group">
+<div class="w-14 h-14 bg-forest-green flex-shrink-0 flex items-center justify-center text-white rounded-sm group-hover:bg-gold-accent transition-colors">
+<span class="material-symbols-outlined">explore</span>
+</div>
+<div>
+<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2">Near Aviadores del Chaco</h5>
+<p class="text-xs text-gray-500 leading-relaxed">Located just moments from the main artery connecting the city to the International Airport and prime hotels.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 group">
+<div class="w-14 h-14 bg-forest-green flex-shrink-0 flex items-center justify-center text-white rounded-sm group-hover:bg-gold-accent transition-colors">
+<span class="material-symbols-outlined">business_center</span>
+</div>
+<div>
+<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2">Close to Corporate District</h5>
+<p class="text-xs text-gray-500 leading-relaxed">Situated within the radius of the city's new corporate axis, home to major multinational headquarters.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative h-[550px] shadow-2xl rounded-sm overflow-hidden group">
+<img alt="Map of Asunción Location" class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABlmxI2Wx3Wg3CqF3B61q94_zR8aQBOl7MZMqcKkYY7yIqITD825bKJag1m0YppEcD-678jOkeP174r8mxCzoJ5LCntWAESsgWRGEgUeZ4HHdEgVhH8YsgN9DS1mTWBppsK2v6el_s88KS8z_2y8Ytm6kVdKbeV4c7MHKC-EM2qnD9YaOf9xbeoov_kLwO8PFXwUJIjrIGNrB_sW9Eq8luS3k9McvXezz_yl31c7MungjtP7cfuG9LJFuyiNhX2jpjRmC01VA1-u8"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="relative">
+<div class="absolute -inset-4 bg-forest-green/20 rounded-full animate-ping"></div>
+<div class="w-14 h-14 bg-forest-green rounded-full flex items-center justify-center text-white shadow-2xl relative z-10 border-2 border-white">
+<span class="material-symbols-outlined text-3xl">location_on</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-sm border-l-4 border-gold-accent">
+<p class="text-[10px] uppercase font-bold tracking-widest text-forest-green">Altos del Prado Residencial</p>
+<p class="text-xs text-gray-500">Calle Santa Teresa c/ Aviadores, Asunción.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Invest Section -->
+<section class="py-24 bg-forest-green text-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4">Market Opportunity</h2>
+<p class="text-4xl md:text-5xl font-display font-light">Why Invest in Altos del Prado</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gold-accent text-4xl mb-6">ads_click</span>
+<h4 class="font-bold uppercase tracking-wider text-sm mb-4">Strategic Location</h4>
+<p class="text-white/60 text-xs leading-relaxed">Situated in the highest demand corridor for residential and corporate rentals in Asunción.</p>
+</div>
+<div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gold-accent text-4xl mb-6">trending_up</span>
+<h4 class="font-bold uppercase tracking-wider text-sm mb-4">High Appreciation</h4>
+<p class="text-white/60 text-xs leading-relaxed">Estimated property value increase of 15-20% upon completion of construction.</p>
+</div>
+<div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gold-accent text-4xl mb-6">home_work</span>
+<h4 class="font-bold uppercase tracking-wider text-sm mb-4">Premium Rental Demand</h4>
+<p class="text-white/60 text-xs leading-relaxed">Perfect for corporate executives and short-stay tourism with high occupancy rates.</p>
+</div>
+<div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gold-accent text-4xl mb-6">edit_calendar</span>
+<h4 class="font-bold uppercase tracking-wider text-sm mb-4">Flexible Payment Plans</h4>
+<p class="text-white/60 text-xs leading-relaxed">Customized financing options during the construction phase with competitive interest.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 bg-soft-gray" id="contact">
+<div class="container mx-auto px-6">
+<div class="max-w-6xl mx-auto bg-white shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+<div class="p-10 md:p-16 bg-forest-green text-white flex flex-col justify-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-gold-accent/5 rounded-full -mr-32 -mt-32"></div>
+<h3 class="text-4xl font-display font-semibold mb-6 relative z-10">Invest in Excellence.</h3>
+<p class="text-white/70 mb-10 text-lg leading-relaxed font-light relative z-10">
+                        Schedule a private tour or request our detailed pricing catalog and flexible payment plans. Our consultants will reach out within 24 hours.
+                    </p>
+<div class="space-y-6 mb-12 relative z-10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-gold-accent text-xl">call</span>
+</div>
+<span class="text-sm font-medium tracking-wider">+595 9xx xxx xxx</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-gold-accent text-xl">mail</span>
+</div>
+<span class="text-sm font-medium tracking-wider">sales@altosdelprado.com</span>
+</div>
+</div>
+<a class="flex items-center gap-4 bg-[#25D366] text-white px-8 py-5 rounded-sm font-bold hover:bg-[#128C7E] transition-colors w-fit shadow-xl relative z-10" href="https://wa.me/123456789" target="_blank">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+</svg>
+                        Chat on WhatsApp
+                    </a>
+</div>
+<div class="p-10 md:p-16 bg-white">
+<form action="#" class="space-y-6" method="POST">
+<div class="relative">
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="name">Full Name</label>
+<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" id="name" name="name" placeholder="E.g. John Doe" required="" type="text"/>
+</div>
+<div class="relative">
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="email">Email Address</label>
+<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" id="email" name="email" placeholder="john@example.com" required="" type="email"/>
+</div>
+<div class="relative">
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="phone">WhatsApp Number</label>
+<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" id="phone" name="phone" placeholder="+595 9xx xxx xxx" required="" type="tel"/>
+</div>
+<div class="relative">
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="unit">Interested Unit</label>
+<select class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors bg-transparent appearance-none font-light" id="unit" name="unit">
+<option>Studio Deluxe</option>
+<option>Executive 1BR</option>
+<option>Family Suite 2BR</option>
+<option>Investment Opportunities</option>
+</select>
+<span class="absolute bottom-4 right-0 pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</div>
+<div class="relative">
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="message">Optional Message</label>
+<textarea class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" id="message" name="message" placeholder="How can we help you?" rows="2"></textarea>
+</div>
+<button class="w-full bg-forest-green text-white py-5 font-bold uppercase tracking-widest text-sm hover:bg-gold-accent transition-all duration-300 mt-4 shadow-xl" type="submit">Send Inquiry</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-forest-green py-20 border-t border-white/5">
+<div class="container mx-auto px-6 text-center">
+<div class="mb-12">
+<span class="text-2xl font-display font-bold text-white tracking-widest">ALTOS DEL PRADO</span>
+<p class="text-white/40 mt-6 max-w-sm mx-auto font-light leading-relaxed">Sophisticated living in the heart of Asunción. Discover the pinnacle of modern architecture.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-4 mb-12">
+<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" href="#gallery">Gallery</a>
+<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" href="#units">Available Units</a>
+<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" href="#amenities">Amenities</a>
+<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" href="#location">Location</a>
+</div>
+<div class="border-t border-white/10 pt-12">
+<p class="text-white/20 text-[10px] tracking-[0.4em] uppercase">© 2024 Altos del Prado Residencial. Asunción, Paraguay.</p>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp -->
+<a aria-label="WhatsApp Contact" class="fixed bottom-8 right-8 z-[60] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300" href="https://wa.me/123456789" target="_blank">
+<svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+</svg>
+</a>
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 80) {
+            header.classList.add('bg-forest-green', 'py-3', 'shadow-2xl');
+            header.classList.remove('bg-transparent', 'py-4');
+        } else {
+            header.classList.add('bg-transparent', 'py-4');
+            header.classList.remove('bg-forest-green', 'py-3', 'shadow-2xl');
+        }
+    });
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        if (mobileMenu.classList.contains('active') && window.scrollY < 80) {
+            document.getElementById('main-header').classList.add('bg-forest-green');
+        } else if (!mobileMenu.classList.contains('active') && window.scrollY < 80) {
+            document.getElementById('main-header').classList.remove('bg-forest-green');
+        }
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+</script>
+</body></html>

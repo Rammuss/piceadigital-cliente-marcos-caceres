@@ -56,6 +56,15 @@
             filter: grayscale(0) contrast(1);
             transform: scale(1.05);
         }
+
+        @media (max-width: 768px) {
+            #main-header {
+                background-color: #1A3C34;
+            }
+            main {
+                padding-top: 64px;
+            }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans selection:bg-gold-accent selection:text-white">
@@ -91,7 +100,7 @@
 </button>
 </nav>
 <!-- Mobile Menu -->
-<div class="md:hidden bg-forest-green text-white px-6 py-8 absolute top-full left-0 w-full shadow-2xl border-t border-white/10" id="mobile-menu">
+<div class="md:hidden bg-forest-green text-white px-6 py-8 absolute top-full left-0 w-full shadow-2xl border-t border-white/10 max-h-[calc(100vh-72px)] overflow-y-auto z-50" id="mobile-menu">
 <div class="flex flex-col space-y-6 text-sm uppercase tracking-widest">
 <a class="mobile-nav-link" href="#gallery">Gallery</a>
 <a class="mobile-nav-link" href="#units">Available Units</a>
@@ -111,7 +120,7 @@
 </header>
 <main>
 <!-- Hero Section -->
-<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<section class="relative min-h-screen md:h-screen w-full flex items-center justify-center overflow-hidden">
 <img alt="Modern residential building in Asunción" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO9Y16dwrggKVoFpikThElfDKnOECzevnfkcPZfrpdvlQLDAtJ1wRln9jeXM-3q5J1Gq61x8LKh-N8yHMTR0A6A3OS-dkH_Yui8CaifiWUKIx9PESkuUWqPUO500S_eSC7NGZ2PmLWmZZSnVvNDui-1tz_xKz9lD54CLwVQLg1h0IzKB3sZBmpOnDSfuyRXTk5aN9JpJV0TKlwP5mIKuiQfJHPATbUskJvbaaKCkX-xxf9KquSuvqZXFtX4IAm3Dg8_Dcogc23I3g"/>
 <div class="absolute inset-0 hero-overlay"></div>
 <div class="relative z-10 text-center px-6 max-w-5xl">
@@ -215,7 +224,7 @@
 <!-- Studio Card -->
       <article class="flex flex-col bg-white overflow-hidden group hover-lift rounded-sm unit-card"
                data-title="Studio Deluxe"
-               data-price="Desde $85.000"
+               data-price="From $85,000"
                data-size="45 m²"
                data-bedrooms="Studio"
                data-bathrooms="1 baño"
@@ -245,7 +254,7 @@
 <!-- 1BR Card -->
       <article class="flex flex-col bg-white overflow-hidden group hover-lift rounded-sm scale-105 z-10 ring-1 ring-gold-accent/20 unit-card"
                data-title="Luxury 2BR Residence"
-               data-price="Desde $125.000"
+               data-price="From $125,000"
                data-size="68 m²"
                data-bedrooms="2 bedrooms"
                data-bathrooms="1 bathroom"
@@ -277,7 +286,7 @@
 <!-- 2BR Card -->
       <article class="flex flex-col bg-white overflow-hidden group hover-lift rounded-sm unit-card"
                data-title="Luxury 3BR Suite"
-               data-price="Desde $195.000"
+               data-price="From $195,000"
                data-size="112 m²"
                data-bedrooms="3 bedrooms"
                data-bathrooms="2 bathrooms"
@@ -462,16 +471,8 @@
 </div>
 </div>
 <div class="relative h-[550px] shadow-2xl rounded-sm overflow-hidden group">
-<img alt="Map of Asunción Location" class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABlmxI2Wx3Wg3CqF3B61q94_zR8aQBOl7MZMqcKkYY7yIqITD825bKJag1m0YppEcD-678jOkeP174r8mxCzoJ5LCntWAESsgWRGEgUeZ4HHdEgVhH8YsgN9DS1mTWBppsK2v6el_s88KS8z_2y8Ytm6kVdKbeV4c7MHKC-EM2qnD9YaOf9xbeoov_kLwO8PFXwUJIjrIGNrB_sW9Eq8luS3k9McvXezz_yl31c7MungjtP7cfuG9LJFuyiNhX2jpjRmC01VA1-u8"/>
-<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-<div class="relative">
-<div class="absolute -inset-4 bg-forest-green/20 rounded-full animate-ping"></div>
-<div class="w-14 h-14 bg-forest-green rounded-full flex items-center justify-center text-white shadow-2xl relative z-10 border-2 border-white">
-<span class="material-symbols-outlined text-3xl">location_on</span>
-</div>
-</div>
-</div>
-<div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-sm border-l-4 border-gold-accent">
+<iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3842.1177395676536!2d-57.564379726851335!3d-25.28400337562512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2spy!4v1773577023750!5m2!1ses!2spy" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-sm border-l-4 border-gold-accent pointer-events-none">
 <p class="text-[10px] uppercase font-bold tracking-widest text-forest-green">Altos del Prado Residencial</p>
 <p class="text-xs text-gray-500">Calle Santa Teresa c/ Aviadores, Asunción.</p>
 </div>
@@ -583,26 +584,26 @@
   <div class="bg-white w-full md:max-w-5xl md:rounded-sm shadow-2xl max-h-[92vh] overflow-y-auto">
 <div class="p-6 md:p-10 border-b border-gray-100 flex items-start justify-between gap-6">
 <div>
-<p class="text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Unidad disponible</p>
+  <p class="text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Available unit</p>
 <h3 class="text-2xl md:text-3xl font-display font-semibold" id="unit-title">Unidad</h3>
 <div class="mt-3 flex flex-wrap gap-3 text-xs uppercase tracking-widest text-gray-400">
 <span id="unit-price">Precio</span>
 <span id="unit-size">M²</span>
-<span id="unit-bedrooms">Dormitorios</span>
-<span id="unit-bathrooms">Baños</span>
+  <span id="unit-bedrooms">Bedrooms</span>
+  <span id="unit-bathrooms">Bathrooms</span>
 </div>
 </div>
 <button class="text-gray-400 hover:text-forest-green transition text-2xl leading-none" id="unit-close" aria-label="Cerrar">×</button>
 </div>
 <div class="p-6 md:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
 <div>
-<h4 class="text-forest-green uppercase tracking-widest text-xs mb-4">Plano</h4>
-<div class="border border-gray-100 p-4 bg-soft-gray">
-<img id="unit-floorplan" alt="Plano de la unidad" class="w-full object-contain"/>
+  <h4 class="text-forest-green uppercase tracking-widest text-xs mb-4">Floor plan</h4>
+  <div class="border border-gray-100 p-4 bg-soft-gray">
+  <img id="unit-floorplan" alt="Unit floor plan" class="w-full object-contain"/>
 </div>
 </div>
 <div>
-<h4 class="text-forest-green uppercase tracking-widest text-xs mb-4">Renders</h4>
+  <h4 class="text-forest-green uppercase tracking-widest text-xs mb-4">Renders</h4>
           <div class="grid grid-cols-1 gap-4">
               <img id="unit-render-1" alt="Render 1" class="w-full h-64 sm:h-72 object-cover"/>
               <img id="unit-render-2" alt="Render 2" class="w-full h-64 sm:h-72 object-cover"/>
@@ -615,8 +616,8 @@
 </div>
 </div>
 <div class="p-6 md:p-10 border-t border-gray-100 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-<p class="text-gray-500 text-sm">Solicitá el catálogo completo o agenda una visita privada.</p>
-<a class="bg-gold-accent text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-forest-green transition-colors" href="#contact">Solicitar catálogo</a>
+  <p class="text-gray-500 text-sm">Request the full brochure or schedule a private tour.</p>
+  <a class="bg-gold-accent text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-forest-green transition-colors" href="#contact">Request brochure</a>
 </div>
 </div>
 </div>
@@ -645,27 +646,33 @@
 </svg>
 </a>
 <script>
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('main-header');
-        if (window.scrollY > 80) {
-            header.classList.add('bg-forest-green', 'py-3', 'shadow-2xl');
-            header.classList.remove('bg-transparent', 'py-4');
-        } else {
-            header.classList.add('bg-transparent', 'py-4');
-            header.classList.remove('bg-forest-green', 'py-3', 'shadow-2xl');
+    const header = document.getElementById('main-header');
+    const updateHeader = () => {
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+            header.classList.add('bg-forest-green');
+            header.classList.remove('bg-transparent', 'shadow-2xl');
+            return;
         }
-    });
+        if (window.scrollY > 80) {
+            header.classList.add('bg-forest-green', 'shadow-2xl');
+            header.classList.remove('bg-transparent');
+        } else {
+            header.classList.add('bg-transparent');
+            header.classList.remove('bg-forest-green', 'shadow-2xl');
+        }
+    };
+
+    window.addEventListener('scroll', updateHeader);
+    window.addEventListener('resize', updateHeader);
+    updateHeader();
 
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     
     menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('active');
-        if (mobileMenu.classList.contains('active') && window.scrollY < 80) {
-            document.getElementById('main-header').classList.add('bg-forest-green');
-        } else if (!mobileMenu.classList.contains('active') && window.scrollY < 80) {
-            document.getElementById('main-header').classList.remove('bg-forest-green');
-        }
+        updateHeader();
     });
 
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
@@ -736,6 +743,14 @@
             unitModal.classList.remove('flex');
         }
     });
+
+    const unitModalCta = unitModal ? unitModal.querySelector('a[href="#contact"]') : null;
+    if (unitModalCta) {
+        unitModalCta.addEventListener('click', () => {
+            unitModal.classList.add('hidden');
+            unitModal.classList.remove('flex');
+        });
+    }
 
     const amenitiesTrack = document.getElementById('amenities-track');
     const amenitiesPrev = document.getElementById('amenities-prev');

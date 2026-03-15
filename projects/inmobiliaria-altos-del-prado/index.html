@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
@@ -56,6 +56,15 @@
             filter: grayscale(0) contrast(1);
             transform: scale(1.05);
         }
+        .is-active-lang {
+            color: #C5A059 !important;
+            text-decoration: underline;
+            font-weight: 700;
+        }
+        .modal-open {
+            overflow: hidden;
+            touch-action: none;
+        }
 
         @media (max-width: 768px) {
             #main-header {
@@ -76,18 +85,18 @@
 </div>
 <!-- Desktop Nav -->
 <div class="hidden md:flex items-center space-x-8 text-white font-medium text-xs lg:text-sm uppercase tracking-widest">
-<a class="hover:text-gold-accent transition-colors" href="#gallery">Gallery</a>
-<a class="hover:text-gold-accent transition-colors" href="#units">Available Units</a>
-<a class="hover:text-gold-accent transition-colors" href="#amenities">Amenities</a>
-<a class="hover:text-gold-accent transition-colors" href="#location">Location</a>
+<a class="hover:text-gold-accent transition-colors" data-i18n="nav.gallery" href="#gallery">Gallery</a>
+<a class="hover:text-gold-accent transition-colors" data-i18n="nav.units" href="#units">Available Units</a>
+<a class="hover:text-gold-accent transition-colors" data-i18n="nav.amenities" href="#amenities">Amenities</a>
+<a class="hover:text-gold-accent transition-colors" data-i18n="nav.location" href="#location">Location</a>
 <!-- Language Switcher -->
 <div class="relative group flex items-center cursor-pointer">
-<button aria-haspopup="true" class="flex items-center hover:text-gold-accent transition-colors uppercase tracking-widest focus:outline-none">
+<button aria-haspopup="true" class="flex items-center hover:text-gold-accent transition-colors uppercase tracking-widest focus:outline-none" data-lang="en">
                     EN
                     <span class="material-symbols-outlined text-sm ml-1">expand_more</span>
 </button>
 <div class="absolute top-full right-0 mt-2 w-24 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 rounded-sm overflow-hidden">
-<a class="block px-4 py-3 text-xs font-medium text-forest-green hover:bg-soft-gray uppercase tracking-widest transition" href="#">ES</a>
+<a class="block px-4 py-3 text-xs font-medium text-forest-green hover:bg-soft-gray uppercase tracking-widest transition" data-lang="es" href="#">ES</a>
 </div>
 </div>
 <a class="bg-gold-accent hover:bg-white hover:text-forest-green text-white px-6 py-3 rounded-sm transition-all duration-300 shadow-lg font-semibold" href="#contact">Inquire Now</a>
@@ -102,19 +111,19 @@
 <!-- Mobile Menu -->
 <div class="md:hidden bg-forest-green text-white px-6 py-8 absolute top-full left-0 w-full shadow-2xl border-t border-white/10 max-h-[calc(100vh-72px)] overflow-y-auto z-50" id="mobile-menu">
 <div class="flex flex-col space-y-6 text-sm uppercase tracking-widest">
-<a class="mobile-nav-link" href="#gallery">Gallery</a>
-<a class="mobile-nav-link" href="#units">Available Units</a>
-<a class="mobile-nav-link" href="#amenities">Amenities</a>
-<a class="mobile-nav-link" href="#location">Location</a>
+<a class="mobile-nav-link" data-i18n="nav.gallery" href="#gallery">Gallery</a>
+<a class="mobile-nav-link" data-i18n="nav.units" href="#units">Available Units</a>
+<a class="mobile-nav-link" data-i18n="nav.amenities" href="#amenities">Amenities</a>
+<a class="mobile-nav-link" data-i18n="nav.location" href="#location">Location</a>
 <hr class="border-white/10"/>
 <div class="flex justify-between items-center">
-<span>Language</span>
+<span data-i18n="nav.language">Language</span>
 <div class="space-x-4">
-<a class="font-bold text-gold-accent underline" href="#">EN</a>
-<a class="opacity-60" href="#">ES</a>
+<a class="font-bold text-gold-accent underline" data-lang="en" href="#">EN</a>
+<a class="opacity-60" data-lang="es" href="#">ES</a>
 </div>
 </div>
-<a class="bg-gold-accent text-white px-6 py-4 rounded-sm text-center font-bold" href="#contact">Inquire Now</a>
+<a class="bg-gold-accent text-white px-6 py-4 rounded-sm text-center font-bold" data-i18n="nav.inquire" href="#contact">Inquire Now</a>
 </div>
 </div>
 </header>
@@ -124,32 +133,32 @@
 <img alt="Modern residential building in Asunción" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO9Y16dwrggKVoFpikThElfDKnOECzevnfkcPZfrpdvlQLDAtJ1wRln9jeXM-3q5J1Gq61x8LKh-N8yHMTR0A6A3OS-dkH_Yui8CaifiWUKIx9PESkuUWqPUO500S_eSC7NGZ2PmLWmZZSnVvNDui-1tz_xKz9lD54CLwVQLg1h0IzKB3sZBmpOnDSfuyRXTk5aN9JpJV0TKlwP5mIKuiQfJHPATbUskJvbaaKCkX-xxf9KquSuvqZXFtX4IAm3Dg8_Dcogc23I3g"/>
 <div class="absolute inset-0 hero-overlay"></div>
 <div class="relative z-10 text-center px-6 max-w-5xl">
-<h1 class="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+<h1 class="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight drop-shadow-2xl" data-i18n="hero.title">
                 Modern Living in the Heart of Asunción
             </h1>
-<p class="text-lg md:text-2xl text-white/90 font-light mb-8 max-w-2xl mx-auto">
+<p class="text-lg md:text-2xl text-white/90 font-light mb-8 max-w-2xl mx-auto" data-i18n="hero.subtitle">
                 Discover your next investment in the city's most vibrant residential district.
             </p>
 <!-- Highlight Badges -->
 <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-12">
 <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
 <span class="material-symbols-outlined text-gold-accent text-xl">location_on</span>
-<span class="text-white text-xs uppercase tracking-widest font-medium">Prime Location</span>
+<span class="text-white text-xs uppercase tracking-widest font-medium" data-i18n="hero.badge.location">Prime Location</span>
 </div>
 <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
 <span class="material-symbols-outlined text-gold-accent text-xl">payments</span>
-<span class="text-white text-xs uppercase tracking-widest font-medium">From $85,000</span>
+<span class="text-white text-xs uppercase tracking-widest font-medium" data-i18n="hero.badge.price">From $85,000</span>
 </div>
 <div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
 <span class="material-symbols-outlined text-gold-accent text-xl">hotel_class</span>
-<span class="text-white text-xs uppercase tracking-widest font-medium">Premium Amenities</span>
+<span class="text-white text-xs uppercase tracking-widest font-medium" data-i18n="hero.badge.amenities">Premium Amenities</span>
 </div>
 </div>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-<a class="w-full sm:w-auto px-12 py-5 bg-gold-accent text-white font-bold rounded-sm hover:bg-white hover:text-forest-green transition-all duration-300 text-center uppercase tracking-[0.2em] text-sm shadow-2xl" href="#contact">
+<a class="w-full sm:w-auto px-12 py-5 bg-gold-accent text-white font-bold rounded-sm hover:bg-white hover:text-forest-green transition-all duration-300 text-center uppercase tracking-[0.2em] text-sm shadow-2xl" data-i18n="hero.cta.catalog" href="#contact">
                     Request Catalog
                 </a>
-<a class="w-full sm:w-auto px-12 py-5 border border-white/50 text-white font-bold rounded-sm hover:bg-white/10 hover:border-white transition-all duration-300 text-center uppercase tracking-[0.2em] text-sm backdrop-blur-sm" href="#units">
+<a class="w-full sm:w-auto px-12 py-5 border border-white/50 text-white font-bold rounded-sm hover:bg-white/10 hover:border-white transition-all duration-300 text-center uppercase tracking-[0.2em] text-sm backdrop-blur-sm" data-i18n="hero.cta.availability" href="#units">
                     View Availability
                 </a>
 </div>
@@ -160,24 +169,24 @@
 <div class="container mx-auto px-6">
 <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 items-center text-center">
 <div data-purpose="info-item">
-<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Location</span>
-<p class="font-medium">Asunción, PY</p>
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2" data-i18n="quick.location.label">Location</span>
+<p class="font-medium" data-i18n="quick.location.value">Asunción, PY</p>
 </div>
 <div data-purpose="info-item">
-<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Units</span>
-<p class="font-medium">Studio, 1-2 BR</p>
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2" data-i18n="quick.units.label">Units</span>
+<p class="font-medium" data-i18n="quick.units.value">Studio, 1-2 BR</p>
 </div>
 <div data-purpose="info-item">
-<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Size</span>
-<p class="font-medium">45 - 120 m²</p>
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2" data-i18n="quick.size.label">Size</span>
+<p class="font-medium" data-i18n="quick.size.value">45 - 120 m²</p>
 </div>
 <div data-purpose="info-item">
-<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Price</span>
-<p class="font-medium">From $85,000</p>
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2" data-i18n="quick.price.label">Price</span>
+<p class="font-medium" data-i18n="quick.price.value">From $85,000</p>
 </div>
 <div class="col-span-2 md:col-span-1 border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0" data-purpose="info-item">
-<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Status</span>
-<p class="font-medium">Under Construction</p>
+<span class="block text-gold-accent text-xs uppercase tracking-[0.2em] mb-2" data-i18n="quick.status.label">Status</span>
+<p class="font-medium" data-i18n="quick.status.value">Under Construction</p>
 </div>
 </div>
 </div>
@@ -186,27 +195,27 @@
 <section class="py-24 bg-white" id="gallery">
 <div class="container mx-auto px-6">
 <div class="mb-16">
-<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4">Designed for Modern Living</h2>
-<p class="text-3xl md:text-5xl font-display font-light leading-tight max-w-2xl">Spaces designed for modern urban living.</p>
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4" data-i18n="gallery.kicker">Designed for Modern Living</h2>
+<p class="text-3xl md:text-5xl font-display font-light leading-tight max-w-2xl" data-i18n="gallery.title">Spaces designed for modern urban living.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 <div class="md:col-span-7 aspect-[4/3] md:aspect-auto md:h-[600px] relative group overflow-hidden rounded-sm">
 <img alt="Living Room" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdbx7aTiPJPXdjFySEgNrcnRKd8eJNLRKS3sHgfBfFqG_7TASwTV0BzeAiHTe0YmRrRigBHQOiFBXzfig7wp1SRVpsVfF3pPPHHCBavbgkueVKL-XTuOG83bA9CQbSUikMsnWG9GNKRW8TRI7pNOSzePSPBUS6KRY3h0v8DmcDlPTdWUVCqO--ueZd3ePings7-miewdzdTeu9ZFxEdc3wgNvV8YGDEPJYrla4SkmUCLonLFvcEi7S8A3vajRNyvhEx-ZkZuB51y8"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
-<span class="text-white font-display text-2xl font-light">Sophisticated Interiors</span>
+<span class="text-white font-display text-2xl font-light" data-i18n="gallery.caption1">Sophisticated Interiors</span>
 </div>
 </div>
 <div class="md:col-span-5 grid grid-rows-2 gap-6 h-[500px] md:h-[600px]">
 <div class="relative group overflow-hidden rounded-sm">
 <img alt="Kitchen Area" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhOgl5DRjqtzyH1MMRi63a3IgbRS8nrOUh1ZFyKMuBjK4QueVB_uuHYnjXBof8sHpnEbTXZexVZqE9MMNoJb-Rp_Aj3BcG1kOEMUTbFtyw7K7rtB2T6YKXO73XHWebQrMRJ8TKibffTkVRQvczKmAW_A-YPzqRI6WoY9M6HxSpgcGR7HDCCwbIVqHCoSjqvmTUi3rwYU4SxkIRrzN9b2bksRK57CZZGtfpkAzoKTlHwJcJiWobEDaCzC5sQyMnyfCOt_S9rA74_cY"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-<span class="text-white font-display text-xl font-light">Culinary Excellence</span>
+<span class="text-white font-display text-xl font-light" data-i18n="gallery.caption2">Culinary Excellence</span>
 </div>
 </div>
 <div class="relative group overflow-hidden rounded-sm">
 <img alt="Rooftop View" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGi4-2RcapLkOue-z_qyi0L65_x-t_5Rg3CM0BoqqJHfBMWWBjPMqBikwDZ47TLCcfqJntBJ1bLQ-BOdW2MGMJz6CZLYSwLZonw57mFczc9ELkKLmokObGy_faO2aZwbuOtiGXho9TrZLC1E_21YnEW-w9tWG63Kxl8HEISqJorFVlAb7KzGl6zN-MWqfn6mial1TicxNqiFb04fNWk0hS4TUTBF7ug3Z3MAW5DSKQJK0oWwuqTXFsVWabvtH6lhU7VqseIocQ6Vk"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-<span class="text-white font-display text-xl font-light">Panoramic Horizons</span>
+<span class="text-white font-display text-xl font-light" data-i18n="gallery.caption3">Panoramic Horizons</span>
 </div>
 </div>
 </div>
@@ -217,8 +226,8 @@
 <section class="py-24 bg-soft-gray" id="units">
 <div class="container mx-auto px-6">
 <div class="text-center mb-20">
-<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4">Floor Plans</h2>
-<p class="text-4xl md:text-5xl font-display font-light">Available Units</p>
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4" data-i18n="units.kicker">Floor Plans</h2>
+<p class="text-4xl md:text-5xl font-display font-light" data-i18n="units.title">Available Units</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-12">
 <!-- Studio Card -->
@@ -227,7 +236,8 @@
                data-price="From $85,000"
                data-size="45 m²"
                data-bedrooms="Studio"
-               data-bathrooms="1 baño"
+               data-bathrooms="1 bathroom"
+               data-i18n-attr="data-title:units.studio.title;data-price:units.studio.price;data-size:units.studio.size;data-bedrooms:units.studio.bedrooms;data-bathrooms:units.studio.bathrooms"
                data-floorplan="assets/seccion-unidades/studio/plano.png"
                data-render1="assets/seccion-unidades/studio/sala.png"
                data-render2="assets/seccion-unidades/studio/cocina-comedor.png"
@@ -235,20 +245,20 @@
                data-render4="assets/seccion-unidades/studio/banho.png">
   <div class="relative h-80 overflow-hidden bg-white flex items-center justify-center p-4 border-b border-gray-100">
           <img alt="Studio Floor Plan" class="max-h-full w-full object-contain floorplan-thumb" src="assets/seccion-unidades/studio/plano.png"/>
-<div class="absolute top-4 left-4 bg-forest-green text-white text-[10px] uppercase tracking-widest px-3 py-1 font-bold">Limited Availability</div>
+<div class="absolute top-4 left-4 bg-forest-green text-white text-[10px] uppercase tracking-widest px-3 py-1 font-bold" data-i18n="units.studio.badge">Limited Availability</div>
 </div>
 <div class="p-8 flex-grow">
 <div class="flex justify-between items-start mb-4">
 <div>
-<h4 class="text-2xl font-display font-semibold text-forest-green">Studio Deluxe</h4>
-<p class="text-gray-400 text-xs font-medium mt-1">From <span class="text-gold-accent text-2xl font-bold ml-1">$85,000</span></p>
+<h4 class="text-2xl font-display font-semibold text-forest-green" data-i18n="units.studio.title">Studio Deluxe</h4>
+  <p class="text-gray-400 text-xs font-medium mt-1"><span data-i18n="units.price_prefix">From</span> <span class="text-gold-accent text-2xl font-bold ml-1">$85,000</span></p>
 </div>
 <span class="text-forest-green/40 font-bold text-lg">45 m²</span>
 </div>
-<p class="text-gray-500 font-light leading-relaxed mb-8 text-sm">Efficient open-plan living with integrated kitchen and luxury bath. Perfect for high-yield investment.</p>
-<button class="block w-full text-center bg-forest-green text-white hover:bg-gold-accent py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg open-unit-modal" type="button">
-                            Ver detalles
-                        </button>
+  <p class="text-gray-500 font-light leading-relaxed mb-8 text-sm" data-i18n="units.studio.desc">Efficient open-plan living with integrated kitchen and luxury bath. Perfect for high-yield investment.</p>
+  <button class="block w-full text-center bg-forest-green text-white hover:bg-gold-accent py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg open-unit-modal" data-i18n="units.cta" type="button">
+                              View details
+                          </button>
 </div>
 </article>
 <!-- 1BR Card -->
@@ -258,6 +268,7 @@
                data-size="68 m²"
                data-bedrooms="2 bedrooms"
                data-bathrooms="1 bathroom"
+               data-i18n-attr="data-title:units.lux2.title;data-price:units.lux2.price;data-size:units.lux2.size;data-bedrooms:units.lux2.bedrooms;data-bathrooms:units.lux2.bathrooms"
            data-floorplan="assets/seccion-unidades/2br/planov2.png"
            data-render1="assets/seccion-unidades/2br/sala.png"
            data-render2="assets/seccion-unidades/2br/cocina.png"
@@ -267,20 +278,20 @@
            data-render6="assets/seccion-unidades/2br/habitacion normal.png">
   <div class="relative h-80 overflow-hidden bg-white flex items-center justify-center p-4 border-b border-gray-100">
   <img alt="2BR Floor Plan" class="max-h-full floorplan-thumb" src="assets/seccion-unidades/2br/planov2.png"/>
-<div class="absolute top-4 left-4 bg-gold-accent text-white text-[10px] uppercase tracking-widest px-3 py-1 font-bold">Best Seller</div>
+  <div class="absolute top-4 left-4 bg-gold-accent text-white text-[10px] uppercase tracking-widest px-3 py-1 font-bold" data-i18n="units.lux2.badge">Best Seller</div>
 </div>
 <div class="p-8 flex-grow">
 <div class="flex justify-between items-start mb-4">
 <div>
-            <h4 class="text-2xl font-display font-semibold text-forest-green">Luxury 2BR Residence</h4>
-<p class="text-gray-400 text-xs font-medium mt-1">From <span class="text-gold-accent text-2xl font-bold ml-1">$125,000</span></p>
+  <h4 class="text-2xl font-display font-semibold text-forest-green" data-i18n="units.lux2.title">Luxury 2BR Residence</h4>
+  <p class="text-gray-400 text-xs font-medium mt-1"><span data-i18n="units.price_prefix">From</span> <span class="text-gold-accent text-2xl font-bold ml-1">$125,000</span></p>
 </div>
 <span class="text-forest-green/40 font-bold text-lg">68 m²</span>
 </div>
-          <p class="text-gray-500 font-light leading-relaxed mb-8 text-sm">Two bedrooms with integrated kitchen, dining, and living area. Includes a laundry zone and full bathroom.</p>
-<button class="block w-full text-center bg-gold-accent text-white hover:bg-forest-green py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg open-unit-modal" type="button">
-                            Ver detalles
-                        </button>
+          <p class="text-gray-500 font-light leading-relaxed mb-8 text-sm" data-i18n="units.lux2.desc">Two bedrooms with integrated kitchen, dining, and living area. Includes a laundry zone and full bathroom.</p>
+      <button class="block w-full text-center bg-gold-accent text-white hover:bg-forest-green py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg open-unit-modal" data-i18n="units.cta" type="button">
+                              View details
+                          </button>
 </div>
 </article>
 <!-- 2BR Card -->
@@ -290,6 +301,7 @@
                data-size="112 m²"
                data-bedrooms="3 bedrooms"
                data-bathrooms="2 bathrooms"
+               data-i18n-attr="data-title:units.lux3.title;data-price:units.lux3.price;data-size:units.lux3.size;data-bedrooms:units.lux3.bedrooms;data-bathrooms:units.lux3.bathrooms"
            data-floorplan="assets/seccion-unidades/3br/plano.png"
            data-render1="assets/seccion-unidades/3br/sala.png"
            data-render2="assets/seccion-unidades/3br/cocina.png"
@@ -304,15 +316,15 @@
 <div class="p-8 flex-grow">
 <div class="flex justify-between items-start mb-4">
 <div>
-            <h4 class="text-2xl font-display font-semibold text-forest-green">Luxury 3BR Suite</h4>
-<p class="text-gray-400 text-xs font-medium mt-1">From <span class="text-gold-accent text-2xl font-bold ml-1">$195,000</span></p>
+  <h4 class="text-2xl font-display font-semibold text-forest-green" data-i18n="units.lux3.title">Luxury 3BR Suite</h4>
+  <p class="text-gray-400 text-xs font-medium mt-1"><span data-i18n="units.price_prefix">From</span> <span class="text-gold-accent text-2xl font-bold ml-1">$195,000</span></p>
 </div>
 <span class="text-forest-green/40 font-bold text-lg">112 m²</span>
 </div>
-          <p class="text-gray-500 font-light leading-relaxed mb-8 text-sm">Three bedrooms with a primary en-suite, open kitchen, dining and living area, laundry, and private balcony.</p>
-<button class="block w-full text-center bg-forest-green text-white hover:bg-gold-accent py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg open-unit-modal" type="button">
-                            Ver detalles
-                        </button>
+  <p class="text-gray-500 font-light leading-relaxed mb-8 text-sm" data-i18n="units.lux3.desc">Three bedrooms with a primary en-suite, open kitchen, dining and living area, laundry, and private balcony.</p>
+      <button class="block w-full text-center bg-forest-green text-white hover:bg-gold-accent py-4 font-bold uppercase tracking-widest text-xs transition-colors shadow-lg open-unit-modal" data-i18n="units.cta" type="button">
+                              View details
+                          </button>
 </div>
 </article>
 </div>
@@ -323,16 +335,16 @@
 <div class="flex flex-col lg:flex-row">
 <div class="lg:w-1/2 p-12 md:p-24 flex flex-col justify-center">
 <div class="max-w-xl">
-<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-6">Elevated Lifestyle</h2>
-<p class="text-4xl md:text-5xl font-display font-light mb-8">Premium Amenities</p>
-<p class="text-white/60 text-sm md:text-base leading-relaxed">Experience a curated collection of social, wellness, and leisure spaces designed to elevate everyday living.</p>
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-6" data-i18n="amenities.kicker">Elevated Lifestyle</h2>
+<p class="text-4xl md:text-5xl font-display font-light mb-8" data-i18n="amenities.title">Premium Amenities</p>
+<p class="text-white/60 text-sm md:text-base leading-relaxed" data-i18n="amenities.desc">Experience a curated collection of social, wellness, and leisure spaces designed to elevate everyday living.</p>
 <div class="mt-10 flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.2em] text-white/50">
-<span class="px-3 py-1 border border-white/10 rounded-full">Rooftop Lounge</span>
-<span class="px-3 py-1 border border-white/10 rounded-full">Infinity Pool</span>
-<span class="px-3 py-1 border border-white/10 rounded-full">Fitness Center</span>
-<span class="px-3 py-1 border border-white/10 rounded-full">Coworking</span>
-<span class="px-3 py-1 border border-white/10 rounded-full">24h Security</span>
-<span class="px-3 py-1 border border-white/10 rounded-full">Private Parking</span>
+<span class="px-3 py-1 border border-white/10 rounded-full" data-i18n="amenities.tags.rooftop">Rooftop Lounge</span>
+<span class="px-3 py-1 border border-white/10 rounded-full" data-i18n="amenities.tags.pool">Infinity Pool</span>
+<span class="px-3 py-1 border border-white/10 rounded-full" data-i18n="amenities.tags.fitness">Fitness Center</span>
+<span class="px-3 py-1 border border-white/10 rounded-full" data-i18n="amenities.tags.cowork">Coworking</span>
+<span class="px-3 py-1 border border-white/10 rounded-full" data-i18n="amenities.tags.security">24h Security</span>
+<span class="px-3 py-1 border border-white/10 rounded-full" data-i18n="amenities.tags.parking">Private Parking</span>
 </div>
 <div class="mt-12 flex items-center gap-4">
 <button class="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:border-gold-accent hover:text-gold-accent transition" id="amenities-prev" type="button">
@@ -355,8 +367,8 @@
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
 <span class="material-symbols-outlined text-gold-accent">deck</span>
 </div>
-<h4 class="text-2xl font-display font-semibold mb-2">Rooftop Lounge</h4>
-<p class="text-white/70 text-sm">Skyline views, curated seating, and a private bar experience.</p>
+<h4 class="text-2xl font-display font-semibold mb-2" data-i18n="amenities.slide.rooftop.title">Rooftop Lounge</h4>
+<p class="text-white/70 text-sm" data-i18n="amenities.slide.rooftop.desc">Skyline views, curated seating, and a private bar experience.</p>
 </div>
 </div>
 </article>
@@ -368,8 +380,8 @@
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
 <span class="material-symbols-outlined text-gold-accent">pool</span>
 </div>
-<h4 class="text-2xl font-display font-semibold mb-2">Infinity Pool</h4>
-<p class="text-white/70 text-sm">Heated edge pool with sunset deck and private cabanas.</p>
+<h4 class="text-2xl font-display font-semibold mb-2" data-i18n="amenities.slide.pool.title">Infinity Pool</h4>
+<p class="text-white/70 text-sm" data-i18n="amenities.slide.pool.desc">Heated edge pool with sunset deck and private cabanas.</p>
 </div>
 </div>
 </article>
@@ -381,8 +393,8 @@
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
 <span class="material-symbols-outlined text-gold-accent">fitness_center</span>
 </div>
-<h4 class="text-2xl font-display font-semibold mb-2">Fitness Center</h4>
-<p class="text-white/70 text-sm">Private workout zone with premium equipment and yoga studio.</p>
+<h4 class="text-2xl font-display font-semibold mb-2" data-i18n="amenities.slide.fitness.title">Fitness Center</h4>
+<p class="text-white/70 text-sm" data-i18n="amenities.slide.fitness.desc">Private workout zone with premium equipment and yoga studio.</p>
 </div>
 </div>
 </article>
@@ -394,8 +406,8 @@
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
 <span class="material-symbols-outlined text-gold-accent">laptop_mac</span>
 </div>
-<h4 class="text-2xl font-display font-semibold mb-2">Coworking Space</h4>
-<p class="text-white/70 text-sm">Quiet focus zones with high-speed connectivity and lounge pods.</p>
+<h4 class="text-2xl font-display font-semibold mb-2" data-i18n="amenities.slide.cowork.title">Coworking Space</h4>
+<p class="text-white/70 text-sm" data-i18n="amenities.slide.cowork.desc">Quiet focus zones with high-speed connectivity and lounge pods.</p>
 </div>
 </div>
 </article>
@@ -407,8 +419,8 @@
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
 <span class="material-symbols-outlined text-gold-accent">security</span>
 </div>
-<h4 class="text-2xl font-display font-semibold mb-2">24h Security</h4>
-<p class="text-white/70 text-sm">Concierge service, CCTV coverage, and controlled access.</p>
+<h4 class="text-2xl font-display font-semibold mb-2" data-i18n="amenities.slide.security.title">24h Security</h4>
+<p class="text-white/70 text-sm" data-i18n="amenities.slide.security.desc">Concierge service, CCTV coverage, and controlled access.</p>
 </div>
 </div>
 </article>
@@ -420,8 +432,8 @@
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
 <span class="material-symbols-outlined text-gold-accent">directions_car</span>
 </div>
-<h4 class="text-2xl font-display font-semibold mb-2">Private Parking</h4>
-<p class="text-white/70 text-sm">Secure underground spaces with EV charging and valet options.</p>
+<h4 class="text-2xl font-display font-semibold mb-2" data-i18n="amenities.slide.parking.title">Private Parking</h4>
+<p class="text-white/70 text-sm" data-i18n="amenities.slide.parking.desc">Secure underground spaces with EV charging and valet options.</p>
 </div>
 </div>
 </article>
@@ -435,9 +447,9 @@
 <div class="container mx-auto px-6">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 <div>
-<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-6">Connectivity</h2>
-<h3 class="text-4xl md:text-5xl font-display font-light mb-8">Prime Location in Asunción</h3>
-<p class="text-gray-500 mb-12 text-lg font-light leading-relaxed">
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-6" data-i18n="location.kicker">Connectivity</h2>
+<h3 class="text-4xl md:text-5xl font-display font-light mb-8" data-i18n="location.title">Prime Location in Asunción</h3>
+<p class="text-gray-500 mb-12 text-lg font-light leading-relaxed" data-i18n="location.desc">
                         Strategically positioned in the heart of the city's growth, Altos del Prado offers unmatched connectivity to the most relevant commercial and financial hubs.
                     </p>
 <div class="space-y-8">
@@ -446,8 +458,8 @@
 <span class="material-symbols-outlined">shopping_cart</span>
 </div>
 <div>
-<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2">5 min from Shopping del Sol</h5>
-<p class="text-xs text-gray-500 leading-relaxed">Immediate access to the country's most exclusive luxury shopping, dining, and entertainment center.</p>
+<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item1.title">5 min from Shopping del Sol</h5>
+<p class="text-xs text-gray-500 leading-relaxed" data-i18n="location.item1.desc">Immediate access to the country's most exclusive luxury shopping, dining, and entertainment center.</p>
 </div>
 </div>
 <div class="flex items-start gap-6 group">
@@ -455,8 +467,8 @@
 <span class="material-symbols-outlined">explore</span>
 </div>
 <div>
-<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2">Near Aviadores del Chaco</h5>
-<p class="text-xs text-gray-500 leading-relaxed">Located just moments from the main artery connecting the city to the International Airport and prime hotels.</p>
+<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item2.title">Near Aviadores del Chaco</h5>
+<p class="text-xs text-gray-500 leading-relaxed" data-i18n="location.item2.desc">Located just moments from the main artery connecting the city to the International Airport and prime hotels.</p>
 </div>
 </div>
 <div class="flex items-start gap-6 group">
@@ -464,8 +476,8 @@
 <span class="material-symbols-outlined">business_center</span>
 </div>
 <div>
-<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2">Close to Corporate District</h5>
-<p class="text-xs text-gray-500 leading-relaxed">Situated within the radius of the city's new corporate axis, home to major multinational headquarters.</p>
+<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item3.title">Close to Corporate District</h5>
+<p class="text-xs text-gray-500 leading-relaxed" data-i18n="location.item3.desc">Situated within the radius of the city's new corporate axis, home to major multinational headquarters.</p>
 </div>
 </div>
 </div>
@@ -484,29 +496,29 @@
 <section class="py-24 bg-forest-green text-white">
 <div class="container mx-auto px-6">
 <div class="text-center mb-16">
-<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4">Market Opportunity</h2>
-<p class="text-4xl md:text-5xl font-display font-light">Why Invest in Altos del Prado</p>
+<h2 class="text-gold-accent font-semibold tracking-[0.2em] text-sm uppercase mb-4" data-i18n="invest.kicker">Market Opportunity</h2>
+<p class="text-4xl md:text-5xl font-display font-light" data-i18n="invest.title">Why Invest in Altos del Prado</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition-colors">
 <span class="material-symbols-outlined text-gold-accent text-4xl mb-6">ads_click</span>
-<h4 class="font-bold uppercase tracking-wider text-sm mb-4">Strategic Location</h4>
-<p class="text-white/60 text-xs leading-relaxed">Situated in the highest demand corridor for residential and corporate rentals in Asunción.</p>
+<h4 class="font-bold uppercase tracking-wider text-sm mb-4" data-i18n="invest.card1.title">Strategic Location</h4>
+<p class="text-white/60 text-xs leading-relaxed" data-i18n="invest.card1.desc">Situated in the highest demand corridor for residential and corporate rentals in Asunción.</p>
 </div>
 <div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition-colors">
 <span class="material-symbols-outlined text-gold-accent text-4xl mb-6">trending_up</span>
-<h4 class="font-bold uppercase tracking-wider text-sm mb-4">High Appreciation</h4>
-<p class="text-white/60 text-xs leading-relaxed">Estimated property value increase of 15-20% upon completion of construction.</p>
+<h4 class="font-bold uppercase tracking-wider text-sm mb-4" data-i18n="invest.card2.title">High Appreciation</h4>
+<p class="text-white/60 text-xs leading-relaxed" data-i18n="invest.card2.desc">Estimated property value increase of 15-20% upon completion of construction.</p>
 </div>
 <div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition-colors">
 <span class="material-symbols-outlined text-gold-accent text-4xl mb-6">home_work</span>
-<h4 class="font-bold uppercase tracking-wider text-sm mb-4">Premium Rental Demand</h4>
-<p class="text-white/60 text-xs leading-relaxed">Perfect for corporate executives and short-stay tourism with high occupancy rates.</p>
+<h4 class="font-bold uppercase tracking-wider text-sm mb-4" data-i18n="invest.card3.title">Premium Rental Demand</h4>
+<p class="text-white/60 text-xs leading-relaxed" data-i18n="invest.card3.desc">Perfect for corporate executives and short-stay tourism with high occupancy rates.</p>
 </div>
 <div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition-colors">
 <span class="material-symbols-outlined text-gold-accent text-4xl mb-6">edit_calendar</span>
-<h4 class="font-bold uppercase tracking-wider text-sm mb-4">Flexible Payment Plans</h4>
-<p class="text-white/60 text-xs leading-relaxed">Customized financing options during the construction phase with competitive interest.</p>
+<h4 class="font-bold uppercase tracking-wider text-sm mb-4" data-i18n="invest.card4.title">Flexible Payment Plans</h4>
+<p class="text-white/60 text-xs leading-relaxed" data-i18n="invest.card4.desc">Customized financing options during the construction phase with competitive interest.</p>
 </div>
 </div>
 </div>
@@ -517,8 +529,8 @@
 <div class="max-w-6xl mx-auto bg-white shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
 <div class="p-10 md:p-16 bg-forest-green text-white flex flex-col justify-center relative overflow-hidden">
 <div class="absolute top-0 right-0 w-64 h-64 bg-gold-accent/5 rounded-full -mr-32 -mt-32"></div>
-<h3 class="text-4xl font-display font-semibold mb-6 relative z-10">Invest in Excellence.</h3>
-<p class="text-white/70 mb-10 text-lg leading-relaxed font-light relative z-10">
+<h3 class="text-4xl font-display font-semibold mb-6 relative z-10" data-i18n="contact.title">Invest in Excellence.</h3>
+<p class="text-white/70 mb-10 text-lg leading-relaxed font-light relative z-10" data-i18n="contact.desc">
                         Schedule a private tour or request our detailed pricing catalog and flexible payment plans. Our consultants will reach out within 24 hours.
                     </p>
 <div class="space-y-6 mb-12 relative z-10">
@@ -539,40 +551,40 @@
 <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
 </svg>
-                        Chat on WhatsApp
+                        <span data-i18n="contact.whatsapp">Chat on WhatsApp</span>
                     </a>
 </div>
 <div class="p-10 md:p-16 bg-white">
 <form action="#" class="space-y-6" method="POST">
 <div class="relative">
-<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="name">Full Name</label>
-<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" id="name" name="name" placeholder="E.g. John Doe" required="" type="text"/>
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" data-i18n="contact.form.name_label" for="name">Full Name</label>
+<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" data-i18n-attr="placeholder:contact.form.name_placeholder" id="name" name="name" placeholder="E.g. John Doe" required="" type="text"/>
 </div>
 <div class="relative">
-<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="email">Email Address</label>
-<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" id="email" name="email" placeholder="john@example.com" required="" type="email"/>
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" data-i18n="contact.form.email_label" for="email">Email Address</label>
+<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" data-i18n-attr="placeholder:contact.form.email_placeholder" id="email" name="email" placeholder="john@example.com" required="" type="email"/>
 </div>
 <div class="relative">
-<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="phone">WhatsApp Number</label>
-<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" id="phone" name="phone" placeholder="+595 9xx xxx xxx" required="" type="tel"/>
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" data-i18n="contact.form.phone_label" for="phone">WhatsApp Number</label>
+<input class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" data-i18n-attr="placeholder:contact.form.phone_placeholder" id="phone" name="phone" placeholder="+595 9xx xxx xxx" required="" type="tel"/>
 </div>
 <div class="relative">
-<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="unit">Interested Unit</label>
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" data-i18n="contact.form.unit_label" for="unit">Interested Unit</label>
 <select class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors bg-transparent appearance-none font-light" id="unit" name="unit">
-<option>Studio Deluxe</option>
-<option>Executive 1BR</option>
-<option>Family Suite 2BR</option>
-<option>Investment Opportunities</option>
+<option data-i18n="contact.form.unit_option1">Studio Deluxe</option>
+<option data-i18n="contact.form.unit_option2">Luxury 2BR Residence</option>
+<option data-i18n="contact.form.unit_option3">Luxury 3BR Suite</option>
+<option data-i18n="contact.form.unit_option4">Investment Opportunities</option>
 </select>
 <span class="absolute bottom-4 right-0 pointer-events-none text-gray-400">
 <span class="material-symbols-outlined">expand_more</span>
 </span>
 </div>
 <div class="relative">
-<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" for="message">Optional Message</label>
-<textarea class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" id="message" name="message" placeholder="How can we help you?" rows="2"></textarea>
+<label class="block text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-2 font-bold" data-i18n="contact.form.message_label" for="message">Optional Message</label>
+<textarea class="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-gold-accent py-3 px-0 text-gray-900 transition-colors placeholder:text-gray-300 font-light" data-i18n-attr="placeholder:contact.form.message_placeholder" id="message" name="message" placeholder="How can we help you?" rows="2"></textarea>
 </div>
-<button class="w-full bg-forest-green text-white py-5 font-bold uppercase tracking-widest text-sm hover:bg-gold-accent transition-all duration-300 mt-4 shadow-xl" type="submit">Send Inquiry</button>
+<button class="w-full bg-forest-green text-white py-5 font-bold uppercase tracking-widest text-sm hover:bg-gold-accent transition-all duration-300 mt-4 shadow-xl" data-i18n="contact.form.submit" type="submit">Send Inquiry</button>
 </form>
 </div>
 </div>
@@ -584,26 +596,26 @@
   <div class="bg-white w-full md:max-w-5xl md:rounded-sm shadow-2xl max-h-[92vh] overflow-y-auto">
 <div class="p-6 md:p-10 border-b border-gray-100 flex items-start justify-between gap-6">
 <div>
-  <p class="text-gold-accent text-xs uppercase tracking-[0.2em] mb-2">Available unit</p>
-<h3 class="text-2xl md:text-3xl font-display font-semibold" id="unit-title">Unidad</h3>
+  <p class="text-gold-accent text-xs uppercase tracking-[0.2em] mb-2" data-i18n="modal.kicker">Available unit</p>
+<h3 class="text-2xl md:text-3xl font-display font-semibold" data-i18n="modal.title_fallback" id="unit-title">Unit</h3>
 <div class="mt-3 flex flex-wrap gap-3 text-xs uppercase tracking-widest text-gray-400">
-<span id="unit-price">Precio</span>
-<span id="unit-size">M²</span>
+<span id="unit-price">Price</span>
+<span id="unit-size">m²</span>
   <span id="unit-bedrooms">Bedrooms</span>
   <span id="unit-bathrooms">Bathrooms</span>
 </div>
 </div>
-<button class="text-gray-400 hover:text-forest-green transition text-2xl leading-none" id="unit-close" aria-label="Cerrar">×</button>
+<button class="text-gray-400 hover:text-forest-green transition text-2xl leading-none" id="unit-close" aria-label="Close">×</button>
 </div>
 <div class="p-6 md:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
 <div>
-  <h4 class="text-forest-green uppercase tracking-widest text-xs mb-4">Floor plan</h4>
+  <h4 class="text-forest-green uppercase tracking-widest text-xs mb-4" data-i18n="modal.floorplan">Floor plan</h4>
   <div class="border border-gray-100 p-4 bg-soft-gray">
   <img id="unit-floorplan" alt="Unit floor plan" class="w-full object-contain"/>
 </div>
 </div>
 <div>
-  <h4 class="text-forest-green uppercase tracking-widest text-xs mb-4">Renders</h4>
+  <h4 class="text-forest-green uppercase tracking-widest text-xs mb-4" data-i18n="modal.renders">Renders</h4>
           <div class="grid grid-cols-1 gap-4">
               <img id="unit-render-1" alt="Render 1" class="w-full h-64 sm:h-72 object-cover"/>
               <img id="unit-render-2" alt="Render 2" class="w-full h-64 sm:h-72 object-cover"/>
@@ -616,8 +628,8 @@
 </div>
 </div>
 <div class="p-6 md:p-10 border-t border-gray-100 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-  <p class="text-gray-500 text-sm">Request the full brochure or schedule a private tour.</p>
-  <a class="bg-gold-accent text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-forest-green transition-colors" href="#contact">Request brochure</a>
+  <p class="text-gray-500 text-sm" data-i18n="modal.desc">Request the full brochure or schedule a private tour.</p>
+  <a class="bg-gold-accent text-white px-8 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-forest-green transition-colors" data-i18n="modal.cta" href="#contact">Request brochure</a>
 </div>
 </div>
 </div>
@@ -626,16 +638,16 @@
 <div class="container mx-auto px-6 text-center">
 <div class="mb-12">
 <span class="text-2xl font-display font-bold text-white tracking-widest">ALTOS DEL PRADO</span>
-<p class="text-white/40 mt-6 max-w-sm mx-auto font-light leading-relaxed">Sophisticated living in the heart of Asunción. Discover the pinnacle of modern architecture.</p>
+<p class="text-white/40 mt-6 max-w-sm mx-auto font-light leading-relaxed" data-i18n="footer.desc">Sophisticated living in the heart of Asunción. Discover the pinnacle of modern architecture.</p>
 </div>
 <div class="flex flex-wrap justify-center gap-x-12 gap-y-4 mb-12">
-<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" href="#gallery">Gallery</a>
-<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" href="#units">Available Units</a>
-<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" href="#amenities">Amenities</a>
-<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" href="#location">Location</a>
+<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" data-i18n="nav.gallery" href="#gallery">Gallery</a>
+<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" data-i18n="nav.units" href="#units">Available Units</a>
+<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" data-i18n="nav.amenities" href="#amenities">Amenities</a>
+<a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" data-i18n="nav.location" href="#location">Location</a>
 </div>
 <div class="border-t border-white/10 pt-12">
-<p class="text-white/20 text-[10px] tracking-[0.4em] uppercase">© 2024 Altos del Prado Residencial. Asunción, Paraguay.</p>
+<p class="text-white/20 text-[10px] tracking-[0.4em] uppercase">Â© 2024 Altos del Prado Residencial. Asunción, Paraguay.</p>
 </div>
 </div>
 </footer>
@@ -646,6 +658,331 @@
 </svg>
 </a>
 <script>
+    const I18N_INLINE = {
+        en: {
+  "nav": {
+    "gallery": "Gallery",
+    "units": "Available Units",
+    "amenities": "Amenities",
+    "location": "Location",
+    "language": "Language",
+    "inquire": "Inquire Now"
+  },
+  "hero": {
+    "title": "Modern Living in the Heart of Asunción",
+    "subtitle": "Discover your next investment in the city's most vibrant residential district.",
+    "badge": {
+      "location": "Prime Location",
+      "price": "From $85,000",
+      "amenities": "Premium Amenities"
+    },
+    "cta": {
+      "catalog": "Request Catalog",
+      "availability": "View Availability"
+    }
+  },
+  "quick": {
+    "location": { "label": "Location", "value": "Asunción, PY" },
+    "units": { "label": "Units", "value": "Studio, 1-2 BR" },
+    "size": { "label": "Size", "value": "45 - 120 m²" },
+    "price": { "label": "Price", "value": "From $85,000" },
+    "status": { "label": "Status", "value": "Under Construction" }
+  },
+  "gallery": {
+    "kicker": "Designed for Modern Living",
+    "title": "Spaces designed for modern urban living.",
+    "caption1": "Sophisticated Interiors",
+    "caption2": "Culinary Excellence",
+    "caption3": "Panoramic Horizons"
+  },
+  "units": {
+    "kicker": "Floor Plans",
+    "title": "Available Units",
+    "price_prefix": "From",
+    "cta": "View details",
+    "studio": {
+      "title": "Studio Deluxe",
+      "price": "From $85,000",
+      "size": "45 m²",
+      "bedrooms": "Studio",
+      "bathrooms": "1 bathroom",
+      "badge": "Limited Availability",
+      "desc": "Efficient open-plan living with integrated kitchen and luxury bath. Perfect for high-yield investment."
+    },
+    "lux2": {
+      "title": "Luxury 2BR Residence",
+      "price": "From $125,000",
+      "size": "68 m²",
+      "bedrooms": "2 bedrooms",
+      "bathrooms": "1 bathroom",
+      "badge": "Best Seller",
+      "desc": "Two bedrooms with integrated kitchen, dining, and living area. Includes a laundry zone and full bathroom."
+    },
+    "lux3": {
+      "title": "Luxury 3BR Suite",
+      "price": "From $195,000",
+      "size": "112 m²",
+      "bedrooms": "3 bedrooms",
+      "bathrooms": "2 bathrooms",
+      "desc": "Three bedrooms with a primary en-suite, open kitchen, dining and living area, laundry, and private balcony."
+    }
+  },
+  "amenities": {
+    "kicker": "Elevated Lifestyle",
+    "title": "Premium Amenities",
+    "desc": "Experience a curated collection of social, wellness, and leisure spaces designed to elevate everyday living.",
+    "tags": {
+      "rooftop": "Rooftop Lounge",
+      "pool": "Infinity Pool",
+      "fitness": "Fitness Center",
+      "cowork": "Coworking",
+      "security": "24h Security",
+      "parking": "Private Parking"
+    },
+    "slide": {
+      "rooftop": { "title": "Rooftop Lounge", "desc": "Skyline views, curated seating, and a private bar experience." },
+      "pool": { "title": "Infinity Pool", "desc": "Heated edge pool with sunset deck and private cabanas." },
+      "fitness": { "title": "Fitness Center", "desc": "Private workout zone with premium equipment and yoga studio." },
+      "cowork": { "title": "Coworking Space", "desc": "Quiet focus zones with high-speed connectivity and lounge pods." },
+      "security": { "title": "24h Security", "desc": "Concierge service, CCTV coverage, and controlled access." },
+      "parking": { "title": "Private Parking", "desc": "Secure underground spaces with EV charging and valet options." }
+    }
+  },
+  "location": {
+    "kicker": "Connectivity",
+    "title": "Prime Location in Asunción",
+    "desc": "Strategically positioned in the heart of the city's growth, Altos del Prado offers unmatched connectivity to the most relevant commercial and financial hubs.",
+    "item1": {
+      "title": "5 min from Shopping del Sol",
+      "desc": "Immediate access to the country's most exclusive luxury shopping, dining, and entertainment center."
+    },
+    "item2": {
+      "title": "Near Aviadores del Chaco",
+      "desc": "Located just moments from the main artery connecting the city to the International Airport and prime hotels."
+    },
+    "item3": {
+      "title": "Close to Corporate District",
+      "desc": "Situated within the radius of the city's new corporate axis, home to major multinational headquarters."
+    }
+  },
+  "invest": {
+    "kicker": "Market Opportunity",
+    "title": "Why Invest in Altos del Prado",
+    "card1": {
+      "title": "Strategic Location",
+      "desc": "Situated in the highest demand corridor for residential and corporate rentals in Asunción."
+    },
+    "card2": {
+      "title": "High Appreciation",
+      "desc": "Estimated property value increase of 15-20% upon completion of construction."
+    },
+    "card3": {
+      "title": "Premium Rental Demand",
+      "desc": "Perfect for corporate executives and short-stay tourism with high occupancy rates."
+    },
+    "card4": {
+      "title": "Flexible Payment Plans",
+      "desc": "Customized financing options during the construction phase with competitive interest."
+    }
+  },
+  "contact": {
+    "title": "Invest in Excellence.",
+    "desc": "Schedule a private tour or request our detailed pricing catalog and flexible payment plans. Our consultants will reach out within 24 hours.",
+    "whatsapp": "Chat on WhatsApp",
+    "form": {
+      "name_label": "Full Name",
+      "name_placeholder": "E.g. John Doe",
+      "email_label": "Email Address",
+      "email_placeholder": "john@example.com",
+      "phone_label": "WhatsApp Number",
+      "phone_placeholder": "+595 9xx xxx xxx",
+      "unit_label": "Interested Unit",
+      "unit_option1": "Studio Deluxe",
+      "unit_option2": "Luxury 2BR Residence",
+      "unit_option3": "Luxury 3BR Suite",
+      "unit_option4": "Investment Opportunities",
+      "message_label": "Optional Message",
+      "message_placeholder": "How can we help you?",
+      "submit": "Send Inquiry"
+    }
+  },
+  "modal": {
+    "kicker": "Available unit",
+    "title_fallback": "Unit",
+    "floorplan": "Floor plan",
+    "renders": "Renders",
+    "desc": "Request the full brochure or schedule a private tour.",
+    "cta": "Request brochure"
+  },
+  "footer": {
+    "desc": "Sophisticated living in the heart of Asunción. Discover the pinnacle of modern architecture."
+  }
+}
+
+,
+        es: {
+  "nav": {
+    "gallery": "Galería",
+    "units": "Unidades disponibles",
+    "amenities": "Amenidades",
+    "location": "Ubicación",
+    "language": "Idioma",
+    "inquire": "Consultar ahora"
+  },
+  "hero": {
+    "title": "Vida moderna en el corazón de Asunción",
+    "subtitle": "Descubrí tu próxima inversión en el distrito residencial más vibrante de la ciudad.",
+    "badge": {
+      "location": "Ubicación premium",
+      "price": "Desde $85.000",
+      "amenities": "Amenidades premium"
+    },
+    "cta": {
+      "catalog": "Solicitar catálogo",
+      "availability": "Ver disponibilidad"
+    }
+  },
+  "quick": {
+    "location": { "label": "Ubicación", "value": "Asunción, PY" },
+    "units": { "label": "Unidades", "value": "Studio, 1-2 hab" },
+    "size": { "label": "Superficie", "value": "45 - 120 m²" },
+    "price": { "label": "Precio", "value": "Desde $85.000" },
+    "status": { "label": "Estado", "value": "En construcción" }
+  },
+  "gallery": {
+    "kicker": "Diseñado para la vida moderna",
+    "title": "Espacios pensados para la vida urbana actual.",
+    "caption1": "Interiores sofisticados",
+    "caption2": "Excelencia culinaria",
+    "caption3": "Vistas panorámicas"
+  },
+  "units": {
+    "kicker": "Planos",
+    "title": "Unidades disponibles",
+    "price_prefix": "Desde",
+    "cta": "Ver detalles",
+    "studio": {
+      "title": "Studio Deluxe",
+      "price": "Desde $85.000",
+      "size": "45 m²",
+      "bedrooms": "Studio",
+      "bathrooms": "1 baño",
+      "badge": "Disponibilidad limitada",
+      "desc": "Vivienda tipo studio con cocina integrada y baño premium. Ideal para inversión de alta demanda."
+    },
+    "lux2": {
+      "title": "Residencia Luxury 2 Hab",
+      "price": "Desde $125.000",
+      "size": "68 m²",
+      "bedrooms": "2 dormitorios",
+      "bathrooms": "1 baño",
+      "badge": "Más vendido",
+      "desc": "Dos dormitorios con cocina integrada, comedor y sala de estar. Incluye lavadero y baño completo."
+    },
+    "lux3": {
+      "title": "Luxury 3 Hab Suite",
+      "price": "Desde $195.000",
+      "size": "112 m²",
+      "bedrooms": "3 dormitorios",
+      "bathrooms": "2 baños",
+      "desc": "Tres dormitorios con suite principal, cocina abierta, comedor y sala, lavadero y balcón privado."
+    }
+  },
+  "amenities": {
+    "kicker": "Estilo de vida elevado",
+    "title": "Amenidades premium",
+    "desc": "Una colección de espacios sociales, bienestar y ocio pensados para elevar tu día a día.",
+    "tags": {
+      "rooftop": "Rooftop Lounge",
+      "pool": "Piscina infinity",
+      "fitness": "Gimnasio",
+      "cowork": "Coworking",
+      "security": "Seguridad 24h",
+      "parking": "Estacionamiento"
+    },
+    "slide": {
+      "rooftop": { "title": "Rooftop Lounge", "desc": "Vistas skyline, seating premium y bar privado." },
+      "pool": { "title": "Piscina Infinity", "desc": "Piscina climatizada con deck al atardecer." },
+      "fitness": { "title": "Gimnasio", "desc": "Zona de entrenamiento premium y estudio de yoga." },
+      "cowork": { "title": "Coworking", "desc": "Espacios de enfoque con conectividad de alta velocidad." },
+      "security": { "title": "Seguridad 24h", "desc": "Conserjería, CCTV y acceso controlado." },
+      "parking": { "title": "Estacionamiento privado", "desc": "Subsuelo seguro con carga para EV." }
+    }
+  },
+  "location": {
+    "kicker": "Conectividad",
+    "title": "Ubicación privilegiada en Asunción",
+    "desc": "Ubicado estratégicamente en el corazón del crecimiento de la ciudad, Altos del Prado ofrece conectividad con los principales polos comerciales y financieros.",
+    "item1": {
+      "title": "A 5 min de Shopping del Sol",
+      "desc": "Acceso inmediato al centro de compras, gastronomía y entretenimiento más exclusivo del país."
+    },
+    "item2": {
+      "title": "Cerca de Aviadores del Chaco",
+      "desc": "A pasos de la arteria principal que conecta con el Aeropuerto Internacional y hoteles premium."
+    },
+    "item3": {
+      "title": "Cerca del distrito corporativo",
+      "desc": "Ubicado dentro del eje corporativo con sedes de multinacionales."
+    }
+  },
+  "invest": {
+    "kicker": "Oportunidad de mercado",
+    "title": "Por qué invertir en Altos del Prado",
+    "card1": {
+      "title": "Ubicación estratégica",
+      "desc": "En el corredor de mayor demanda para alquileres residenciales y corporativos en Asunción."
+    },
+    "card2": {
+      "title": "Alta apreciación",
+      "desc": "Incremento estimado del valor de 15-20% al finalizar la construcción."
+    },
+    "card3": {
+      "title": "Alta demanda de alquiler",
+      "desc": "Ideal para ejecutivos corporativos y turismo de corta estadía con alta ocupación."
+    },
+    "card4": {
+      "title": "Planes flexibles",
+      "desc": "Opciones de financiación durante la construcción con interés competitivo."
+    }
+  },
+  "contact": {
+    "title": "Invertí en excelencia.",
+    "desc": "Agendá una visita privada o solicitá nuestro catálogo con precios y planes flexibles. Nuestro equipo te contactará en 24 horas.",
+    "whatsapp": "Escribinos por WhatsApp",
+    "form": {
+      "name_label": "Nombre completo",
+      "name_placeholder": "Ej: Juan Pérez",
+      "email_label": "Correo electrónico",
+      "email_placeholder": "juan@ejemplo.com",
+      "phone_label": "Número de WhatsApp",
+      "phone_placeholder": "+595 9xx xxx xxx",
+      "unit_label": "Unidad de interés",
+      "unit_option1": "Studio Deluxe",
+      "unit_option2": "Residencia Luxury 2 Hab",
+      "unit_option3": "Luxury 3 Hab Suite",
+      "unit_option4": "Oportunidades de inversión",
+      "message_label": "Mensaje opcional",
+      "message_placeholder": "¿Cómo podemos ayudarte?",
+      "submit": "Enviar consulta"
+    }
+  },
+  "modal": {
+    "kicker": "Unidad disponible",
+    "title_fallback": "Unidad",
+    "floorplan": "Plano",
+    "renders": "Renders",
+    "desc": "Solicitá el catálogo completo o agendá una visita privada.",
+    "cta": "Solicitar catálogo"
+  },
+  "footer": {
+    "desc": "Vivienda sofisticada en el corazón de Asunción. Descubrí lo mejor de la arquitectura moderna."
+  }
+}
+
+
+    };
+
     const header = document.getElementById('main-header');
     const updateHeader = () => {
         const isMobile = window.innerWidth < 768;
@@ -666,6 +1003,66 @@
     window.addEventListener('scroll', updateHeader);
     window.addEventListener('resize', updateHeader);
     updateHeader();
+
+    const getValueByKey = (obj, key) => {
+        return key.split('.').reduce((acc, part) => (acc && acc[part] !== undefined ? acc[part] : null), obj);
+    };
+
+    const applyTranslations = (dict, lang) => {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const value = getValueByKey(dict, key);
+            if (value) {
+                el.textContent = value;
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+            const pairs = el.getAttribute('data-i18n-attr').split(';');
+            pairs.forEach(pair => {
+                const [attr, key] = pair.split(':').map(part => part.trim());
+                const value = getValueByKey(dict, key);
+                if (value !== null && value !== undefined) {
+                    el.setAttribute(attr, value);
+                }
+            });
+        });
+
+        document.documentElement.lang = lang;
+    };
+
+    const loadLanguage = async (lang) => {
+        try {
+            const response = await fetch(`assets/i18n/${lang}.json`);
+            if (!response.ok) return I18N_INLINE?.[lang] || null;
+            return await response.json();
+        } catch (error) {
+            return I18N_INLINE?.[lang] || null;
+        }
+    };
+
+    const setLanguage = async (lang) => {
+        const dict = await loadLanguage(lang);
+        if (!dict) return;
+        applyTranslations(dict, lang);
+        localStorage.setItem('siteLang', lang);
+
+        document.querySelectorAll('[data-lang]').forEach(btn => {
+            const isActive = btn.dataset.lang === lang;
+            btn.classList.toggle('is-active-lang', isActive);
+            btn.classList.toggle('opacity-60', !isActive);
+        });
+    };
+
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+            setLanguage(btn.dataset.lang);
+        });
+    });
+
+    const savedLang = localStorage.getItem('siteLang') || 'en';
+    setLanguage(savedLang);
 
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -701,7 +1098,7 @@
         btn.addEventListener('click', (event) => {
             const card = event.currentTarget.closest('.unit-card');
             if (!card) return;
-            unitTitle.textContent = card.dataset.title || 'Unidad';
+            unitTitle.textContent = card.dataset.title || 'Unit';
             unitPrice.textContent = card.dataset.price || '';
             unitSize.textContent = card.dataset.size || '';
             unitBedrooms.textContent = card.dataset.bedrooms || '';
@@ -729,18 +1126,21 @@
               });
             unitModal.classList.remove('hidden');
             unitModal.classList.add('flex');
+            document.body.classList.add('modal-open');
         });
     });
 
     unitClose.addEventListener('click', () => {
         unitModal.classList.add('hidden');
         unitModal.classList.remove('flex');
+        document.body.classList.remove('modal-open');
     });
 
     unitModal.addEventListener('click', (event) => {
         if (event.target === unitModal) {
             unitModal.classList.add('hidden');
             unitModal.classList.remove('flex');
+            document.body.classList.remove('modal-open');
         }
     });
 
@@ -749,6 +1149,7 @@
         unitModalCta.addEventListener('click', () => {
             unitModal.classList.add('hidden');
             unitModal.classList.remove('flex');
+            document.body.classList.remove('modal-open');
         });
     }
 
@@ -816,3 +1217,10 @@
     }
 </script>
 </body></html>
+
+
+
+
+
+
+

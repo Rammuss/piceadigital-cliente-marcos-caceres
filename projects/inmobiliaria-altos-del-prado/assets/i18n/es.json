@@ -1,0 +1,160 @@
+﻿{
+  "nav": {
+    "gallery": "Galería",
+    "units": "Unidades disponibles",
+    "amenities": "Amenidades",
+    "location": "Ubicación",
+    "language": "Idioma",
+    "inquire": "Consultar ahora"
+  },
+  "hero": {
+    "title": "Vida moderna en el corazón de Asunción",
+    "subtitle": "Descubrí tu próxima inversión en el distrito residencial más vibrante de la ciudad.",
+    "badge": {
+      "location": "Ubicación premium",
+      "price": "Desde $85.000",
+      "amenities": "Amenidades premium"
+    },
+    "cta": {
+      "catalog": "Solicitar catálogo",
+      "availability": "Ver disponibilidad"
+    }
+  },
+  "quick": {
+    "location": { "label": "Ubicación", "value": "Asunción, PY" },
+    "units": { "label": "Unidades", "value": "Studio, 1-2 hab" },
+    "size": { "label": "Superficie", "value": "45 - 120 m²" },
+    "price": { "label": "Precio", "value": "Desde $85.000" },
+    "status": { "label": "Estado", "value": "En construcción" }
+  },
+  "gallery": {
+    "kicker": "Diseñado para la vida moderna",
+    "title": "Espacios pensados para la vida urbana actual.",
+    "caption1": "Interiores sofisticados",
+    "caption2": "Excelencia culinaria",
+    "caption3": "Vistas panorámicas"
+  },
+  "units": {
+    "kicker": "Planos",
+    "title": "Unidades disponibles",
+    "price_prefix": "Desde",
+    "cta": "Ver detalles",
+    "studio": {
+      "title": "Studio Deluxe",
+      "price": "Desde $85.000",
+      "size": "45 m²",
+      "bedrooms": "Studio",
+      "bathrooms": "1 baño",
+      "badge": "Disponibilidad limitada",
+      "desc": "Vivienda tipo studio con cocina integrada y baño premium. Ideal para inversión de alta demanda."
+    },
+    "lux2": {
+      "title": "Residencia Luxury 2 Hab",
+      "price": "Desde $125.000",
+      "size": "68 m²",
+      "bedrooms": "2 dormitorios",
+      "bathrooms": "1 baño",
+      "badge": "Más vendido",
+      "desc": "Dos dormitorios con cocina integrada, comedor y sala de estar. Incluye lavadero y baño completo."
+    },
+    "lux3": {
+      "title": "Luxury 3 Hab Suite",
+      "price": "Desde $195.000",
+      "size": "112 m²",
+      "bedrooms": "3 dormitorios",
+      "bathrooms": "2 baños",
+      "desc": "Tres dormitorios con suite principal, cocina abierta, comedor y sala, lavadero y balcón privado."
+    }
+  },
+  "amenities": {
+    "kicker": "Estilo de vida elevado",
+    "title": "Amenidades premium",
+    "desc": "Una colección de espacios sociales, bienestar y ocio pensados para elevar tu día a día.",
+    "tags": {
+      "rooftop": "Rooftop Lounge",
+      "pool": "Piscina infinity",
+      "fitness": "Gimnasio",
+      "cowork": "Coworking",
+      "security": "Seguridad 24h",
+      "parking": "Estacionamiento"
+    },
+    "slide": {
+      "rooftop": { "title": "Rooftop Lounge", "desc": "Vistas skyline, seating premium y bar privado." },
+      "pool": { "title": "Piscina Infinity", "desc": "Piscina climatizada con deck al atardecer." },
+      "fitness": { "title": "Gimnasio", "desc": "Zona de entrenamiento premium y estudio de yoga." },
+      "cowork": { "title": "Coworking", "desc": "Espacios de enfoque con conectividad de alta velocidad." },
+      "security": { "title": "Seguridad 24h", "desc": "Conserjería, CCTV y acceso controlado." },
+      "parking": { "title": "Estacionamiento privado", "desc": "Subsuelo seguro con carga para EV." }
+    }
+  },
+  "location": {
+    "kicker": "Conectividad",
+    "title": "Ubicación privilegiada en Asunción",
+    "desc": "Ubicado estratégicamente en el corazón del crecimiento de la ciudad, Altos del Prado ofrece conectividad con los principales polos comerciales y financieros.",
+    "item1": {
+      "title": "A 5 min de Shopping del Sol",
+      "desc": "Acceso inmediato al centro de compras, gastronomía y entretenimiento más exclusivo del país."
+    },
+    "item2": {
+      "title": "Cerca de Aviadores del Chaco",
+      "desc": "A pasos de la arteria principal que conecta con el Aeropuerto Internacional y hoteles premium."
+    },
+    "item3": {
+      "title": "Cerca del distrito corporativo",
+      "desc": "Ubicado dentro del eje corporativo con sedes de multinacionales."
+    }
+  },
+  "invest": {
+    "kicker": "Oportunidad de mercado",
+    "title": "Por qué invertir en Altos del Prado",
+    "card1": {
+      "title": "Ubicación estratégica",
+      "desc": "En el corredor de mayor demanda para alquileres residenciales y corporativos en Asunción."
+    },
+    "card2": {
+      "title": "Alta apreciación",
+      "desc": "Incremento estimado del valor de 15-20% al finalizar la construcción."
+    },
+    "card3": {
+      "title": "Alta demanda de alquiler",
+      "desc": "Ideal para ejecutivos corporativos y turismo de corta estadía con alta ocupación."
+    },
+    "card4": {
+      "title": "Planes flexibles",
+      "desc": "Opciones de financiación durante la construcción con interés competitivo."
+    }
+  },
+  "contact": {
+    "title": "Invertí en excelencia.",
+    "desc": "Agendá una visita privada o solicitá nuestro catálogo con precios y planes flexibles. Nuestro equipo te contactará en 24 horas.",
+    "whatsapp": "Escribinos por WhatsApp",
+    "form": {
+      "name_label": "Nombre completo",
+      "name_placeholder": "Ej: Juan Pérez",
+      "email_label": "Correo electrónico",
+      "email_placeholder": "juan@ejemplo.com",
+      "phone_label": "Número de WhatsApp",
+      "phone_placeholder": "+595 9xx xxx xxx",
+      "unit_label": "Unidad de interés",
+      "unit_option1": "Studio Deluxe",
+      "unit_option2": "Residencia Luxury 2 Hab",
+      "unit_option3": "Luxury 3 Hab Suite",
+      "unit_option4": "Oportunidades de inversión",
+      "message_label": "Mensaje opcional",
+      "message_placeholder": "¿Cómo podemos ayudarte?",
+      "submit": "Enviar consulta"
+    }
+  },
+  "modal": {
+    "kicker": "Unidad disponible",\n    "title_fallback": "Unidad",
+    "floorplan": "Plano",
+    "renders": "Renders",
+    "desc": "Solicitá el catálogo completo o agendá una visita privada.",
+    "cta": "Solicitar catálogo"
+  },
+  "footer": {
+    "desc": "Vivienda sofisticada en el corazón de Asunción. Descubrí lo mejor de la arquitectura moderna."
+  }
+}
+
+

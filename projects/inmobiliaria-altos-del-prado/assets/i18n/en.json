@@ -1,0 +1,160 @@
+﻿{
+  "nav": {
+    "gallery": "Gallery",
+    "units": "Available Units",
+    "amenities": "Amenities",
+    "location": "Location",
+    "language": "Language",
+    "inquire": "Inquire Now"
+  },
+  "hero": {
+    "title": "Modern Living in the Heart of Asunción",
+    "subtitle": "Discover your next investment in the city's most vibrant residential district.",
+    "badge": {
+      "location": "Prime Location",
+      "price": "From $85,000",
+      "amenities": "Premium Amenities"
+    },
+    "cta": {
+      "catalog": "Request Catalog",
+      "availability": "View Availability"
+    }
+  },
+  "quick": {
+    "location": { "label": "Location", "value": "Asunción, PY" },
+    "units": { "label": "Units", "value": "Studio, 1-2 BR" },
+    "size": { "label": "Size", "value": "45 - 120 m²" },
+    "price": { "label": "Price", "value": "From $85,000" },
+    "status": { "label": "Status", "value": "Under Construction" }
+  },
+  "gallery": {
+    "kicker": "Designed for Modern Living",
+    "title": "Spaces designed for modern urban living.",
+    "caption1": "Sophisticated Interiors",
+    "caption2": "Culinary Excellence",
+    "caption3": "Panoramic Horizons"
+  },
+  "units": {
+    "kicker": "Floor Plans",
+    "title": "Available Units",
+    "price_prefix": "From",
+    "cta": "View details",
+    "studio": {
+      "title": "Studio Deluxe",
+      "price": "From $85,000",
+      "size": "45 m²",
+      "bedrooms": "Studio",
+      "bathrooms": "1 bathroom",
+      "badge": "Limited Availability",
+      "desc": "Efficient open-plan living with integrated kitchen and luxury bath. Perfect for high-yield investment."
+    },
+    "lux2": {
+      "title": "Luxury 2BR Residence",
+      "price": "From $125,000",
+      "size": "68 m²",
+      "bedrooms": "2 bedrooms",
+      "bathrooms": "1 bathroom",
+      "badge": "Best Seller",
+      "desc": "Two bedrooms with integrated kitchen, dining, and living area. Includes a laundry zone and full bathroom."
+    },
+    "lux3": {
+      "title": "Luxury 3BR Suite",
+      "price": "From $195,000",
+      "size": "112 m²",
+      "bedrooms": "3 bedrooms",
+      "bathrooms": "2 bathrooms",
+      "desc": "Three bedrooms with a primary en-suite, open kitchen, dining and living area, laundry, and private balcony."
+    }
+  },
+  "amenities": {
+    "kicker": "Elevated Lifestyle",
+    "title": "Premium Amenities",
+    "desc": "Experience a curated collection of social, wellness, and leisure spaces designed to elevate everyday living.",
+    "tags": {
+      "rooftop": "Rooftop Lounge",
+      "pool": "Infinity Pool",
+      "fitness": "Fitness Center",
+      "cowork": "Coworking",
+      "security": "24h Security",
+      "parking": "Private Parking"
+    },
+    "slide": {
+      "rooftop": { "title": "Rooftop Lounge", "desc": "Skyline views, curated seating, and a private bar experience." },
+      "pool": { "title": "Infinity Pool", "desc": "Heated edge pool with sunset deck and private cabanas." },
+      "fitness": { "title": "Fitness Center", "desc": "Private workout zone with premium equipment and yoga studio." },
+      "cowork": { "title": "Coworking Space", "desc": "Quiet focus zones with high-speed connectivity and lounge pods." },
+      "security": { "title": "24h Security", "desc": "Concierge service, CCTV coverage, and controlled access." },
+      "parking": { "title": "Private Parking", "desc": "Secure underground spaces with EV charging and valet options." }
+    }
+  },
+  "location": {
+    "kicker": "Connectivity",
+    "title": "Prime Location in Asunción",
+    "desc": "Strategically positioned in the heart of the city's growth, Altos del Prado offers unmatched connectivity to the most relevant commercial and financial hubs.",
+    "item1": {
+      "title": "5 min from Shopping del Sol",
+      "desc": "Immediate access to the country's most exclusive luxury shopping, dining, and entertainment center."
+    },
+    "item2": {
+      "title": "Near Aviadores del Chaco",
+      "desc": "Located just moments from the main artery connecting the city to the International Airport and prime hotels."
+    },
+    "item3": {
+      "title": "Close to Corporate District",
+      "desc": "Situated within the radius of the city's new corporate axis, home to major multinational headquarters."
+    }
+  },
+  "invest": {
+    "kicker": "Market Opportunity",
+    "title": "Why Invest in Altos del Prado",
+    "card1": {
+      "title": "Strategic Location",
+      "desc": "Situated in the highest demand corridor for residential and corporate rentals in Asunción."
+    },
+    "card2": {
+      "title": "High Appreciation",
+      "desc": "Estimated property value increase of 15-20% upon completion of construction."
+    },
+    "card3": {
+      "title": "Premium Rental Demand",
+      "desc": "Perfect for corporate executives and short-stay tourism with high occupancy rates."
+    },
+    "card4": {
+      "title": "Flexible Payment Plans",
+      "desc": "Customized financing options during the construction phase with competitive interest."
+    }
+  },
+  "contact": {
+    "title": "Invest in Excellence.",
+    "desc": "Schedule a private tour or request our detailed pricing catalog and flexible payment plans. Our consultants will reach out within 24 hours.",
+    "whatsapp": "Chat on WhatsApp",
+    "form": {
+      "name_label": "Full Name",
+      "name_placeholder": "E.g. John Doe",
+      "email_label": "Email Address",
+      "email_placeholder": "john@example.com",
+      "phone_label": "WhatsApp Number",
+      "phone_placeholder": "+595 9xx xxx xxx",
+      "unit_label": "Interested Unit",
+      "unit_option1": "Studio Deluxe",
+      "unit_option2": "Luxury 2BR Residence",
+      "unit_option3": "Luxury 3BR Suite",
+      "unit_option4": "Investment Opportunities",
+      "message_label": "Optional Message",
+      "message_placeholder": "How can we help you?",
+      "submit": "Send Inquiry"
+    }
+  },
+  "modal": {
+    "kicker": "Available unit",\n    "title_fallback": "Unit",
+    "floorplan": "Floor plan",
+    "renders": "Renders",
+    "desc": "Request the full brochure or schedule a private tour.",
+    "cta": "Request brochure"
+  },
+  "footer": {
+    "desc": "Sophisticated living in the heart of Asunción. Discover the pinnacle of modern architecture."
+  }
+}
+
+

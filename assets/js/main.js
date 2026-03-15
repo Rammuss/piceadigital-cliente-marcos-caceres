@@ -167,11 +167,34 @@ if (anchorLinks.length) {
     const navEl = document.querySelector(".nav");
     return navEl ? navEl.getBoundingClientRect().height : 0;
   };
+  const scrollToHash = (hash, behavior = "auto", offsetOverride = null) => {
+    const target = document.querySelector(hash);
+    if (!target) return false;
+    const isHero = hash === "#inicio" || hash === "#top";
+    const offset = offsetOverride !== null ? offsetOverride : getOffset();
+    const top = isHero ? 0 : target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior });
+    return true;
+  };
   let scrollTimeouts = [];
+  let anchorInProgress = false;
+  let anchorInterrupted = false;
   const clearScrollTimeouts = () => {
     scrollTimeouts.forEach((t) => clearTimeout(t));
     scrollTimeouts = [];
   };
+  const interruptAnchor = () => {
+    if (!anchorInProgress) return;
+    anchorInterrupted = true;
+    clearScrollTimeouts();
+  };
+
+  window.addEventListener("wheel", interruptAnchor, { passive: true });
+  window.addEventListener("touchstart", interruptAnchor, { passive: true });
+  window.addEventListener("keydown", (event) => {
+    const keys = ["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "];
+    if (keys.includes(event.key)) interruptAnchor();
+  });
 
   anchorLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -181,24 +204,39 @@ if (anchorLinks.length) {
       if (!target) return;
       event.preventDefault();
       clearScrollTimeouts();
+      anchorInProgress = true;
+      anchorInterrupted = false;
       suspendTypewriter = true;
       completeTypewriter();
-      const isHero = hash === "#inicio" || hash === "#top";
-      const top = isHero ? 0 : target.getBoundingClientRect().top + window.pageYOffset - getOffset();
-      window.scrollTo({ top, behavior: prefersReduced ? "auto" : "smooth" });
+      scrollToHash(hash, prefersReduced ? "auto" : "smooth");
       // Reajuste para evitar cortes por cargas tardías (fonts/imágenes)
       scrollTimeouts.push(setTimeout(() => {
-        const newTop = isHero ? 0 : target.getBoundingClientRect().top + window.pageYOffset - getOffset();
-        window.scrollTo({ top: newTop, behavior: "auto" });
+        if (anchorInterrupted) return;
+        scrollToHash(hash, "auto");
       }, 450));
       scrollTimeouts.push(setTimeout(() => {
-        const finalTop = isHero ? 0 : target.getBoundingClientRect().top + window.pageYOffset - getOffset();
-        window.scrollTo({ top: finalTop, behavior: "auto" });
+        if (anchorInterrupted) return;
+        scrollToHash(hash, "auto");
         suspendTypewriter = false;
+        anchorInProgress = false;
       }, 900));
       history.pushState(null, "", hash);
     });
   });
+
+  const initialHash = window.location.hash;
+  if (initialHash) {
+    const initialOffset = initialHash === "#cta" || initialHash === "#contact" ? 24 : Math.min(getOffset(), 64);
+    requestAnimationFrame(() => {
+      scrollToHash(initialHash, "auto", initialOffset);
+    });
+    window.addEventListener("load", () => {
+      scrollToHash(initialHash, "auto", initialOffset);
+    });
+    setTimeout(() => {
+      scrollToHash(initialHash, "auto", initialOffset);
+    }, 900);
+  }
 }
 
 const themeToggle = document.querySelector(".theme-toggle");

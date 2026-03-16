@@ -1,0 +1,19 @@
+{
+    "name": "inmobiliaria-altos-del-prado",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "build:css": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css --minify",
+        "watch:css": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css --watch"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@tailwindcss/cli": "^4.2.1",
+        "autoprefixer": "^10.4.27",
+        "postcss": "^8.5.8",
+        "tailwindcss": "^3.4.17"
+    }
+}

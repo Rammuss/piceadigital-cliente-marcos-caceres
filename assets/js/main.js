@@ -275,3 +275,87 @@ if (themeToggle) {
     applyTheme(next);
   });
 }
+
+const CONSENT_KEY = "picea-cookie-consent";
+const banner = document.getElementById("cookie-banner");
+const consentButtons = document.querySelectorAll("[data-cookie-action]");
+
+const getConsent = () => {
+  try {
+    return localStorage.getItem(CONSENT_KEY);
+  } catch (error) {
+    return null;
+  }
+};
+
+const setConsent = (value) => {
+  try {
+    localStorage.setItem(CONSENT_KEY, value);
+  } catch (error) {
+    // ignore
+  }
+};
+
+const getTrackingIds = () => {
+  const body = document.body;
+  if (!body) return { ga4: "", pixel: "" };
+  return {
+    ga4: (body.dataset.ga4 || "").trim(),
+    pixel: (body.dataset.pixel || "").trim(),
+  };
+};
+
+const loadGA4 = (id) => {
+  if (!id || window.gtag) return;
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+  window.gtag("js", new Date());
+  window.gtag("config", id, { anonymize_ip: true });
+};
+
+const loadPixel = (id) => {
+  if (!id || window.fbq) return;
+  !(function(f,b,e,v,n,t,s){
+    if(f.fbq) return; n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version="2.0";
+    n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s);
+  })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+  window.fbq("init", id);
+  window.fbq("track", "PageView");
+};
+
+const loadAnalytics = () => {
+  const { ga4, pixel } = getTrackingIds();
+  loadGA4(ga4);
+  loadPixel(pixel);
+};
+
+if (banner) {
+  const consent = getConsent();
+  if (consent === "accept") {
+    loadAnalytics();
+  } else if (!consent) {
+    banner.classList.add("is-visible");
+  }
+
+  consentButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const action = btn.dataset.cookieAction;
+      if (action === "accept") {
+        setConsent("accept");
+        loadAnalytics();
+      } else {
+        setConsent("necessary");
+      }
+      banner.classList.remove("is-visible");
+    });
+  });
+}

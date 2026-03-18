@@ -102,6 +102,7 @@ if (ctaForm) {
       if (pendingTimer) clearTimeout(pendingTimer);
       if (status) status.textContent = "Gracias, ya recibimos tu consulta.";
       setTimeout(() => ctaForm.reset(), 400);
+      trackEvent("generate_lead", { form_id: "cta-form" });
     });
   }
 }
@@ -338,6 +339,11 @@ const loadAnalytics = () => {
   loadPixel(pixel);
 };
 
+const trackEvent = (name, params = {}) => {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", name, params);
+};
+
 if (banner) {
   const consent = getConsent();
   if (consent === "accept") {
@@ -359,3 +365,30 @@ if (banner) {
     });
   });
 }
+
+const registerTrackingEvents = () => {
+  const waLinks = document.querySelectorAll('a[href^="https://wa.me/"], a[href^="http://wa.me/"]');
+  waLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      trackEvent("click_whatsapp", {
+        link_url: link.href,
+        link_text: link.textContent.trim().slice(0, 120),
+      });
+    });
+  });
+
+  const portfolioLinks = document.querySelectorAll('a[href="portfolio.html"], a[href="portfolio.html#portfolio"]');
+  portfolioLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      trackEvent("view_portfolio", {
+        link_url: link.href,
+      });
+    });
+  });
+
+  if (window.location.pathname.endsWith("/portfolio.html")) {
+    trackEvent("view_portfolio", { page_path: window.location.pathname });
+  }
+};
+
+registerTrackingEvents();

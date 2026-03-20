@@ -1,4 +1,19 @@
-﻿:root {
+@font-face {
+  font-family: "League Spartan";
+  src: url("../fonts/league-spartan-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("../fonts/manrope-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
   --bg: #141215;
   --ink: #f6f2f0;
   --muted: #b7aeb2;
@@ -36,14 +51,6 @@ body {
   background: var(--bg);
   padding-top: 0;
   transition: background-color 300ms ease, color 300ms ease;
-}
-
-body, body * {
-  transition:
-    background-color 300ms ease,
-    color 300ms ease,
-    border-color 300ms ease,
-    box-shadow 300ms ease;
 }
 
 body.theme-light {
@@ -148,6 +155,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted);
 }
 .nav-links .nav-cta { display: none; }
+
 .nav-links a {
   background: transparent;
   border: none;
@@ -1751,6 +1759,7 @@ body.theme-light .cookie-content {
     top: 12px;
     width: min(100%, calc(100vw - 24px));
     border-radius: 18px;
+    backdrop-filter: none;
   }
   .logo-img { width: 114px; }
   .nav-links {
@@ -1780,6 +1789,10 @@ body.theme-light .cookie-content {
     will-change: transform, opacity;
     transition: transform 120ms ease-out, opacity 120ms ease-out;
     z-index: 101;
+  }
+  .nav-links,
+  .nav-overlay {
+    backdrop-filter: none;
   }
   body.theme-light .nav-links {
     background:
@@ -1959,3 +1972,6 @@ body.theme-light .scroll-down {
     padding: 6px 10px;
     border-radius: 999px;
   }
+
+
+

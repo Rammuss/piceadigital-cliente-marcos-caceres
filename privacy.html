@@ -8,16 +8,34 @@
   <link rel="shortcut icon" href="favicon.ico?v=20260315" type="image/x-icon" />
   <link rel="apple-touch-icon" href="assets/icono/picea-iconv3.png?v=20260315" />
   <meta name="description" content="Política de privacidad de Picea Digital." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260308" />
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/css/styles.css?v=20260320" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260320" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="assets/css/styles.css?v=20260320" /></noscript>
 </head>
 <body data-ga4="G-PEFPMM9NYR" data-pixel="2431513420610437">
   <header class="hero hero-centered" id="top">
     <nav class="nav">
       <a class="logo" href="index.html#inicio" aria-label="Ir al inicio">
-        <img src="assets/logo/picea_logo_transparent.png" alt="Picea Digital" class="logo-img" width="285" height="103" />
+        <picture>
+          <source
+            type="image/webp"
+            srcset="assets/logo/picea_logo_transparent-143.webp 143w, assets/logo/picea_logo_transparent.webp 285w"
+            sizes="(max-width: 640px) 114px, 160px"
+          />
+          <img
+            src="assets/logo/picea_logo_transparent.png"
+            srcset="assets/logo/picea_logo_transparent-143.png 143w, assets/logo/picea_logo_transparent.png 285w"
+            sizes="(max-width: 640px) 114px, 160px"
+            alt="Picea Digital"
+            class="logo-img"
+            width="285"
+            height="103"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </picture>
       </a>
       <div class="nav-links" id="nav-links">
         <a href="index.html#inicio">Inicio</a>

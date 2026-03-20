@@ -1,5 +1,3 @@
-﻿<!DOCTYPE html>
-
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="es" translate="no"><head>
 <meta charset="utf-8"/>
@@ -9,13 +7,18 @@
 <link rel="icon" href="assets/favicon/favicon-inmobiliaria.ico?v=20260315" type="image/x-icon"/>
 <link rel="shortcut icon" href="assets/favicon/favicon-inmobiliaria.ico?v=20260315" type="image/x-icon"/>
 <link href="assets/css/tailwind.css?v=20260315-2" rel="stylesheet"/>
+<link rel="preload" as="image" href="assets/remote-1.webp" fetchpriority="high"/>
 <!-- Google Fonts: Inter and Montserrat -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></noscript>
 <style>
-        .nav-transition { transition: all 0.4s ease; }
+        .nav-transition { transition: background-color 0.4s ease, box-shadow 0.4s ease; }
         .hover-lift { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease; }
         .hover-lift:hover { transform: translateY(-10px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
         
@@ -116,7 +119,7 @@
 <main>
 <!-- Hero Section -->
 <section class="relative min-h-screen md:h-screen w-full flex items-center justify-center overflow-hidden">
-<img alt="Modern residential building in Asunción" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO9Y16dwrggKVoFpikThElfDKnOECzevnfkcPZfrpdvlQLDAtJ1wRln9jeXM-3q5J1Gq61x8LKh-N8yHMTR0A6A3OS-dkH_Yui8CaifiWUKIx9PESkuUWqPUO500S_eSC7NGZ2PmLWmZZSnVvNDui-1tz_xKz9lD54CLwVQLg1h0IzKB3sZBmpOnDSfuyRXTk5aN9JpJV0TKlwP5mIKuiQfJHPATbUskJvbaaKCkX-xxf9KquSuvqZXFtX4IAm3Dg8_Dcogc23I3g"/>
+<img alt="Modern residential building in Asunción" class="absolute inset-0 w-full h-full object-cover" src="assets/remote-1.webp" fetchpriority="high" decoding="async" width="512" height="512"/>
 <div class="absolute inset-0 hero-overlay"></div>
 <div class="relative z-10 text-center px-6 max-w-5xl">
 <h1 class="text-4xl md:text-6xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight drop-shadow-2xl" data-i18n="hero.title">
@@ -186,20 +189,20 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 <div class="md:col-span-7 aspect-[4/3] md:aspect-auto md:h-[600px] relative group overflow-hidden rounded-sm">
-<img alt="Living Room" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdbx7aTiPJPXdjFySEgNrcnRKd8eJNLRKS3sHgfBfFqG_7TASwTV0BzeAiHTe0YmRrRigBHQOiFBXzfig7wp1SRVpsVfF3pPPHHCBavbgkueVKL-XTuOG83bA9CQbSUikMsnWG9GNKRW8TRI7pNOSzePSPBUS6KRY3h0v8DmcDlPTdWUVCqO--ueZd3ePings7-miewdzdTeu9ZFxEdc3wgNvV8YGDEPJYrla4SkmUCLonLFvcEi7S8A3vajRNyvhEx-ZkZuB51y8"/>
+<img alt="Living Room" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" loading="lazy" decoding="async" src="assets/remote-2.webp" width="512" height="512"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-10">
 <span class="text-white font-display text-2xl font-light" data-i18n="gallery.caption1">Sophisticated Interiors</span>
 </div>
 </div>
 <div class="md:col-span-5 grid grid-rows-2 gap-6 h-[500px] md:h-[600px]">
 <div class="relative group overflow-hidden rounded-sm">
-<img alt="Kitchen Area" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhOgl5DRjqtzyH1MMRi63a3IgbRS8nrOUh1ZFyKMuBjK4QueVB_uuHYnjXBof8sHpnEbTXZexVZqE9MMNoJb-Rp_Aj3BcG1kOEMUTbFtyw7K7rtB2T6YKXO73XHWebQrMRJ8TKibffTkVRQvczKmAW_A-YPzqRI6WoY9M6HxSpgcGR7HDCCwbIVqHCoSjqvmTUi3rwYU4SxkIRrzN9b2bksRK57CZZGtfpkAzoKTlHwJcJiWobEDaCzC5sQyMnyfCOt_S9rA74_cY"/>
+<img alt="Kitchen Area" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" loading="lazy" decoding="async" src="assets/remote-3.webp" width="512" height="512"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
 <span class="text-white font-display text-xl font-light" data-i18n="gallery.caption2">Culinary Excellence</span>
 </div>
 </div>
 <div class="relative group overflow-hidden rounded-sm">
-<img alt="Rooftop View" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGi4-2RcapLkOue-z_qyi0L65_x-t_5Rg3CM0BoqqJHfBMWWBjPMqBikwDZ47TLCcfqJntBJ1bLQ-BOdW2MGMJz6CZLYSwLZonw57mFczc9ELkKLmokObGy_faO2aZwbuOtiGXho9TrZLC1E_21YnEW-w9tWG63Kxl8HEISqJorFVlAb7KzGl6zN-MWqfn6mial1TicxNqiFb04fNWk0hS4TUTBF7ug3Z3MAW5DSKQJK0oWwuqTXFsVWabvtH6lhU7VqseIocQ6Vk"/>
+<img alt="Rooftop View" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110" loading="lazy" decoding="async" src="assets/remote-4.webp" width="512" height="512"/>
 <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
 <span class="text-white font-display text-xl font-light" data-i18n="gallery.caption3">Panoramic Horizons</span>
 </div>
@@ -224,13 +227,13 @@
                data-bedrooms="Studio"
                data-bathrooms="1 bathroom"
                data-i18n-attr="data-title:units.studio.title;data-price:units.studio.price;data-size:units.studio.size;data-bedrooms:units.studio.bedrooms;data-bathrooms:units.studio.bathrooms"
-               data-floorplan="assets/seccion-unidades/studio/plano.png"
-               data-render1="assets/seccion-unidades/studio/sala.png"
-               data-render2="assets/seccion-unidades/studio/cocina-comedor.png"
-               data-render3="assets/seccion-unidades/studio/habitacion.png"
-               data-render4="assets/seccion-unidades/studio/banho.png">
+               data-floorplan="assets/seccion-unidades/studio/plano.webp"
+               data-render1="assets/seccion-unidades/studio/sala.webp"
+               data-render2="assets/seccion-unidades/studio/cocina-comedor.webp"
+               data-render3="assets/seccion-unidades/studio/habitacion.webp"
+               data-render4="assets/seccion-unidades/studio/banho.webp">
   <div class="relative h-80 overflow-hidden bg-white flex items-center justify-center p-4 border-b border-gray-100">
-          <img alt="Studio Floor Plan" class="max-h-full w-full object-contain floorplan-thumb" src="assets/seccion-unidades/studio/plano.png"/>
+          <img alt="Studio Floor Plan" class="max-h-full w-full object-contain floorplan-thumb" loading="lazy" decoding="async" src="assets/seccion-unidades/studio/plano.webp" width="1024" height="1536"/>
 <div class="absolute top-4 left-4 bg-forest-green text-white text-[10px] uppercase tracking-widest px-3 py-1 font-bold" data-i18n="units.studio.badge">Limited Availability</div>
 </div>
 <div class="p-8 flex-grow">
@@ -255,15 +258,15 @@
                data-bedrooms="2 bedrooms"
                data-bathrooms="1 bathroom"
                data-i18n-attr="data-title:units.lux2.title;data-price:units.lux2.price;data-size:units.lux2.size;data-bedrooms:units.lux2.bedrooms;data-bathrooms:units.lux2.bathrooms"
-           data-floorplan="assets/seccion-unidades/2br/planov2.png"
-           data-render1="assets/seccion-unidades/2br/sala.png"
-           data-render2="assets/seccion-unidades/2br/cocina.png"
-           data-render3="assets/seccion-unidades/2br/habitacion-suite.png"
-           data-render4="assets/seccion-unidades/2br/banho-comun.png"
-           data-render5="assets/seccion-unidades/2br/banho-suite.png"
-           data-render6="assets/seccion-unidades/2br/habitacion normal.png">
+           data-floorplan="assets/seccion-unidades/2br/planov2.webp"
+           data-render1="assets/seccion-unidades/2br/sala.webp"
+           data-render2="assets/seccion-unidades/2br/cocina.webp"
+           data-render3="assets/seccion-unidades/2br/habitacion-suite.webp"
+           data-render4="assets/seccion-unidades/2br/banho-comun.webp"
+           data-render5="assets/seccion-unidades/2br/banho-suite.webp"
+           data-render6="assets/seccion-unidades/2br/habitacion normal.webp">
   <div class="relative h-80 overflow-hidden bg-white flex items-center justify-center p-4 border-b border-gray-100">
-  <img alt="2BR Floor Plan" class="max-h-full floorplan-thumb" src="assets/seccion-unidades/2br/planov2.png"/>
+  <img alt="2BR Floor Plan" class="max-h-full floorplan-thumb" loading="lazy" decoding="async" src="assets/seccion-unidades/2br/planov2.webp" width="1024" height="1536"/>
   <div class="absolute top-4 left-4 bg-gold-accent text-white text-[10px] uppercase tracking-widest px-3 py-1 font-bold" data-i18n="units.lux2.badge">Best Seller</div>
 </div>
 <div class="p-8 flex-grow">
@@ -288,16 +291,16 @@
                data-bedrooms="3 bedrooms"
                data-bathrooms="2 bathrooms"
                data-i18n-attr="data-title:units.lux3.title;data-price:units.lux3.price;data-size:units.lux3.size;data-bedrooms:units.lux3.bedrooms;data-bathrooms:units.lux3.bathrooms"
-           data-floorplan="assets/seccion-unidades/3br/plano.png"
-           data-render1="assets/seccion-unidades/3br/sala.png"
-           data-render2="assets/seccion-unidades/3br/cocina.png"
-           data-render3="assets/seccion-unidades/3br/habitacion-suite.png"
-           data-render4="assets/seccion-unidades/3br/banho.png"
-           data-render5="assets/seccion-unidades/3br/laundry.png"
-           data-render6="assets/seccion-unidades/3br/habitacion-normal1.png"
-           data-render7="assets/seccion-unidades/3br/habitacion-normal2.png">
+           data-floorplan="assets/seccion-unidades/3br/plano.webp"
+           data-render1="assets/seccion-unidades/3br/sala.webp"
+           data-render2="assets/seccion-unidades/3br/cocina.webp"
+           data-render3="assets/seccion-unidades/3br/habitacion-suite.webp"
+           data-render4="assets/seccion-unidades/3br/banho.webp"
+           data-render5="assets/seccion-unidades/3br/laundry.webp"
+           data-render6="assets/seccion-unidades/3br/habitacion-normal1.webp"
+           data-render7="assets/seccion-unidades/3br/habitacion-normal2.webp">
   <div class="relative h-80 overflow-hidden bg-white flex items-center justify-center p-4 border-b border-gray-100">
-  <img alt="3BR Floor Plan" class="max-h-full floorplan-thumb" src="assets/seccion-unidades/3br/plano.png"/>
+  <img alt="3BR Floor Plan" class="max-h-full floorplan-thumb" loading="lazy" decoding="async" src="assets/seccion-unidades/3br/plano.webp" width="1024" height="1536"/>
 </div>
 <div class="p-8 flex-grow">
 <div class="flex justify-between items-start mb-4">
@@ -347,7 +350,7 @@
 <div class="flex transition-transform duration-700 ease-out" id="amenities-track">
 <article class="min-w-full px-6">
 <div class="relative h-[420px] md:h-[520px] overflow-hidden rounded-sm shadow-2xl">
-<img alt="Rooftop Lounge" class="absolute inset-0 w-full h-full object-cover" src="assets/seccion-amenities/Rooftop.png"/>
+<img alt="Rooftop Lounge" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/seccion-amenities/Rooftop.webp" width="1536" height="1024"/>
 <div class="absolute inset-0 bg-gradient-to-t from-forest-green/80 via-forest-green/10 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6">
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
@@ -360,7 +363,7 @@
 </article>
 <article class="min-w-full px-6">
 <div class="relative h-[420px] md:h-[520px] overflow-hidden rounded-sm shadow-2xl">
-<img alt="Infinity Pool" class="absolute inset-0 w-full h-full object-cover" src="assets/seccion-amenities/piscina.png"/>
+<img alt="Infinity Pool" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/seccion-amenities/piscina.webp" width="1536" height="1024"/>
 <div class="absolute inset-0 bg-gradient-to-t from-forest-green/80 via-forest-green/10 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6">
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
@@ -373,7 +376,7 @@
 </article>
 <article class="min-w-full px-6">
 <div class="relative h-[420px] md:h-[520px] overflow-hidden rounded-sm shadow-2xl">
-<img alt="Fitness Center" class="absolute inset-0 w-full h-full object-cover" src="assets/seccion-amenities/Fitness-Center.png"/>
+<img alt="Fitness Center" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/seccion-amenities/Fitness-Center.webp" width="1536" height="1024"/>
 <div class="absolute inset-0 bg-gradient-to-t from-forest-green/80 via-forest-green/10 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6">
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
@@ -386,7 +389,7 @@
 </article>
 <article class="min-w-full px-6">
 <div class="relative h-[420px] md:h-[520px] overflow-hidden rounded-sm shadow-2xl">
-<img alt="Coworking Space" class="absolute inset-0 w-full h-full object-cover" src="assets/seccion-amenities/Coworking.png"/>
+<img alt="Coworking Space" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/seccion-amenities/Coworking.webp" width="1536" height="1024"/>
 <div class="absolute inset-0 bg-gradient-to-t from-forest-green/80 via-forest-green/10 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6">
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
@@ -399,7 +402,7 @@
 </article>
 <article class="min-w-full px-6">
 <div class="relative h-[420px] md:h-[520px] overflow-hidden rounded-sm shadow-2xl">
-<img alt="24h Security" class="absolute inset-0 w-full h-full object-cover" src="assets/seccion-amenities/24h-Security.png"/>
+<img alt="24h Security" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/seccion-amenities/24h-Security.webp" width="1536" height="1024"/>
 <div class="absolute inset-0 bg-gradient-to-t from-forest-green/80 via-forest-green/10 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6">
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
@@ -412,7 +415,7 @@
 </article>
 <article class="min-w-full px-6">
 <div class="relative h-[420px] md:h-[520px] overflow-hidden rounded-sm shadow-2xl">
-<img alt="Private Parking" class="absolute inset-0 w-full h-full object-cover" src="assets/seccion-amenities/Private-Parking.png"/>
+<img alt="Private Parking" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" src="assets/seccion-amenities/Private-Parking.webp" width="1536" height="1024"/>
 <div class="absolute inset-0 bg-gradient-to-t from-forest-green/80 via-forest-green/10 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6">
 <div class="w-12 h-12 border border-white/30 rounded-full flex items-center justify-center mb-4">
@@ -444,7 +447,7 @@
 <span class="material-symbols-outlined">shopping_cart</span>
 </div>
 <div>
-<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item1.title">5 min from Shopping del Sol</h5>
+<h4 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item1.title">5 min from Shopping del Sol</h4>
 <p class="text-xs text-gray-500 leading-relaxed" data-i18n="location.item1.desc">Immediate access to the country's most exclusive luxury shopping, dining, and entertainment center.</p>
 </div>
 </div>
@@ -453,7 +456,7 @@
 <span class="material-symbols-outlined">explore</span>
 </div>
 <div>
-<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item2.title">Near Aviadores del Chaco</h5>
+<h4 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item2.title">Near Aviadores del Chaco</h4>
 <p class="text-xs text-gray-500 leading-relaxed" data-i18n="location.item2.desc">Located just moments from the main artery connecting the city to the International Airport and prime hotels.</p>
 </div>
 </div>
@@ -462,14 +465,14 @@
 <span class="material-symbols-outlined">business_center</span>
 </div>
 <div>
-<h5 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item3.title">Close to Corporate District</h5>
+<h4 class="font-bold text-forest-green uppercase tracking-wider text-sm mb-2" data-i18n="location.item3.title">Close to Corporate District</h4>
 <p class="text-xs text-gray-500 leading-relaxed" data-i18n="location.item3.desc">Situated within the radius of the city's new corporate axis, home to major multinational headquarters.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="relative h-[550px] shadow-2xl rounded-sm overflow-hidden group">
-<iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3842.1177395676536!2d-57.564379726851335!3d-25.28400337562512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2spy!4v1773577023750!5m2!1ses!2spy" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe class="w-full h-full" title="Mapa de ubicación Altos del Prado" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3842.1177395676536!2d-57.564379726851335!3d-25.28400337562512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2spy!4v1773577023750!5m2!1ses!2spy" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-sm border-l-4 border-gold-accent pointer-events-none">
 <p class="text-[10px] uppercase font-bold tracking-widest text-forest-green">Altos del Prado Residencial</p>
 <p class="text-xs text-gray-500">Calle Santa Teresa c/ Aviadores, Asunción.</p>
@@ -591,25 +594,25 @@
   <span id="unit-bathrooms">Bathrooms</span>
 </div>
 </div>
-<button class="text-gray-400 hover:text-forest-green transition text-2xl leading-none" id="unit-close" aria-label="Close">×</button>
+<button class="text-gray-400 hover:text-forest-green transition text-2xl leading-none" id="unit-close" aria-label="Close">&times;</button>
 </div>
 <div class="p-6 md:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
 <div>
   <h4 class="text-forest-green uppercase tracking-widest text-xs mb-4" data-i18n="modal.floorplan">Floor plan</h4>
   <div class="border border-gray-100 p-4 bg-soft-gray">
-  <img id="unit-floorplan" alt="Unit floor plan" class="w-full object-contain"/>
+  <img id="unit-floorplan" alt="Unit floor plan" class="w-full object-contain" width="1024" height="1536"/>
 </div>
 </div>
 <div>
   <h4 class="text-forest-green uppercase tracking-widest text-xs mb-4" data-i18n="modal.renders">Renders</h4>
           <div class="grid grid-cols-1 gap-4">
-              <img id="unit-render-1" alt="Render 1" class="w-full h-64 sm:h-72 object-cover"/>
-              <img id="unit-render-2" alt="Render 2" class="w-full h-64 sm:h-72 object-cover"/>
-              <img id="unit-render-3" alt="Render 3" class="w-full h-64 sm:h-72 object-cover"/>
-              <img id="unit-render-4" alt="Render 4" class="w-full h-64 sm:h-72 object-cover"/>
-              <img id="unit-render-5" alt="Render 5" class="w-full h-64 sm:h-72 object-cover"/>
-              <img id="unit-render-6" alt="Render 6" class="w-full h-64 sm:h-72 object-cover"/>
-              <img id="unit-render-7" alt="Render 7" class="w-full h-64 sm:h-72 object-cover"/>
+              <img id="unit-render-1" alt="Render 1" class="w-full h-64 sm:h-72 object-cover" width="1536" height="1024"/>
+              <img id="unit-render-2" alt="Render 2" class="w-full h-64 sm:h-72 object-cover" width="1536" height="1024"/>
+              <img id="unit-render-3" alt="Render 3" class="w-full h-64 sm:h-72 object-cover" width="1536" height="1024"/>
+              <img id="unit-render-4" alt="Render 4" class="w-full h-64 sm:h-72 object-cover" width="1536" height="1024"/>
+              <img id="unit-render-5" alt="Render 5" class="w-full h-64 sm:h-72 object-cover" width="1536" height="1024"/>
+              <img id="unit-render-6" alt="Render 6" class="w-full h-64 sm:h-72 object-cover" width="1536" height="1024"/>
+              <img id="unit-render-7" alt="Render 7" class="w-full h-64 sm:h-72 object-cover" width="1536" height="1024"/>
             </div>
 </div>
 </div>
@@ -633,7 +636,7 @@
 <a class="text-white/60 hover:text-gold-accent transition-colors text-xs uppercase tracking-widest" data-i18n="nav.location" href="#location">Location</a>
 </div>
 <div class="border-t border-white/10 pt-12">
-<p class="text-white/20 text-[10px] tracking-[0.4em] uppercase">Â© 2024 Altos del Prado Residencial. Asunción, Paraguay.</p>
+<p class="text-white/20 text-[10px] tracking-[0.4em] uppercase">© 2024 Altos del Prado Residencial. Asunción, Paraguay.</p>
 </div>
 </div>
 </footer>
@@ -817,7 +820,7 @@
   },
   "hero": {
     "title": "Vida moderna en el corazón de Asunción",
-    "subtitle": "Descubrí tu próxima inversión en el distrito residencial más vibrante de la ciudad.",
+    "subtitle": "Descubrí tu próxima inversión en el distrito residencial m²s vibrante de la ciudad.",
     "badge": {
       "location": "Ubicación premium",
       "price": "Desde $85.000",
@@ -836,11 +839,11 @@
     "status": { "label": "Estado", "value": "En construcción" }
   },
   "gallery": {
-    "kicker": "Diseñado para la vida moderna",
+    "kicker": "Dise�ado para la vida moderna",
     "title": "Espacios pensados para la vida urbana actual.",
     "caption1": "Interiores sofisticados",
     "caption2": "Excelencia culinaria",
-    "caption3": "Vistas panorámicas"
+    "caption3": "Vistas panor�micas"
   },
   "units": {
     "kicker": "Planos",
@@ -871,13 +874,13 @@
       "size": "112 m²",
       "bedrooms": "3 dormitorios",
       "bathrooms": "2 baños",
-      "desc": "Tres dormitorios con suite principal, cocina abierta, comedor y sala, lavadero y balcón privado."
+      "desc": "Tres dormitorios con suite principal, cocina abierta, comedor y sala, lavadero y balc�n privado."
     }
   },
   "amenities": {
     "kicker": "Estilo de vida elevado",
     "title": "Amenidades premium",
-    "desc": "Una colección de espacios sociales, bienestar y ocio pensados para elevar tu día a día.",
+    "desc": "Una colecci�n de espacios sociales, bienestar y ocio pensados para elevar tu día a día.",
     "tags": {
       "rooftop": "Rooftop Lounge",
       "pool": "Piscina infinity",
@@ -891,7 +894,7 @@
       "pool": { "title": "Piscina Infinity", "desc": "Piscina climatizada con deck al atardecer." },
       "fitness": { "title": "Gimnasio", "desc": "Zona de entrenamiento premium y estudio de yoga." },
       "cowork": { "title": "Coworking", "desc": "Espacios de enfoque con conectividad de alta velocidad." },
-      "security": { "title": "Seguridad 24h", "desc": "Conserjería, CCTV y acceso controlado." },
+      "security": { "title": "Seguridad 24h", "desc": "Conserjer�a, CCTV y acceso controlado." },
       "parking": { "title": "Estacionamiento privado", "desc": "Subsuelo seguro con carga para EV." }
     }
   },
@@ -901,7 +904,7 @@
     "desc": "Ubicado estratégicamente en el corazón del crecimiento de la ciudad, Altos del Prado ofrece conectividad con los principales polos comerciales y financieros.",
     "item1": {
       "title": "A 5 min de Shopping del Sol",
-      "desc": "Acceso inmediato al centro de compras, gastronomía y entretenimiento más exclusivo del país."
+      "desc": "Acceso inmediato al centro de compras, gastronom²a y entretenimiento m²s exclusivo del país."
     },
     "item2": {
       "title": "Cerca de Aviadores del Chaco",
@@ -916,7 +919,7 @@
     "kicker": "Oportunidad de mercado",
     "title": "Por qué invertir en Altos del Prado",
     "card1": {
-      "title": "Ubicación estratégica",
+      "title": "Ubicación estrat�gica",
       "desc": "En el corredor de mayor demanda para alquileres residenciales y corporativos en Asunción."
     },
     "card2": {
@@ -925,7 +928,7 @@
     },
     "card3": {
       "title": "Alta demanda de alquiler",
-      "desc": "Ideal para ejecutivos corporativos y turismo de corta estadía con alta ocupación."
+      "desc": "Ideal para ejecutivos corporativos y turismo de corta estadía con alta ocupaci�n."
     },
     "card4": {
       "title": "Planes flexibles",
@@ -934,7 +937,7 @@
   },
   "contact": {
     "title": "Invertí en excelencia.",
-    "desc": "Agendá una visita privada o solicitá nuestro catálogo con precios y planes flexibles. Nuestro equipo te contactará en 24 horas.",
+    "desc": "Agendá una visita privada o solicit� nuestro catálogo con precios y planes flexibles. Nuestro equipo te contactará en 24 horas.",
     "whatsapp": "Escribinos por WhatsApp",
     "form": {
       "name_label": "Nombre completo",
@@ -958,7 +961,7 @@
     "title_fallback": "Unidad",
     "floorplan": "Plano",
     "renders": "Renders",
-    "desc": "Solicitá el catálogo completo o agendá una visita privada.",
+    "desc": "Solicitá el catálogo completo o agend� una visita privada.",
     "cta": "Solicitar catálogo"
   },
   "footer": {
@@ -970,14 +973,25 @@
     };
 
     const header = document.getElementById('main-header');
+    const mobileHeaderMQ = window.matchMedia('(max-width: 767px)');
+    let headerState = '';
+    let headerTicking = false;
+
     const updateHeader = () => {
-        const isMobile = window.innerWidth < 768;
-        if (isMobile) {
+        const nextState = mobileHeaderMQ.matches
+            ? 'mobile'
+            : (window.scrollY > 80 ? 'scrolled' : 'top');
+
+        if (nextState === headerState) return;
+        headerState = nextState;
+
+        if (nextState === 'mobile') {
             header.classList.add('bg-forest-green');
             header.classList.remove('bg-transparent', 'shadow-2xl');
             return;
         }
-        if (window.scrollY > 80) {
+
+        if (nextState === 'scrolled') {
             header.classList.add('bg-forest-green', 'shadow-2xl');
             header.classList.remove('bg-transparent');
         } else {
@@ -986,8 +1000,18 @@
         }
     };
 
-    window.addEventListener('scroll', updateHeader);
-    window.addEventListener('resize', updateHeader);
+    const requestHeaderUpdate = () => {
+        if (headerTicking) return;
+        headerTicking = true;
+        requestAnimationFrame(() => {
+            headerTicking = false;
+            updateHeader();
+        });
+    };
+
+    window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
+    window.addEventListener('resize', requestHeaderUpdate, { passive: true });
+    mobileHeaderMQ.addEventListener('change', requestHeaderUpdate);
     updateHeader();
 
     const getValueByKey = (obj, key) => {
@@ -1017,18 +1041,19 @@
         document.documentElement.lang = lang;
     };
 
-    const loadLanguage = async (lang) => {
+    const fetchLanguage = async (lang) => {
         try {
             const response = await fetch(`assets/i18n/${lang}.json`);
-            if (!response.ok) return I18N_INLINE?.[lang] || null;
+            if (!response.ok) return null;
             return await response.json();
         } catch (error) {
-            return I18N_INLINE?.[lang] || null;
+            return null;
         }
     };
 
     const setLanguage = async (lang) => {
-        const dict = await loadLanguage(lang);
+        const inlineDict = null;
+        const dict = await fetchLanguage(lang) || inlineDict;
         if (!dict) return;
         applyTranslations(dict, lang);
         localStorage.setItem('siteLang', lang);
@@ -1055,7 +1080,7 @@
     
     menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('active');
-        updateHeader();
+        requestHeaderUpdate();
     });
 
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
@@ -1203,6 +1228,10 @@
     }
 </script>
 </body></html>
+
+
+
+
 
 
 

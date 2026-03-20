@@ -596,6 +596,21 @@ body.theme-light .nav-sep {
   color: var(--muted);
 }
 
+.typewriter-text {
+  display: block;
+}
+
+.typewriter-static {
+  opacity: 0.01;
+  transform: translateY(6px);
+  transition: opacity 320ms ease, transform 320ms ease;
+}
+
+.typewriter-static.typewriter-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 body.theme-light .why::before {
   background:
     radial-gradient(circle at 20% 0%, rgba(30, 110, 200, 0.12), transparent 45%),

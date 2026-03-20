@@ -16,6 +16,8 @@ revealItems.forEach((item) => observer.observe(item));
 const typewriterCards = document.querySelectorAll(".typewriter-text");
 let suspendTypewriter = false;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isMobileViewport = window.matchMedia("(max-width: 900px)").matches;
+const shouldAnimateTypewriter = !prefersReducedMotion && !isMobileViewport;
 
 const completeTypewriter = () => {
   typewriterCards.forEach((el) => {
@@ -29,11 +31,30 @@ const completeTypewriter = () => {
 typewriterCards.forEach((el) => {
   const text = el.textContent.trim();
   el.dataset.text = text;
+  const reservedHeight = Math.ceil(el.getBoundingClientRect().height);
+  if (reservedHeight > 0) {
+    el.style.minHeight = `${reservedHeight}px`;
+  }
+  if (!shouldAnimateTypewriter) {
+    el.dataset.typed = "true";
+    el.classList.add("typewriter-static");
+    return;
+  }
   el.textContent = "";
 });
 
-if (prefersReducedMotion) {
-  completeTypewriter();
+if (!shouldAnimateTypewriter) {
+  const staticObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("typewriter-in");
+        obs.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.35 }
+  );
+  typewriterCards.forEach((el) => staticObserver.observe(el));
 } else {
   const typeObserver = new IntersectionObserver(
     (entries, obs) => {

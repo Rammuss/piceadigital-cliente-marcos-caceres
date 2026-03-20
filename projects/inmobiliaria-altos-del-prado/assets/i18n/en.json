@@ -1,4 +1,4 @@
-﻿{
+{
   "nav": {
     "gallery": "Gallery",
     "units": "Available Units",
@@ -146,7 +146,8 @@
     }
   },
   "modal": {
-    "kicker": "Available unit",\n    "title_fallback": "Unit",
+    "kicker": "Available unit",
+    "title_fallback": "Unit",
     "floorplan": "Floor plan",
     "renders": "Renders",
     "desc": "Request the full brochure or schedule a private tour.",

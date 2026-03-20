@@ -1,4 +1,4 @@
-﻿{
+{
   "nav": {
     "gallery": "Galería",
     "units": "Unidades disponibles",
@@ -146,7 +146,8 @@
     }
   },
   "modal": {
-    "kicker": "Unidad disponible",\n    "title_fallback": "Unidad",
+    "kicker": "Unidad disponible",
+    "title_fallback": "Unidad",
     "floorplan": "Plano",
     "renders": "Renders",
     "desc": "Solicitá el catálogo completo o agendá una visita privada.",

@@ -10,6 +10,10 @@
   <meta name="description" content="Soluciones web profesionales: landing pages, branding digital y optimización para captar clientes." />
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>
+    /* Evita íconos SVG gigantes durante el primer paint antes de cargar styles.css */
+    svg[viewBox] { width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
+  </style>
   <link rel="preload" href="assets/css/styles.css?v=20260320" as="style" />
   <link rel="stylesheet" href="assets/css/styles.css?v=20260320" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="assets/css/styles.css?v=20260320" /></noscript>

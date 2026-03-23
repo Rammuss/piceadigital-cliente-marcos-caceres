@@ -1,4 +1,17 @@
-﻿const revealItems = document.querySelectorAll(".reveal");
+const revealItems = document.querySelectorAll(".reveal");
+const hero = document.querySelector(".hero");
+const heroVideo = document.querySelector(".hero-video");
+
+if (hero && heroVideo) {
+  const showHeroVideo = () => hero.classList.add("is-video-ready");
+
+  if (heroVideo.readyState >= 2) {
+    showHeroVideo();
+  } else {
+    heroVideo.addEventListener("loadeddata", showHeroVideo, { once: true });
+    heroVideo.addEventListener("canplay", showHeroVideo, { once: true });
+  }
+}
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -274,7 +287,7 @@ const applyTheme = (mode) => {
   if (themeToggle) {
     themeToggle.setAttribute("aria-pressed", String(isLight));
     const icon = themeToggle.querySelector("span");
-    if (icon) icon.textContent = isLight ? "☀️" : "🌙";
+    if (icon) icon.textContent = isLight ? "\u2600" : "\u263D";
   }
   try {
     localStorage.setItem(THEME_KEY, mode);
@@ -434,3 +447,4 @@ const registerTrackingEvents = () => {
 };
 
 registerTrackingEvents();
+

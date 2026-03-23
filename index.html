@@ -10,16 +10,32 @@
   <meta name="description" content="Soluciones web profesionales: landing pages, branding digital y optimización para captar clientes." />
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/hero/video-hero-9-16.mp4" as="video" type="video/mp4" media="(max-width: 1023px)" />
+  <link rel="preload" href="assets/hero/video-hero%2016%209.mp4" as="video" type="video/mp4" media="(min-width: 1024px)" />
   <style>
     /* Evita íconos SVG gigantes durante el primer paint antes de cargar styles.css */
     svg[viewBox] { width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
   </style>
-  <link rel="preload" href="assets/css/styles.css?v=20260320" as="style" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260320" media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="assets/css/styles.css?v=20260320" /></noscript>
+  <link rel="preload" href="assets/css/styles.css?v=20260323d" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260323d" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="assets/css/styles.css?v=20260323d" /></noscript>
 </head>
 <body data-ga4="G-PEFPMM9NYR" data-pixel="2431513420610437">
   <header class="hero hero-centered" id="top">
+    <div class="hero-video-bg" aria-hidden="true">
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="assets/fotos/hero-hombrealfondo.webp?v=20260319"
+      >
+        <source src="assets/hero/video-hero-9-16.mp4" type="video/mp4" media="(max-width: 1023px)" />
+        <source src="assets/hero/video-hero%2016%209.mp4" type="video/mp4" media="(min-width: 1024px)" />
+      </video>
+    </div>
     <nav class="nav">
       <a class="logo" href="#inicio" aria-label="Ir al inicio">
         <picture>
@@ -522,6 +538,6 @@
       <span>@piceadigital</span>
     </div>
   </footer>
-  <script src="assets/js/main.js?v=20260308"></script>
+  <script src="assets/js/main.js?v=20260323b"></script>
 </body>
 </html>

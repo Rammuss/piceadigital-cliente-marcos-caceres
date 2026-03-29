@@ -1788,6 +1788,32 @@ body.theme-light .cookie-content {
   .why-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
+  .service-grid article { padding: 16px; }
+  .service-grid li {
+    margin: 8px 0;
+    line-height: 1.42;
+    overflow-wrap: anywhere;
+  }
+  .service-grid li.has-icon {
+    display: block;
+    position: relative;
+    padding-left: 34px;
+  }
+  .service-grid li.has-icon .list-icon {
+    position: absolute;
+    left: 0;
+    top: 0.12em;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+  }
+  .service-grid li.has-icon .list-icon svg {
+    width: 13px;
+    height: 13px;
+  }
+  .plan-card .plan-cta {
+    margin-top: 14px;
+  }
   .footer { flex-direction: column; gap: 12px; }
   .nav {
     grid-template-columns: auto 1fr auto;

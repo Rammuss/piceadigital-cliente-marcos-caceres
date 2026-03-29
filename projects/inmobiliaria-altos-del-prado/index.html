@@ -1172,9 +1172,43 @@
         const amenitiesSlides = Array.from(amenitiesTrack.children);
         let amenitiesIndex = 0;
         let amenitiesTimer = null;
+        const loadedAmenityImages = new Set();
+
+        const amenityImages = amenitiesSlides
+            .map((slide) => slide.querySelector('img'))
+            .filter(Boolean);
+
+        if (amenityImages[0]) {
+            amenityImages[0].loading = 'eager';
+            amenityImages[0].fetchPriority = 'high';
+        }
+
+        const normalizeAmenityIndex = (index) => {
+            if (!amenitiesSlides.length) return 0;
+            return (index + amenitiesSlides.length) % amenitiesSlides.length;
+        };
+
+        const preloadAmenityImage = (index) => {
+            const safeIndex = normalizeAmenityIndex(index);
+            const slideImage = amenityImages[safeIndex];
+            if (!slideImage) return;
+            const src = slideImage.getAttribute('src');
+            if (!src || loadedAmenityImages.has(src)) return;
+            loadedAmenityImages.add(src);
+            const preloadImage = new Image();
+            preloadImage.decoding = 'async';
+            preloadImage.src = src;
+        };
+
+        const preloadAmenityWindow = (centerIndex) => {
+            preloadAmenityImage(centerIndex);
+            preloadAmenityImage(centerIndex + 1);
+            preloadAmenityImage(centerIndex + 2);
+        };
 
         const updateAmenities = () => {
             amenitiesTrack.style.transform = `translateX(-${amenitiesIndex * 100}%)`;
+            preloadAmenityWindow(amenitiesIndex);
         };
 
         const goNextAmenity = () => {
@@ -1215,12 +1249,57 @@
 
         const amenitiesWrap = amenitiesTrack.parentElement;
         if (amenitiesWrap) {
+            amenitiesWrap.style.touchAction = 'pan-y';
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let touchDeltaX = 0;
+            let touchDeltaY = 0;
+            let touchInProgress = false;
+            const swipeMinDistance = 45;
+
             amenitiesWrap.addEventListener('mouseenter', pauseAmenities);
             amenitiesWrap.addEventListener('mouseleave', resumeAmenities);
             amenitiesWrap.addEventListener('focusin', pauseAmenities);
             amenitiesWrap.addEventListener('focusout', resumeAmenities);
-            amenitiesWrap.addEventListener('touchstart', pauseAmenities, { passive: true });
-            amenitiesWrap.addEventListener('touchend', resumeAmenities);
+            amenitiesWrap.addEventListener('touchstart', (event) => {
+                if (event.touches.length !== 1) return;
+                const touch = event.touches[0];
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+                touchDeltaX = 0;
+                touchDeltaY = 0;
+                touchInProgress = true;
+                pauseAmenities();
+            }, { passive: true });
+            amenitiesWrap.addEventListener('touchmove', (event) => {
+                if (!touchInProgress || event.touches.length !== 1) return;
+                const touch = event.touches[0];
+                touchDeltaX = touch.clientX - touchStartX;
+                touchDeltaY = touch.clientY - touchStartY;
+                if (Math.abs(touchDeltaX) > Math.abs(touchDeltaY)) {
+                    event.preventDefault();
+                }
+            }, { passive: false });
+            amenitiesWrap.addEventListener('touchend', () => {
+                if (!touchInProgress) {
+                    resumeAmenities();
+                    return;
+                }
+                const horizontalSwipe = Math.abs(touchDeltaX) >= swipeMinDistance && Math.abs(touchDeltaX) > Math.abs(touchDeltaY);
+                if (horizontalSwipe) {
+                    if (touchDeltaX < 0) {
+                        goNextAmenity();
+                    } else {
+                        goPrevAmenity();
+                    }
+                }
+                touchInProgress = false;
+                resumeAmenities();
+            });
+            amenitiesWrap.addEventListener('touchcancel', () => {
+                touchInProgress = false;
+                resumeAmenities();
+            });
         }
 
         updateAmenities();

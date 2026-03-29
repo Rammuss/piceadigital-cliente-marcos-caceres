@@ -1952,9 +1952,8 @@ body.theme-light .cookie-content {
   }
 
   .hero-video {
-    object-position: 78% center;
-    transform: scale(1.08) translateY(10%);
-    transform-origin: center;
+    object-position: center center;
+    transform: none;
   }
 }
 
@@ -1967,7 +1966,7 @@ body.theme-light .cookie-content {
 
 @media (min-width: 1024px) {
   .hero-video {
-    transform: translateY(8%);
+    transform: none;
   }
 }
 

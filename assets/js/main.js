@@ -160,10 +160,12 @@ if (ctaForm) {
     if (pendingTimer) clearTimeout(pendingTimer);
     pendingTimer = setTimeout(() => {
       if (status && isSubmitting) {
-        status.innerHTML = `La confirmación está tardando. Si preferís, escribinos por <a href="${waHref}" target="_blank" rel="noopener noreferrer">WhatsApp</a>.`;
+        status.innerHTML = `La confirmación está tardando. Si preferís, escribinos por <a href="${waHref}" data-wa-source="form_fallback" target="_blank" rel="noopener noreferrer">WhatsApp</a>.`;
         setSubmittingState(false);
       }
     }, 9000);
+
+    trackEvent("form_submit_attempt", { form_id: "cta-form" });
   });
 
   if (targetFrame) {
@@ -176,6 +178,7 @@ if (ctaForm) {
       if (status) status.textContent = "Gracias, ya recibimos tu consulta.";
       setTimeout(() => ctaForm.reset(), 400);
       trackEvent("generate_lead", { form_id: "cta-form" });
+      trackEvent("form_submit_success", { form_id: "cta-form" });
       trackPixelEvent("Lead", {
         content_name: "cta-form",
         content_category: "lead",
@@ -449,16 +452,60 @@ if (banner) {
 }
 
 const registerTrackingEvents = () => {
-  const waLinks = document.querySelectorAll('a[href^="https://wa.me/"], a[href^="http://wa.me/"]');
-  waLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      trackEvent("click_whatsapp", {
-        link_url: link.href,
-        link_text: link.textContent.trim().slice(0, 120),
+  const onWhatsappClick = (event) => {
+    const link = event.target.closest('a[href^="https://wa.me/"], a[href^="http://wa.me/"]');
+    if (!link) return;
+    const source = (link.dataset.waSource || "unknown").trim();
+
+    trackEvent("click_whatsapp", {
+      source,
+      link_url: link.href,
+      link_text: link.textContent.trim().slice(0, 120),
+    });
+    trackEvent("wa_click", { source });
+    trackPixelEvent("Contact", {
+      content_name: source,
+      content_category: "contact",
+    });
+  };
+  document.addEventListener("click", onWhatsappClick);
+
+  const planButtons = document.querySelectorAll(".plan-cta[data-plan-name]");
+  planButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      trackEvent("select_plan", {
+        plan_name: btn.dataset.planName || "unknown",
       });
-      trackPixelEvent("Contact", {
-        content_name: "whatsapp",
-        content_category: "contact",
+    });
+  });
+
+  const pricingSection = document.getElementById("servicios");
+  if (pricingSection) {
+    const pricingObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        trackEvent("view_pricing", { section_id: "servicios" });
+        obs.disconnect();
+      });
+    }, { threshold: 0.35 });
+    pricingObserver.observe(pricingSection);
+  }
+
+  if (ctaForm) {
+    const formFields = ctaForm.querySelectorAll("input, textarea, select");
+    const onFormStart = () => {
+      trackEvent("form_start", { form_id: "cta-form" });
+      formFields.forEach((field) => field.removeEventListener("focus", onFormStart));
+    };
+    formFields.forEach((field) => field.addEventListener("focus", onFormStart));
+  }
+
+  const portfolioDemoLinks = document.querySelectorAll('.portfolio-card[data-project-name][href^="projects/"]');
+  portfolioDemoLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      trackEvent("portfolio_demo_open", {
+        project_name: link.dataset.projectName || "unknown",
+        link_url: link.href,
       });
     });
   });

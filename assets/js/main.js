@@ -120,8 +120,10 @@ if (ctaForm) {
   const status = ctaForm.querySelector(".form-status");
   const targetFrame = document.querySelector(".form-target");
   const submitBtn = ctaForm.querySelector('button[type="submit"]');
+  const waHref = "https://wa.me/595972960400?text=Hola%20Picea%2C%20quiero%20consultar%20por%20mi%20proyecto%20web.";
   let pendingTimer = null;
   let softAckTimer = null;
+  let optimisticTimer = null;
   let isSubmitting = false;
 
   const setSubmittingState = (submitting) => {
@@ -144,17 +146,24 @@ if (ctaForm) {
     if (softAckTimer) clearTimeout(softAckTimer);
     softAckTimer = setTimeout(() => {
       if (status && isSubmitting) {
-        status.textContent = "Estamos confirmando el envío. Te respondemos en breve.";
+        status.textContent = "Estamos procesando tu consulta...";
       }
     }, 1200);
+
+    if (optimisticTimer) clearTimeout(optimisticTimer);
+    optimisticTimer = setTimeout(() => {
+      if (status && isSubmitting) {
+        status.innerHTML = "Consulta recibida. Estamos confirmando el envío...";
+      }
+    }, 1800);
 
     if (pendingTimer) clearTimeout(pendingTimer);
     pendingTimer = setTimeout(() => {
       if (status && isSubmitting) {
-        status.textContent = "Puede tardar unos segundos. Si no llega, escribinos por WhatsApp.";
+        status.innerHTML = `La confirmación está tardando. Si preferís, escribinos por <a href="${waHref}" target="_blank" rel="noopener noreferrer">WhatsApp</a>.`;
         setSubmittingState(false);
       }
-    }, 6000);
+    }, 9000);
   });
 
   if (targetFrame) {
@@ -162,6 +171,7 @@ if (ctaForm) {
       if (!isSubmitting) return;
       if (pendingTimer) clearTimeout(pendingTimer);
       if (softAckTimer) clearTimeout(softAckTimer);
+      if (optimisticTimer) clearTimeout(optimisticTimer);
       setSubmittingState(false);
       if (status) status.textContent = "Gracias, ya recibimos tu consulta.";
       setTimeout(() => ctaForm.reset(), 400);

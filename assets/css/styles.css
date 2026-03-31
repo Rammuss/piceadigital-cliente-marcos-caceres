@@ -1639,6 +1639,15 @@ body.theme-light .cta-form textarea::placeholder {
   min-height: 1.2em;
 }
 
+.form-status a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.form-status a:hover {
+  color: var(--accent-dark);
+}
+
 .cta-form .btn[disabled] {
   opacity: 0.7;
   cursor: wait;

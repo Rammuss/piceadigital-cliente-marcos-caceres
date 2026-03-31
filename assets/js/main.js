@@ -119,21 +119,50 @@ const ctaForm = document.querySelector(".cta-form");
 if (ctaForm) {
   const status = ctaForm.querySelector(".form-status");
   const targetFrame = document.querySelector(".form-target");
+  const submitBtn = ctaForm.querySelector('button[type="submit"]');
   let pendingTimer = null;
+  let softAckTimer = null;
+  let isSubmitting = false;
 
-  ctaForm.addEventListener("submit", () => {
-    if (status) status.textContent = "Enviando...";
+  const setSubmittingState = (submitting) => {
+    isSubmitting = submitting;
+    if (!submitBtn) return;
+    submitBtn.disabled = submitting;
+    submitBtn.setAttribute("aria-busy", String(submitting));
+    submitBtn.textContent = submitting ? "Enviando..." : "Enviar consulta";
+  };
+
+  ctaForm.addEventListener("submit", (event) => {
+    if (isSubmitting) {
+      event.preventDefault();
+      return;
+    }
+
+    setSubmittingState(true);
+    if (status) status.textContent = "Estamos enviando tu consulta...";
+
+    if (softAckTimer) clearTimeout(softAckTimer);
+    softAckTimer = setTimeout(() => {
+      if (status && isSubmitting) {
+        status.textContent = "Estamos confirmando el envío. Te respondemos en breve.";
+      }
+    }, 1200);
+
     if (pendingTimer) clearTimeout(pendingTimer);
     pendingTimer = setTimeout(() => {
-      if (status && status.textContent === "Enviando...") {
+      if (status && isSubmitting) {
         status.textContent = "Puede tardar unos segundos. Si no llega, escribinos por WhatsApp.";
+        setSubmittingState(false);
       }
     }, 6000);
   });
 
   if (targetFrame) {
     targetFrame.addEventListener("load", () => {
+      if (!isSubmitting) return;
       if (pendingTimer) clearTimeout(pendingTimer);
+      if (softAckTimer) clearTimeout(softAckTimer);
+      setSubmittingState(false);
       if (status) status.textContent = "Gracias, ya recibimos tu consulta.";
       setTimeout(() => ctaForm.reset(), 400);
       trackEvent("generate_lead", { form_id: "cta-form" });

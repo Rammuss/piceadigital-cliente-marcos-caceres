@@ -120,7 +120,7 @@ if (ctaForm) {
   const status = ctaForm.querySelector(".form-status");
   const targetFrame = document.querySelector(".form-target");
   const submitBtn = ctaForm.querySelector('button[type="submit"]');
-  const waHref = "https://wa.me/595972960400?text=Hola%20Picea%2C%20quiero%20consultar%20por%20mi%20proyecto%20web.";
+  const waHref = "https://wa.me/595981236300?text=Hola%2C%20quiero%20m%C3%A1s%20info.";
   let pendingTimer = null;
   let softAckTimer = null;
   let optimisticTimer = null;

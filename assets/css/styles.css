@@ -90,7 +90,7 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   background:
     radial-gradient(600px 280px at 50% 35%, rgba(230,58,101,0.18), transparent 70%),
-    url("../hero/imagenv8-16-9.png?v=20260329d") center/cover no-repeat;
+    url("../hero/imagenv8-16-9.png?v=20260331f") center/cover no-repeat;
 }
 
 .hero::before {
@@ -2087,7 +2087,7 @@ body.theme-light .cookie-content {
   .hero {
     background:
       radial-gradient(600px 280px at 50% 35%, rgba(230,58,101,0.18), transparent 70%),
-      url("../hero/imagenv8-9-16.png?v=20260329f") center/cover no-repeat;
+      url("../hero/imagenv8-9-16.png?v=20260331f") center/cover no-repeat;
   }
 
   .hero-video {

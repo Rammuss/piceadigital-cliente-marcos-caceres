@@ -10,6 +10,9 @@ if (hero && heroVideo) {
   const heroVideoBg = document.querySelector(".hero-video-bg");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isMobileHero = window.matchMedia("(max-width: 640px)").matches;
+  const desktopMQ = window.matchMedia("(min-width: 1024px)");
+  const mobileSrc = (heroVideo.dataset.srcMobile || "").trim();
+  const desktopSrc = (heroVideo.dataset.srcDesktop || "").trim();
   let debugPanel = null;
   const debugLines = [];
   let frameReady = false;
@@ -56,10 +59,28 @@ if (hero && heroVideo) {
   debugLog(`readyState_initial=${heroVideo.readyState}`);
   debugLog(`autoplay=${heroVideo.autoplay} muted=${heroVideo.muted} playsInline=${heroVideo.playsInline}`);
 
+  const applyHeroVideoSource = () => {
+    const targetSrc = desktopMQ.matches ? desktopSrc : mobileSrc;
+    if (!targetSrc) {
+      debugLog("src=missing");
+      return;
+    }
+    const current = heroVideo.getAttribute("src") || "";
+    if (current === targetSrc) return;
+    heroVideo.setAttribute("src", targetSrc);
+    playResolved = false;
+    frameReady = false;
+    hero.classList.remove("video-frame-ready");
+    heroVideo.load();
+    debugLog(`src=applied ${desktopMQ.matches ? "desktop" : "mobile"}`);
+  };
+
   if (isMobileHero) {
     heroVideo.setAttribute("poster", "assets/hero/imagenv8-9-16.png?v=20260331f");
     debugLog("poster=mobile-9-16");
   }
+
+  applyHeroVideoSource();
 
   heroVideo.muted = true;
   heroVideo.defaultMuted = true;
@@ -120,6 +141,16 @@ if (hero && heroVideo) {
   setTimeout(() => setFrameReady("timeout"), 1400);
 
   tryPlay("init");
+
+  const onSourceChange = () => {
+    applyHeroVideoSource();
+    tryPlay("source-change");
+  };
+  if (desktopMQ.addEventListener) {
+    desktopMQ.addEventListener("change", onSourceChange);
+  } else if (desktopMQ.addListener) {
+    desktopMQ.addListener(onSourceChange);
+  }
 
   if (videoDebug || forcePlay) {
     tryPlay("debug");

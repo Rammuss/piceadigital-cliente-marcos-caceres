@@ -1521,6 +1521,43 @@ body.theme-light .price-badge {
   font-size: 0.95rem;
 }
 
+.wa-inline-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.wa-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #25d366;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.35);
+  animation: waPulse 1.8s ease-out infinite;
+}
+
+@keyframes waPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.35);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+    transform: scale(1.04);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-status-dot {
+    animation: none;
+    box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.16);
+  }
+}
+
 .copy-btn {
   margin-left: auto;
   background: transparent;

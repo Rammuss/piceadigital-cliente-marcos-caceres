@@ -17,6 +17,8 @@ if (hero && heroVideo) {
   const debugLines = [];
   let frameReady = false;
   let playResolved = false;
+  let blobFallbackTried = false;
+  let blobUrl = "";
 
   const setFrameReady = (reason) => {
     if (frameReady) return;
@@ -113,7 +115,36 @@ if (hero && heroVideo) {
         setFrameReady(`play-ok:${reason}`);
       })
       .catch((error) => {
-        debugLog(`play()=blocked ${reason} ${error && error.name ? error.name : "error"}`);
+        const errName = error && error.name ? error.name : "error";
+        debugLog(`play()=blocked ${reason} ${errName}`);
+        if (errName === "NotSupportedError") {
+          tryBlobFallback();
+        }
+      });
+  };
+
+  const tryBlobFallback = () => {
+    if (blobFallbackTried) return;
+    const directSrc = heroVideo.getAttribute("src") || "";
+    if (!directSrc) return;
+    blobFallbackTried = true;
+    debugLog("blob-fallback:start");
+    fetch(directSrc, { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error(`http-${res.status}`);
+        return res.blob();
+      })
+      .then((blob) => {
+        if (blobUrl) URL.revokeObjectURL(blobUrl);
+        blobUrl = URL.createObjectURL(blob);
+        heroVideo.setAttribute("src", blobUrl);
+        heroVideo.load();
+        debugLog(`blob-fallback:loaded size=${blob.size}`);
+        tryPlay("blob-fallback");
+      })
+      .catch((err) => {
+        const errMsg = err && err.message ? err.message : "fetch-failed";
+        debugLog(`blob-fallback:error ${errMsg}`);
       });
   };
 

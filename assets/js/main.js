@@ -73,6 +73,19 @@ if (hero && heroVideo) {
     hero.classList.remove("video-frame-ready");
     heroVideo.load();
     debugLog(`src=applied ${desktopMQ.matches ? "desktop" : "mobile"}`);
+
+    if (videoDebug) {
+      fetch(targetSrc, { method: "HEAD", cache: "no-store" })
+        .then((res) => {
+          debugLog(`head.status=${res.status}`);
+          debugLog(`head.content-type=${res.headers.get("content-type") || "n/a"}`);
+          debugLog(`head.accept-ranges=${res.headers.get("accept-ranges") || "n/a"}`);
+          debugLog(`head.content-length=${res.headers.get("content-length") || "n/a"}`);
+        })
+        .catch((err) => {
+          debugLog(`head.error=${err && err.name ? err.name : "fetch-error"}`);
+        });
+    }
   };
 
   if (isMobileHero) {

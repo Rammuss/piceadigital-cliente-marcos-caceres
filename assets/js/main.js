@@ -3,13 +3,100 @@ const hero = document.querySelector(".hero");
 const heroVideo = document.querySelector(".hero-video");
 
 if (hero && heroVideo) {
-  const showHeroVideo = () => hero.classList.add("is-video-ready");
+  const params = new URLSearchParams(window.location.search);
+  const videoDebug = params.get("video_debug") === "1";
+  const forceVideoVisible = params.get("force_video_visible") === "1";
+  const forcePlay = params.get("force_play") === "1";
+  const heroVideoBg = document.querySelector(".hero-video-bg");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isMobileHero = window.matchMedia("(max-width: 640px)").matches;
+  let debugPanel = null;
+  const debugLines = [];
+  let frameReady = false;
+
+  const setFrameReady = (reason) => {
+    if (frameReady) return;
+    frameReady = true;
+    hero.classList.add("video-frame-ready");
+    debugLog(`video-frame-ready: ${reason}`);
+  };
+
+  const debugLog = (line) => {
+    if (!videoDebug) return;
+    debugLines.push(line);
+    if (debugPanel) debugPanel.textContent = debugLines.join("\n");
+    console.log(`[video-debug] ${line}`);
+  };
+
+  if (videoDebug) {
+    debugPanel = document.createElement("pre");
+    debugPanel.setAttribute("id", "video-debug-panel");
+    debugPanel.style.cssText = [
+      "position:fixed",
+      "left:8px",
+      "right:8px",
+      "bottom:8px",
+      "z-index:9999",
+      "margin:0",
+      "padding:10px",
+      "font:12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace",
+      "color:#d7ffe1",
+      "background:rgba(8,10,12,0.88)",
+      "border:1px solid rgba(255,255,255,0.2)",
+      "border-radius:10px",
+      "max-height:42vh",
+      "overflow:auto",
+      "white-space:pre-wrap",
+    ].join(";");
+    document.body.appendChild(debugPanel);
+  }
+
+  debugLog(`reduced_motion=${reducedMotion}`);
+  debugLog(`readyState_initial=${heroVideo.readyState}`);
+  debugLog(`autoplay=${heroVideo.autoplay} muted=${heroVideo.muted} playsInline=${heroVideo.playsInline}`);
+
+  if (isMobileHero) {
+    heroVideo.setAttribute("poster", "assets/hero/imagenv8-9-16.png?v=20260331f");
+    debugLog("poster=mobile-9-16");
+  }
+
+  if (forceVideoVisible && heroVideoBg) {
+    heroVideoBg.style.display = "block";
+    heroVideoBg.style.opacity = "1";
+    debugLog("force_video_visible=1 applied");
+  }
 
   if (heroVideo.readyState >= 2) {
-    showHeroVideo();
+    debugLog("readyState >= 2");
+    setFrameReady("readyState>=2");
   } else {
-    heroVideo.addEventListener("loadeddata", showHeroVideo, { once: true });
-    heroVideo.addEventListener("canplay", showHeroVideo, { once: true });
+    heroVideo.addEventListener("loadeddata", () => {
+      debugLog("event=loadeddata");
+      setFrameReady("loadeddata");
+    }, { once: true });
+    heroVideo.addEventListener("canplay", () => {
+      debugLog("event=canplay");
+      setFrameReady("canplay");
+    }, { once: true });
+  }
+
+  heroVideo.addEventListener("playing", () => {
+    debugLog("event=playing");
+    setFrameReady("playing");
+  }, { once: true });
+
+  heroVideo.addEventListener("error", () => {
+    const err = heroVideo.error ? heroVideo.error.code : "unknown";
+    debugLog(`event=error code=${err}`);
+    setFrameReady("error-fallback");
+  });
+
+  setTimeout(() => setFrameReady("timeout"), 1400);
+
+  if (videoDebug || forcePlay) {
+    heroVideo.play()
+      .then(() => debugLog("play()=ok"))
+      .catch((error) => debugLog(`play()=blocked ${error && error.name ? error.name : "error"}`));
   }
 }
 
@@ -328,8 +415,9 @@ const applyTheme = (mode) => {
   document.body.classList.toggle("theme-light", isLight);
   if (themeToggle) {
     themeToggle.setAttribute("aria-pressed", String(isLight));
+    themeToggle.setAttribute("aria-label", isLight ? "Cambiar a modo oscuro" : "Cambiar a modo claro");
     const icon = themeToggle.querySelector("span");
-    if (icon) icon.textContent = isLight ? "\u2600" : "\u263D";
+    if (icon) icon.textContent = isLight ? "\u2600\uFE0F" : "\uD83C\uDF19";
   }
   try {
     localStorage.setItem(THEME_KEY, mode);

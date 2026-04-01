@@ -3,70 +3,24 @@ const hero = document.querySelector(".hero");
 const heroVideo = document.querySelector(".hero-video");
 
 if (hero && heroVideo) {
-  const params = new URLSearchParams(window.location.search);
-  const videoDebug = params.get("video_debug") === "1";
-  const forceVideoVisible = params.get("force_video_visible") === "1";
-  const forcePlay = params.get("force_play") === "1";
-  const heroVideoBg = document.querySelector(".hero-video-bg");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isMobileHero = window.matchMedia("(max-width: 640px)").matches;
   const desktopMQ = window.matchMedia("(min-width: 1024px)");
   const mobileSrc = (heroVideo.dataset.srcMobile || "").trim();
   const desktopSrc = (heroVideo.dataset.srcDesktop || "").trim();
-  let debugPanel = null;
-  const debugLines = [];
   let frameReady = false;
   let playResolved = false;
   let blobFallbackTried = false;
   let blobUrl = "";
 
-  const setFrameReady = (reason) => {
+  const setFrameReady = () => {
     if (frameReady) return;
     frameReady = true;
     hero.classList.add("video-frame-ready");
-    debugLog(`video-frame-ready: ${reason}`);
-  };
-
-  const debugLog = (line) => {
-    if (!videoDebug) return;
-    debugLines.push(line);
-    if (debugPanel) debugPanel.textContent = debugLines.join("\n");
-    console.log(`[video-debug] ${line}`);
-  };
-
-  if (videoDebug) {
-    debugPanel = document.createElement("pre");
-    debugPanel.setAttribute("id", "video-debug-panel");
-    debugPanel.style.cssText = [
-      "position:fixed",
-      "left:8px",
-      "right:8px",
-      "bottom:8px",
-      "z-index:9999",
-      "margin:0",
-      "padding:10px",
-      "font:12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace",
-      "color:#d7ffe1",
-      "background:rgba(8,10,12,0.88)",
-      "border:1px solid rgba(255,255,255,0.2)",
-      "border-radius:10px",
-      "max-height:42vh",
-      "overflow:auto",
-      "white-space:pre-wrap",
-    ].join(";");
-    document.body.appendChild(debugPanel);
   }
-
-  debugLog(`reduced_motion=${reducedMotion}`);
-  debugLog(`readyState_initial=${heroVideo.readyState}`);
-  debugLog(`autoplay=${heroVideo.autoplay} muted=${heroVideo.muted} playsInline=${heroVideo.playsInline}`);
 
   const applyHeroVideoSource = () => {
     const targetSrc = desktopMQ.matches ? desktopSrc : mobileSrc;
-    if (!targetSrc) {
-      debugLog("src=missing");
-      return;
-    }
+    if (!targetSrc) return;
     const current = heroVideo.getAttribute("src") || "";
     if (current === targetSrc) return;
     heroVideo.setAttribute("src", targetSrc);
@@ -74,25 +28,10 @@ if (hero && heroVideo) {
     frameReady = false;
     hero.classList.remove("video-frame-ready");
     heroVideo.load();
-    debugLog(`src=applied ${desktopMQ.matches ? "desktop" : "mobile"}`);
-
-    if (videoDebug) {
-      fetch(targetSrc, { method: "HEAD", cache: "no-store" })
-        .then((res) => {
-          debugLog(`head.status=${res.status}`);
-          debugLog(`head.content-type=${res.headers.get("content-type") || "n/a"}`);
-          debugLog(`head.accept-ranges=${res.headers.get("accept-ranges") || "n/a"}`);
-          debugLog(`head.content-length=${res.headers.get("content-length") || "n/a"}`);
-        })
-        .catch((err) => {
-          debugLog(`head.error=${err && err.name ? err.name : "fetch-error"}`);
-        });
-    }
   };
 
   if (isMobileHero) {
     heroVideo.setAttribute("poster", "assets/hero/imagenv8-9-16.png?v=20260331f");
-    debugLog("poster=mobile-9-16");
   }
 
   applyHeroVideoSource();
@@ -104,19 +43,14 @@ if (hero && heroVideo) {
   const tryPlay = (reason) => {
     if (playResolved) return;
     const maybePromise = heroVideo.play();
-    if (!maybePromise || typeof maybePromise.then !== "function") {
-      debugLog(`play()=no-promise ${reason}`);
-      return;
-    }
+    if (!maybePromise || typeof maybePromise.then !== "function") return;
     maybePromise
       .then(() => {
         playResolved = true;
-        debugLog(`play()=ok ${reason}`);
-        setFrameReady(`play-ok:${reason}`);
+        setFrameReady();
       })
       .catch((error) => {
         const errName = error && error.name ? error.name : "error";
-        debugLog(`play()=blocked ${reason} ${errName}`);
         if (errName === "NotSupportedError") {
           tryBlobFallback();
         }
@@ -128,7 +62,6 @@ if (hero && heroVideo) {
     const directSrc = heroVideo.getAttribute("src") || "";
     if (!directSrc) return;
     blobFallbackTried = true;
-    debugLog("blob-fallback:start");
     fetch(directSrc, { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error(`http-${res.status}`);
@@ -139,50 +72,31 @@ if (hero && heroVideo) {
         blobUrl = URL.createObjectURL(blob);
         heroVideo.setAttribute("src", blobUrl);
         heroVideo.load();
-        debugLog(`blob-fallback:loaded size=${blob.size}`);
         tryPlay("blob-fallback");
       })
-      .catch((err) => {
-        const errMsg = err && err.message ? err.message : "fetch-failed";
-        debugLog(`blob-fallback:error ${errMsg}`);
-      });
+      .catch(() => {});
   };
 
-  if (forceVideoVisible && heroVideoBg) {
-    heroVideoBg.style.display = "block";
-    heroVideoBg.style.opacity = "1";
-    debugLog("force_video_visible=1 applied");
-  }
-
   if (heroVideo.readyState >= 2) {
-    debugLog("readyState >= 2");
-    setFrameReady("readyState>=2");
+    setFrameReady();
     tryPlay("readyState");
   } else {
     heroVideo.addEventListener("loadeddata", () => {
-      debugLog("event=loadeddata");
-      setFrameReady("loadeddata");
+      setFrameReady();
       tryPlay("loadeddata");
     }, { once: true });
     heroVideo.addEventListener("canplay", () => {
-      debugLog("event=canplay");
-      setFrameReady("canplay");
+      setFrameReady();
       tryPlay("canplay");
     }, { once: true });
   }
 
   heroVideo.addEventListener("playing", () => {
-    debugLog("event=playing");
-    setFrameReady("playing");
+    setFrameReady();
   }, { once: true });
 
-  heroVideo.addEventListener("error", () => {
-    const err = heroVideo.error ? heroVideo.error.code : "unknown";
-    debugLog(`event=error code=${err}`);
-    setFrameReady("error-fallback");
-  });
-
-  setTimeout(() => setFrameReady("timeout"), 1400);
+  heroVideo.addEventListener("error", () => setFrameReady());
+  setTimeout(() => setFrameReady(), 1400);
 
   tryPlay("init");
 
@@ -194,10 +108,6 @@ if (hero && heroVideo) {
     desktopMQ.addEventListener("change", onSourceChange);
   } else if (desktopMQ.addListener) {
     desktopMQ.addListener(onSourceChange);
-  }
-
-  if (videoDebug || forcePlay) {
-    tryPlay("debug");
   }
 
   document.addEventListener("visibilitychange", () => {

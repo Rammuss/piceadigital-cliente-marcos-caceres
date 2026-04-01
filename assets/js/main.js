@@ -357,26 +357,6 @@ if (themeToggle) {
   });
 }
 
-const CONSENT_KEY = "picea-cookie-consent";
-const banner = document.getElementById("cookie-banner");
-const consentButtons = document.querySelectorAll("[data-cookie-action]");
-
-const getConsent = () => {
-  try {
-    return localStorage.getItem(CONSENT_KEY);
-  } catch (error) {
-    return null;
-  }
-};
-
-const setConsent = (value) => {
-  try {
-    localStorage.setItem(CONSENT_KEY, value);
-  } catch (error) {
-    // ignore
-  }
-};
-
 const getTrackingIds = () => {
   const body = document.body;
   if (!body) return { ga4: "", pixel: "" };
@@ -429,27 +409,7 @@ const trackPixelEvent = (name, params = {}) => {
   window.fbq("track", name, params);
 };
 
-if (banner) {
-  const consent = getConsent();
-  if (consent === "accept") {
-    loadAnalytics();
-  } else if (!consent) {
-    banner.classList.add("is-visible");
-  }
-
-  consentButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const action = btn.dataset.cookieAction;
-      if (action === "accept") {
-        setConsent("accept");
-        loadAnalytics();
-      } else {
-        setConsent("necessary");
-      }
-      banner.classList.remove("is-visible");
-    });
-  });
-}
+loadAnalytics();
 
 const registerTrackingEvents = () => {
   const onWhatsappClick = (event) => {

@@ -13,6 +13,7 @@ if (hero && heroVideo) {
   let debugPanel = null;
   const debugLines = [];
   let frameReady = false;
+  let playResolved = false;
 
   const setFrameReady = (reason) => {
     if (frameReady) return;
@@ -60,6 +61,28 @@ if (hero && heroVideo) {
     debugLog("poster=mobile-9-16");
   }
 
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.playsInline = true;
+
+  const tryPlay = (reason) => {
+    if (playResolved) return;
+    const maybePromise = heroVideo.play();
+    if (!maybePromise || typeof maybePromise.then !== "function") {
+      debugLog(`play()=no-promise ${reason}`);
+      return;
+    }
+    maybePromise
+      .then(() => {
+        playResolved = true;
+        debugLog(`play()=ok ${reason}`);
+        setFrameReady(`play-ok:${reason}`);
+      })
+      .catch((error) => {
+        debugLog(`play()=blocked ${reason} ${error && error.name ? error.name : "error"}`);
+      });
+  };
+
   if (forceVideoVisible && heroVideoBg) {
     heroVideoBg.style.display = "block";
     heroVideoBg.style.opacity = "1";
@@ -69,14 +92,17 @@ if (hero && heroVideo) {
   if (heroVideo.readyState >= 2) {
     debugLog("readyState >= 2");
     setFrameReady("readyState>=2");
+    tryPlay("readyState");
   } else {
     heroVideo.addEventListener("loadeddata", () => {
       debugLog("event=loadeddata");
       setFrameReady("loadeddata");
+      tryPlay("loadeddata");
     }, { once: true });
     heroVideo.addEventListener("canplay", () => {
       debugLog("event=canplay");
       setFrameReady("canplay");
+      tryPlay("canplay");
     }, { once: true });
   }
 
@@ -93,11 +119,29 @@ if (hero && heroVideo) {
 
   setTimeout(() => setFrameReady("timeout"), 1400);
 
+  tryPlay("init");
+
   if (videoDebug || forcePlay) {
-    heroVideo.play()
-      .then(() => debugLog("play()=ok"))
-      .catch((error) => debugLog(`play()=blocked ${error && error.name ? error.name : "error"}`));
+    tryPlay("debug");
   }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState !== "visible") return;
+    tryPlay("visibilitychange");
+  });
+
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      tryPlay("hero-intersection");
+    });
+  }, { threshold: 0.2 });
+  heroObserver.observe(hero);
+
+  const unlockOnTouch = () => {
+    tryPlay("touchstart");
+  };
+  document.addEventListener("touchstart", unlockOnTouch, { passive: true, capture: true, once: true });
 }
 
 const observer = new IntersectionObserver(

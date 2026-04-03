@@ -17,8 +17,8 @@
     /* Evita íconos SVG gigantes durante el primer paint antes de cargar styles.css */
     svg[viewBox] { width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
   </style>
-  <link rel="preload" href="assets/css/styles.css?v=20260403b" as="style" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260403b" />
+  <link rel="preload" href="assets/css/styles.css?v=20260403f" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260403f" />
 </head>
 <body data-ga4="G-PEFPMM9NYR" data-pixel="2431513420610437">
   <header class="hero hero-centered" id="top">
@@ -160,11 +160,12 @@
               <h3>Esencial</h3>
               <span class="price-badge">Promo</span>
             </div>
-            <p class="plan-kicker">Ideal para empezar rápido</p>
+            <p class="plan-kicker">Para lanzar rápido y empezar a captar consultas</p>
             <p class="price">
               <span class="price-now">Gs. 690.000</span>
               <span class="price-old">Gs. 900.000</span>
             </p>
+            <p class="plan-pay-note">Pago 50% al iniciar y 50% al entregar</p>
             <p>Lo más importante</p>
             <ul>
             <li class="has-icon">
@@ -207,7 +208,10 @@
             </li>
           </ul>
           <details class="plan-more">
-            <summary>Ver todo lo que incluye</summary>
+            <summary>
+              <span class="plan-more-label-open">Ver detalles del plan</span>
+              <span class="plan-more-label-close">Ocultar detalles</span>
+            </summary>
             <ul>
               <li class="has-icon">
                 <span class="list-icon" aria-hidden="true">
@@ -258,17 +262,19 @@
             </ul>
           </details>
           <a class="btn plan-cta plan-cta--essential" data-plan-name="esencial" href="#cta">
-            Empezar con este plan
-            <span class="btn-icon btn-icon--arrow" aria-hidden="true">?</span>
+            Quiero este plan
+            <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
           </a>
         </article>
         <article class="custom-card plan-card">
           <div class="custom-header">
             <h3>Plan a medida</h3>
+            <span class="custom-badge">Flexible</span>
           </div>
-          <p class="plan-kicker plan-kicker--custom">Para proyectos con necesidades específicas</p>
+          <p class="plan-kicker plan-kicker--custom">Para negocios con necesidades específicas</p>
           <p class="custom-price">Cotización según alcance</p>
-          <p class="custom-note">Ideal si necesitas más páginas, funciones puntuales o una estructura pensada para tu negocio.</p>
+          <p class="plan-pay-note">Definimos alcance, tiempos y precio en una propuesta clara</p>
+          <p>Lo más importante</p>
           <ul class="custom-list">
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -277,7 +283,7 @@
                   <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              Alcance definido según tus objetivos
+              Estructura personalizada según tus objetivos
             </li>
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -295,7 +301,7 @@
                   <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              Secciones o páginas adicionales
+              Más secciones o páginas según tu caso
             </li>
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -304,21 +310,56 @@
                   <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
               </span>
-              Formularios según tu canal de contacto
-            </li>
-            <li class="has-icon">
-              <span class="list-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
-                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
-                  <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </span>
-              Integración básica de Pixel y GA4
+              Integraciones según tu canal de contacto y ventas
             </li>
           </ul>
+          <details class="plan-more">
+            <summary>
+              <span class="plan-more-label-open">Ver detalles del plan</span>
+              <span class="plan-more-label-close">Ocultar detalles</span>
+            </summary>
+            <ul class="custom-list">
+              <li class="has-icon">
+                <span class="list-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+                    <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                Copy base orientado a conversión
+              </li>
+              <li class="has-icon">
+                <span class="list-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+                    <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                Formularios y WhatsApp conectados a tu flujo comercial
+              </li>
+              <li class="has-icon">
+                <span class="list-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+                    <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                Medición con Pixel y GA4
+              </li>
+              <li class="has-icon">
+                <span class="list-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+                    <path d="M8.5 12.5l2.2 2.2 4.8-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+                Iteraciones y ajustes según alcance acordado
+              </li>
+            </ul>
+          </details>
           <a class="btn plan-cta plan-cta--custom" data-plan-name="a_medida" href="#cta">
-            Solicitar presupuesto
-            <span class="btn-icon btn-icon--arrow" aria-hidden="true">?</span>
+            Quiero cotizar mi plan
+            <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
           </a>
         </article>
       </div>

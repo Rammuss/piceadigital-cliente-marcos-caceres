@@ -200,8 +200,6 @@ a { color: inherit; text-decoration: none; }
   box-shadow: none;
 }
 
-
-
 .nav-links {
   display: flex;
   gap: 18px;
@@ -756,6 +754,7 @@ body.theme-light .portfolio-head .eyebrow-icon {
   grid-template-columns: repeat(2, minmax(0, 460px));
   gap: 18px;
   justify-content: center;
+  align-items: start;
 }
 
 .service-grid article {
@@ -1024,6 +1023,12 @@ body.theme-light .price-badge {
   font-weight: 700;
 }
 
+.plan-pay-note {
+  margin: -2px 0 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 .custom-note {
   margin: 0 0 12px;
   color: var(--muted);
@@ -1042,7 +1047,7 @@ body.theme-light .price-badge {
 .plan-cta {
   width: 100%;
   justify-content: center;
-  margin-top: auto;
+  margin-top: 14px;
   min-height: 52px;
   font-size: 1rem;
   font-weight: 700;
@@ -1085,8 +1090,19 @@ body.theme-light .price-badge {
 }
 
 .plan-cta .btn-icon--arrow {
-  margin-left: 8px;
-  transform: translateY(-1px);
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.16);
+  background: rgba(255,255,255,0.12);
+  color: #102018;
+  font-size: 1rem;
+  transform: translateY(0);
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
 .plan-cta:hover {
@@ -1095,7 +1111,11 @@ body.theme-light .price-badge {
     0 14px 26px rgba(0,0,0,0.28),
     0 0 22px rgba(255,255,255,0.08);
 }
-
+.plan-cta:hover .btn-icon--arrow {
+  transform: translate(1px, -1px);
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(0,0,0,0.22);
+}
 .plan-cta:focus-visible {
   outline: none;
   box-shadow:
@@ -1334,19 +1354,23 @@ body.theme-light .price-badge {
 }
 
 .plan-more {
-  margin-top: 8px;
-  padding-top: 6px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  padding-top: 10px;
   border-top: 1px solid var(--line);
 }
 
 .plan-more summary {
   cursor: pointer;
   list-style: none;
-  color: var(--muted);
+  color: var(--ink);
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.93rem;
   position: relative;
-  padding-right: 18px;
+  padding: 10px 34px 10px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
 }
 
 .plan-more summary::-webkit-details-marker {
@@ -1354,22 +1378,38 @@ body.theme-light .price-badge {
 }
 
 .plan-more summary::after {
-  content: "⌄";
+  content: "";
   position: absolute;
-  right: 0;
+  right: 14px;
   top: 50%;
-  transform: translateY(-50%);
-  transition: transform 180ms ease;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: translateY(-60%) rotate(45deg);
+  transition: transform 180ms ease, border-color 180ms ease;
 }
 
 .plan-more[open] summary::after {
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-40%) rotate(225deg);
+  border-color: var(--ink);
+}
+
+.plan-more-label-close {
+  display: none;
+}
+
+.plan-more[open] .plan-more-label-open {
+  display: none;
+}
+
+.plan-more[open] .plan-more-label-close {
+  display: inline;
 }
 
 .plan-more ul {
   margin-top: 10px;
 }
-
 
 .portfolio-head .btn {
   margin: 14px 0 10px;
@@ -1802,20 +1842,21 @@ body.theme-light .cta-form textarea::placeholder {
 }
 
 .faq summary::after {
-  content: "⌄";
+  content: "";
   position: absolute;
-  right: 0;
+  right: 4px;
   top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  transform-origin: center;
-  color: var(--muted);
-  font-size: 0.95rem;
-  transition: transform 180ms ease, color 180ms ease;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: translateY(-60%) rotate(45deg);
+  transition: transform 180ms ease, border-color 180ms ease;
 }
 
 .faq details[open] summary::after {
-  transform: translateY(-50%) rotate(180deg);
-  color: var(--ink);
+  transform: translateY(-40%) rotate(225deg);
+  border-color: var(--ink);
 }
 
 .faq p {
@@ -2297,6 +2338,3 @@ body.theme-light .scroll-down {
     padding: 6px 10px;
     border-radius: 999px;
   }
-
-
-

@@ -423,6 +423,15 @@
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', closeMenu);
     });
+
+    document.addEventListener('click', function (event) {
+      var clickedInsideMenu = menu.contains(event.target);
+      var clickedButton = button.contains(event.target);
+      var isOpen = !menu.classList.contains('hidden');
+      if (isOpen && !clickedInsideMenu && !clickedButton) {
+        closeMenu();
+      }
+    });
   })();
 </script>
 </body></html>

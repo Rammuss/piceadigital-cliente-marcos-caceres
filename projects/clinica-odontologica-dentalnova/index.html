@@ -1,0 +1,542 @@
+﻿<!DOCTYPE html>
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dental Nova | Tu Sonrisa, Nuestra Pasion</title>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/css/tailwind.css?v=20260404a" rel="stylesheet"/>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    main {
+      overflow-x: clip;
+    }
+    @font-face {
+      font-family: "LeagueSpartanLocal";
+      src: url("../../assets/fonts/league-spartan-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "ManropeLocal";
+      src: url("../../assets/fonts/manrope-latin.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+    }
+    .icon-symbol {
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 700;
+}
+    #top-header {
+      position: fixed;
+      top: 1rem;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 0 0.75rem;
+    }
+    #top-nav {
+      width: 100%;
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+    #mobile-menu-panel {
+      width: 100%;
+      max-width: 72rem;
+      margin: 0.5rem auto 0;
+      display: none;
+    }
+    #mobile-menu-panel.is-open {
+      display: block;
+    }
+    #top-nav .top-brand {
+      min-width: 0;
+      max-width: none;
+    }
+    #mobile-menu-toggle { flex: 0 0 auto; }
+    @media (max-width: 767px) {
+      #top-nav .top-brand {
+        max-width: calc(100% - 3.5rem);
+      }
+    }
+    @media (min-width: 768px) {
+      #top-header { padding: 0 1.5rem; }
+      #mobile-menu-panel { display: none !important; }
+    }
+    #bottom-mobile-nav {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(calc(100vw - 1.5rem), 420px);
+      bottom: max(1rem, env(safe-area-inset-bottom));
+      z-index: 60;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.25rem;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      #bottom-mobile-nav { display: none !important; }
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-x-hidden">
+<header id="top-header">
+<nav class="flex justify-between items-center px-4 py-3 glass-card rounded-full shadow-lg border-white/40 w-full" id="top-nav">
+<a class="top-brand flex items-center gap-2" href="#inicio" aria-label="Ir al inicio">
+<div class="bg-brand-primary p-1.5 rounded-xl rotate-3">
+<span class="icon-symbol text-white text-2xl" data-icon="dentistry">dentistry</span>
+</div>
+<span class="font-bold tracking-tight text-on-surface font-headline text-xl">Dental Nova</span>
+</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-medium text-sm hover:text-brand-primary transition-all" href="#tratamientos">Servicios</a>
+<a class="text-on-surface-variant font-medium text-sm hover:text-brand-primary transition-all" href="#proceso">Cómo funciona</a>
+<a class="bg-brand-primary text-white px-6 py-2.5 rounded-full font-bold text-sm hover:shadow-lg hover:shadow-brand-primary/30 transition-all" href="#contacto">¡Hola Sonrisa!</a>
+</div>
+<button class="md:hidden text-on-surface" id="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu-panel">
+<span class="icon-symbol text-3xl" data-icon="menu">menu</span>
+</button>
+</nav>
+<div class="md:hidden" id="mobile-menu-panel">
+<div class="glass-card rounded-3xl shadow-lg border-white/40 p-5 flex flex-col gap-3">
+<a class="mobile-menu-link text-on-surface-variant font-semibold text-sm hover:text-brand-primary transition-all" href="#tratamientos">Servicios</a>
+<a class="mobile-menu-link text-on-surface-variant font-semibold text-sm hover:text-brand-primary transition-all" href="#proceso">Como funciona</a>
+<a class="mobile-menu-link bg-brand-primary text-white px-5 py-2.5 rounded-full font-bold text-sm text-center" href="#contacto">Hola Sonrisa</a>
+</div>
+</div>
+</header>
+<main class="pt-28" id="inicio">
+<section class="relative px-6 py-12 md:py-20 max-w-7xl mx-auto">
+<div class="absolute -top-20 -right-20 w-80 h-80 bg-brand-secondary/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+<div class="absolute top-40 -left-20 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl -z-10"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="text-center lg:text-left space-y-8">
+<div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-secondary/10 text-brand-secondary font-bold text-sm border border-brand-secondary/20">
+<span class="icon-symbol text-base animate-bounce" data-icon="rocket_launch">rocket_launch</span>
+                    Respuesta en menos de 15 min
+                </div>
+<h1 class="text-5xl lg:text-7xl font-bold text-on-surface leading-tight font-headline">
+                    ¡Tu mejor sonrisa <span class="text-brand-primary relative inline-block">está aquí.<svg class="absolute -bottom-2 left-0 w-full h-3 text-brand-secondary/30" preserveAspectRatio="none" viewBox="0 0 100 10 "><path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="8"></path></svg></span>
+</h1>
+<p class="text-lg text-on-surface-variant font-medium max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                    Modernidad, tecnología y buena vibra. Redescubrí lo que significa ir al dentista con nuestra atención pensada para vos.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+<button class="bg-brand-primary text-white px-8 py-5 rounded-[2rem] font-bold text-lg flex items-center justify-center gap-3 hover:scale-105 transition-all shadow-xl shadow-brand-primary/20">
+<span class="icon-symbol" data-icon="chat">chat</span>
+                        WhatsApp Directo
+                    </button>
+<button class="bg-white border-2 border-brand-secondary text-brand-secondary px-8 py-5 rounded-[2rem] font-bold text-lg hover:bg-brand-secondary hover:text-white transition-all flex items-center justify-center">
+                        Mi evaluación gratis
+                    </button>
+</div>
+</div>
+<div class="relative group">
+<div class="relative rounded-[3rem] overflow-hidden aspect-square shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="Friendly dental clinic with colors" src="assets/img/img-1.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-transparent"></div>
+</div>
+<div class="absolute -bottom-8 -left-8 floating glass-card p-5 rounded-3xl shadow-xl flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-brand-secondary flex items-center justify-center text-white rotate-6">
+<span class="icon-symbol text-3xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface">Digital Dental Care</p>
+<p class="text-xs font-medium text-on-surface-variant">Sin dolor, solo resultados.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 max-w-7xl mx-auto" id="tratamientos">
+<div class="text-center mb-20 relative">
+<h2 class="text-4xl md:text-5xl font-bold text-on-surface font-headline mb-4">Lo que hacemos por vos</h2>
+<p class="text-on-surface-variant font-semibold text-lg">Tratamientos que combinan arte y ciencia dental.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group p-10 rounded-[3rem] bg-brand-soft hover:bg-brand-primary hover:text-white transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-brand-primary/40">
+<div class="w-16 h-16 rounded-2xl bg-brand-secondary/20 group-hover:bg-white/20 flex items-center justify-center mb-8 transition-colors">
+<span class="icon-symbol text-4xl text-brand-secondary group-hover:text-white" data-icon="sparkles">colors_spark</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-4">Limpieza Fresh</h3>
+<p class="text-sm opacity-80 leading-relaxed mb-8">Un detox profundo para que tus encías respiren y tu boca brille.</p>
+<div class="flex items-center gap-2 font-bold text-sm tracking-wider uppercase group-hover:translate-x-2 transition-transform">
+                    Explorar <span class="icon-symbol text-base" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<div class="group p-10 rounded-[3rem] bg-white border-2 border-brand-soft hover:border-brand-primary transition-all duration-500 shadow-sm hover:shadow-2xl">
+<div class="w-16 h-16 rounded-2xl bg-brand-primary/10 flex items-center justify-center mb-8">
+<span class="icon-symbol text-4xl text-brand-primary" data-icon="flare">flare</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-4">Blanqueamiento</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-8">Esa sonrisa de Hollywood que siempre quisiste, hoy mismo.</p>
+<div class="flex items-center gap-2 font-bold text-sm tracking-wider uppercase text-brand-primary">
+                    Explorar <span class="icon-symbol text-base" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<div class="group p-10 rounded-[3rem] bg-brand-primary/5 hover:bg-brand-secondary transition-all duration-500 shadow-sm hover:shadow-2xl hover:text-white">
+<div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-8">
+<span class="icon-symbol text-4xl text-brand-secondary" data-icon="all_inclusive">all_inclusive</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-4">Ortodoncia Cool</h3>
+<p class="text-sm opacity-80 leading-relaxed mb-8">Alineadores invisibles para que nadie note que estás mejorando.</p>
+<div class="flex items-center gap-2 font-bold text-sm tracking-wider uppercase group-hover:translate-x-2 transition-transform">
+                    Explorar <span class="icon-symbol text-base" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<div class="group p-10 rounded-[3rem] bg-white border-2 border-brand-soft hover:border-brand-primary transition-all duration-500 shadow-sm hover:shadow-2xl">
+<div class="w-16 h-16 rounded-2xl bg-brand-accent/10 flex items-center justify-center mb-8">
+<span class="icon-symbol text-4xl text-brand-accent" data-icon="favorite">favorite</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-4">Implantes</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-8">Recuperá la confianza y volvé a comer lo que más te gusta.</p>
+<div class="flex items-center gap-2 font-bold text-sm tracking-wider uppercase text-brand-accent">
+                    Explorar <span class="icon-symbol text-base" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<div class="group p-10 rounded-[3rem] bg-brand-soft hover:bg-brand-accent transition-all duration-500 shadow-sm hover:shadow-2xl hover:text-white">
+<div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-8">
+<span class="icon-symbol text-4xl text-brand-accent" data-icon="star">star</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-4">Diseño Smile</h3>
+<p class="text-sm opacity-80 leading-relaxed mb-8">Carillas de alta gama. Una transformación radical y natural.</p>
+<div class="flex items-center gap-2 font-bold text-sm tracking-wider uppercase group-hover:translate-x-2 transition-transform">
+                    Explorar <span class="icon-symbol text-base" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<div class="group p-10 rounded-[3rem] bg-brand-primary text-white transition-all duration-500 shadow-xl shadow-brand-primary/20">
+<div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-8">
+<span class="icon-symbol text-4xl text-white" data-icon="bolt">bolt</span>
+</div>
+<h3 class="text-2xl font-bold font-headline mb-4">SOS Dental</h3>
+<p class="text-sm opacity-80 leading-relaxed mb-8">Urgencias sin esperas. Estamos listos cuando más nos necesitás.</p>
+<div class="flex items-center gap-2 font-bold text-sm tracking-wider uppercase">
+                    Ayuda ahora <span class="icon-symbol text-base" data-icon="call">call</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface-dim relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="text-5xl font-bold text-on-surface font-headline mb-12">Por qué nos eligen las familias</h2>
+<div class="grid grid-cols-2 gap-8 mb-16">
+<div class="p-6 bg-white rounded-3xl shadow-sm border-b-4 border-brand-primary">
+<p class="text-4xl font-bold text-brand-primary font-headline">+10</p>
+<p class="text-sm font-bold text-on-surface-variant uppercase">Años vibrando</p>
+</div>
+<div class="p-6 bg-white rounded-3xl shadow-sm border-b-4 border-brand-secondary">
+<p class="text-4xl font-bold text-brand-secondary font-headline">+1200</p>
+<p class="text-sm font-bold text-on-surface-variant uppercase">Fans felices</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="p-8 bg-white rounded-4xl shadow-xl shadow-slate-200/50 relative overflow-hidden">
+<span class="icon-symbol absolute top-4 right-6 text-6xl text-brand-primary/10 select-none" data-icon="format_quote">format_quote</span>
+<p class="italic text-on-surface-variant mb-6 text-lg">"Increíble. Mis hijos por fin no tienen miedo de ir al dentista. El lugar es súper alegre y la atención es de otro nivel."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-brand-primary flex items-center justify-center text-white font-bold">M</div>
+<div>
+<p class="font-bold text-on-surface font-headline">María S.</p>
+<p class="text-xs text-brand-secondary font-bold">Mamá de dos</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-brand-secondary/20 rounded-[4rem] rotate-3 blur-2xl"></div>
+<div class="relative rounded-[3rem] overflow-hidden shadow-2xl bg-white p-4">
+<div class="grid grid-cols-2 gap-4">
+<div class="relative group/img">
+<img class="w-full h-80 object-cover rounded-[2rem]" data-alt="Before treatment" src="assets/img/img-2.jpg"/>
+<div class="absolute top-4 left-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs">Antes</div>
+</div>
+<div class="relative group/img">
+<img class="w-full h-80 object-cover rounded-[2rem]" data-alt="After treatment" src="assets/img/img-3.jpg"/>
+<div class="absolute top-4 left-4 bg-brand-secondary text-white px-3 py-1 rounded-full text-xs">Después</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<span class="inline-block bg-brand-primary text-white px-6 py-2 rounded-full font-bold text-sm">Resultados Reales</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 max-w-7xl mx-auto" id="proceso">
+<h2 class="text-4xl md:text-5xl font-bold text-on-surface font-headline text-center mb-20">Tu ruta a la felicidad dental</h2>
+<div class="relative grid grid-cols-1 md:grid-cols-4 gap-8">
+<svg class="hidden md:block absolute top-16 left-0 w-full h-24 -z-10 text-brand-primary/10" preserveAspectRatio="none" viewBox="0 0 1000 100">
+<path d="M0 50 Q 250 0 500 50 T 1000 50" fill="none" stroke="currentColor" stroke-dasharray="8 8" stroke-width="4"></path>
+</svg>
+<div class="text-center group p-8 rounded-5xl hover:bg-white hover:shadow-xl transition-all duration-300">
+<div class="w-24 h-24 rounded-full bg-brand-soft border-4 border-white shadow-lg mx-auto flex items-center justify-center mb-8 relative">
+<span class="icon-symbol text-4xl text-brand-primary" data-icon="waving_hand">waving_hand</span>
+<span class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold">1</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-4 font-headline">Hola</h3>
+<p class="text-sm text-on-surface-variant">Escribinos y agendamos tu cita en un click.</p>
+</div>
+<div class="text-center group p-8 rounded-5xl hover:bg-white hover:shadow-xl transition-all duration-300 md:mt-12">
+<div class="w-24 h-24 rounded-full bg-brand-soft border-4 border-white shadow-lg mx-auto flex items-center justify-center mb-8 relative">
+<span class="icon-symbol text-4xl text-brand-secondary" data-icon="visibility">visibility</span>
+<span class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-brand-secondary text-white flex items-center justify-center font-bold">2</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-4 font-headline">Check-up</h3>
+<p class="text-sm text-on-surface-variant">Vemos cómo estás con tecnología súper amigable.</p>
+</div>
+<div class="text-center group p-8 rounded-5xl hover:bg-white hover:shadow-xl transition-all duration-300">
+<div class="w-24 h-24 rounded-full bg-brand-soft border-4 border-white shadow-lg mx-auto flex items-center justify-center mb-8 relative">
+<span class="icon-symbol text-4xl text-brand-accent" data-icon="draw">draw</span>
+<span class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold">3</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-4 font-headline">Tu Plan</h3>
+<p class="text-sm text-on-surface-variant">Armamos el camino ideal para tu sonrisa.</p>
+</div>
+<div class="text-center group p-8 rounded-5xl hover:bg-white hover:shadow-xl transition-all duration-300 md:mt-12">
+<div class="w-24 h-24 rounded-full bg-brand-soft border-4 border-white shadow-lg mx-auto flex items-center justify-center mb-8 relative">
+<span class="icon-symbol text-4xl text-brand-primary" data-icon="celebration">celebration</span>
+<span class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold">4</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-4 font-headline">¡A Brillar!</h3>
+<p class="text-sm text-on-surface-variant">Mantenemos tu salud a tope todo el año.</p>
+</div>
+</div>
+</section>
+<section class="py-24 bg-brand-primary rounded-[4rem] md:rounded-[6rem] mx-4 my-12 text-white overflow-hidden relative">
+<div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-10">
+<h2 class="text-5xl font-bold font-headline leading-tight">Sin vueltas.<br/>Tu salud al alcance.</h2>
+<p class="text-white/80 text-xl font-medium leading-relaxed">
+                    Entendemos que la vida tiene sus gastos. Por eso, en Dental Nova te damos todas las facilidades para que nada te detenga.
+                </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="p-8 rounded-[2.5rem] bg-white/10 border border-white/20 backdrop-blur-md">
+<div class="bg-brand-secondary w-12 h-12 rounded-2xl flex items-center justify-center mb-6">
+<span class="icon-symbol" data-icon="credit_card">credit_card</span>
+</div>
+<h4 class="text-2xl font-bold font-headline mb-2">Cuotas 0%</h4>
+<p class="text-white/70 text-sm">Pagá en cómodas cuotas sin intereses con tarjetas aliadas.</p>
+</div>
+<div class="p-8 rounded-[2.5rem] bg-white/10 border border-white/20 backdrop-blur-md">
+<div class="bg-brand-accent w-12 h-12 rounded-2xl flex items-center justify-center mb-6">
+<span class="icon-symbol" data-icon="handshake">handshake</span>
+</div>
+<h4 class="text-2xl font-bold font-headline mb-2">Seguros</h4>
+<p class="text-white/70 text-sm">Convenios con las mejores aseguradoras del país.</p>
+</div>
+</div>
+<button class="bg-white text-brand-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-brand-secondary hover:text-white transition-all shadow-2xl">
+                    Consultar Cobertura
+                </button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<img class="rounded-[3rem] h-64 w-full object-cover shadow-2xl" src="assets/img/img-4.jpg"/>
+<div class="bg-brand-secondary p-6 rounded-[2.5rem] text-center">
+<span class="text-3xl font-bold font-headline">100%</span>
+<p class="text-xs uppercase font-bold tracking-widest mt-1">Transparencia</p>
+</div>
+</div>
+<div class="pt-12">
+<img class="rounded-[3rem] h-full w-full object-cover shadow-2xl" src="assets/img/img-5.jpg"/>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-6 max-w-7xl mx-auto" id="contacto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<div class="space-y-12">
+<h2 class="text-4xl md:text-5xl font-bold text-on-surface font-headline">Dudas frecuentes</h2>
+<div class="space-y-4">
+<details class="group bg-surface-dim rounded-4xl p-8 border-2 border-transparent hover:border-brand-primary/10 [&amp;_summary::-webkit-details-marker]:hidden transition-all">
+<summary class="flex items-center justify-between cursor-pointer list-none">
+<h4 class="font-bold text-lg text-on-surface font-headline">¿Me va a doler?</h4>
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center group-open:rotate-45 transition-transform shadow-sm">
+<span class="icon-symbol text-brand-primary" data-icon="add">add</span>
+</div>
+</summary>
+<p class="mt-6 text-on-surface-variant leading-relaxed">¡Para nada! Usamos tecnología de punta y técnicas mínimamente invasivas para que tu experiencia sea relax.</p>
+</details>
+<details class="group bg-surface-dim rounded-4xl p-8 border-2 border-transparent hover:border-brand-primary/10 [&amp;_summary::-webkit-details-marker]:hidden transition-all">
+<summary class="flex items-center justify-between cursor-pointer list-none">
+<h4 class="font-bold text-lg text-on-surface font-headline">¿Hay turnos los Sábados?</h4>
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center group-open:rotate-45 transition-transform shadow-sm">
+<span class="icon-symbol text-brand-primary" data-icon="add">add</span>
+</div>
+</summary>
+<p class="mt-6 text-on-surface-variant leading-relaxed">¡Claro! Atendemos los sábados de 08:00 a 13:00 para que no tengas que faltar al trabajo o al estudio.</p>
+</details>
+</div>
+</div>
+<div class="bg-white p-10 md:p-14 rounded-[4rem] shadow-2xl shadow-slate-200 border border-slate-100 relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-brand-secondary/10 w-32 h-32 rounded-bl-full"></div>
+<h2 class="text-3xl font-bold text-on-surface font-headline mb-4">¡Agendá tu primera cita!</h2>
+<p class="text-on-surface-variant text-sm mb-10">Te respondemos volando. Elegí el horario que mejor te quede.</p>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface px-2">Tu Nombre</label>
+<input class="w-full bg-surface-dim border-2 border-transparent rounded-[2rem] px-6 py-4 focus:border-brand-primary focus:ring-0 transition-all font-medium" placeholder="Ej: Lucas Benítez" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface px-2">Tu WhatsApp</label>
+<input class="w-full bg-surface-dim border-2 border-transparent rounded-[2rem] px-6 py-4 focus:border-brand-primary focus:ring-0 transition-all font-medium" placeholder="+595..." type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface px-2">¿Qué buscás?</label>
+<select class="w-full bg-surface-dim border-2 border-transparent rounded-[2rem] px-6 py-4 focus:border-brand-primary focus:ring-0 transition-all font-medium appearance-none">
+<option>Control General</option>
+<option>Blanqueamiento</option>
+<option>Ortodoncia</option>
+<option>Estética</option>
+</select>
+</div>
+<button class="w-full bg-brand-primary text-white py-5 rounded-full font-bold text-xl hover:scale-[1.02] transition-all shadow-xl shadow-brand-primary/20">
+                        Enviar Solicitud ✨
+                    </button>
+<p class="text-center text-[10px] uppercase tracking-widest font-bold text-on-surface-variant opacity-50">Tus datos están seguros con nosotros</p>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-dim pt-20 pb-28 md:pb-12">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-12 border-b-2 border-slate-200 pb-12">
+<div class="text-center md:text-left">
+<div class="flex items-center gap-2 justify-center md:justify-start mb-4">
+<div class="bg-brand-primary p-1.5 rounded-xl">
+<span class="icon-symbol text-white" data-icon="dentistry">dentistry</span>
+</div>
+<span class="text-2xl font-bold font-headline text-on-surface">Dental Nova</span>
+</div>
+<p class="text-on-surface-variant font-medium max-w-xs leading-relaxed">Innovando en cada sonrisa en el corazón de Paraguay. 🇵🇾</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-sm font-bold text-on-surface-variant">
+<a class="hover:text-brand-primary transition-colors" href="#">Tratamientos</a>
+<a class="hover:text-brand-primary transition-colors" href="#">Tecnología</a>
+<a class="hover:text-brand-primary transition-colors" href="#">Privacidad</a>
+<a class="hover:text-brand-primary transition-colors" href="#">Contacto</a>
+</div>
+<div class="flex gap-4">
+<a class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-all shadow-sm" href="#">
+<span class="icon-symbol" data-icon="share">share</span>
+</a>
+<a class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-white transition-all shadow-sm" href="#">
+<span class="icon-symbol" data-icon="location_on">location_on</span>
+</a>
+</div>
+</div>
+<div class="mt-12 text-center text-sm font-medium text-on-surface-variant/60">
+            © 2024 Dental Nova Paraguay. Hecho con ❤️ para tu sonrisa.
+        </div>
+</div>
+</footer>
+<nav class="glass-card rounded-full p-2 items-center shadow-2xl border-white/50" id="bottom-mobile-nav">
+<a class="bg-brand-primary text-white w-11 h-11 rounded-full flex items-center justify-center shadow-lg mx-auto" href="#">
+<span class="icon-symbol" data-icon="home">home</span>
+</a>
+<a class="text-on-surface-variant w-11 h-11 rounded-full flex items-center justify-center mx-auto" href="#tratamientos">
+<span class="icon-symbol" data-icon="category">category</span>
+</a>
+<a class="text-on-surface-variant w-11 h-11 rounded-full flex items-center justify-center mx-auto" href="#proceso">
+<span class="icon-symbol" data-icon="route">route</span>
+</a>
+<a class="text-on-surface-variant w-11 h-11 rounded-full flex items-center justify-center mx-auto" href="#contacto">
+<span class="icon-symbol" data-icon="chat_bubble">chat_bubble</span>
+</a>
+</nav>
+<a class="hidden md:flex fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-[1.5rem] shadow-2xl items-center justify-center hover:scale-110 transition-transform z-40" href="https://wa.me/595">
+<svg class="w-9 h-9 fill-current" viewBox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+</svg>
+</a>
+<script>
+  (function () {
+    const iconMap = {
+      dentistry: "✚",
+      menu: "☰",
+      rocket_launch: "↗",
+      chat: "●",
+      auto_awesome: "✦",
+      sparkles: "✦",
+      arrow_forward: "→",
+      flare: "✧",
+      all_inclusive: "∞",
+      favorite: "♥",
+      star: "★",
+      bolt: "⚡",
+      call: "☎",
+      format_quote: "❝",
+      waving_hand: "✋",
+      visibility: "◉",
+      draw: "✎",
+      celebration: "✶",
+      credit_card: "◳",
+      handshake: "◎",
+      add: "+",
+      share: "↗",
+      location_on: "⌖",
+      home: "⌂",
+      category: "▦",
+      route: "➜",
+      chat_bubble: "●"
+    };
+    document.querySelectorAll(".icon-symbol[data-icon]").forEach((el) => {
+      const key = el.getAttribute("data-icon");
+      el.textContent = iconMap[key] || "•";
+      el.setAttribute("aria-hidden", "true");
+    });
+  })();
+</script>
+<script>
+  (function () {
+    const toggle = document.getElementById("mobile-menu-toggle");
+    const panel = document.getElementById("mobile-menu-panel");
+    const links = document.querySelectorAll(".mobile-menu-link");
+    if (!toggle || !panel) return;
+
+    const closeMenu = () => {
+      panel.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.addEventListener("click", () => {
+      panel.classList.toggle("is-open");
+      const expanded = panel.classList.contains("is-open");
+      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    });
+
+    links.forEach((link) => link.addEventListener("click", closeMenu));
+    document.addEventListener("click", (event) => {
+      if (!panel.classList.contains("is-open")) return;
+      if (!panel.contains(event.target) && !toggle.contains(event.target)) closeMenu();
+    });
+  })();
+</script>
+
+</body></html>
+
+
+

@@ -829,6 +829,11 @@ body.theme-light .portfolio-head .eyebrow-icon {
   color: #7ef0a7;
 }
 
+.service-grid .list-icon--gift {
+  background: rgba(250, 202, 21, 0.2);
+  color: #facc15;
+}
+
 .service-grid .list-icon svg {
   width: 14px;
   height: 14px;
@@ -838,6 +843,11 @@ body.theme-light .portfolio-head .eyebrow-icon {
 body.theme-light .service-grid .list-icon {
   background: rgba(0,0,0,0.08);
   color: #1d1a1f;
+}
+
+body.theme-light .service-grid .list-icon--gift {
+  background: rgba(217, 119, 6, 0.18);
+  color: #b45309;
 }
 
 body.theme-light .custom-list .list-icon {
@@ -856,6 +866,12 @@ body.theme-light .plan-kicker--custom {
   align-items: center;
   gap: 8px;
   margin: 6px 0 8px;
+}
+
+.price-inline-note {
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
 .plan-kicker {
@@ -992,6 +1008,41 @@ body.theme-light .price-badge {
 .featured-card > * {
   position: relative;
   z-index: 1;
+}
+
+.plan-pill {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #fff7ef;
+  white-space: nowrap;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.08)),
+    linear-gradient(135deg, #ff8a4d, #ff6137);
+  border: 1px solid rgba(255, 177, 144, 0.8);
+  box-shadow:
+    0 10px 18px rgba(255, 97, 55, 0.34),
+    0 0 0 1px rgba(255,255,255,0.32) inset;
+}
+
+body.theme-light .plan-pill {
+  color: #ffffff;
+  border-color: rgba(255, 120, 80, 0.72);
+  box-shadow:
+    0 8px 14px rgba(255, 97, 55, 0.26),
+    0 0 0 1px rgba(255,255,255,0.24) inset;
 }
 
 .custom-header {
@@ -1937,6 +1988,106 @@ body.theme-light .cta-form textarea::placeholder {
   font-weight: 600;
 }
 
+.wa-float {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 220;
+  width: 58px;
+  height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: #0e1f17;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0.08)),
+    linear-gradient(135deg, #53da94, #26b667);
+  border: 1px solid rgba(195, 255, 219, 0.66);
+  box-shadow:
+    0 14px 28px rgba(24, 119, 73, 0.33),
+    0 0 0 1px rgba(255,255,255,0.24) inset;
+}
+
+.wa-float:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.wa-float-icon {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.wa-float-icon svg {
+  width: 27px;
+  height: 27px;
+  fill: currentColor;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.25));
+}
+
+.wa-float-popover {
+  position: fixed;
+  right: 16px;
+  bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  z-index: 221;
+  width: min(240px, calc(100vw - 24px));
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(16, 14, 18, 0.96);
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.38);
+}
+
+.wa-float-popover p {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.wa-float-popover-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.wa-pop-btn {
+  flex: 1;
+  min-height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(195, 255, 219, 0.66);
+  color: #0e1f17;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.34), rgba(255,255,255,0.08)),
+    linear-gradient(135deg, #53da94, #26b667);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.wa-pop-btn--ghost {
+  border-color: rgba(255,255,255,0.18);
+  color: var(--ink);
+  background: rgba(255,255,255,0.06);
+}
+
+body.theme-light .wa-float {
+  color: #0d1a14;
+  border-color: rgba(29, 145, 88, 0.45);
+  box-shadow:
+    0 10px 22px rgba(24, 119, 73, 0.2),
+    0 0 0 1px rgba(255,255,255,0.36) inset;
+}
+
+body.theme-light .wa-float-popover {
+  background: rgba(255,255,255,0.97);
+  border-color: rgba(0,0,0,0.1);
+  box-shadow: 0 14px 24px rgba(0,0,0,0.16);
+}
+
 .cookie-banner {
   position: fixed;
   left: 16px;
@@ -2029,6 +2180,32 @@ body.theme-light .cookie-content {
 }
 
 @media (max-width: 640px) {
+  .plan-pill {
+    top: -14px;
+    min-height: 30px;
+    padding: 7px 14px;
+    font-size: 0.74rem;
+  }
+
+  .wa-float {
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    width: 52px;
+    height: 52px;
+  }
+
+  .wa-float-icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  .wa-float-popover {
+    right: 10px;
+    bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+    width: min(220px, calc(100vw - 20px));
+    padding: 9px;
+  }
+
   .cookie-banner {
     left: 8px;
     right: 8px;

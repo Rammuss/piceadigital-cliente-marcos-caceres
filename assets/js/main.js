@@ -530,6 +530,7 @@ loadAnalytics();
 
 const registerTrackingEvents = () => {
   const onWhatsappClick = (event) => {
+    if (event.defaultPrevented) return;
     const link = event.target.closest('a[href^="https://wa.me/"], a[href^="http://wa.me/"]');
     if (!link) return;
     const source = (link.dataset.waSource || "unknown").trim();
@@ -546,6 +547,90 @@ const registerTrackingEvents = () => {
     });
   };
   document.addEventListener("click", onWhatsappClick);
+
+  const floatingWa = document.querySelector(".wa-float");
+  const floatingPopover = document.getElementById("wa-float-popover");
+  if (floatingWa) {
+    const closeFloatingPopover = () => {
+      if (!floatingPopover) return;
+      floatingPopover.hidden = true;
+    };
+
+    const openFloatingPopover = () => {
+      if (!floatingPopover) return;
+      floatingPopover.hidden = false;
+    };
+
+    floatingWa.addEventListener("click", (event) => {
+      event.preventDefault();
+      if (!floatingPopover) return;
+      openFloatingPopover();
+    });
+
+    if (floatingPopover) {
+      floatingPopover.addEventListener("click", (event) => {
+        const actionBtn = event.target.closest("[data-wa-popover-action]");
+        if (!actionBtn) return;
+        const action = actionBtn.dataset.waPopoverAction;
+        if (action === "cancel") {
+          closeFloatingPopover();
+          return;
+        }
+        if (action !== "open") return;
+
+        closeFloatingPopover();
+        const source = (floatingWa.dataset.waSource || "floating_button").trim();
+        trackEvent("click_whatsapp", {
+          source,
+          link_url: floatingWa.href,
+          link_text: (floatingWa.textContent || "").trim().slice(0, 120),
+        });
+        trackEvent("wa_click", { source });
+        trackPixelEvent("Contact", {
+          content_name: source,
+          content_category: "contact",
+        });
+
+        window.location.href = floatingWa.href;
+      });
+
+      document.addEventListener("click", (event) => {
+        if (floatingPopover.hidden) return;
+        if (floatingPopover.contains(event.target)) return;
+        if (floatingWa.contains(event.target)) return;
+        closeFloatingPopover();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        closeFloatingPopover();
+      });
+    }
+
+    floatingWa.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      if (!floatingPopover) return;
+      openFloatingPopover();
+    });
+
+    floatingWa.addEventListener("touchstart", () => {
+      closeFloatingPopover();
+    }, { passive: true });
+  } else if (floatingPopover) {
+    floatingPopover.hidden = true;
+  }
+
+  if (floatingWa && floatingPopover) {
+    floatingWa.addEventListener("blur", () => {
+      // no-op: keeps keyboard flow predictable while popover is open
+    });
+  }
+
+  if (floatingWa) {
+    const source = (floatingWa.dataset.waSource || "floating_button").trim();
+    floatingWa.setAttribute("data-wa-source", source);
+  }
 
   const planButtons = document.querySelectorAll(".plan-cta[data-plan-name]");
   planButtons.forEach((btn) => {
@@ -610,4 +695,5 @@ const registerTrackingEvents = () => {
 };
 
 registerTrackingEvents();
+
 

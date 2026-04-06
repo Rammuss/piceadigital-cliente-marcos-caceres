@@ -693,6 +693,15 @@ body.theme-light .why-card p {
   color: #5f5a60;
 }
 
+body.theme-light .steps::before {
+  background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(232,93,186,0.45), rgba(0,0,0,0.08));
+}
+
+body.theme-light .step-action-icon {
+  background: rgba(0,0,0,0.02);
+  border-color: rgba(0,0,0,0.09);
+}
+
 body.theme-light .eyebrow-pill {
   background: rgba(26, 163, 161, 0.16);
   color: #1d1a1f;
@@ -761,6 +770,10 @@ body.theme-light .portfolio-head .eyebrow-icon {
   gap: 18px;
   justify-content: center;
   align-items: start;
+}
+
+#servicios .service-grid {
+  margin-top: 18px;
 }
 
 .service-grid article {
@@ -1002,7 +1015,7 @@ body.theme-light .price-badge {
 
 .featured-card {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .featured-card > * {
@@ -1080,6 +1093,13 @@ body.theme-light .plan-pill {
   font-weight: 700;
 }
 
+.plan-cupos-note {
+  margin: -2px 0 8px;
+  color: #ffb49c;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
 .plan-pay-note {
   margin: -2px 0 10px;
   color: var(--muted);
@@ -1116,12 +1136,13 @@ body.theme-light .plan-pill {
 
 .plan-cta--essential {
   background:
-    linear-gradient(135deg, rgba(126, 206, 186, 0.92), rgba(76, 152, 138, 0.9));
-  border: 1px solid rgba(176, 222, 208, 0.34);
-  color: #0f1714;
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.26), transparent 35%),
+    linear-gradient(135deg, #ff8a4d, #ff6137);
+  border: 1px solid rgba(255, 177, 144, 0.74);
+  color: #2b120c;
   box-shadow:
-    0 0 0 1px rgba(210, 248, 233, 0.1) inset,
-    0 10px 18px rgba(66, 138, 124, 0.18);
+    0 0 0 1px rgba(255,255,255,0.2) inset,
+    0 12px 22px rgba(255, 97, 55, 0.26);
 }
 
 .plan-cta--custom {
@@ -1182,8 +1203,8 @@ body.theme-light .plan-pill {
 
 .plan-cta--essential:hover {
   background:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.24), transparent 35%),
-    linear-gradient(135deg, rgba(134, 212, 193, 0.98), rgba(82, 160, 146, 0.94));
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.3), transparent 35%),
+    linear-gradient(135deg, #ff935a, #ff6b44);
 }
 
 .plan-cta--custom:hover {
@@ -1193,10 +1214,10 @@ body.theme-light .plan-pill {
 }
 
 body.theme-light .plan-cta--essential {
-  border-color: rgba(96, 173, 155, 0.4);
+  border-color: rgba(255, 120, 80, 0.64);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.16) inset,
-    0 8px 16px rgba(78, 146, 130, 0.16);
+    0 0 0 1px rgba(255,255,255,0.22) inset,
+    0 10px 18px rgba(255, 97, 55, 0.2);
 }
 
 body.theme-light .plan-cta--custom {
@@ -1340,6 +1361,20 @@ body.theme-light .custom-badge {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.steps::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(214,214,223,0.35), rgba(232,93,186,0.55), rgba(214,214,223,0.35));
+  pointer-events: none;
+  z-index: 0;
 }
 
 .step {
@@ -1350,9 +1385,11 @@ body.theme-light .custom-badge {
   display: grid;
   grid-template-columns: 36px 1fr;
   gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
-.step span {
+.step-number {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -1364,6 +1401,25 @@ body.theme-light .custom-badge {
   font-weight: 700;
 }
 
+.step-action-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-2);
+  margin-bottom: 8px;
+}
+
+.step-action-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
 .step h4 {
   margin: 0 0 6px;
 }
@@ -1371,6 +1427,22 @@ body.theme-light .custom-badge {
 .step p {
   margin: 0;
   color: var(--muted);
+}
+
+.process-time,
+.process-trust {
+  text-align: center;
+  margin: 14px auto 0;
+  color: var(--muted);
+}
+
+.process-time {
+  font-size: 0.96rem;
+}
+
+.process-trust {
+  font-size: 0.93rem;
+  max-width: 740px;
 }
 
 
@@ -2252,6 +2324,7 @@ body.theme-light .cookie-content {
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .service-grid, .info, .steps { grid-template-columns: 1fr 1fr; }
+  .steps::before { display: none; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .portfolio-content { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr 1fr; }
@@ -2264,6 +2337,7 @@ body.theme-light .cookie-content {
 
 @media (max-width: 640px) {
   .service-grid, .info, .steps { grid-template-columns: 1fr; }
+  .steps::before { display: none; }
   .why-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }

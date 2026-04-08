@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sovereign Stability | Consulta Guiada</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#00193c",
+                        "primary-container": "#002d62",
+                        "secondary": "#505f76",
+                        "tertiary": "#2da97a",
+                        "tertiary-fixed": "#85f8c4",
+                        "on-tertiary-fixed": "#002114",
+                        "surface": "#f6fafe",
+                        "surface-container": "#eaeef2",
+                        "surface-container-low": "#f0f4f8",
+                        "on-surface": "#171c1f",
+                        "on-surface-variant": "#43474f",
+                        "outline-variant": "#c4c6d1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #00193c 0%, #002d62 100%);
+        }
+        .step-line::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            width: 2px;
+            height: 4rem;
+            background: linear-gradient(to bottom, #2da97a, transparent);
+            transform: translateX(-50%);
+        }
+        .progress-indicator {
+            position: fixed;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 40;
+        }
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: all 0.3s ease;
+        }
+        .progress-dot.active {
+            height: 24px;
+            background: #002d62;
+            border-radius: 4px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-tertiary-fixed">
+<div class="progress-indicator md:flex hidden">
+<a class="progress-dot active" href="#step-1"></a>
+<a class="progress-dot" href="#step-2"></a>
+<a class="progress-dot" href="#step-3"></a>
+<a class="progress-dot" href="#step-4"></a>
+<a class="progress-dot" href="#step-5"></a>
+</div>
+<header class="bg-white/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-outline-variant/30">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-2xl">account_balance</span>
+<span class="text-lg font-bold tracking-tight text-primary">Alianza Ledger</span>
+</div>
+<div class="hidden md:flex gap-6 text-sm font-semibold">
+<a class="text-secondary hover:text-primary transition-colors" href="#step-2">Servicios</a>
+<a class="text-secondary hover:text-primary transition-colors" href="#step-3">Trayectoria</a>
+<a class="text-secondary hover:text-primary transition-colors" href="#step-5">Contacto</a>
+</div>
+<a class="bg-tertiary-fixed text-on-tertiary-fixed p-2 rounded-full flex items-center justify-center" href="https://wa.me/595900000000">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">chat</span>
+</a>
+</div>
+</header>
+<main class="pt-20">
+<section class="relative min-h-[795px] flex flex-col justify-center px-6 py-12 bg-white overflow-hidden" id="step-1">
+<div class="max-w-2xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-[0.7rem] font-bold uppercase tracking-wider text-secondary mb-8">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                Paso 1: Identificación
+            </div>
+<h1 class="text-4xl font-extrabold text-primary mb-6 leading-tight font-headline">
+                ¿Busca estabilidad financiera en el mercado paraguayo?
+            </h1>
+<p class="text-lg text-on-surface-variant mb-12 leading-relaxed">
+                Transformamos la complejidad tributaria en una ruta clara para su crecimiento. Comencemos descubriendo las soluciones diseñadas para usted.
+            </p>
+<div class="relative w-full max-w-xs mx-auto mb-16">
+<img alt="Arquitectura Financiera" class="rounded-2xl shadow-2xl grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIV-5lrmoMemKoSPQqzvD9SbZLPc23zxiTE49Ee1MAcmweulwMy_Y1c8Q3G6SjHVBAssFFtWnBoWuvAF8LTpXVY1kLXXbkZgkUF9jMpOb4eBQt2vEnB7vqnj4zFGnCudXhk1HbQ2LAt2ObU8MpN1S1XHXQP0WiZS_yk35FZ5ovA_7imSEG7LHO3hN4hxGuI_DIgZ1N7vt1hKLrQg7NGumW-nBq75Q1vcgXL6Oev6fRIN5f4sSa4VudTjkneNIC7vYApseD-z9Qvv8"/>
+</div>
+<div class="animate-bounce flex flex-col items-center gap-2 text-secondary">
+<span class="text-xs font-bold uppercase tracking-widest">Deslice para explorar</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</section>
+<section class="min-h-screen px-6 py-24 bg-surface-container-low border-t border-outline-variant/20" id="step-2">
+<div class="max-w-2xl mx-auto">
+<div class="step-line relative inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[0.7rem] font-bold uppercase tracking-wider text-secondary mb-8">
+                Paso 2: Diagnóstico de Necesidades
+            </div>
+<h2 class="text-3xl font-bold text-primary mb-10 font-headline">Nuestras áreas de intervención estratégica.</h2>
+<div class="grid gap-6">
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/30 flex items-start gap-5">
+<div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-2">Contabilidad General</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Libros legales y estados financieros bajo normas locales (SET) e internacionales.</p>
+</div>
+</div>
+<div class="signature-gradient p-6 rounded-2xl shadow-xl text-white flex items-start gap-5">
+<div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">gavel</span>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-2 text-tertiary-fixed">Gestión de Impuestos</h3>
+<p class="text-sm text-white/80 leading-relaxed">Planificación estratégica de IVA, IRE e IRP. Representación directa ante auditorías.</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/30 flex items-start gap-5">
+<div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-2">Laboral &amp; IPS</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Liquidación de haberes y gestión integral en portales MTESS e IPS.</p>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/30 flex items-start gap-5">
+<div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">domain</span>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-2">Constitución de EAS</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Formalización ágil de empresas bajo la nueva ley de acciones simplificadas.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="min-h-screen px-6 py-24 bg-white border-t border-outline-variant/20 overflow-hidden" id="step-3">
+<div class="max-w-2xl mx-auto">
+<div class="step-line relative inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-[0.7rem] font-bold uppercase tracking-wider text-secondary mb-8">
+                Paso 3: Validación de Confianza
+            </div>
+<h2 class="text-3xl font-bold text-primary mb-8 font-headline">¿Por qué confiar en Alianza Ledger?</h2>
+<p class="text-on-surface-variant mb-10 leading-relaxed">
+                Nuestra firma no solo procesa datos; construye blindaje jurídico para su patrimonio. Contamos con certificaciones oficiales y una red de profesionales Senior.
+            </p>
+<div class="space-y-8 mb-12">
+<div class="flex items-center gap-4 group">
+<div class="w-2 h-12 bg-tertiary group-hover:w-3 transition-all"></div>
+<div>
+<p class="font-bold text-primary">+15 Años de Trayectoria</p>
+<p class="text-xs text-secondary">Experiencia comprobada en el mercado local paraguayo.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-2 h-12 bg-primary group-hover:w-3 transition-all"></div>
+<div>
+<p class="font-bold text-primary">Auditores Registrados</p>
+<p class="text-xs text-secondary">Habilitados formalmente ante la SET y el MTESS.</p>
+</div>
+</div>
+</div>
+<img alt="Nuestro Equipo" class="rounded-3xl shadow-lg w-full mb-12 grayscale hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeH19qAgpta2QfK3iXm5VvDR2sjueIh99ZH0zUkgxDMFrdeBxEdZg6MDuZakp6DGrhRJd1yAsY5cpYg0OUPqeW1LdN-eIc8kRQtfgL-LnCqIr4TRkq5DViWpHUmumVKJ2iaR8xS95Sq_61iXd0ADL8tmpZrrid2DxAiR9iziUkpxaCM04WdOFY-QUHKMYK31JlTAb3qcsRsJ_dN0pcETNV8uY75OSy0bouWTRZ11CcNtSE6mH9dn1yEeiC_HCJR_IzNjCq1JRbxO4"/>
+<div class="bg-surface-container p-8 rounded-2xl">
+<p class="text-[0.65rem] uppercase tracking-[0.2em] font-bold text-secondary mb-6 text-center">Impulsando a:</p>
+<div class="flex justify-between items-center opacity-60">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[0.6rem] font-bold">PYMES</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">person_check</span>
+<span class="text-[0.6rem] font-bold">PROFESIONALES</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined">factory</span>
+<span class="text-[0.6rem] font-bold">INDUSTRIAS</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-24 bg-surface-container-low border-t border-outline-variant/20" id="step-4">
+<div class="max-w-2xl mx-auto">
+<div class="step-line relative inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[0.7rem] font-bold uppercase tracking-wider text-secondary mb-8">
+                Paso 4: Actualización &amp; Soporte
+            </div>
+<h2 class="text-3xl font-bold text-primary mb-10 font-headline">Conocimiento en tiempo real.</h2>
+<div class="mb-16 space-y-6">
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<span class="bg-tertiary-fixed text-[0.6rem] font-bold px-2 py-1 rounded uppercase">SET 2024</span>
+<h4 class="font-bold text-sm mt-2 mb-1">Nuevas disposiciones IRE Simple</h4>
+<p class="text-xs text-on-surface-variant">Análisis de los nuevos topes de facturación vigentes.</p>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-sm">
+<span class="bg-primary/10 text-primary text-[0.6rem] font-bold px-2 py-1 rounded uppercase">EAS</span>
+<h4 class="font-bold text-sm mt-2 mb-1">Beneficios Fiscales de la EAS</h4>
+<p class="text-xs text-on-surface-variant">Por qué es la mejor opción para nuevos emprendimientos.</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="border-b border-outline-variant pb-4">
+<button class="flex justify-between items-center w-full text-left font-bold text-primary">
+<span>¿Costos de constitución?</span>
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<div class="border-b border-outline-variant pb-4">
+<button class="flex justify-between items-center w-full text-left font-bold text-primary">
+<span>¿Fechas de vencimiento SET?</span>
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-24 bg-primary text-white border-t border-white/10" id="step-5">
+<div class="max-w-2xl mx-auto">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[0.7rem] font-bold uppercase tracking-wider text-tertiary-fixed mb-8">
+                Paso Final: Su Alianza Sólida
+            </div>
+<h2 class="text-4xl font-extrabold mb-8 font-headline leading-tight">Iniciemos su consulta personalizada hoy.</h2>
+<div class="grid gap-8 mb-16">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed">location_on</span>
+</div>
+<div>
+<p class="font-bold">Oficina Asunción</p>
+<p class="text-xs text-white/60 uppercase tracking-wide">Avda. Aviadores del Chaco</p>
+</div>
+</div>
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed">call</span>
+</div>
+<div>
+<p class="font-bold">+595 21 000 000</p>
+<p class="text-xs text-white/60 uppercase tracking-wide">Lunes a Viernes 08:00 - 17:00</p>
+</div>
+</div>
+</div>
+<form class="space-y-6 bg-white/5 p-8 rounded-3xl backdrop-blur-sm border border-white/10">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-[0.65rem] font-bold uppercase tracking-widest text-white/50">Nombre</label>
+<input class="w-full bg-white/10 border-0 border-b border-white/20 focus:ring-0 focus:border-tertiary-fixed p-3 rounded-t-lg transition-all text-sm" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[0.65rem] font-bold uppercase tracking-widest text-white/50">RUC</label>
+<input class="w-full bg-white/10 border-0 border-b border-white/20 focus:ring-0 focus:border-tertiary-fixed p-3 rounded-t-lg transition-all text-sm" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[0.65rem] font-bold uppercase tracking-widest text-white/50">Mensaje</label>
+<textarea class="w-full bg-white/10 border-0 border-b border-white/20 focus:ring-0 focus:border-tertiary-fixed p-3 rounded-t-lg transition-all text-sm" rows="3"></textarea>
+</div>
+<button class="w-full bg-tertiary-fixed text-on-tertiary-fixed py-5 rounded-2xl font-bold uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-tertiary/20" type="submit">
+                    Solicitar Diagnóstico
+                </button>
+</form>
+</div>
+</section>
+<section class="h-[300px] relative w-full overflow-hidden">
+<div class="absolute inset-0 grayscale opacity-40">
+<img alt="Ubicación" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3CLwgEaTMP-21AuhTjYUkjN5hA7RDTTM2SB9DVHszQvILgNpKzLwnQEuMTgldrK38_gD5FqgCO0-RJPs_i_Y60es1gwdjU9VFfUL6r4Z8h6bAu28L0E7d0wkk9NLmj6rHLJV5SwFPsR_2C332qPgKU0UvG51ZOmfaSvjKmpusOxqidrxi7YcYYd1k-DplaiNIGbKppvtJyz6_4zT2EH1CqquuC4voYseT_zRZjomcphe-Dl9a76zWItOmFK8Gs3pp5wWiB6urRuE"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-primary text-white p-4 rounded-full shadow-2xl animate-pulse">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-primary pt-12 pb-24 px-6 border-t border-white/5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
+<div class="max-w-xs">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl">account_balance</span>
+<span class="text-lg font-bold tracking-tight text-white">Alianza Ledger</span>
+</div>
+<p class="text-xs text-white/50 leading-relaxed">
+                Consultoría tributaria registrada. Seguridad jurídica y contable para el ecosistema empresarial paraguayo.
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h5 class="text-[0.65rem] font-bold uppercase tracking-widest text-white/30 mb-4">Legal</h5>
+<ul class="space-y-3 text-xs text-white/60">
+<li><a class="hover:text-tertiary-fixed transition-colors" href="#">Privacidad</a></li>
+<li><a class="hover:text-tertiary-fixed transition-colors" href="#">Términos</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-[0.65rem] font-bold uppercase tracking-widest text-white/30 mb-4">Recursos</h5>
+<ul class="space-y-3 text-xs text-white/60">
+<li><a class="hover:text-tertiary-fixed transition-colors" href="#">Portal SET</a></li>
+<li><a class="hover:text-tertiary-fixed transition-colors" href="#">Portal IPS</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5">
+<p class="text-[0.6rem] text-white/30 text-center tracking-widest uppercase">
+            © 2024 Alianza Ledger. Asunción, Paraguay.
+        </p>
+</div>
+</footer>
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-8 bg-white/80 backdrop-blur-2xl z-[60] border-t border-outline-variant/20 rounded-t-3xl shadow-[0px_-10px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-primary group" href="#step-1">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[0.6rem] font-bold mt-1 uppercase tracking-tighter">Inicio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="#step-2">
+<span class="material-symbols-outlined text-2xl">grid_view</span>
+<span class="text-[0.6rem] font-bold mt-1 uppercase tracking-tighter text-slate-400">Servicios</span>
+</a>
+<a class="flex flex-col items-center justify-center -mt-8" href="#step-5">
+<div class="w-14 h-14 signature-gradient rounded-full flex items-center justify-center shadow-lg shadow-primary/30 border-4 border-white">
+<span class="material-symbols-outlined text-white text-2xl">mail</span>
+</div>
+<span class="text-[0.6rem] font-bold mt-1 text-primary uppercase tracking-tighter">Consulta</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="#step-4">
+<span class="material-symbols-outlined text-2xl">newspaper</span>
+<span class="text-[0.6rem] font-bold mt-1 uppercase tracking-tighter text-slate-400">Noticias</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="https://wa.me/595900000000">
+<span class="material-symbols-outlined text-2xl">chat</span>
+<span class="text-[0.6rem] font-bold mt-1 uppercase tracking-tighter text-slate-400">WhatsApp</span>
+</a>
+</nav>
+<script>
+    // Simple script to handle progress dots on scroll
+    window.addEventListener('scroll', () => {
+        const sections = ['step-1', 'step-2', 'step-3', 'step-4', 'step-5'];
+        const dots = document.querySelectorAll('.progress-dot');
+        sections.forEach((id, index) => {
+            const section = document.getElementById(id);
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 200 && rect.bottom >= 200) {
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body></html>

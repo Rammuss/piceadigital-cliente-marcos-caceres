@@ -548,6 +548,72 @@ const registerTrackingEvents = () => {
   };
   document.addEventListener("click", onWhatsappClick);
 
+  const examplesModal = document.getElementById("examples-modal");
+  const openExamplesButtons = document.querySelectorAll("[data-open-examples]");
+  const closeExamplesButtons = document.querySelectorAll("[data-close-examples]");
+  const exampleSwitchButtons = document.querySelectorAll("[data-example-src]");
+  const examplesIframe = examplesModal ? examplesModal.querySelector(".examples-modal__iframe") : null;
+
+  const setExampleSource = (button) => {
+    if (!examplesIframe || !button) return;
+    const src = (button.dataset.exampleSrc || "").trim();
+    const title = (button.dataset.exampleTitle || "").trim();
+    if (!src) return;
+    const isAlreadyActive = button.classList.contains("is-active");
+
+    if (examplesIframe.getAttribute("src") !== src) {
+      examplesIframe.setAttribute("src", src);
+    }
+    if (title) {
+      examplesIframe.setAttribute("title", title);
+    }
+
+    exampleSwitchButtons.forEach((item) => {
+      const isActive = item === button;
+      item.classList.toggle("is-active", isActive);
+      item.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    if (isAlreadyActive) return;
+    trackEvent("switch_example", { example_src: src });
+  };
+
+  const closeExamplesModal = () => {
+    if (!examplesModal) return;
+    examplesModal.hidden = true;
+    document.body.style.overflow = "";
+  };
+  const openExamplesModal = () => {
+    if (!examplesModal) return;
+    examplesModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    trackEvent("open_examples_modal", { source: "plan_esencial" });
+  };
+
+  openExamplesButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openExamplesModal();
+    });
+  });
+
+  exampleSwitchButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setExampleSource(btn);
+    });
+  });
+
+  closeExamplesButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      closeExamplesModal();
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (!examplesModal || examplesModal.hidden) return;
+    closeExamplesModal();
+  });
+
   const floatingWa = document.querySelector(".wa-float");
   const floatingPopover = document.getElementById("wa-float-popover");
   if (floatingWa) {

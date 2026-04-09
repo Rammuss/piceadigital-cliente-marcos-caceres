@@ -31,7 +31,7 @@ if (hero && heroVideo) {
   };
 
   if (isMobileHero) {
-    heroVideo.setAttribute("poster", "assets/hero/imagenv8-9-16.png?v=20260331f");
+    heroVideo.setAttribute("poster", "assets/hero/escritorio-hero-fix.png?v=20260408a");
   }
 
   applyHeroVideoSource();

@@ -2374,13 +2374,14 @@ body.theme-light .cta-form textarea::placeholder {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.18);
   background: rgba(255,255,255,0.08);
   color: var(--ink);
-  font-size: 1.4rem;
+  font-size: 1.55rem;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
 }
@@ -2939,8 +2940,11 @@ body.theme-light .cookie-content {
 
   .examples-modal__close {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 6px;
+    right: 6px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.9rem;
   }
 
   .examples-modal__cta {

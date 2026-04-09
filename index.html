@@ -11,7 +11,7 @@
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/hero/video-nomarca-9a16.mp4?v=20260401a" as="video" type="video/mp4" media="(max-width: 1023px)" />
-  <link rel="preload" href="assets/hero/video-nomarca-16a9.mp4?v=20260401a" as="video" type="video/mp4" media="(min-width: 1024px)" />
+  <link rel="preload" href="assets/hero/video-hero-16a9-escritorio-fix.mp4?v=20260408b" as="video" type="video/mp4" media="(min-width: 1024px)" />
   <link rel="prefetch" href="portfolio.html" as="document" />
   <style>
     /* Evita íconos SVG gigantes durante el primer paint antes de cargar styles.css */
@@ -20,7 +20,7 @@
   <link rel="preload" href="assets/css/styles.css?v=20260408a" as="style" />
   <link rel="stylesheet" href="assets/css/styles.css?v=20260408a" />
 </head>
-<body data-ga4="G-PEFPMM9NYR" data-pixel="2431513420610437">
+<body class="theme-light" data-ga4="G-PEFPMM9NYR" data-pixel="2431513420610437">
   <header class="hero hero-centered" id="top">
     <div class="hero-video-bg" aria-hidden="true">
       <video
@@ -30,32 +30,29 @@
         loop
         playsinline
         preload="auto"
-        poster="assets/hero/imagenv8-16-9.png?v=20260331f"
+        poster="assets/hero/escritorio-hero-fix.png?v=20260408a"
         data-src-mobile="assets/hero/video-nomarca-9a16.mp4?v=20260401a"
-        data-src-desktop="assets/hero/video-nomarca-16a9.mp4?v=20260401a"
+        data-src-desktop="assets/hero/video-hero-16a9-escritorio-fix.mp4?v=20260408b"
       >
       </video>
     </div>
     <nav class="nav">
       <a class="logo" href="#inicio" aria-label="Ir al inicio">
-        <picture>
-          <source
-            type="image/webp"
-            srcset="assets/logo/picea_logo_transparent-143.webp 143w, assets/logo/picea_logo_transparent.webp 285w"
-            sizes="(max-width: 640px) 114px, 160px"
-          />
-          <img
-            src="assets/logo/picea_logo_transparent.png"
-            srcset="assets/logo/picea_logo_transparent-143.png 143w, assets/logo/picea_logo_transparent.png 285w"
-            sizes="(max-width: 640px) 114px, 160px"
-            alt="Picea Digital"
-            class="logo-img"
-            width="285"
-            height="103"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </picture>
+        <img
+          src="assets/logo/logo sin fondo-fix.png"
+          srcset="assets/logo/logo sin fondo-fix.png 143w, assets/logo/logo sin fondo-fix.png 285w"
+          sizes="(max-width: 640px) 114px, 160px"
+          alt="Picea Digital"
+          class="logo-img"
+          data-logo-dark-src="assets/logo/picea_logo_transparent.png"
+          data-logo-dark-srcset="assets/logo/picea_logo_transparent-143.png 143w, assets/logo/picea_logo_transparent.png 285w"
+          data-logo-light-src="assets/logo/logo sin fondo-fix.png"
+          data-logo-light-srcset="assets/logo/logo sin fondo-fix.png 143w, assets/logo/logo sin fondo-fix.png 285w"
+          width="285"
+          height="103"
+          decoding="async"
+          fetchpriority="high"
+        />
       </a>
       <div class="nav-links" id="nav-links">
         <a href="#inicio">Inicio</a>
@@ -81,18 +78,18 @@
     <div class="hero-grid">
       <div class="hero-copy" id="inicio">
         <p class="eyebrow eyebrow-pill">Ideas que crecen</p>
-        <h1>Webs pensadas para
-          <span>atraer clientes y vender mejor</span>
+        <h1>Tu negocio en internet,
+          <span>sin complicaciones</span>
         </h1>
-        <p class="lead">Diseñamos landing pages y sitios web para negocios que quieren verse profesionales y convertir visitas en consultas.</p>
+        <p class="lead">Creamos tu página web clara, rápida y lista para recibir clientes.</p>
         <div class="hero-cta">
-          <a class="btn" data-wa-source="hero" href="https://wa.me/595981236300?text=Hola%2C%20quiero%20m%C3%A1s%20info.">
+          <a class="btn" data-wa-source="hero" href="https://wa.me/595981236300?text=%C2%A1Hola%20Marcos!%20Quer%C3%ADa%20consultarte%20sobre%20una%20web%20para%20mi%20negocio.">
             <span class="btn-icon btn-icon--whatsapp" aria-hidden="true">
               <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
                 <path d="M12.04 2.01c-5.51 0-9.99 4.48-9.99 9.99 0 1.76.46 3.47 1.34 4.99L2 22l5.14-1.35c1.45.79 3.08 1.2 4.74 1.2h.01c5.51 0 9.99-4.48 9.99-9.99s-4.48-9.99-9.99-9.99zm0 18.14h-.01c-1.5 0-2.97-.4-4.26-1.16l-.3-.18-3.05.8.82-2.97-.2-.31a8.13 8.13 0 0 1-1.24-4.33c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13 0 4.48-3.65 8.13-8.13 8.13zm4.48-6.1c-.25-.12-1.48-.73-1.7-.82-.23-.08-.4-.12-.56.12-.16.25-.64.82-.79.99-.15.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.1-.5.1-.1.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.83-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.74 2.66 4.2 3.73.59.25 1.05.4 1.41.52.59.19 1.12.16 1.54.1.47-.07 1.48-.6 1.69-1.19.21-.59.21-1.1.15-1.19-.06-.1-.22-.16-.47-.29z"/>
               </svg>
             </span>
-            Hablemos de tu proyecto
+            Consultame por WhatsApp
           </a>
         </div>
         <a class="scroll-down" href="#porque" aria-label="Ir a la siguiente sección">
@@ -150,26 +147,52 @@
       </div>
     </section>
 
+    <section class="section founder reveal" id="marcos">
+      <div class="founder-grid">
+        <div class="founder-photo-wrap">
+          <picture>
+            <source type="image/webp" srcset="assets/fotos/asesormarcos-53.webp 53w, assets/fotos/asesormarcos.webp 185w" sizes="(max-width: 900px) 140px, 180px" />
+            <img
+              class="founder-photo"
+              src="assets/fotos/asesormarcos.png"
+              srcset="assets/fotos/asesormarcos-53.png 53w, assets/fotos/asesormarcos.png 185w"
+              sizes="(max-width: 900px) 140px, 180px"
+              alt="Marcos, fundador de Picea Digital"
+              width="185"
+              height="206"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </div>
+        <div class="founder-copy">
+          <p class="eyebrow eyebrow-pill">Confianza real</p>
+          <h2>Hola, soy Marcos</h2>
+          <p>Creé Picea Digital porque entiendo lo que cuesta sacar adelante un negocio en Paraguay y lo difícil que puede ser el mundo digital.</p>
+          <p>Como Analista de Sistemas, mi meta es darte soluciones claras, sin palabras raras ni vueltas, para que tu web trabaje para vos recibiendo consultas reales.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section reveal" id="servicios">
       <div class="section-title center-title">
-        <h2>Planes de diseño y desarrollo web</h2>
+        <h2>Elegí la opción ideal para tu negocio</h2>
       </div>
         <div class="service-grid">
           <article class="featured-card plan-card">
             <div class="plan-pills">
-              <span class="plan-pill">CUPOS LIMITADOS</span>
               <button class="plan-pill plan-pill--examples" type="button" data-open-examples aria-controls="examples-modal">VER EJEMPLOS</button>
             </div>
             <div class="plan-header">
-              <h3>Plan Web Esencial</h3>
+              <h3>Tu primera web</h3>
             </div>
-            <p class="plan-kicker">Para lanzar rápido y empezar a captar consultas</p>
+            <p class="plan-kicker">Ideal para negocios que quieren dar el salto de redes a una web propia</p>
             <p class="price">
               <span class="price-now">Gs. 690.000</span>
               <span class="price-old">Gs. 900.000</span>
               <span class="price-inline-note">(Pago único)</span>
             </p>
-            <p class="plan-cupos-note">Válido para los próximos 5 proyectos del mes.</p>
+            <p class="plan-cupos-note">Trabajamos con pocos proyectos a la vez para dedicarle a tu web el tiempo que se merece.</p>
             <p class="plan-pay-note">50% para iniciar y 50% al publicar tu web final.</p>
             <p>Incluye este plan</p>
             <ul>
@@ -201,7 +224,7 @@
                   <path d="M12 8v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
                 </svg>
               </span>
-              Entrega en <strong class="highlight">4-7 días hábiles</strong>
+              Entrega en <strong class="highlight">3-5 días hábiles</strong>
             </li>
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -215,7 +238,7 @@
           </ul>
           <details class="plan-more">
             <summary>
-              <span class="plan-more-label-open">Ver detalles del plan</span>
+              <span class="plan-more-label-open">¿Qué incluye exactamente?</span>
               <span class="plan-more-label-close">Ocultar detalles</span>
             </summary>
             <ul>
@@ -267,21 +290,21 @@
               </li>
             </ul>
           </details>
-          <a class="btn plan-cta plan-cta--essential" data-plan-name="esencial" data-wa-source="plan_esencial" href="https://wa.me/595981236300?text=Hola%2C%20quiero%20el%20Plan%20Web%20Esencial%20de%20Gs.%20690.000.%20%C2%BFMe%20compart%C3%ADs%20los%20siguientes%20pasos%3F">
+          <a class="btn plan-cta plan-cta--essential" data-plan-name="esencial" data-wa-source="plan_esencial" href="https://wa.me/595981236300?text=Hola%20Marcos%2C%20%C2%BFme%20coment%C3%A1s%20m%C3%A1s%20sobre%20el%20plan%20%27Tu%20primera%20web%27%3F">
             <span class="btn-icon btn-icon--whatsapp" aria-hidden="true">
               <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
                 <path d="M12.04 2.01c-5.51 0-9.99 4.48-9.99 9.99 0 1.76.46 3.47 1.34 4.99L2 22l5.14-1.35c1.45.79 3.08 1.2 4.74 1.2h.01c5.51 0 9.99-4.48 9.99-9.99s-4.48-9.99-9.99-9.99zm0 18.14h-.01c-1.5 0-2.97-.4-4.26-1.16l-.3-.18-3.05.8.82-2.97-.2-.31a8.13 8.13 0 0 1-1.24-4.33c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13 0 4.48-3.65 8.13-8.13 8.13zm4.48-6.1c-.25-.12-1.48-.73-1.7-.82-.23-.08-.4-.12-.56.12-.16.25-.64.82-.79.99-.15.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.1-.5.1-.1.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.83-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.74 2.66 4.2 3.73.59.25 1.05.4 1.41.52.59.19 1.12.16 1.54.1.47-.07 1.48-.6 1.69-1.19.21-.59.21-1.1.15-1.19-.06-.1-.22-.16-.47-.29z"/>
               </svg>
             </span>
-            Quiero este plan
+            Consultar por WhatsApp
             <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
           </a>
         </article>
         <article class="custom-card plan-card">
           <div class="custom-header">
-            <h3>Plan Web Pro</h3>
+            <h3>Web profesional</h3>
           </div>
-          <p class="plan-kicker plan-kicker--custom">Para negocios que necesitan una web más completa</p>
+          <p class="plan-kicker plan-kicker--custom">Para negocios con movimiento que necesitan una presencia más sólida</p>
           <p class="custom-price">Gs. 1.290.000 <span class="price-inline-note">(Pago único)</span></p>
           <p class="plan-pay-note">50% para iniciar y 50% al publicar tu web final.</p>
           <p>Incluye este plan</p>
@@ -293,7 +316,7 @@
                   <path d="M12 8v8M8 12h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
                 </svg>
               </span>
-              Todo lo del Plan Web Esencial + más
+              Todo lo de Tu primera web + más
             </li>
             <li class="has-icon">
               <span class="list-icon" aria-hidden="true">
@@ -337,7 +360,7 @@
           </ul>
           <details class="plan-more">
             <summary>
-              <span class="plan-more-label-open">Ver detalles del plan</span>
+              <span class="plan-more-label-open">¿Qué incluye exactamente?</span>
               <span class="plan-more-label-close">Ocultar detalles</span>
             </summary>
             <ul class="custom-list">
@@ -379,13 +402,13 @@
               </li>
             </ul>
           </details>
-          <a class="btn plan-cta plan-cta--custom" data-plan-name="pro" data-wa-source="plan_pro" href="https://wa.me/595981236300?text=Hola%2C%20quiero%20el%20Plan%20Web%20Pro%20de%20Gs.%201.290.000.%20%C2%BFMe%20compart%C3%ADs%20los%20siguientes%20pasos%3F">
+          <a class="btn plan-cta plan-cta--custom" data-plan-name="pro" data-wa-source="plan_pro" href="https://wa.me/595981236300?text=%C2%A1Hola!%20Me%20interesa%20el%20plan%20%27Web%20profesional%27.%20%C2%BFC%C3%B3mo%20funciona%3F">
             <span class="btn-icon btn-icon--whatsapp" aria-hidden="true">
               <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
                 <path d="M12.04 2.01c-5.51 0-9.99 4.48-9.99 9.99 0 1.76.46 3.47 1.34 4.99L2 22l5.14-1.35c1.45.79 3.08 1.2 4.74 1.2h.01c5.51 0 9.99-4.48 9.99-9.99s-4.48-9.99-9.99-9.99zm0 18.14h-.01c-1.5 0-2.97-.4-4.26-1.16l-.3-.18-3.05.8.82-2.97-.2-.31a8.13 8.13 0 0 1-1.24-4.33c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13 0 4.48-3.65 8.13-8.13 8.13zm4.48-6.1c-.25-.12-1.48-.73-1.7-.82-.23-.08-.4-.12-.56.12-.16.25-.64.82-.79.99-.15.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.1-.5.1-.1.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.83-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.74 2.66 4.2 3.73.59.25 1.05.4 1.41.52.59.19 1.12.16 1.54.1.47-.07 1.48-.6 1.69-1.19.21-.59.21-1.1.15-1.19-.06-.1-.22-.16-.47-.29z"/>
               </svg>
             </span>
-            Quiero este plan
+            Consultar por WhatsApp
             <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
           </a>
         </article>
@@ -446,8 +469,8 @@
                 <path d="m18.8 8.6 1.6 1.6-5.1 5.1-2.2.5.5-2.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
               </svg>
             </span>
-            <h4>Diagnóstico y Carga (24hs)</h4>
-            <p>Iniciamos con un breve relevamiento. Recibimos tu información base y configuramos tu hosting y dominio de inmediato.</p>
+            <h4>Hablamos</h4>
+            <p>Contame tu idea por WhatsApp y te recomiendo el mejor camino para tu negocio.</p>
           </div>
         </div>
         <div class="step">
@@ -459,8 +482,8 @@
                 <path d="M9 20h6M12 16.5V20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
               </svg>
             </span>
-            <h4>Maquetación y Primer Vistazo</h4>
-            <p>Construimos la estructura de tu landing. Te enviamos un acceso privado para que veas el progreso en tiempo real.</p>
+            <h4>Diseñamos</h4>
+            <p>Hacemos un boceto claro y funcional para que valides rápido el estilo y el mensaje.</p>
           </div>
         </div>
         <div class="step">
@@ -473,25 +496,12 @@
                 <path d="M18.5 14.8a6.7 6.7 0 0 1-9.3 2.4A6.7 6.7 0 0 1 6.8 7.9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
               </svg>
             </span>
-            <h4>Refinamiento Pro</h4>
-            <p>Pulimos los detalles, ajustamos textos y optimizamos la carga para móviles. Tu feedback es clave para el toque final.</p>
-          </div>
-        </div>
-        <div class="step">
-          <span class="step-number">4</span>
-          <div>
-            <span class="step-action-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-                <path d="M4 13c0-4.6 3.4-8 8-9 1.3-.3 3.2-.3 4.5.1l-2 3.6 3.9.4.4 3.9 3.5-2c.5 1.4.4 3.2.1 4.5-1 4.6-4.4 8-9 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-                <path d="m8.4 15 2.3 2.3 4.9-5.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </span>
-            <h4>¡A vender! (Lanzamiento)</h4>
-            <p>Tu web queda 100% activa. Te entregamos tus accesos y una guía rápida para que sepas cómo medir tus visitas.</p>
+            <h4>Lanzamos</h4>
+            <p>Tu web queda lista para vender y empezar a recibir consultas desde el primer día.</p>
           </div>
         </div>
       </div>
-      <p class="process-time">Tiempo estimado de punta a punta: 4 a 7 días hábiles.</p>
+      <p class="process-time">Tiempo estimado de punta a punta: 3 a 5 días hábiles.</p>
       <p class="process-trust">Mantenemos comunicación constante por WhatsApp en cada etapa del proceso.</p>
     </section>
 
@@ -512,27 +522,18 @@
       <div class="faq">
         <details open>
           <summary>¿Qué información debo enviar para empezar?</summary>
-          <p>Con esto ya podemos arrancar:</p>
-          <ul>
-            <li>A qué se dedica tu negocio</li>
-            <li>Qué querés lograr con la web</li>
-            <li>Si tenés logo, textos o fotos (aunque sea parcial)</li>
-          </ul>
-          <p>No hace falta tener todo listo: te guiamos paso a paso.</p>
+          <p>No te preocupes si no tenés todo listo. Con que me cuentes qué hace tu negocio y qué querés lograr, nosotros te ayudamos a armar el resto.</p>
+          <p>Te guiamos paso a paso para que no sea un peso para vos.</p>
         </details>
         <details>
           <summary>¿Cuánto tarda la entrega?</summary>
-          <p>Entre 4 y 7 días hábiles, desde que recibimos toda la información y el anticipo.</p>
+          <p>Entre 3 y 5 días hábiles, desde que recibimos toda la información y el anticipo.</p>
           <p>Si tenés una fecha objetivo, la ajustamos juntos desde el inicio.</p>
         </details>
         <details>
           <summary>¿Cuándo empieza el desarrollo?</summary>
-          <p>Los tiempos de desarrollo comienzan una vez recibido:</p>
-          <ul>
-            <li>El 100% del material solicitado</li>
-            <li>El pago inicial</li>
-          </ul>
-          <p>Si te falta algo, te indicamos exactamente qué enviar para avanzar sin trabas.</p>
+          <p>Apenas tengamos el pago inicial y la información básica, nos ponemos en marcha.</p>
+          <p>Si te falta algún detalle por el camino, no hay problema, lo sumamos mientras avanzamos para no trabar tu lanzamiento.</p>
         </details>
         <details>
           <summary>¿El dominio y hosting están incluidos de acuerdo al plan?</summary>
@@ -541,8 +542,23 @@
         </details>
         <details>
             <summary>¿Cuáles son las condiciones de pago?</summary>
-            <p>Ambos planes son pago único: 50% anticipo para iniciar y 50% al entregar.</p>
-            <p>Te explicamos todo de forma simple antes de empezar, sin sorpresas.</p>
+            <p>Trabajamos con total transparencia: pedimos un 50% para iniciar el compromiso y el 50% restante recién cuando tu web esté lista y estés conforme con el resultado.</p>
+            <p>Sin letras chicas ni sorpresas al final.</p>
+        </details>
+        <details>
+            <summary>¿Necesito saber de tecnología?</summary>
+            <p>Para nada. La idea es que vos te ocupes de tu negocio y yo de la web.</p>
+            <p>Te entrego todo funcionando y te muestro cómo usarlo de forma simple.</p>
+        </details>
+        <details>
+            <summary>¿Qué pasa si quiero cambiar algo después?</summary>
+            <p>Seguimos en contacto. No te entrego el trabajo y me desaparezco.</p>
+            <p>Si después necesitás un ajuste o tenés una duda, me escribís por WhatsApp y lo vemos juntos.</p>
+        </details>
+        <details>
+            <summary>¿El precio es pago único?</summary>
+            <p>Sí, así de claro: pagás por tu web y es tuya.</p>
+            <p>No hay mensualidades ocultas de mantenimiento. Lo único que se renueva anualmente es el hosting/dominio, y te aviso con tiempo.</p>
         </details>
       </div>
     </section>
@@ -553,9 +569,9 @@
           <div class="contact-head">
             <p class="eyebrow eyebrow-pill">Contáctanos</p>
             <h2>Disponibles 24/7</h2>
-            <p>Podés contactarnos por WhatsApp o completando el formulario en esta página. Nos esforzamos por responder con rapidez y esperamos poder ayudarte muy pronto.</p>
+            <p>La forma más rápida de avanzar es por WhatsApp. Si preferís, también podés dejar tus datos en el formulario y te escribo yo.</p>
           </div>
-          <a class="contact-card" data-wa-source="contact" href="https://wa.me/595981236300?text=Hola%2C%20quiero%20m%C3%A1s%20info.">
+          <a class="contact-card" data-wa-source="contact" href="https://wa.me/595981236300?text=%C2%A1Hola%20Marcos!%20Quer%C3%ADa%20consultarte%20sobre%20una%20web%20para%20mi%20negocio.">
             <picture>
               <source
                 type="image/webp"
@@ -580,7 +596,7 @@
               </svg>
             </span>
             <div>
-              <strong>WhatsApp directo</strong>
+              <strong>Escribime por WhatsApp</strong>
               <span class="wa-inline-status">
                 <span class="wa-status-dot" aria-hidden="true"></span>
                 +595 981 236 300
@@ -597,6 +613,7 @@
           </p>
         </div>
         <div class="contact-form">
+          <p class="contact-sub">Si preferís que yo te contacte, dejame tus datos y te escribo por WhatsApp en el día.</p>
           <form class="cta-form" action="https://script.google.com/macros/s/AKfycbz0YRmisN-a58GRP3Gdpso1Hv2mwZzIdmFskJD04IguKKli63tNQeQ8Q4O7JSWAy-pYYQ/exec" method="POST" target="form-target" enctype="application/x-www-form-urlencoded">
             <label>
               Nombre
@@ -625,7 +642,7 @@
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
           <iframe class="form-target" name="form-target" title="form-submit"></iframe>
-          <p class="form-note">Tus datos están protegidos. No hacemos spam.</p>
+          <p class="form-note">Tus datos están seguros. Yo mismo te voy a responder, nada de spam.</p>
         </div>
       </div>
     </section>
@@ -635,7 +652,8 @@
     <div class="examples-modal__backdrop" data-close-examples></div>
     <div class="examples-modal__dialog">
       <button class="examples-modal__close" type="button" aria-label="Cerrar ejemplos" data-close-examples>×</button>
-      <h3 id="examples-modal-title">Ejemplos reales</h3>
+      <h3 id="examples-modal-title">Así podría verse tu negocio</h3>
+      <p class="examples-modal__mobile-label" id="examples-mobile-label" aria-live="polite"></p>
       <div class="examples-modal__tabs" role="tablist" aria-label="Seleccionar rubro de ejemplo">
         <button
           class="examples-modal__tab is-active"
@@ -655,6 +673,24 @@
         >
           Estudio contable
         </button>
+        <button
+          class="examples-modal__tab"
+          type="button"
+          data-example-src="temp/ejemplos/veterinaria/stitch/code.html"
+          data-example-title="Ejemplo web de veterinaria en vista móvil"
+          aria-pressed="false"
+        >
+          Veterinaria
+        </button>
+        <button
+          class="examples-modal__tab"
+          type="button"
+          data-example-src="temp/ejemplos/fisio/stitch/code.html"
+          data-example-title="Ejemplo web de fisioterapia en vista móvil"
+          aria-pressed="false"
+        >
+          Fisioterapia
+        </button>
       </div>
       <div class="examples-modal__viewer">
         <div class="examples-modal__phone">
@@ -665,25 +701,30 @@
             loading="lazy"
           ></iframe>
         </div>
+        <button class="examples-modal__nav examples-modal__nav--prev" type="button" aria-label="Ver ejemplo anterior">‹</button>
+        <button class="examples-modal__nav examples-modal__nav--next" type="button" aria-label="Ver siguiente ejemplo">›</button>
       </div>
-      <a class="btn examples-modal__cta" data-wa-source="examples_modal" href="https://wa.me/595981236300?text=Hola%2C%20vi%20los%20ejemplos%20y%20quiero%20el%20Plan%20Web%20Esencial.%20%C2%BFC%C3%B3mo%20empezamos%3F">
+      <a class="btn examples-modal__cta" data-wa-source="examples_modal" href="https://wa.me/595981236300?text=Hola%20Marcos%2C%20vi%20tus%20trabajos.%20%C2%BFHac%C3%A9s%20webs%20para%20cualquier%20rubro%3F">
         <span class="btn-icon btn-icon--whatsapp" aria-hidden="true">
           <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
             <path d="M12.04 2.01c-5.51 0-9.99 4.48-9.99 9.99 0 1.76.46 3.47 1.34 4.99L2 22l5.14-1.35c1.45.79 3.08 1.2 4.74 1.2h.01c5.51 0 9.99-4.48 9.99-9.99s-4.48-9.99-9.99-9.99zm0 18.14h-.01c-1.5 0-2.97-.4-4.26-1.16l-.3-.18-3.05.8.82-2.97-.2-.31a8.13 8.13 0 0 1-1.24-4.33c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13 0 4.48-3.65 8.13-8.13 8.13zm4.48-6.1c-.25-.12-1.48-.73-1.7-.82-.23-.08-.4-.12-.56.12-.16.25-.64.82-.79.99-.15.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.1-.5.1-.1.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.83-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.74 2.66 4.2 3.73.59.25 1.05.4 1.41.52.59.19 1.12.16 1.54.1.47-.07 1.48-.6 1.69-1.19.21-.59.21-1.1.15-1.19-.06-.1-.22-.16-.47-.29z"/>
           </svg>
         </span>
-        Quiero este plan
+        Consultar por WhatsApp
       </a>
     </div>
   </div>
 
-  <a class="wa-float" data-wa-source="floating_button" href="https://wa.me/595981236300?text=Hola%2C%20quiero%20m%C3%A1s%20info." aria-label="Escribir por WhatsApp">
+  <a class="wa-float" data-wa-source="floating_button" href="https://wa.me/595981236300?text=%C2%A1Hola%20Marcos!%20Quer%C3%ADa%20consultarte%20sobre%20una%20web%20para%20mi%20negocio." aria-label="Escribir por WhatsApp">
     <span class="wa-float-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
         <path d="M12.04 2.01c-5.51 0-9.99 4.48-9.99 9.99 0 1.76.46 3.47 1.34 4.99L2 22l5.14-1.35c1.45.79 3.08 1.2 4.74 1.2h.01c5.51 0 9.99-4.48 9.99-9.99s-4.48-9.99-9.99-9.99zm0 18.14h-.01c-1.5 0-2.97-.4-4.26-1.16l-.3-.18-3.05.8.82-2.97-.2-.31a8.13 8.13 0 0 1-1.24-4.33c0-4.48 3.65-8.13 8.13-8.13 4.48 0 8.13 3.65 8.13 8.13 0 4.48-3.65 8.13-8.13 8.13zm4.48-6.1c-.25-.12-1.48-.73-1.7-.82-.23-.08-.4-.12-.56.12-.16.25-.64.82-.79.99-.15.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.24-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.1-.5.1-.1.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.77-1.83-.2-.49-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.57c.12.16 1.74 2.66 4.2 3.73.59.25 1.05.4 1.41.52.59.19 1.12.16 1.54.1.47-.07 1.48-.6 1.69-1.19.21-.59.21-1.1.15-1.19-.06-.1-.22-.16-.47-.29z"/>
       </svg>
     </span>
   </a>
+  <div class="wa-float-hint" id="wa-float-hint" hidden>
+    ¿Tenés alguna duda? Escribime y te ayudo sin compromiso.
+  </div>
   <div class="wa-float-popover" id="wa-float-popover" hidden>
     <p>¿Abrir WhatsApp?</p>
     <div class="wa-float-popover-actions">

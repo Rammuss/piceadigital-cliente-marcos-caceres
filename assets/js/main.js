@@ -236,7 +236,7 @@ if (ctaForm) {
   const status = ctaForm.querySelector(".form-status");
   const targetFrame = document.querySelector(".form-target");
   const submitBtn = ctaForm.querySelector('button[type="submit"]');
-  const waHref = "https://wa.me/595981236300?text=Hola%2C%20quiero%20m%C3%A1s%20info.";
+  const waHref = "https://wa.me/595981236300?text=%C2%A1Hola%20Marcos!%20Quer%C3%ADa%20consultarte%20sobre%20una%20web%20para%20mi%20negocio.";
   let pendingTimer = null;
   let softAckTimer = null;
   let optimisticTimer = null;
@@ -442,6 +442,13 @@ const THEME_KEY = "picea-theme";
 const applyTheme = (mode) => {
   const isLight = mode === "light";
   document.body.classList.toggle("theme-light", isLight);
+  const themeLogos = document.querySelectorAll(".logo-img[data-logo-dark-src][data-logo-light-src]");
+  themeLogos.forEach((img) => {
+    const nextSrc = (isLight ? img.dataset.logoLightSrc : img.dataset.logoDarkSrc) || "";
+    const nextSrcset = (isLight ? img.dataset.logoLightSrcset : img.dataset.logoDarkSrcset) || "";
+    if (nextSrc) img.setAttribute("src", nextSrc);
+    if (nextSrcset) img.setAttribute("srcset", nextSrcset);
+  });
   if (themeToggle) {
     themeToggle.setAttribute("aria-pressed", String(isLight));
     themeToggle.setAttribute("aria-label", isLight ? "Cambiar a modo oscuro" : "Cambiar a modo claro");
@@ -465,7 +472,7 @@ if (themeToggle) {
   if (saved === "light" || saved === "dark") {
     applyTheme(saved);
   } else {
-    applyTheme("dark");
+    applyTheme("light");
   }
 
   themeToggle.addEventListener("click", () => {
@@ -553,6 +560,13 @@ const registerTrackingEvents = () => {
   const closeExamplesButtons = document.querySelectorAll("[data-close-examples]");
   const exampleSwitchButtons = document.querySelectorAll("[data-example-src]");
   const examplesIframe = examplesModal ? examplesModal.querySelector(".examples-modal__iframe") : null;
+  const examplesViewer = examplesModal ? examplesModal.querySelector(".examples-modal__viewer") : null;
+  const examplesMobileLabel = document.getElementById("examples-mobile-label");
+  const examplesPrevBtn = examplesModal ? examplesModal.querySelector(".examples-modal__nav--prev") : null;
+  const examplesNextBtn = examplesModal ? examplesModal.querySelector(".examples-modal__nav--next") : null;
+  const exampleButtons = Array.from(exampleSwitchButtons);
+  let activeExampleIndex = exampleButtons.findIndex((btn) => btn.classList.contains("is-active"));
+  if (activeExampleIndex < 0) activeExampleIndex = 0;
 
   const setExampleSource = (button) => {
     if (!examplesIframe || !button) return;
@@ -573,6 +587,12 @@ const registerTrackingEvents = () => {
       item.classList.toggle("is-active", isActive);
       item.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
+    const idx = exampleButtons.indexOf(button);
+    if (idx >= 0) activeExampleIndex = idx;
+    if (examplesMobileLabel) {
+      const labelText = (button.textContent || "").trim();
+      examplesMobileLabel.textContent = `${activeExampleIndex + 1}/${exampleButtons.length} · ${labelText}`;
+    }
 
     if (isAlreadyActive) return;
     trackEvent("switch_example", { example_src: src });
@@ -602,6 +622,29 @@ const registerTrackingEvents = () => {
     });
   });
 
+  const setExampleByIndex = (index) => {
+    const safeIndex = Math.max(0, Math.min(index, exampleButtons.length - 1));
+    const target = exampleButtons[safeIndex];
+    if (!target) return;
+    setExampleSource(target);
+  };
+
+  if (examplesPrevBtn) {
+    examplesPrevBtn.addEventListener("click", () => {
+      setExampleByIndex(activeExampleIndex - 1);
+    });
+  }
+
+  if (examplesNextBtn) {
+    examplesNextBtn.addEventListener("click", () => {
+      setExampleByIndex(activeExampleIndex + 1);
+    });
+  }
+
+  if (exampleButtons[activeExampleIndex]) {
+    setExampleSource(exampleButtons[activeExampleIndex]);
+  }
+
   closeExamplesButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       closeExamplesModal();
@@ -616,7 +659,54 @@ const registerTrackingEvents = () => {
 
   const floatingWa = document.querySelector(".wa-float");
   const floatingPopover = document.getElementById("wa-float-popover");
+  const floatingHint = document.getElementById("wa-float-hint");
   if (floatingWa) {
+    const WA_HINT_KEY = "picea-wa-hint-seen";
+    let floatingHintTimer = null;
+
+    const hideFloatingHint = () => {
+      if (!floatingHint) return;
+      floatingHint.classList.remove("is-visible");
+      floatingHint.hidden = true;
+      if (floatingHintTimer) {
+        clearTimeout(floatingHintTimer);
+        floatingHintTimer = null;
+      }
+      try {
+        sessionStorage.setItem(WA_HINT_KEY, "1");
+      } catch (error) {
+        // ignore
+      }
+    };
+
+    const showFloatingHint = () => {
+      if (!floatingHint) return;
+      if (!floatingPopover || !floatingPopover.hidden) return;
+      floatingHint.hidden = false;
+      requestAnimationFrame(() => {
+        floatingHint.classList.add("is-visible");
+      });
+      floatingHintTimer = setTimeout(() => {
+        hideFloatingHint();
+      }, 7000);
+    };
+
+    if (floatingHint) {
+      let seenHint = false;
+      try {
+        seenHint = sessionStorage.getItem(WA_HINT_KEY) === "1";
+      } catch (error) {
+        seenHint = false;
+      }
+      if (!seenHint) {
+        setTimeout(() => {
+          showFloatingHint();
+        }, 5000);
+      } else {
+        floatingHint.hidden = true;
+      }
+    }
+
     const closeFloatingPopover = () => {
       if (!floatingPopover) return;
       floatingPopover.hidden = true;
@@ -624,6 +714,7 @@ const registerTrackingEvents = () => {
 
     const openFloatingPopover = () => {
       if (!floatingPopover) return;
+      hideFloatingHint();
       floatingPopover.hidden = false;
     };
 
@@ -661,6 +752,13 @@ const registerTrackingEvents = () => {
       });
 
       document.addEventListener("click", (event) => {
+        if (floatingHint && !floatingHint.hidden) {
+          const clickedInsideHint = floatingHint.contains(event.target);
+          const clickedWa = floatingWa.contains(event.target);
+          if (!clickedInsideHint && !clickedWa) {
+            hideFloatingHint();
+          }
+        }
         if (floatingPopover.hidden) return;
         if (floatingPopover.contains(event.target)) return;
         if (floatingWa.contains(event.target)) return;
@@ -685,6 +783,8 @@ const registerTrackingEvents = () => {
     }, { passive: true });
   } else if (floatingPopover) {
     floatingPopover.hidden = true;
+  } else if (floatingHint) {
+    floatingHint.hidden = true;
   }
 
   if (floatingWa && floatingPopover) {

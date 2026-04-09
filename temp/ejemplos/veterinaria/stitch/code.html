@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Veterinaria La Estancia - Cuidado Noble y Profesional</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#42493e",
+                    "tertiary-fixed": "#f5e0bd",
+                    "on-primary-fixed": "#002201",
+                    "tertiary": "#44371e",
+                    "on-tertiary-fixed-variant": "#52452b",
+                    "tertiary-fixed-dim": "#d8c4a2",
+                    "surface-container-highest": "#e6e2d9",
+                    "secondary-fixed-dim": "#aec7f7",
+                    "outline-variant": "#c2c9bb",
+                    "outline": "#72796e",
+                    "surface-container": "#f1eee5",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#3b6934",
+                    "on-tertiary-container": "#d4c09e",
+                    "primary-fixed": "#bcf0ae",
+                    "inverse-on-surface": "#f4f0e7",
+                    "on-background": "#1c1c17",
+                    "surface": "#fdf9f0",
+                    "tertiary-container": "#5c4e33",
+                    "secondary-container": "#b6d0ff",
+                    "background": "#fdf9f0",
+                    "on-tertiary-fixed": "#241a05",
+                    "inverse-surface": "#31312b",
+                    "on-primary-fixed-variant": "#23501e",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#3f5881",
+                    "on-secondary-fixed": "#001b3d",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1c1c17",
+                    "primary-container": "#2d5a27",
+                    "inverse-primary": "#a1d494",
+                    "secondary-fixed": "#d6e3ff",
+                    "primary": "#154212",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#9dd090",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e6e2d9",
+                    "secondary": "#465f88",
+                    "surface-dim": "#dddad1",
+                    "surface-container-high": "#ece8df",
+                    "surface-container-low": "#f7f3ea",
+                    "surface-bright": "#fdf9f0",
+                    "on-secondary-fixed-variant": "#2e476f",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#a1d494"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pet-frame {
+            border-top-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fdf9f0]/80 dark:bg-stone-900/80 backdrop-blur-md">
+<nav class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#154212] dark:text-[#a3e635]" data-icon="pets">pets</span>
+<span class="text-xl font-bold text-[#154212] dark:text-[#fdf9f0] font-headline tracking-tight">Veterinaria La Estancia</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#44371e] dark:text-stone-400 hover:text-[#2d5a27] transition-colors font-medium" href="#servicios">Servicios</a>
+<a class="text-[#44371e] dark:text-stone-400 hover:text-[#2d5a27] transition-colors font-medium" href="#agendamiento">Cómo Agendar</a>
+<a class="text-[#44371e] dark:text-stone-400 hover:text-[#2d5a27] transition-colors font-medium" href="#equipo">Profesionales</a>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-semibold hover:scale-95 transition-transform duration-150">Agendar Cita</button>
+</div>
+<button aria-controls="mobile-menu" aria-expanded="false" class="md:hidden text-primary" id="mobile-menu-button" type="button">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</nav>
+<div class="hidden md:hidden border-t border-black/5 bg-[#fdf9f0]/95 px-6 py-4 shadow-sm" id="mobile-menu">
+<div class="flex flex-col gap-3">
+<a class="text-[#44371e] hover:text-[#2d5a27] font-medium" href="#servicios">Servicios</a>
+<a class="text-[#44371e] hover:text-[#2d5a27] font-medium" href="#agendamiento">Cómo Agendar</a>
+<a class="text-[#44371e] hover:text-[#2d5a27] font-medium" href="#equipo">Profesionales</a>
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-full font-semibold text-sm text-left w-fit" type="button">Agendar Cita</button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative px-6 py-12 md:py-24 max-w-7xl mx-auto overflow-hidden">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold text-primary leading-[1.1] mb-6 tracking-tight">
+                        Cuidado noble <br/> para tu mejor <span class="text-primary-container">compañero</span>.
+                    </h1>
+<p class="text-body-lg text-on-surface-variant max-w-lg mb-10 text-lg leading-relaxed">
+                        En el corazón de nuestra estancia, tratamos a cada mascota con la dignidad y el amor que se merecen. Medicina veterinaria de vanguardia con calidez paraguaya.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-primary-container transition-colors shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                            Agendar Consulta
+                        </button>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                            WhatsApp
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="pet-frame overflow-hidden aspect-[4/5] bg-surface-container-highest shadow-2xl">
+<img alt="Veterinario sonriendo con un Golden Retriever" class="w-full h-full object-cover transform scale-105" data-alt="Professional veterinarian in a warm, cream-colored office gently holding a smiling golden retriever, soft natural sunlight, editorial photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQwGh_WUIyjw5zNlUI9CTKIUrzefqvcV60KyaQdZEje4e4Pn4HItJDuBZBLI4jq5RjN9DnPNeX7EmEm5G-ZQm8Z3kSNNNI4szw89WSgOCYv42nArCpfNASrSFjV_xY2-n74I8RSXDBDxlyXIeDmuXQ5ekU2PB9OWK38-_2h5N_t1E_vNqc0aTWfMX-HFXmxUAxUg0H1ABd8lJzDQgnMtTp7uEdSqmjPvaIwyTz4TofIFLp2wt0_4mM-UbFh6s_oUFx1JpS3aDdQMPg"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-xl hidden md:block">
+<div class="flex items-center gap-4">
+<div class="bg-primary-fixed p-3 rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<p class="font-bold text-primary">Atención 24h</p>
+<p class="text-sm text-on-surface-variant">Siempre aquí para ellos.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section: Bento Grid -->
+<section class="bg-surface-container-low py-24 px-6 rounded-t-xl" id="servicios">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 text-center md:text-left">
+<span class="text-primary font-bold tracking-widest uppercase text-sm">Nuestra Excelencia</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold text-primary mt-2">Servicios Integrales</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- High Impact Card -->
+<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-lg flex flex-col justify-between group hover:shadow-2xl transition-all duration-300">
+<div>
+<span class="material-symbols-outlined text-5xl text-primary mb-6 block" data-icon="emergency">emergency</span>
+<h3 class="text-3xl font-headline font-bold text-primary mb-4">Urgencias 24h</h3>
+<p class="text-on-surface-variant text-lg max-w-md">No importa la hora, nuestro equipo de guardia está listo para intervenir con la rapidez y calma que la situación exige.</p>
+</div>
+<div class="mt-8">
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                                Saber más <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Compact Cards -->
+<div class="bg-primary text-on-primary p-10 rounded-lg">
+<span class="material-symbols-outlined text-4xl mb-6 block" data-icon="vaccines">vaccines</span>
+<h3 class="text-2xl font-headline font-bold mb-4">Vacunación</h3>
+<p class="text-on-primary-container">Planes preventivos adaptados a la raza, edad y estilo de vida de tu mascota.</p>
+</div>
+<div class="bg-surface-container-highest p-10 rounded-lg">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" data-icon="stethoscope">stethoscope</span>
+<h3 class="text-2xl font-headline font-bold text-primary mb-4">Consulta General</h3>
+<p class="text-on-surface-variant">Revisiones periódicas para asegurar una vida larga y saludable.</p>
+</div>
+<div class="bg-surface-container-highest p-10 rounded-lg">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" data-icon="biotech">biotech</span>
+<h3 class="text-2xl font-headline font-bold text-primary mb-4">Diagnóstico</h3>
+<p class="text-on-surface-variant">Ecografías, Rayos X y laboratorio propio para resultados inmediatos.</p>
+</div>
+<div class="bg-surface-container-highest p-10 rounded-lg">
+<span class="material-symbols-outlined text-4xl text-primary mb-6 block" data-icon="medical_services">medical_services</span>
+<h3 class="text-2xl font-headline font-bold text-primary mb-4">Cirugía</h3>
+<p class="text-on-surface-variant">Quirófano equipado con tecnología de punta y monitoreo constante.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Steps Section -->
+<section class="py-24 px-6 max-w-7xl mx-auto" id="agendamiento">
+<div class="bg-tertiary-container text-on-tertiary-container rounded-xl p-12 relative overflow-hidden">
+<div class="relative z-10 text-center mb-16">
+<h2 class="text-4xl font-headline font-bold text-tertiary-fixed">Cómo agendar en 3 pasos</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-12 relative z-10">
+<div class="text-center group">
+<div class="w-16 h-16 bg-tertiary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">1</div>
+<h3 class="text-xl font-bold mb-3">Elegí tu servicio</h3>
+<p class="opacity-80">Seleccioná si es consulta, vacunación o estudio especializado.</p>
+</div>
+<div class="text-center group">
+<div class="w-16 h-16 bg-tertiary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">2</div>
+<h3 class="text-xl font-bold mb-3">Seleccioná fecha y hora</h3>
+<p class="opacity-80">Nuestro sistema te mostrará los huecos disponibles en tiempo real.</p>
+</div>
+<div class="text-center group">
+<div class="w-16 h-16 bg-tertiary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">3</div>
+<h3 class="text-xl font-bold mb-3">Confirmá por WhatsApp</h3>
+<p class="opacity-80">Recibirás un recordatorio automático para tu tranquilidad.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-24 px-6 max-w-7xl mx-auto" id="equipo">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-headline font-bold text-primary">Nuestros Profesionales</h2>
+<p class="text-on-surface-variant mt-4">Vocación y experiencia al servicio de la vida.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Profile 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg text-center hover:shadow-xl transition-shadow">
+<div class="w-48 h-48 mx-auto mb-6 pet-frame overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Dra. Sofía Benítez" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional female veterinarian smiling, wearing a stethoscope, high-end editorial lighting, soft cream background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWksfQgfbTLKwdtKmtuI6SwlQsU6kGWwPdW1EWZMIGg-Mj81WRHvqMyDfpFGBaCqCsGxxb5m6p_iebz09_kUX6OHPCC6FzdsVYlVPwMXFw2caHwpDvCJgYfEm7hlZ-ikq7RvoXGdEaBNia1DJM3uBUvGbUd-jRylj8I-XYae5aXpG5CDgdk5mbYIvasm88KYMsVE8N0nmZnXP07OvNGKlCqjRnuVjS5mHVs_bT9hVZneJ9b_knH8mZER0FmDZM1VfOoeJ3l-t8Tkb9"/>
+</div>
+<h3 class="text-2xl font-headline font-bold text-primary">Dra. Sofía Benítez</h3>
+<p class="text-sm font-medium text-secondary mb-3">Mat. 1234</p>
+<p class="text-on-surface-variant">Enfoque especializado en pediatría canina y medicina preventiva.</p>
+</div>
+<!-- Profile 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg text-center hover:shadow-xl transition-shadow">
+<div class="w-48 h-48 mx-auto mb-6 pet-frame overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Dr. Ricardo Mendoza" class="w-full h-full object-cover" data-alt="Professional male veterinarian in clinical attire, friendly expression, looking at camera, warm indoor lighting, high quality portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2QM9EpI_-CHasd6wD1el4vygjRHzxko31i2fmGYN9gd8eriu8s5EiB2-10x2L5r2f501ZPf809oOKeMq4VeDa9ATJIiDEVNVxPWQLJ78EaJ6r6FmOz0H0L5YB-1oNRRrb5kYPE_NLivnu_v1yF9iLVnpDqb3cp_aYMUpWuGJ5aBimYgHM3KX9FHUDE_xp7eIxPlvVQpJlZ62ik5zGiPg24lLtNeGGR0FhRXe6JTQVBgaXVome96Ueeqn0ozGijOqJss0ttCG8XPiP"/>
+</div>
+<h3 class="text-2xl font-headline font-bold text-primary">Dr. Ricardo Mendoza</h3>
+<p class="text-sm font-medium text-secondary mb-3">Mat. 5678</p>
+<p class="text-on-surface-variant">Especialista en cirugía de tejidos blandos y traumatología.</p>
+</div>
+<!-- Profile 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg text-center hover:shadow-xl transition-shadow">
+<div class="w-48 h-48 mx-auto mb-6 pet-frame overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Dra. Milena Ortíz" class="w-full h-full object-cover" data-alt="Young female veterinarian with a kind smile, professional setting, clinical soft lighting, warm cream tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Ryu8Q-I1IeAHgZaseet8ljKkX2WptnurhDvLlTktQD5GoDrYgOFmG4DfxJ4c8QglDDfOFeU0-5W5fdEDAiffOxFwnrDf8MgLxBP_pvs5516SGQVQdJ5qPr6hUO0Juvbspta1kwbGL6YITsmIc-u_gd1GkCxl9o04lbssjhmSJezF80UaGQ3__rcAG3nPpS9Os79EW_27JujvKaywZDUxYW4GSu3rq9gVfphZ3EaIMAEbkikcuQCJJPOuVxiRl_ZQG_tfjhIdNJE_"/>
+</div>
+<h3 class="text-2xl font-headline font-bold text-primary">Dra. Milena Ortíz</h3>
+<p class="text-sm font-medium text-secondary mb-3">Mat. 9012</p>
+<p class="text-on-surface-variant">Experta en medicina felina y manejo de comportamiento.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="bg-primary py-24 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-4xl md:text-5xl font-headline font-bold text-on-primary mb-8 leading-tight">Lo que dicen las familias que confían en nosotros.</h2>
+<div class="flex gap-2 mb-12">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary-fixed" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-white/10 backdrop-blur-md p-8 rounded-lg border border-white/10">
+<p class="text-xl text-white italic mb-6">"Excelente atención. Traje a mi perro Firulais de urgencia un domingo y lo salvaron. La Dra. Sofía es un ángel, se nota que ama lo que hace."</p>
+<p class="text-on-primary font-bold">— Carlos G., Asunción</p>
+</div>
+<div class="bg-white/10 backdrop-blur-md p-8 rounded-lg border border-white/10 ml-8">
+<p class="text-xl text-white italic mb-6">"La mejor veterinaria de la zona. Siempre nos explican todo clarito y nos dan mucha paz. ¡Muy profesionales!"</p>
+<p class="text-on-primary font-bold">— Maria Elena F., Luque</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-24 px-6 max-w-3xl mx-auto">
+<h2 class="text-3xl font-headline font-bold text-primary text-center mb-12">Preguntas Frecuentes</h2>
+<div class="space-y-4">
+<details class="group bg-surface-container-low rounded-lg">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-primary list-none">
+                        ¿Qué hago en caso de una urgencia fuera de horario?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                        Contamos con guardia presencial las 24 horas del día, los 365 días del año. Podés venir directamente a la clínica o llamarnos al número de urgencias para que te esperemos.
+                    </div>
+</details>
+<details class="group bg-surface-container-low rounded-lg">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-primary list-none">
+                        ¿Cuáles son los métodos de pago aceptados?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                        Aceptamos todas las tarjetas de crédito/débito, transferencias bancarias, SIPAP, pagos con QR y efectivo. También contamos con planes de cuotas sin intereses con bancos seleccionados.
+                    </div>
+</details>
+<details class="group bg-surface-container-low rounded-lg">
+<summary class="flex justify-between items-center p-6 cursor-pointer font-bold text-primary list-none">
+                        ¿Cómo debo preparar a mi mascota para una cirugía?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                        Generalmente se requiere un ayuno sólido de 8 a 12 horas y líquido de 4 horas. Siempre te daremos indicaciones específicas por escrito después de la consulta pre-quirúrgica.
+                    </div>
+</details>
+</div>
+</section>
+<!-- Location & Contact -->
+<section class="bg-surface-container-low py-24 px-6 rounded-b-xl" id="ubicacion">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+<div class="bg-surface-container-lowest p-10 rounded-lg shadow-sm">
+<h2 class="text-3xl font-headline font-bold text-primary mb-6">Estamos cerca tuyo</h2>
+<div class="space-y-6 mb-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<div>
+<p class="font-bold">Avda. Santa Teresa 1234 c/ Aviadores</p>
+<p class="text-on-surface-variant">Asunción, Paraguay</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<div>
+<p class="font-bold">Horarios de Atención</p>
+<p class="text-on-surface-variant">Lunes a Sábado: 08:00 - 20:00</p>
+<p class="text-primary font-bold">Urgencias: 24 Horas</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="directions">directions</span>
+                        Cómo llegar (Google Maps)
+                    </button>
+<div class="mt-12 pt-12 border-t border-outline-variant/30">
+<h3 class="text-xl font-bold mb-6">Hablá con nosotros</h3>
+<form class="space-y-4">
+<input class="w-full bg-surface p-4 rounded-lg border-none focus:ring-2 focus:ring-primary" placeholder="Tu nombre" type="text"/>
+<textarea class="w-full bg-surface p-4 rounded-lg border-none focus:ring-2 focus:ring-primary h-24" placeholder="Motivo de consulta"></textarea>
+<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-full font-bold flex items-center justify-center gap-2" type="submit">
+                                Enviar Mensaje
+                            </button>
+</form>
+</div>
+</div>
+<div class="h-full min-h-[400px] bg-surface-container-highest rounded-lg overflow-hidden relative shadow-inner">
+<!-- Placeholder for Map -->
+<div class="absolute inset-0 flex items-center justify-center flex-col p-8 text-center" data-location="Asunción, Paraguay" style="">
+<span class="material-symbols-outlined text-6xl text-primary/20 mb-4" data-icon="map">map</span>
+<p class="text-on-surface-variant">Mapa interactivo de ubicación en el eje corporativo de Asunción</p>
+</div>
+<!-- Decorative Map-like background -->
+<div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80')] bg-cover opacity-20" data-alt="Stylized aerial map view with soft colors and geometric city patterns"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#154212] dark:bg-stone-950 w-full rounded-t-3xl mt-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-6 w-full max-w-7xl mx-auto">
+<div class="text-left">
+<span class="text-lg font-bold text-white font-headline">Veterinaria La Estancia</span>
+<p class="text-stone-300 text-sm mt-2 max-w-xs font-body">Nobleza, profesionalismo y corazón para cada vida que cuidamos.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 font-['Manrope'] text-sm tracking-wide">
+<a class="text-stone-300 hover:text-white transition-opacity" href="#servicios">Servicios</a>
+<a class="text-stone-300 hover:text-white transition-opacity" href="#equipo">Profesionales</a>
+<a class="text-stone-300 hover:text-white transition-opacity" href="#ubicacion">Ubicación</a>
+<a class="text-stone-300 hover:text-white transition-opacity" href="#">Preguntas Frecuentes</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</div>
+<div class="border-t border-white/5 py-6 text-center">
+<p class="text-stone-400 text-xs px-6">© 2024 Veterinaria La Estancia - Cuidado Noble y Profesional. Paraguay.</p>
+</div>
+</footer>
+<!-- FAB for WhatsApp -->
+<a class="fixed bottom-8 right-8 bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-110 transition-transform" href="https://wa.me/595">
+<span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+</a>
+<script>
+  (function () {
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (!menuButton || !mobileMenu) return;
+
+    const closeMenu = () => {
+      mobileMenu.classList.add("hidden");
+      menuButton.setAttribute("aria-expanded", "false");
+    };
+
+    const openMenu = () => {
+      mobileMenu.classList.remove("hidden");
+      menuButton.setAttribute("aria-expanded", "true");
+    };
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = !mobileMenu.classList.contains("hidden");
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (mobileMenu.classList.contains("hidden")) return;
+      if (mobileMenu.contains(event.target)) return;
+      if (menuButton.contains(event.target)) return;
+      closeMenu();
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+  })();
+</script>
+</body></html>

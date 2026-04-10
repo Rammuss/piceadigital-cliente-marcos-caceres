@@ -91,6 +91,91 @@
     body {
       min-height: max(884px, 100dvh);
     }
+
+    @media (min-width: 1024px) {
+      main > section {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      main {
+        padding-top: 96px;
+      }
+
+      section#inicio {
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: calc(100vh - 140px);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 48px;
+        align-items: center;
+      }
+
+      section#inicio > .relative.z-10 {
+        max-width: 560px;
+      }
+
+      section#inicio .flex.flex-col.gap-4 {
+        align-items: flex-start;
+      }
+
+      section#inicio > .mt-12 {
+        margin-top: 0;
+      }
+
+      section#inicio .aspect-\[4\/5\] {
+        aspect-ratio: 4 / 4.8;
+      }
+
+      #equipo .space-y-12 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+      }
+
+      #equipo .space-y-12 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0;
+      }
+
+      #testimonios {
+        overflow: visible;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        padding-top: 64px;
+        padding-bottom: 64px;
+      }
+
+      #testimonios > div {
+        min-width: 0;
+      }
+
+      #ubicacion {
+        display: grid;
+        grid-template-columns: 1.25fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      #ubicacion > h2 {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+      }
+
+      #faq .space-y-4 {
+        max-width: 860px;
+      }
+
+      #contacto > div {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      nav.fixed.bottom-0 {
+        display: none;
+      }
+    }
   </style>
   </head>
 <body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
@@ -197,7 +282,7 @@
 </div>
 </section>
 <!-- Testimonials -->
-<section class="px-6 py-16 bg-surface-container-low overflow-x-auto snap-x snap-mandatory flex gap-6 scrollbar-hide">
+<section class="px-6 py-16 bg-surface-container-low overflow-x-auto snap-x snap-mandatory flex gap-6 scrollbar-hide" id="testimonios">
 <!-- Review 1 -->
 <div class="min-w-[85%] snap-center bg-surface-container-lowest p-8 rounded-[2rem] shadow-sm">
 <div class="flex gap-1 text-tertiary mb-4">
@@ -224,7 +309,7 @@
 </div>
 </section>
 <!-- Location & Hours -->
-<section class="px-6 py-16 bg-surface">
+<section class="px-6 py-16 bg-surface" id="ubicacion">
 <h2 class="font-headline text-3xl font-bold mb-8">Nuestra Ubicación</h2>
 <div class="rounded-[2.5rem] overflow-hidden h-64 shadow-inner bg-surface-container mb-8 relative">
 <div class="absolute inset-0 flex items-center justify-center">
@@ -255,7 +340,7 @@
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="px-6 py-16 bg-surface-container-low">
+<section class="px-6 py-16 bg-surface-container-low" id="faq">
 <h2 class="font-headline text-3xl font-bold mb-8">Preguntas Frecuentes</h2>
 <div class="space-y-4">
 <details class="group bg-surface-container-lowest rounded-2xl p-4 transition-all">

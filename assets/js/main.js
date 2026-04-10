@@ -603,16 +603,24 @@ const registerTrackingEvents = () => {
     examplesModal.hidden = true;
     document.body.style.overflow = "";
   };
-  const openExamplesModal = () => {
+  const openExamplesModal = (source = "unknown") => {
     if (!examplesModal) return;
     examplesModal.hidden = false;
     document.body.style.overflow = "hidden";
-    trackEvent("open_examples_modal", { source: "plan_esencial" });
+    trackEvent("open_examples_modal", { source });
   };
 
   openExamplesButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      openExamplesModal();
+      const source = (btn.dataset.openSource || "unknown").trim();
+      const exampleKey = (btn.dataset.exampleKey || "").trim();
+      if (exampleKey) {
+        const targetButton = exampleButtons.find((item) => (item.dataset.exampleKey || "").trim() === exampleKey);
+        if (targetButton) {
+          setExampleSource(targetButton);
+        }
+      }
+      openExamplesModal(source);
     });
   });
 
@@ -828,7 +836,9 @@ const registerTrackingEvents = () => {
     formFields.forEach((field) => field.addEventListener("focus", onFormStart));
   }
 
-  const portfolioDemoLinks = document.querySelectorAll('.portfolio-card[data-project-name][href^="projects/"]');
+  const portfolioDemoLinks = document.querySelectorAll(
+    '.portfolio-card[data-project-name][href^="projects/"], .portfolio-card[data-project-name][href^="temp/ejemplos/"]'
+  );
   portfolioDemoLinks.forEach((link) => {
     link.addEventListener("click", () => {
       trackEvent("portfolio_demo_open", {

@@ -154,7 +154,7 @@
         <div class="service-grid">
           <article class="featured-card plan-card">
             <div class="plan-pills">
-              <button class="plan-pill plan-pill--examples" type="button" data-open-examples aria-controls="examples-modal">VER EJEMPLOS</button>
+              <button class="plan-pill plan-pill--examples" type="button" data-open-examples data-open-source="plan_esencial" aria-controls="examples-modal">VER EJEMPLOS</button>
             </div>
             <div class="plan-header">
               <h3>Tu primera web</h3>
@@ -384,6 +384,48 @@
             Consultar por WhatsApp
             <span class="btn-icon btn-icon--arrow" aria-hidden="true">↗</span>
           </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section examples-section reveal" id="ejemplos">
+      <div class="section-title">
+        <p class="eyebrow eyebrow-pill">Ejemplos reales</p>
+        <h2>Así podría verse tu negocio</h2>
+        <p>Elegí un rubro y abrí la vista interactiva en modo móvil.</p>
+      </div>
+      <div class="examples-section-grid">
+        <article class="example-card">
+          <img src="assets/img-portfolio/Dental-nova-mockup.png?v=20260406" alt="Ejemplo de clínica o dentista" loading="lazy" width="1536" height="1024" />
+          <div class="example-card-body">
+            <h3>Clínica / Dentista</h3>
+            <p>Enfoque en turnos rápidos y contacto directo por WhatsApp.</p>
+            <button class="btn btn-ghost" type="button" data-open-examples data-example-key="clinica" data-open-source="examples_section_clinica">Ver ejemplo interactivo</button>
+          </div>
+        </article>
+        <article class="example-card">
+          <img src="assets/img-portfolio/estudio-contable-mockpup-device.png?v=20260406" alt="Ejemplo de estudio contable" loading="lazy" width="1536" height="1024" />
+          <div class="example-card-body">
+            <h3>Estudio contable</h3>
+            <p>Diseño profesional para consultas tributarias y comerciales.</p>
+            <button class="btn btn-ghost" type="button" data-open-examples data-example-key="contable" data-open-source="examples_section_contable">Ver ejemplo interactivo</button>
+          </div>
+        </article>
+        <article class="example-card">
+          <img src="temp/ejemplos/veterinaria/stitch/screen.png" alt="Ejemplo de veterinaria" loading="lazy" width="1328" height="1024" />
+          <div class="example-card-body">
+            <h3>Veterinaria</h3>
+            <p>Comunicación humana para turnos, urgencias y consultas rápidas.</p>
+            <button class="btn btn-ghost" type="button" data-open-examples data-example-key="veterinaria" data-open-source="examples_section_veterinaria">Ver ejemplo interactivo</button>
+          </div>
+        </article>
+        <article class="example-card">
+          <img src="temp/ejemplos/fisio/stitch/screen.png" alt="Ejemplo de fisioterapia" loading="lazy" width="1328" height="1024" />
+          <div class="example-card-body">
+            <h3>Fisioterapia</h3>
+            <p>Landing orientada a confianza y solicitud de primera consulta.</p>
+            <button class="btn btn-ghost" type="button" data-open-examples data-example-key="fisio" data-open-source="examples_section_fisio">Ver ejemplo interactivo</button>
+          </div>
         </article>
       </div>
     </section>
@@ -658,6 +700,7 @@
         <button
           class="examples-modal__tab is-active"
           type="button"
+          data-example-key="clinica"
           data-example-src="temp/ejemplos/clinicas-dentistas/stitch/code.html"
           data-example-title="Ejemplo web de clínica o dentista en vista móvil"
           aria-pressed="true"
@@ -667,6 +710,7 @@
         <button
           class="examples-modal__tab"
           type="button"
+          data-example-key="contable"
           data-example-src="temp/ejemplos/contable/stitch/code.html"
           data-example-title="Ejemplo web de estudio contable en vista móvil"
           aria-pressed="false"
@@ -676,6 +720,7 @@
         <button
           class="examples-modal__tab"
           type="button"
+          data-example-key="veterinaria"
           data-example-src="temp/ejemplos/veterinaria/stitch/code.html"
           data-example-title="Ejemplo web de veterinaria en vista móvil"
           aria-pressed="false"
@@ -685,6 +730,7 @@
         <button
           class="examples-modal__tab"
           type="button"
+          data-example-key="fisio"
           data-example-src="temp/ejemplos/fisio/stitch/code.html"
           data-example-title="Ejemplo web de fisioterapia en vista móvil"
           aria-pressed="false"

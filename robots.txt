@@ -1,3 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
+Disallow: /temp/
 Sitemap: https://piceadigital.com/sitemap.xml

@@ -236,11 +236,18 @@ if (ctaForm) {
   const status = ctaForm.querySelector(".form-status");
   const targetFrame = document.querySelector(".form-target");
   const submitBtn = ctaForm.querySelector('button[type="submit"]');
+  const startedAtField = ctaForm.querySelector('input[name="form_started_at"]');
+  const honeypotField = ctaForm.querySelector('input[name="website"]');
   const waHref = "https://wa.me/595986689470?text=%C2%A1Hola%20Marcos!%20Quer%C3%ADa%20consultarte%20sobre%20una%20web%20para%20mi%20negocio.";
+  const minSubmitMs = 4000;
   let pendingTimer = null;
   let softAckTimer = null;
   let optimisticTimer = null;
   let isSubmitting = false;
+
+  if (startedAtField) {
+    startedAtField.value = String(Date.now());
+  }
 
   const setSubmittingState = (submitting) => {
     isSubmitting = submitting;
@@ -253,6 +260,20 @@ if (ctaForm) {
   ctaForm.addEventListener("submit", (event) => {
     if (isSubmitting) {
       event.preventDefault();
+      return;
+    }
+
+    const now = Date.now();
+    const startedAt = Number(startedAtField ? startedAtField.value : now);
+    const isTooFast = Number.isFinite(startedAt) && now - startedAt < minSubmitMs;
+    const honeypotHasValue = honeypotField && honeypotField.value.trim().length > 0;
+    if (honeypotHasValue || isTooFast) {
+      event.preventDefault();
+      if (status) status.textContent = "No pudimos validar el envío. Probá de nuevo en unos segundos.";
+      trackEvent("form_submit_blocked", {
+        form_id: "cta-form",
+        reason: honeypotHasValue ? "honeypot" : "too_fast",
+      });
       return;
     }
 

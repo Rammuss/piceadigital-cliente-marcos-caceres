@@ -2361,6 +2361,14 @@ body.theme-light .cta-form textarea::placeholder {
   display: none;
 }
 
+.hp-field {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .faq {
   display: grid;
   gap: 12px;
@@ -3651,3 +3659,315 @@ body.theme-light .btn-contact .btn-icon--orbit {
     padding: 6px 10px;
     border-radius: 999px;
   }
+
+/* 2026 redesign layer: visual refresh without touching content structure */
+body.theme-light {
+  --bg: #f4f6f4;
+  --ink: #1d2b28;
+  --muted: #4c605b;
+  --accent: #0e9f6e;
+  --accent-dark: #0b7d56;
+  --paper: #ffffff;
+  --line: rgba(20, 44, 36, 0.14);
+  --shadow: 0 16px 38px rgba(19, 44, 36, 0.11);
+  --nav-glass: rgba(255, 255, 255, 0.78);
+  --nav-glass-soft: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(17, 57, 45, 0.16);
+}
+
+body {
+  background:
+    radial-gradient(900px 420px at 10% -10%, rgba(14, 159, 110, 0.08), transparent 70%),
+    radial-gradient(900px 420px at 100% 0%, rgba(17, 99, 142, 0.08), transparent 70%),
+    var(--bg);
+}
+
+.hero {
+  min-height: 94svh;
+}
+
+body.theme-light .hero::before {
+  background:
+    linear-gradient(180deg, rgba(10, 28, 23, 0.5), rgba(10, 28, 23, 0.6)),
+    radial-gradient(74% 52% at 50% 30%, rgba(255, 255, 255, 0.06), transparent 72%);
+}
+
+body.theme-light .hero-copy h1 {
+  font-size: clamp(2rem, 5vw, 3.7rem);
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+body.theme-light .nav {
+  border-radius: 22px;
+  top: 12px;
+}
+
+body.theme-light .section {
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.82));
+  box-shadow: var(--shadow);
+  margin: 24px auto;
+  width: min(1160px, 94vw);
+  padding-left: clamp(18px, 3vw, 34px);
+  padding-right: clamp(18px, 3vw, 34px);
+}
+
+body.theme-light .why-card,
+body.theme-light .featured-card,
+body.theme-light .custom-card,
+body.theme-light .example-card,
+body.theme-light .step,
+body.theme-light .faq details,
+body.theme-light .contact-card,
+body.theme-light .contact-form,
+body.theme-light .portfolio-content {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(11, 45, 36, 0.08);
+}
+
+body.theme-light .btn {
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #13b57d);
+  border: 1px solid rgba(8, 96, 65, 0.4);
+  box-shadow: 0 10px 20px rgba(12, 97, 67, 0.2);
+}
+
+body.theme-light .btn:hover {
+  background: linear-gradient(135deg, #10ab76, #15be84);
+}
+
+body.theme-light .btn-ghost,
+body.theme-light .btn-hero-secondary {
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+body.theme-light .eyebrow-pill {
+  background: rgba(14, 159, 110, 0.12);
+  color: #0a6f4d;
+  border: 1px solid rgba(11, 113, 78, 0.24);
+}
+
+@media (max-width: 768px) {
+  body.theme-light .section {
+    width: min(1160px, 96vw);
+    margin: 16px auto;
+    border-radius: 18px;
+  }
+}
+
+.plans-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.plan-card-v2 {
+  background: #fff;
+  border: 1px solid #e4ebe7;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 18px 38px rgba(8, 35, 27, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-card-v2.featured {
+  border: 2px solid #19a84f;
+  transform: translateY(-6px);
+}
+
+.plan-card-v2.commercial .price-box-v2 {
+  background: linear-gradient(135deg, #13783a 0%, #19a84f 100%);
+}
+
+.plan-badge-v2 {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #102117;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.plan-name-v2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #168a41;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.plan-type-v2 {
+  font-size: clamp(1.5rem, 2.5vw, 1.95rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.plan-desc-v2 {
+  color: #51635d;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.price-box-v2 {
+  background: linear-gradient(135deg, #111 0%, #1d1d1d 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.price-label-v2 {
+  color: #d7d7d7;
+  font-size: 0.8rem;
+}
+
+.price-v2 {
+  font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 4px 0 0;
+}
+
+.pay-note-v2 {
+  font-size: 0.8rem;
+  color: #dadada;
+  margin-top: 6px;
+}
+
+.block-title-v2 {
+  font-size: 0.86rem;
+  font-weight: 900;
+  color: #1d2b26;
+  margin: 0 0 10px;
+}
+
+.feature-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.feature-v2 {
+  border: 1px solid #e5efea;
+  background: #f7faf8;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.feature-icon-v2 {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #e6f7ed;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.feature-v2 strong {
+  display: block;
+  font-size: 0.86rem;
+  color: #172620;
+  margin-bottom: 4px;
+}
+
+.feature-v2 span {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #586a64;
+}
+
+.feature-wide-v2 {
+  grid-column: 1 / -1;
+}
+
+.meta-v2 {
+  display: grid;
+  gap: 8px;
+  border-radius: 14px;
+  background: #f4f7f5;
+  border: 1px solid #e2eae6;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.meta-v2 p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: #50615a;
+}
+
+.meta-v2 strong {
+  color: #1a2b25;
+}
+
+@media (max-width: 980px) {
+  .plans-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+  .plan-card-v2.featured {
+    transform: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .feature-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Portfolio section visual fix */
+body.theme-light .portfolio-content {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 22px;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+body.theme-light .portfolio-head {
+  max-width: 560px;
+}
+
+body.theme-light .portfolio-head h2 {
+  margin: 0 0 10px;
+  line-height: 1.15;
+}
+
+body.theme-light .portfolio-head .btn {
+  margin: 10px 0 14px;
+  color: var(--ink);
+  border: 1px solid rgba(24, 92, 69, 0.22);
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(17, 58, 45, 0.1);
+}
+
+body.theme-light .portfolio-head .btn:hover {
+  box-shadow: 0 10px 22px rgba(17, 58, 45, 0.14);
+}
+
+body.theme-light .portfolio-media img {
+  max-width: 640px;
+  border-radius: 20px;
+}

@@ -2828,7 +2828,7 @@ body.theme-light .examples-modal__tab.is-active {
 .wa-float-hint {
   position: fixed;
   right: 16px;
-  bottom: calc(148px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(96px + env(safe-area-inset-bottom, 0px));
   z-index: 220;
   max-width: min(280px, calc(100vw - 24px));
   padding: 10px 12px;
@@ -3126,7 +3126,7 @@ body.theme-light .cookie-content {
 
   .wa-float-hint {
     right: 10px;
-    bottom: calc(122px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(82px + env(safe-area-inset-bottom, 0px));
     max-width: min(230px, calc(100vw - 20px));
     padding: 9px 10px;
     font-size: 0.84rem;

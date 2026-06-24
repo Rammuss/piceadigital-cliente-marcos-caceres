@@ -3761,30 +3761,6 @@ body.theme-light .eyebrow-pill {
   }
 }
 
-@media (max-width: 1200px) {
-  .plans-grid-v2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .plan-card-v2.featured {
-    transform: none;
-  }
-
-  .plan-card-v2.pro {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 760px) {
-  .plans-grid-v2 {
-    grid-template-columns: 1fr;
-  }
-
-  .plan-card-v2.pro {
-    grid-column: auto;
-  }
-}
-
 .plans-grid-v2 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3802,6 +3778,7 @@ body.theme-light .eyebrow-pill {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .plan-card-v2.featured {
@@ -4013,6 +3990,32 @@ body.theme-light .eyebrow-pill {
 .meta-v2 strong {
   color: #1a2b25;
   text-align: right;
+}
+
+@media (max-width: 1200px) {
+  .plans-grid-v2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plan-card-v2.featured {
+    transform: none;
+  }
+
+  .plan-card-v2.pro {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .plans-grid-v2 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .plan-card-v2,
+  .plan-card-v2.pro {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 520px) {

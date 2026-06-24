@@ -4077,3 +4077,38 @@ body.theme-light .portfolio-media img {
   max-width: 640px;
   border-radius: 20px;
 }
+
+@media (max-width: 900px) {
+  body.theme-light .portfolio-content {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  body.theme-light .portfolio-head {
+    max-width: 100%;
+  }
+
+  body.theme-light .portfolio-media {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  body.theme-light .portfolio-content {
+    gap: 16px;
+  }
+
+  body.theme-light .portfolio-head .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body.theme-light .portfolio-media {
+    justify-content: center;
+  }
+
+  body.theme-light .portfolio-media img {
+    width: 100%;
+    max-width: 360px;
+  }
+}

@@ -692,20 +692,25 @@ body.theme-light .portfolio-back-link:hover {
 }
 
 .scroll-down {
-  width: 44px;
-  height: 44px;
+  min-width: 148px;
+  height: 48px;
   margin-top: 24px;
   border-radius: 999px;
-  background: radial-gradient(circle at 30% 30%, rgba(230,58,101,0.22), rgba(230,58,101,0.08));
-  color: var(--ink);
-  border: 1px solid var(--line);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+  padding: 0 16px;
+  gap: 10px;
+  background: rgba(8, 10, 14, 0.28);
+  color: #f6f2f0;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 12px 24px rgba(0,0,0,0.22),
+    0 0 0 1px rgba(255,255,255,0.08) inset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 800;
   line-height: 1;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .scroll-down svg {
@@ -714,9 +719,16 @@ body.theme-light .portfolio-back-link:hover {
   display: block;
 }
 
+.scroll-down span {
+  letter-spacing: 0.01em;
+}
+
 .scroll-down:hover {
-  transform: translateY(2px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  transform: translateY(-2px);
+  background: rgba(8, 10, 14, 0.38);
+  box-shadow:
+    0 16px 28px rgba(0,0,0,0.24),
+    0 0 0 1px rgba(255,255,255,0.12) inset;
 }
 
 .meta {
@@ -3556,8 +3568,9 @@ body.theme-light .cookie-content {
   }
 
   .scroll-down {
-    width: 38px;
-    height: 38px;
+    min-width: 132px;
+    height: 44px;
+    padding: 0 14px;
     margin-top: 16px;
     opacity: 0.86;
   }
@@ -3609,10 +3622,10 @@ body.theme-light .cookie-content {
 }
 
 body.theme-light .scroll-down {
-  background: radial-gradient(circle at 30% 30%, rgba(230,58,101,0.22), rgba(230,58,101,0.08));
-  color: #f6f2f0;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.9);
+  color: #0d3a31;
+  border: 1px solid rgba(12, 92, 66, 0.2);
+  box-shadow: 0 12px 24px rgba(12, 70, 52, 0.14);
 }
 
 .btn-contact {

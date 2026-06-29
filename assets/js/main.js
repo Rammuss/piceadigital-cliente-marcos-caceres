@@ -692,6 +692,13 @@ const registerTrackingEvents = () => {
   if (floatingWa) {
     const WA_HINT_KEY = "picea-wa-hint-seen";
     let floatingHintTimer = null;
+    let floatingReady = false;
+
+    const showFloatingButton = () => {
+      if (floatingReady) return;
+      floatingReady = true;
+      floatingWa.classList.add("is-ready");
+    };
 
     const hideFloatingHint = () => {
       if (!floatingHint) return;
@@ -727,13 +734,32 @@ const registerTrackingEvents = () => {
       } catch (error) {
         seenHint = false;
       }
-      if (!seenHint) {
+      const scheduleHint = () => {
+        if (seenHint) {
+          floatingHint.hidden = true;
+          return;
+        }
         setTimeout(() => {
           showFloatingHint();
-        }, 5000);
-      } else {
-        floatingHint.hidden = true;
-      }
+        }, 4500);
+      };
+
+      const activateFloating = () => {
+        showFloatingButton();
+        scheduleHint();
+      };
+
+      const onIntentReady = () => {
+        if (window.scrollY < 320) return;
+        activateFloating();
+        window.removeEventListener("scroll", onIntentReady);
+      };
+
+      window.addEventListener("scroll", onIntentReady, { passive: true });
+      setTimeout(() => {
+        activateFloating();
+        window.removeEventListener("scroll", onIntentReady);
+      }, 12000);
     }
 
     const closeFloatingPopover = () => {

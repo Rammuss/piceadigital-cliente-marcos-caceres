@@ -135,8 +135,8 @@
     /* Evita íconos SVG gigantes durante el primer paint antes de cargar styles.css */
     svg[viewBox] { width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
   </style>
-  <link rel="preload" href="assets/css/styles.css?v=20260623a" as="style" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260623a" />
+  <link rel="preload" href="assets/css/styles.css?v=20260629a" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260629a" />
 </head>
 <body class="theme-light" data-ga4="G-PEFPMM9NYR" data-pixel="2431513420610437">
   <header class="hero hero-centered" id="top">
@@ -200,6 +200,11 @@
           <span>sin complicaciones</span>
         </h1>
         <p class="lead">Creamos tu página web en Paraguay: clara, rápida y lista para recibir clientes.</p>
+        <div class="hero-trust" aria-label="Beneficios destacados">
+          <span>Planes desde Gs. 300.000</span>
+          <span>Entrega desde 2 días hábiles</span>
+          <span>Ejemplos reales para comparar</span>
+        </div>
         <div class="hero-cta">
           <a class="btn" data-wa-source="hero" href="https://wa.me/595986689470?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20web%20para%20mi%20negocio.%20Ref%3A%20HERO">
             <span class="btn-icon btn-icon--whatsapp" aria-hidden="true">
@@ -209,9 +214,19 @@
             </span>
             Consultame por WhatsApp
           </a>
-          <a class="btn btn-hero-secondary" href="#servicios">Ver planes y precios</a>
+          <a class="btn btn-hero-secondary" href="#servicios">Ver planes, precios y opciones</a>
         </div>
-        <a class="scroll-down" href="#porque" aria-label="Ir a la siguiente sección">
+        <div class="hero-quick-nav" aria-label="Accesos rápidos">
+          <a class="hero-quick-card hero-quick-card--pricing" href="#servicios">
+            <strong>Ver planes</strong>
+            <span>Compará opciones, precios y qué incluye cada una.</span>
+          </a>
+          <a class="hero-quick-card hero-quick-card--portfolio" href="#portfolio">
+            <strong>Ver ejemplos</strong>
+            <span>Mirá referencias visuales antes de escribir.</span>
+          </a>
+        </div>
+        <a class="scroll-down" href="#servicios" aria-label="Ir a planes y precios">
           <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
             <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -221,6 +236,30 @@
   </header>
 
   <main>
+    <section class="section decision-strip reveal" aria-labelledby="decision-strip-title">
+      <div class="decision-strip-head">
+        <p class="eyebrow eyebrow-pill">Antes de consultar</p>
+        <h2 id="decision-strip-title">Elegí el camino que más te ayuda a decidir</h2>
+      </div>
+      <div class="decision-strip-grid">
+        <a class="decision-card" href="#servicios">
+          <span class="decision-card-tag">Precios claros</span>
+          <h3>Ver planes</h3>
+          <p>Revisá diferencias, inversión inicial y qué incluye cada opción.</p>
+        </a>
+        <a class="decision-card" href="#portfolio">
+          <span class="decision-card-tag">Visual y rápido</span>
+          <h3>Ver ejemplos</h3>
+          <p>Mirá cómo podría verse tu negocio antes de escribir por WhatsApp.</p>
+        </a>
+        <a class="decision-card" href="#cta">
+          <span class="decision-card-tag">Asesoría directa</span>
+          <h3>Hablar con Marcos</h3>
+          <p>Si ya tenés claro lo que buscás, dejá tus datos o escribí directo.</p>
+        </a>
+      </div>
+    </section>
+
     <section class="section why reveal" id="porque">
       <div class="section-title">
         <p class="eyebrow eyebrow-pill eyebrow-with-icon">
@@ -767,7 +806,7 @@
       <span>@piceadigital</span>
     </div>
   </footer>
-  <script src="assets/js/main.js?v=20260408a"></script>
+  <script src="assets/js/main.js?v=20260629a"></script>
 </body>
 </html>
 

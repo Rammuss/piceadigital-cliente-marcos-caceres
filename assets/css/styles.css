@@ -1758,6 +1758,23 @@ body.theme-light .custom-badge {
   gap: 18px;
 }
 
+.examples-section-footer {
+  margin-top: 18px;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.examples-section-footer p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.examples-section-portfolio {
+  gap: 10px;
+}
+
 .example-card {
   border: 1px solid var(--line);
   border-radius: 22px;

@@ -583,11 +583,50 @@ const registerTrackingEvents = () => {
   const examplesIframe = examplesModal ? examplesModal.querySelector(".examples-modal__iframe") : null;
   const examplesViewer = examplesModal ? examplesModal.querySelector(".examples-modal__viewer") : null;
   const examplesMobileLabel = document.getElementById("examples-mobile-label");
+  const examplesHint = document.getElementById("examples-modal-hint");
+  const examplesModalCta = examplesModal ? examplesModal.querySelector(".examples-modal__cta") : null;
   const examplesPrevBtn = examplesModal ? examplesModal.querySelector(".examples-modal__nav--prev") : null;
   const examplesNextBtn = examplesModal ? examplesModal.querySelector(".examples-modal__nav--next") : null;
   const exampleButtons = Array.from(exampleSwitchButtons);
   let activeExampleIndex = exampleButtons.findIndex((btn) => btn.classList.contains("is-active"));
   if (activeExampleIndex < 0) activeExampleIndex = 0;
+  let examplesHintTimer = null;
+
+  const showExamplesHint = () => {
+    if (!examplesHint) return;
+    examplesHint.hidden = false;
+    if (examplesHintTimer) clearTimeout(examplesHintTimer);
+    examplesHintTimer = setTimeout(() => {
+      examplesHint.hidden = true;
+    }, 5000);
+    if (examplesModalCta) {
+      examplesModalCta.classList.remove("is-prompted");
+      requestAnimationFrame(() => {
+        examplesModalCta.classList.add("is-prompted");
+      });
+      setTimeout(() => {
+        examplesModalCta.classList.remove("is-prompted");
+      }, 1100);
+    }
+  };
+
+  const wireExampleIframe = () => {
+    if (!examplesIframe) return;
+    let iframeDocument;
+    try {
+      iframeDocument = examplesIframe.contentDocument || examplesIframe.contentWindow?.document;
+    } catch (error) {
+      return;
+    }
+    if (!iframeDocument) return;
+    iframeDocument.addEventListener("click", (event) => {
+      const trigger = event.target.closest('a[href*="wa.me"], a[href*="whatsapp"], [data-wa-trigger], [aria-label*="WhatsApp"], [aria-label*="whatsapp"]');
+      if (!trigger) return;
+      event.preventDefault();
+      event.stopPropagation();
+      showExamplesHint();
+    });
+  };
 
   const setExampleSource = (button) => {
     if (!examplesIframe || !button) return;
@@ -623,6 +662,9 @@ const registerTrackingEvents = () => {
     if (!examplesModal) return;
     examplesModal.hidden = true;
     document.body.style.overflow = "";
+    if (examplesHint) {
+      examplesHint.hidden = true;
+    }
   };
   const openExamplesModal = (source = "unknown") => {
     if (!examplesModal) return;
@@ -672,6 +714,12 @@ const registerTrackingEvents = () => {
 
   if (exampleButtons[activeExampleIndex]) {
     setExampleSource(exampleButtons[activeExampleIndex]);
+  }
+
+  if (examplesIframe) {
+    examplesIframe.addEventListener("load", () => {
+      wireExampleIframe();
+    });
   }
 
   closeExamplesButtons.forEach((btn) => {

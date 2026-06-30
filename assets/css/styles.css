@@ -2791,6 +2791,27 @@ body.theme-light .cta-form textarea::placeholder {
   justify-content: center;
 }
 
+.examples-modal__hint {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.examples-modal__cta.is-prompted {
+  animation: examples-modal-cta-pulse 900ms ease;
+}
+
+@keyframes examples-modal-cta-pulse {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
 .examples-modal__nav {
   display: none;
   position: absolute;

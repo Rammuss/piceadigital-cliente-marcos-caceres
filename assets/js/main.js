@@ -238,7 +238,7 @@ if (ctaForm) {
   const submitBtn = ctaForm.querySelector('button[type="submit"]');
   const startedAtField = ctaForm.querySelector('input[name="form_started_at"]');
   const honeypotField = ctaForm.querySelector('input[name="website"]');
-  const waHref = "https://wa.me/595986689470?text=%C2%A1Hola%20Marcos!%20Quer%C3%ADa%20consultarte%20sobre%20una%20web%20para%20mi%20negocio.";
+  const waHref = "https://wa.me/595986689470?text=Hola%2C%20quiero%20cotizar%20una%20web%20para%20mi%20negocio.%20Ref%3A%20FORMULARIO";
   const minSubmitMs = 4000;
   let pendingTimer = null;
   let softAckTimer = null;

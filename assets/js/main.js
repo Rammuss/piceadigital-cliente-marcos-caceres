@@ -738,9 +738,8 @@ const registerTrackingEvents = () => {
   const floatingPopover = document.getElementById("wa-float-popover");
   const floatingHint = document.getElementById("wa-float-hint");
   if (floatingWa) {
-    const WA_HINT_KEY = "picea-wa-hint-seen";
-    let floatingHintTimer = null;
     let floatingReady = false;
+    const examplesSection = document.getElementById("ejemplos");
 
     const showFloatingButton = () => {
       if (floatingReady) return;
@@ -752,62 +751,22 @@ const registerTrackingEvents = () => {
       if (!floatingHint) return;
       floatingHint.classList.remove("is-visible");
       floatingHint.hidden = true;
-      if (floatingHintTimer) {
-        clearTimeout(floatingHintTimer);
-        floatingHintTimer = null;
-      }
-      try {
-        sessionStorage.setItem(WA_HINT_KEY, "1");
-      } catch (error) {
-        // ignore
-      }
     };
 
-    const showFloatingHint = () => {
-      if (!floatingHint) return;
-      if (!floatingPopover || !floatingPopover.hidden) return;
-      floatingHint.hidden = false;
-      requestAnimationFrame(() => {
-        floatingHint.classList.add("is-visible");
+    hideFloatingHint();
+
+    if (examplesSection) {
+      const floatingObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          showFloatingButton();
+          observer.disconnect();
+        });
+      }, {
+        rootMargin: "-10% 0px -55% 0px",
+        threshold: 0.12,
       });
-      floatingHintTimer = setTimeout(() => {
-        hideFloatingHint();
-      }, 7000);
-    };
-
-    if (floatingHint) {
-      let seenHint = false;
-      try {
-        seenHint = sessionStorage.getItem(WA_HINT_KEY) === "1";
-      } catch (error) {
-        seenHint = false;
-      }
-      const scheduleHint = () => {
-        if (seenHint) {
-          floatingHint.hidden = true;
-          return;
-        }
-        setTimeout(() => {
-          showFloatingHint();
-        }, 4500);
-      };
-
-      const activateFloating = () => {
-        showFloatingButton();
-        scheduleHint();
-      };
-
-      const onIntentReady = () => {
-        if (window.scrollY < 320) return;
-        activateFloating();
-        window.removeEventListener("scroll", onIntentReady);
-      };
-
-      window.addEventListener("scroll", onIntentReady, { passive: true });
-      setTimeout(() => {
-        activateFloating();
-        window.removeEventListener("scroll", onIntentReady);
-      }, 12000);
+      floatingObserver.observe(examplesSection);
     }
 
     const closeFloatingPopover = () => {

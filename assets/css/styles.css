@@ -2494,6 +2494,17 @@ body.theme-light .cta-form textarea::placeholder {
   gap: 8px;
 }
 
+.contact-email {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.contact-email a {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .note-icon {
   width: 18px;
   height: 18px;

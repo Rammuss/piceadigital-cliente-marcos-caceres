@@ -135,10 +135,28 @@
     /* Evita íconos SVG gigantes durante el primer paint antes de cargar styles.css */
     svg[viewBox] { width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
   </style>
-  <link rel="preload" href="assets/css/styles.css?v=20260629a" as="style" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260629a" />
+  <link rel="preload" href="assets/css/styles.css?v=20260727c" as="style" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260727c" />
 </head>
 <body class="theme-light" data-ga4="G-PEFPMM9NYR" data-pixel="2431513420610437">
+  <div class="site-preloader" id="site-preloader" aria-hidden="true">
+    <div class="site-preloader__inner">
+      <img
+        class="site-preloader__logo"
+        src="assets/logo/picea_logo_transparent.png"
+        srcset="assets/logo/picea_logo_transparent-143.png 143w, assets/logo/picea_logo_transparent.png 285w"
+        sizes="180px"
+        alt=""
+        width="285"
+        height="103"
+        decoding="async"
+      />
+      <div class="site-preloader__bar" aria-hidden="true">
+        <span class="site-preloader__bar-fill"></span>
+      </div>
+      <p class="site-preloader__text">Cargando experiencia Picea</p>
+    </div>
+  </div>
   <header class="hero hero-centered" id="top">
     <div class="hero-video-bg" aria-hidden="true">
       <video
@@ -714,7 +732,7 @@
       <span>@piceadigital</span>
     </div>
   </footer>
-  <script src="assets/js/main.js?v=20260629a"></script>
+  <script src="assets/js/main.js?v=20260727c"></script>
 </body>
 </html>
 

@@ -1,6 +1,22 @@
 const revealItems = document.querySelectorAll(".reveal");
 const hero = document.querySelector(".hero");
 const heroVideo = document.querySelector(".hero-video");
+const sitePreloader = document.getElementById("site-preloader");
+
+if (sitePreloader) {
+  const hidePreloader = () => {
+    sitePreloader.classList.add("is-hidden");
+    window.setTimeout(() => {
+      sitePreloader.remove();
+    }, 340);
+  };
+
+  window.addEventListener("load", () => {
+    window.setTimeout(hidePreloader, 720);
+  }, { once: true });
+
+  window.setTimeout(hidePreloader, 1800);
+}
 
 if (hero && heroVideo) {
   const isMobileHero = window.matchMedia("(max-width: 640px)").matches;

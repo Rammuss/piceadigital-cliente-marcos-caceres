@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Cooling and Power E.A.S. Unipersonal: soluciones integrales en electricidad, refrigeración y tecnología en San Antonio, Paraguay.">
+  <meta name="theme-color" content="#062d62">
+  <title>Cooling and Power | Electricidad, refrigeración y tecnología</title>
+  <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+  <style>
+    :root{
+      --navy:#061d3d;
+      --blue:#0757a6;
+      --blue-2:#0e79c9;
+      --cyan:#19b9e7;
+      --ice:#edf8ff;
+      --ink:#0c1b30;
+      --muted:#59687b;
+      --line:#dbe8f2;
+      --white:#fff;
+      --shadow:0 18px 50px rgba(4,31,68,.12);
+      --shadow-sm:0 10px 28px rgba(4,31,68,.09);
+      --radius:24px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#fff;line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
+    .eyebrow{margin:0 0 10px;color:var(--blue);font-size:.8rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(2.6rem,5.5vw,5rem);line-height:.98;letter-spacing:-.055em;margin-bottom:24px}
+    h2{font-size:clamp(2rem,3.6vw,3.25rem);line-height:1.08;letter-spacing:-.04em;margin-bottom:18px}
+    h3{font-size:1.2rem;line-height:1.25;margin-bottom:10px}
+    .lead{font-size:clamp(1.04rem,1.5vw,1.2rem);color:#dcecff;max-width:690px}
+    .section-copy{font-size:1.06rem;color:var(--muted);max-width:720px}
+    .section-head{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-bottom:42px}
+    .section-head>div:first-child{max-width:760px}
+    .section{padding:96px 0}
+    .section-alt{background:linear-gradient(180deg,#f7fbff 0%,#eef7fd 100%)}
+    .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:#fff;padding:10px;z-index:9999}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);border-bottom:1px solid rgba(8,58,112,.09);backdrop-filter:blur(14px)}
+    .header-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:250px}
+    .brand img{width:54px;height:54px;object-fit:cover;border-radius:14px;border:1px solid var(--line)}
+    .brand-name{display:block;font-weight:900;letter-spacing:-.035em;font-size:1.16rem;line-height:1.05;color:var(--navy)}
+    .brand-sub{display:block;color:var(--blue);font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-top:5px}
+    .desktop-nav{display:flex;align-items:center;gap:25px;font-size:.91rem;font-weight:720;color:#32465e}
+    .desktop-nav a{padding:28px 0 25px;position:relative}
+    .desktop-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:18px;height:2px;background:var(--cyan);transition:.25s}
+    .desktop-nav a:hover::after{right:0}
+    .header-cta{display:inline-flex;align-items:center;gap:9px;padding:12px 17px;border-radius:14px;background:var(--blue);color:#fff;font-weight:800;box-shadow:0 8px 22px rgba(7,87,166,.24)}
+
+    /* Hero */
+    .hero{position:relative;min-height:720px;color:#fff;overflow:hidden;background:
+      radial-gradient(circle at 10% 10%,rgba(25,185,231,.22),transparent 27%),
+      linear-gradient(115deg,#04172f 0%,#062d62 49%,#0757a6 100%)}
+    .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to right,#000,transparent 70%)}
+    .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.18fr .82fr;align-items:center;gap:48px;min-height:calc(100svh - 78px);padding-block:56px}
+    .hero-copy{padding-top:15px}
+    .hero .eyebrow{color:#83def7}
+    .hero h1{font-size:clamp(2.6rem,5vw,4.5rem);margin-bottom:18px}
+    .hero h1 span{color:#69d9f7}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:13px 20px;border-radius:15px;font-weight:850;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:#fff;color:var(--navy);box-shadow:0 14px 30px rgba(0,0,0,.17)}
+    .btn-secondary{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
+    .btn-blue{background:var(--blue);color:#fff;box-shadow:0 12px 28px rgba(7,87,166,.2)}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+    .hero-tags span{padding:8px 12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);border-radius:999px;font-size:.83rem;font-weight:750;color:#dff5ff}
+    .hero-visual{position:relative;height:520px}
+    .hero-frame{position:absolute;top:0;right:0;height:100%;width:auto;aspect-ratio:1130/1402;overflow:visible;background:transparent}
+    .hero-frame img{width:100%;height:100%;object-fit:contain}
+    .hero-frame::after{display:none}
+    .hero-card{position:absolute;z-index:2;width:max-content;max-width:320px;background:#fff;color:var(--ink);border-radius:17px;padding:13px 15px;box-shadow:0 16px 36px rgba(3,21,45,.2);display:flex;align-items:center;gap:11px}
+    .hero-card strong{display:block;color:var(--navy);font-size:.95rem}
+    .hero-card small{display:block;color:var(--muted);font-size:.76rem;line-height:1.35}
+    .hero-card.top{left:-24px;top:62px}
+    .hero-card.bottom{right:-14px;bottom:30px}
+    .mini-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--ice);color:var(--blue);flex:0 0 auto}
+    .mini-icon svg{width:21px;height:21px}
+    .hero-badge{position:absolute;right:25px;top:22px;z-index:2;background:rgba(5,30,63,.85);border:1px solid rgba(255,255,255,.2);padding:10px 14px;border-radius:999px;font-size:.8rem;font-weight:800;backdrop-filter:blur(9px)}
+
+    /* Trust bar */
+    .trust-wrap{position:relative;z-index:5;margin-top:-42px}
+    .trust-bar{background:#fff;border-radius:22px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(3,1fr);padding:26px 32px;border:1px solid rgba(11,80,143,.08)}
+    .trust-item{display:flex;align-items:center;gap:14px;padding:2px 24px;border-right:1px solid var(--line)}
+    .trust-item:first-child{padding-left:0}.trust-item:last-child{border-right:0;padding-right:0}
+    .trust-item svg{width:32px;height:32px;color:var(--blue)}
+    .trust-item strong{display:block;color:var(--navy)}.trust-item span{font-size:.87rem;color:var(--muted)}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:70px;align-items:center}
+    .about-media{position:relative;min-height:520px}
+    .about-media .main-photo{position:absolute;inset:0 70px 75px 0;border-radius:30px;overflow:hidden;box-shadow:var(--shadow)}
+    .about-media .main-photo img{width:100%;height:100%;object-fit:cover}
+    .about-media .small-photo{position:absolute;right:0;bottom:0;width:52%;height:245px;border:8px solid #fff;border-radius:26px;overflow:hidden;box-shadow:var(--shadow-sm)}
+    .about-media .small-photo img{width:100%;height:100%;object-fit:cover}
+    .about-media.single-media .main-photo{inset:0;border-radius:30px;box-shadow:none;background:#fff}
+    .about-media.single-media .main-photo img{object-fit:contain}
+    .about-note{position:absolute;left:28px;bottom:34px;background:var(--navy);color:#fff;padding:15px 18px;border-radius:17px;font-weight:800;box-shadow:var(--shadow-sm)}
+    .check-list{display:grid;gap:13px;margin:28px 0 0;padding:0;list-style:none}
+    .check-list li{display:flex;gap:12px;color:#263d57}
+    .check-list li::before{content:"✓";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#dff5ff;color:var(--blue);font-size:.8rem;font-weight:900;flex:0 0 auto;margin-top:1px}
+    .sector-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}
+    .sector-chips span{background:#f3f8fc;border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:#40536b;font-size:.86rem;font-weight:700}
+
+    /* Services */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .service-card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 8px 28px rgba(6,44,89,.06);transition:.25s}
+    .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-sm)}
+    .service-photo{height:205px;position:relative;overflow:hidden;background:#c7e7f7}
+    .service-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .service-card:hover .service-photo img{transform:scale(1.05)}
+    .service-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(3,21,46,.62))}
+    .service-number{position:absolute;right:16px;top:16px;z-index:2;width:40px;height:40px;border-radius:13px;background:rgba(255,255,255,.94);display:grid;place-items:center;font-weight:900;color:var(--blue)}
+    .service-body{padding:24px}
+    .service-body p{color:var(--muted);font-size:.94rem;margin-bottom:16px}
+    .service-body ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+    .service-body li{font-size:.91rem;color:#2a4058;padding-left:18px;position:relative}
+    .service-body li::before{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--cyan);left:0;top:.62em}
+    .service-link{display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-weight:850;font-size:.88rem;margin-top:19px}
+
+    /* Complete service listing */
+    .service-list-panel{margin-top:34px;background:var(--navy);border-radius:28px;padding:36px;color:#fff;display:grid;grid-template-columns:1fr 2fr;gap:36px;align-items:start;box-shadow:var(--shadow)}
+    .service-list-panel p{color:#bcd1e7;margin:0}
+    .service-list-panel .eyebrow{color:#6adcf7;margin-bottom:8px}
+    .service-list-panel h3{font-size:1.65rem;letter-spacing:-.025em;margin-bottom:12px}
+    .service-list-panel h3+p{max-width:390px;line-height:1.65}
+    .service-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin:0;padding:0;list-style:none}
+    .service-list li{display:flex;gap:10px;font-size:.93rem;color:#eef7ff}
+    .service-list li::before{content:"+";font-weight:900;color:#6adcf7}
+
+    /* Values */
+    .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .value-card{padding:30px;border:1px solid var(--line);border-radius:22px;background:#fff}
+    .value-icon{width:54px;height:54px;border-radius:17px;background:linear-gradient(145deg,#e5f7ff,#f7fcff);color:var(--blue);display:grid;place-items:center;margin-bottom:20px}
+    .value-icon svg{width:27px;height:27px}
+    .value-card p{margin:0;color:var(--muted)}
+
+    /* Process */
+    .process{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+    .process::before{content:"";position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(25,185,231,.1);filter:blur(5px);top:-350px;right:-150px}
+    .process .eyebrow{color:#70ddf8}.process .section-copy{color:#bdd2e8}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:45px;position:relative}
+    .steps::before{
+      content:"";
+      position:absolute;
+      left:calc(12.5% + 44px);
+      right:calc(12.5% + 44px);
+      top:42px;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,rgba(100,215,244,.15),rgba(100,215,244,.55),rgba(100,215,244,.15));
+    }
+    .steps::after{
+      content:"";
+      position:absolute;
+      top:37px;
+      left:calc(12.5% + 44px);
+      width:88px;
+      height:12px;
+      border-radius:999px;
+      background:linear-gradient(90deg,rgba(255,255,255,0),rgba(111,226,249,.95),rgba(255,255,255,0));
+      filter:blur(1px);
+      animation:process-flow 4.8s ease-in-out infinite;
+    }
+    .step{
+      position:relative;
+      z-index:1;
+      padding:28px 24px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.055);
+      border-radius:23px;
+      backdrop-filter:blur(4px);
+      transition:transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .step:hover{
+      transform:translateY(-4px);
+      border-color:rgba(111,226,249,.36);
+      background:rgba(255,255,255,.08);
+    }
+    .step::before{
+      content:"";
+      position:absolute;
+      left:24px;
+      top:35px;
+      width:18px;
+      height:18px;
+      border-radius:50%;
+      background:#64d7f4;
+      box-shadow:0 0 0 0 rgba(100,215,244,.38);
+      animation:process-pulse 2.8s ease-out infinite;
+    }
+    .step-num{position:relative;font-size:2.3rem;font-weight:950;color:#64d7f4;line-height:1;margin-bottom:23px;padding-left:28px}
+    .step p{color:#bdd2e8;margin-bottom:0;font-size:.93rem}
+
+    @keyframes process-flow{
+      0%{transform:translateX(0);opacity:.15}
+      12%{opacity:1}
+      50%{transform:translateX(calc(300% - 88px));opacity:.9}
+      88%{opacity:1}
+      100%{transform:translateX(calc(300% - 88px));opacity:.15}
+    }
+    @keyframes process-pulse{
+      0%{box-shadow:0 0 0 0 rgba(100,215,244,.38)}
+      70%{box-shadow:0 0 0 12px rgba(100,215,244,0)}
+      100%{box-shadow:0 0 0 0 rgba(100,215,244,0)}
+    }
+
+    /* CTA */
+    .cta-box{border-radius:32px;background:linear-gradient(120deg,#0875c7,#0fbee8);color:#fff;padding:55px;display:flex;align-items:center;justify-content:space-between;gap:35px;box-shadow:0 25px 60px rgba(4,107,180,.25);position:relative;overflow:hidden}
+    .cta-box::after{content:"";position:absolute;width:330px;height:330px;border:65px solid rgba(255,255,255,.09);border-radius:50%;right:-110px;top:-150px}
+    .cta-box>div,.cta-box>a{position:relative;z-index:2}
+    .cta-box h2{margin-bottom:12px;max-width:720px}.cta-box p{margin:0;color:#e8fbff;max-width:690px}
+
+    /* Contact */
+    .section-contact{padding-top:34px;padding-bottom:42px;min-height:calc(100svh - 78px)}
+    .section-contact .section-head{margin-bottom:20px}
+    .section-contact .section-head>div:first-child{max-width:760px}
+    .section-contact .section-head h2{font-size:clamp(2rem,3.5vw,3rem);margin-bottom:8px}
+    .section-contact .section-copy{font-size:.96rem;max-width:620px;margin-bottom:0}
+    .contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+    .contact-card{
+      background:linear-gradient(145deg,#09264b 0%,#061d3c 55%,#08284c 100%);
+      color:#fff;
+      border-radius:24px;
+      padding:24px;
+      border:1px solid rgba(86,197,255,.18);
+      box-shadow:0 20px 44px rgba(6,29,60,.2);
+      position:relative;
+      display:flex;
+      flex-direction:column
+    }
+    .contact-card .eyebrow{color:#6edbf7}
+    .contact-card p{color:#bed3e8}
+    .contact-card > h3{font-size:1.46rem;letter-spacing:-.03em;margin-bottom:6px}
+    .contact-card > p:last-of-type{font-size:.94rem;max-width:360px}
+    .contact-list{display:grid;gap:9px;margin-top:14px}
+    .contact-item{
+      display:grid;
+      grid-template-columns:60px 1fr;
+      gap:12px;
+      align-items:start;
+      padding:12px;
+      border:1px solid rgba(75,178,235,.18);
+      border-radius:16px;
+      background:rgba(8,43,79,.55);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+    }
+    .contact-item .ci{
+      width:60px;
+      height:60px;
+      border-radius:16px;
+      background:rgba(255,255,255,.06);
+      display:grid;
+      place-items:center;
+      color:#6edbf7;
+    }
+    .contact-item svg{width:28px;height:28px}
+    .contact-item strong{
+      display:block;
+      margin-bottom:7px;
+      font-size:1rem;
+      line-height:1.2;
+      color:#fff;
+    }
+    .contact-item span,.contact-item a{color:#bed3e8;font-size:.9rem}
+    .contact-link-group{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .contact-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-height:44px;
+      padding:0 12px;
+      border:1px solid rgba(110,219,247,.32);
+      border-radius:14px;
+      background:linear-gradient(90deg,rgba(23,116,168,.35),rgba(19,72,115,.65));
+      color:#fff !important;
+      font-weight:800;
+      font-size:.84rem;
+      transition:transform .2s, background .2s, border-color .2s, box-shadow .2s, filter .2s;
+    }
+    .contact-link:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.08);
+      border-color:rgba(110,219,247,.55);
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+    }
+    .contact-link.whatsapp-link{
+      background:linear-gradient(90deg,rgba(0,136,82,.55),rgba(3,94,66,.78));
+      border-color:rgba(48,220,137,.6);
+      color:#dffff0 !important;
+    }
+    .contact-link.whatsapp-link:hover{
+      border-color:rgba(34,200,97,.62);
+    }
+    .contact-link::after,
+    .contact-value::after{
+      content:"→";
+      font-size:1.05rem;
+      opacity:.9;
+      flex:0 0 auto;
+    }
+    .contact-value{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-height:42px;
+      padding:0 12px;
+      border-radius:13px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(88,187,239,.28);
+      color:#f4f8fc !important;
+      font-size:.86rem;
+      font-weight:650;
+      transition:transform .2s, background .2s, border-color .2s, box-shadow .2s;
+      word-break:break-word;
+    }
+    .contact-value:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.08);
+      border-color:rgba(110,219,247,.55);
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+    }
+    .contact-card-head{margin-bottom:22px}
+    .contact-card-head h3{font-size:1.55rem;letter-spacing:-.03em;margin-bottom:6px}
+    .contact-card-head p:last-child{font-size:.94rem;margin-bottom:0}
+    .contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .contact-action{min-width:0;min-height:108px;padding:16px;border-radius:18px;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;color:#fff;border:1px solid rgba(110,219,247,.35);background:linear-gradient(145deg,rgba(22,111,164,.42),rgba(10,52,93,.78));transition:transform .2s,filter .2s,box-shadow .2s}
+    .contact-action.whatsapp-action{background:linear-gradient(145deg,rgba(0,142,85,.72),rgba(2,91,64,.88));border-color:rgba(55,222,143,.55)}
+    .contact-action:hover{transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+    .contact-action-icon,.contact-email-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.1);color:#72ddf7}
+    .whatsapp-action .contact-action-icon{color:#dffff0}
+    .contact-action-icon svg,.contact-email-icon svg{width:23px;height:23px}
+    .contact-action-copy,.contact-email-copy{min-width:0}
+    .contact-action-copy small,.contact-email-copy small{display:block;color:#bcd1e7;font-size:.72rem;font-weight:750;margin-bottom:3px}
+    .whatsapp-action .contact-action-copy small{color:#c8f8df}
+    .contact-action-copy strong{display:block;color:#fff;font-size:.97rem;line-height:1.3}
+    .contact-arrow{font-size:1.05rem;opacity:.85}
+    .contact-email{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;min-height:76px;margin-top:12px;padding:14px 16px;border:1px solid rgba(88,187,239,.24);border-radius:18px;background:rgba(255,255,255,.045);transition:transform .2s,background .2s,border-color .2s}
+    .contact-email:hover{transform:translateY(-1px);background:rgba(255,255,255,.08);border-color:rgba(110,219,247,.5)}
+    .contact-email-copy strong{display:block;color:#fff;font-size:.92rem;line-height:1.35;overflow-wrap:anywhere}
+    .contact-card-footer{margin-top:auto;padding-top:18px}
+    .contact-card-footer .qr-trigger{margin-top:0}
+    .qr-trigger{
+      margin-top:11px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border:1px dashed rgba(110,219,247,.34);
+      border-radius:999px;
+      color:#d8f6ff;
+      font-size:.82rem;
+      font-weight:800;
+      background:rgba(255,255,255,.05);
+    }
+    .qr-trigger:hover{
+      background:rgba(255,255,255,.1);
+      border-color:rgba(110,219,247,.55);
+    }
+    .qr-modal{
+      position:fixed;
+      inset:0;
+      z-index:150;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:rgba(3,21,45,.7);
+      backdrop-filter:blur(10px);
+    }
+    .qr-modal.open{display:flex}
+    .qr-modal[hidden]{display:none}
+    .qr-dialog{
+      width:min(420px,100%);
+      padding:24px;
+      border-radius:28px;
+      background:#fff;
+      box-shadow:0 30px 80px rgba(3,21,45,.28);
+      text-align:center;
+      position:relative;
+    }
+    .qr-close{
+      position:absolute;
+      top:14px;
+      right:14px;
+      width:42px;
+      height:42px;
+      border:0;
+      border-radius:50%;
+      background:#edf6fc;
+      color:var(--navy);
+      font-size:1.15rem;
+      cursor:pointer;
+    }
+    .qr-dialog img{
+      width:min(240px, 100%);
+      margin:18px auto 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-sm);
+    }
+    .qr-dialog p{
+      margin:0;
+      color:var(--muted);
+    }
+    .contact-map-panel{height:100%;min-height:0}
+    .map-frame{height:100%;min-height:430px;border-radius:24px;overflow:hidden;border:1px solid var(--line);position:relative;background:linear-gradient(135deg,#e1f2fb,#bcdff1);box-shadow:var(--shadow-sm)}
+    .map-frame iframe{width:100%;height:100%;border:0}.map-fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--navy);font-weight:800;z-index:0}.map-frame iframe{position:relative;z-index:1}
+
+    /* Footer */
+    footer{background:linear-gradient(145deg,#03152d,#061f40);color:#d2e1f0;padding:50px 0 32px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .55fr 1fr;gap:52px;align-items:start}
+    .footer-brand{display:flex;gap:14px;align-items:center;margin-bottom:16px}.footer-brand img{width:58px;height:58px;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.12)}.footer-brand strong{font-size:1.25rem;color:#fff;display:block}.footer-brand small{color:#74d7ef;font-weight:700}
+    .footer-intro p{color:#9bb1c7;max-width:470px;margin-bottom:18px}.footer-location{display:inline-flex;align-items:center;gap:8px;color:#cbe8f7;font-size:.84rem;font-weight:750}.footer-location svg{width:18px;height:18px;color:#6adcf7}
+    .footer-col h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;color:#6adcf7;margin-bottom:16px}.footer-nav a{display:block;width:max-content;color:#b8cadd;margin:9px 0;transition:color .2s,transform .2s}.footer-nav a:hover{color:#fff;transform:translateX(3px)}
+    .footer-contact-list{display:grid;gap:9px}.footer-contact-link{display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px;align-items:center;padding:10px 12px;border:1px solid rgba(108,174,222,.16);border-radius:14px;background:rgba(255,255,255,.035);transition:background .2s,border-color .2s,transform .2s}.footer-contact-link:hover{background:rgba(255,255,255,.07);border-color:rgba(110,219,247,.38);transform:translateY(-1px)}.footer-contact-link svg{width:20px;height:20px;color:#6adcf7}.footer-contact-link span{min-width:0}.footer-contact-link small{display:block;color:#829bb4;font-size:.7rem}.footer-contact-link strong{display:block;color:#edf7ff;font-size:.84rem;line-height:1.35;overflow-wrap:anywhere}.footer-contact-link.whatsapp{border-color:rgba(46,195,119,.27)}.footer-contact-link.whatsapp svg{color:#4be39a}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.09);margin-top:34px;padding-top:20px;color:#8198ae;font-size:.8rem;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    /* Mobile helpers */
+    .whatsapp-fab{position:fixed;right:22px;bottom:23px;z-index:120;width:60px;height:60px;border-radius:19px;background:#22c861;color:#fff;display:grid;place-items:center;box-shadow:0 15px 32px rgba(17,148,72,.33);transition:transform .2s}
+    .whatsapp-fab:hover{transform:translateY(-3px) scale(1.02)}.whatsapp-fab svg{width:31px;height:31px}
+    .mobile-nav{display:none}
+    .menu-btn{display:none;border:0;background:#eaf5fb;color:var(--navy);width:45px;height:45px;border-radius:13px;align-items:center;justify-content:center}.menu-btn svg{width:24px;height:24px}
+    .mobile-menu{display:none}
+    .menu-btn .menu-close{display:none}.menu-btn.open .menu-open{display:none}.menu-btn.open .menu-close{display:block}
+    .mobile-menu-actions{border-top:1px solid var(--line);margin-top:8px;padding-top:12px}.mobile-menu .mobile-call{display:grid;grid-template-columns:42px 1fr;gap:11px;align-items:center;padding:11px 13px;border-radius:14px;background:var(--navy);color:#fff}.mobile-menu .mobile-call:hover{background:#0a3563}.mobile-call svg{width:22px;height:22px;color:#6adcf7}.mobile-call small{display:block;color:#9fc6df;font-size:.7rem}.mobile-call strong{display:block;font-size:.92rem}
+
+    @media(max-width:980px){
+      .desktop-nav,.header-cta{display:none}.menu-btn{display:flex}
+      .hero-inner{grid-template-columns:1fr;min-height:auto;padding:75px 0 105px}.hero-visual{height:500px}.hero-frame{left:50%;right:auto;transform:translateX(-50%)}.hero-copy{max-width:760px}.hero{min-height:auto}
+      .trust-bar{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line);padding:17px 0}.trust-item:last-child{border-bottom:0}
+      .about-grid{grid-template-columns:1fr;gap:48px}.about-media{min-height:480px;order:2}.services-grid{grid-template-columns:1fr 1fr}.service-list-panel{grid-template-columns:1fr}.value-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.steps::before,.steps::after{display:none}.contact-grid{grid-template-columns:1fr}.contact-card,.contact-map-panel{position:static}.contact-item{grid-template-columns:80px 1fr;gap:18px;padding:22px}.contact-item .ci{width:80px;height:80px;border-radius:20px}.contact-item svg{width:38px;height:38px}.contact-item strong{font-size:1.2rem;margin-bottom:12px}.contact-link,.contact-value{min-height:64px;padding:0 18px;font-size:.95rem}.map-frame{height:320px;min-height:320px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}
+      .mobile-menu{position:fixed;left:20px;right:20px;top:88px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow);z-index:110}
+      .mobile-menu.open{display:grid}.mobile-menu a{padding:13px 14px;border-radius:12px;font-weight:750}.mobile-menu a:hover{background:var(--ice)}
+    }
+    @media(min-width:981px){
+      .contact-item:not(:first-child)>div{display:grid;grid-template-columns:138px minmax(0,1fr);align-items:center;gap:10px;min-width:0}
+      .contact-item:not(:first-child) strong{margin-bottom:0}
+      .contact-value[href^="mailto:"]{white-space:nowrap;word-break:normal}
+    }
+    @media(max-width:680px){
+      html{scroll-padding-top:72px}.container{width:min(calc(100% - 28px),var(--max))}.section{padding:72px 0}.header-inner{height:70px}.brand{min-width:0}.brand img{width:45px;height:45px}.brand-name{font-size:1rem}.brand-sub{font-size:.56rem}.section-head{display:block;margin-bottom:30px}
+      h1{font-size:clamp(2.5rem,13vw,3.75rem)}.hero-inner{padding:58px 0 90px;gap:40px}.hero-visual{height:405px}.hero-frame{left:50%;right:auto;transform:translateX(-50%)}.hero-card{padding:13px;border-radius:16px}.hero-card.top{left:0;top:30px}.hero-card.bottom{right:-2px;bottom:24px}.hero-card small{display:none}.mini-icon{width:41px;height:41px}.hero-badge{right:14px;top:14px}
+      .trust-wrap{margin-top:-35px}.trust-bar{padding:18px 22px}.about-media{min-height:400px}.about-media .main-photo{inset:0 45px 62px 0}.about-media .small-photo{height:185px}.about-note{left:15px;bottom:22px;font-size:.83rem}
+      .services-grid,.value-grid,.steps{grid-template-columns:1fr}.step{padding:24px 20px 24px 24px}.step::before{left:20px;top:31px;width:16px;height:16px}.step-num{padding-left:24px}.service-list-panel{padding:26px}.service-list{grid-template-columns:1fr}.cta-box{padding:35px 27px;display:block}.cta-box .btn{margin-top:25px}.contact-card{padding:27px}.contact-item{grid-template-columns:1fr;padding:20px}.contact-item .ci{width:64px;height:64px;border-radius:18px}.contact-item svg{width:30px;height:30px}.contact-item strong{font-size:1.05rem;margin-bottom:10px}.contact-link-group{grid-template-columns:1fr;gap:10px}.contact-link,.contact-value{min-height:58px;padding:0 16px;font-size:.92rem;border-radius:18px}.map-frame{height:280px;min-height:280px}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}
+      .mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:130;background:rgba(255,255,255,.97);border-top:1px solid #dce8f1;box-shadow:0 -8px 22px rgba(5,38,76,.09);padding:8px 8px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}
+      .mobile-nav a{display:grid;justify-items:center;gap:3px;font-size:.68rem;color:#607083;font-weight:720}.mobile-nav svg{width:21px;height:21px}.mobile-nav a.active{color:var(--blue)}
+      .whatsapp-fab{right:15px;bottom:88px;width:56px;height:56px;border-radius:18px}footer{padding-bottom:125px}
+    }
+    @media(max-width:680px){
+      .contact-actions{grid-template-columns:1fr}
+      .contact-action{min-height:88px}
+      .contact-email{grid-template-columns:44px minmax(0,1fr) auto}
+      .footer-grid{gap:32px}
+      .footer-bottom{display:block}
+      .footer-bottom span{display:block}
+      .footer-bottom span+span{margin-top:5px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+<a href="#contenido" class="skip">Saltar al contenido</a>
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .37 1.97.72 2.89a2 2 0 0 1-.45 2.11L8.1 10a16 16 0 0 0 6 6l1.28-1.28a2 2 0 0 1 2.11-.45c.92.35 1.89.59 2.89.72A2 2 0 0 1 22 16.9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m9 12 2 2 4-5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.8 12 7 22l5-3 5 3-1.8-10" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 22c0-4 3.6-7 8-7s8 3 8 7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 7h11v8H3zM14 9l7-3v10l-7-3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 15v4m-2 0h4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h8l-1 8 9-12h-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M4.9 6l14.2 12M4.9 18 19.1 6M8.5 4 12 6l3.5-2M8.5 20 12 18l3.5 2M3.5 9.5 7 12l-3.5 2.5M20.5 9.5 17 12l3.5 2.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10h-6v-6H9v6H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.56 7.47L3 20l1.05-4.8A8.5 8.5 0 1 1 20.5 11.5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.2 7.7c.3-.6.6-.6.9-.6h.5c.2 0 .4.1.5.4l.8 1.9c.1.3.1.5-.1.7l-.7.8c-.2.2-.1.5 0 .7.5.9 1.3 1.7 2.2 2.2.3.2.6.2.8 0l.9-1c.2-.2.4-.3.7-.2l1.8.9c.3.1.4.3.4.5 0 .3-.1 1.1-.7 1.6-.5.5-1.3.8-2.1.7-1.2-.1-2.8-.7-4.4-2.1-1.7-1.5-2.8-3.3-3-4.6-.2-.8 0-1.4.5-1.9Z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#inicio" class="brand" aria-label="Cooling and Power, inicio">
+      <img src="assets/logo.jpg" alt="Logo Cooling and Power" width="760" height="760">
+      <span><span class="brand-name">Cooling and Power</span><span class="brand-sub">E.A.S. Unipersonal · Asistencia eléctrica</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
+    </nav>
+    <a class="header-cta" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener"><svg width="19" height="19"><use href="#i-whatsapp"/></svg> Solicitar presupuesto</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-controls="mobileMenu" aria-expanded="false"><svg class="menu-open"><use href="#i-menu"/></svg><svg class="menu-close"><use href="#i-close"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+  <a href="#inicio">Inicio</a><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
+  <div class="mobile-menu-actions"><a class="mobile-call" href="tel:+595982801360"><svg><use href="#i-phone"/></svg><span><small>Llamar ahora</small><strong>(0982) 801 360</strong></span></a></div>
+</nav>
+
+<main id="contenido">
+  <section class="hero" id="inicio">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Electricidad · Refrigeración · Tecnología</p>
+        <h1>Soluciones técnicas para instalaciones <span>seguras y eficientes.</span></h1>
+        <p class="lead">Desarrollamos proyectos y servicios para empresas, industrias, comercios e instituciones, con atención personalizada y profesionales capacitados.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20necesito%20información%20sobre%20sus%20servicios" target="_blank" rel="noopener"><svg width="21" height="21"><use href="#i-whatsapp"/></svg> Consultar por WhatsApp</a>
+          <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+        </div>
+        <div class="hero-tags"><span>CCTV analógico e IP</span><span>UPS y energía</span><span>Data Center</span><span>Aire acondicionado</span><span>Puesta a tierra</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Áreas de servicio de Cooling and Power">
+        <div class="hero-frame"><img src="assets/imagen-hero-mix-1.webp" alt="Cámaras, servidores, electricidad, refrigeración y protección eléctrica" width="936" height="1215" decoding="async" fetchpriority="high"></div>
+        <span class="hero-badge">San Antonio · Paraguay</span>
+        <div class="hero-card top"><span class="mini-icon"><svg><use href="#i-shield"/></svg></span><span><strong>Seguridad garantizada</strong><small>Protección para sus equipos e instalaciones</small></span></div>
+        <div class="hero-card bottom"><span class="mini-icon"><svg><use href="#i-bolt"/></svg></span><span><strong>Solución integral</strong><small>Evaluación, instalación y mantenimiento</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-wrap">
+    <div class="container trust-bar">
+      <div class="trust-item"><svg><use href="#i-shield"/></svg><div><strong>Seguridad</strong><span>Trabajo orientado a proteger instalaciones y equipos.</span></div></div>
+      <div class="trust-item"><svg><use href="#i-award"/></svg><div><strong>Calidad y responsabilidad</strong><span>Soluciones desarrolladas según cada requerimiento.</span></div></div>
+      <div class="trust-item"><svg><use href="#i-user"/></svg><div><strong>Profesionales capacitados</strong><span>Atención personalizada para cada proyecto.</span></div></div>
+    </div>
+  </div>
+
+  <section class="section" id="empresa">
+    <div class="container about-grid">
+      <div class="about-media single-media">
+        <div class="main-photo"><img src="assets/imagen-para-about-media-v2.webp" alt="Servicios de electricidad, redes, Data Center y refrigeración" width="1122" height="1402" loading="lazy" decoding="async"></div>
+        <div class="about-note">Infraestructura eléctrica, refrigeración y tecnología</div>
+      </div>
+      <div>
+        <p class="eyebrow">Sobre la empresa</p>
+        <h2>Un aliado técnico para el funcionamiento de sus instalaciones.</h2>
+        <p class="section-copy">Cooling and Power E.A.S. Unipersonal ofrece soluciones integrales adaptadas a las necesidades de cada cliente. Su propuesta combina calidad, seguridad y eficiencia para proteger equipos y mantener la operación de instalaciones técnicas.</p>
+        <ul class="check-list">
+          <li>Desarrollo de proyectos para empresas, industrias, comercios e instituciones.</li>
+          <li>Servicios de instalación, mantenimiento preventivo, correctivo y reparación.</li>
+          <li>Atención personalizada y propuestas preparadas según cada requerimiento.</li>
+        </ul>
+        <div class="sector-chips"><span>Empresas</span><span>Industrias</span><span>Comercios</span><span>Instituciones</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <div><p class="eyebrow">Nuestros servicios</p><h2>Soluciones técnicas agrupadas por área.</h2><p class="section-copy">Desde seguridad electrónica y redes hasta climatización, respaldo energético y protección eléctrica.</p></div>
+        <a class="btn btn-blue" href="#contacto">Solicitar evaluación</a>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-photo"><img src="assets/nuevas-imagenes-servicios/cctv.webp" alt="Cámara de circuito cerrado" width="900" height="672" loading="lazy" decoding="async"><span class="service-number">01</span></div>
+          <div class="service-body"><h3>Seguridad electrónica</h3><p>Soluciones para supervisión y protección de instalaciones.</p><ul><li>Circuito cerrado CCTV analógico e IP</li><li>Sistemas de protección perimetral</li></ul><a class="service-link" href="https://wa.me/595982801360?text=Hola,%20quiero%20consultar%20por%20seguridad%20electrónica%20y%20CCTV" target="_blank" rel="noopener">Consultar este servicio →</a></div>
+        </article>
+        <article class="service-card">
+          <div class="service-photo"><img src="assets/nuevas-imagenes-servicios/electricidad.webp" alt="Instalación eléctrica en tablero" width="900" height="672" loading="lazy" decoding="async"><span class="service-number">02</span></div>
+          <div class="service-body"><h3>Energía y respaldo</h3><p>Instalación y mantenimiento de sistemas eléctricos y de respaldo.</p><ul><li>Instalación de UPS</li><li>Mantenimiento y reparación de UPS</li><li>Instalaciones eléctricas en general</li></ul><a class="service-link" href="https://wa.me/595982801360?text=Hola,%20quiero%20consultar%20por%20UPS%20e%20instalaciones%20eléctricas" target="_blank" rel="noopener">Consultar este servicio →</a></div>
+        </article>
+        <article class="service-card">
+          <div class="service-photo"><img src="assets/nuevas-imagenes-servicios/datacenter.webp" alt="Cableado estructurado en Data Center" width="900" height="672" loading="lazy" decoding="async"><span class="service-number">03</span></div>
+          <div class="service-body"><h3>Redes y Data Center</h3><p>Infraestructura organizada para conectividad y operación tecnológica.</p><ul><li>Cableado estructurado de redes</li><li>Cableado estructurado en Data Center</li></ul><a class="service-link" href="https://wa.me/595982801360?text=Hola,%20quiero%20consultar%20por%20redes%20y%20Data%20Center" target="_blank" rel="noopener">Consultar este servicio →</a></div>
+        </article>
+        <article class="service-card">
+          <div class="service-photo"><img src="assets/nuevas-imagenes-servicios/refrigeracion.webp" alt="Aire acondicionado de precisión" width="900" height="672" loading="lazy" decoding="async"><span class="service-number">04</span></div>
+          <div class="service-body"><h3>Refrigeración</h3><p>Climatización para espacios domiciliarios e infraestructura crítica.</p><ul><li>Aires acondicionados de precisión</li><li>Aires acondicionados domiciliarios</li></ul><a class="service-link" href="https://wa.me/595982801360?text=Hola,%20quiero%20consultar%20por%20refrigeración%20y%20aire%20acondicionado" target="_blank" rel="noopener">Consultar este servicio →</a></div>
+        </article>
+        <article class="service-card">
+          <div class="service-photo"><img src="assets/nuevas-imagenes-servicios/pararrayos.webp" alt="Sistema de pararrayos" width="900" height="672" loading="lazy" decoding="async"><span class="service-number">05</span></div>
+          <div class="service-body"><h3>Protección contra descargas</h3><p>Sistemas orientados a reducir riesgos ante descargas atmosféricas.</p><ul><li>Instalación de sistemas de pararrayos</li><li>Evaluación según requerimiento</li></ul><a class="service-link" href="https://wa.me/595982801360?text=Hola,%20quiero%20consultar%20por%20sistemas%20de%20pararrayos" target="_blank" rel="noopener">Consultar este servicio →</a></div>
+        </article>
+        <article class="service-card">
+          <div class="service-photo"><img src="assets/nuevas-imagenes-servicios/puesta-tierra.webp" alt="Sistema de puesta a tierra" width="900" height="672" loading="lazy" decoding="async"><span class="service-number">06</span></div>
+          <div class="service-body"><h3>Puesta a tierra y aterramiento</h3><p>Protección eléctrica para instalaciones, equipos y personas.</p><ul><li>Sistemas de puesta a tierra</li><li>Sistemas de aterramiento</li></ul><a class="service-link" href="https://wa.me/595982801360?text=Hola,%20quiero%20consultar%20por%20puesta%20a%20tierra%20y%20aterramiento" target="_blank" rel="noopener">Consultar este servicio →</a></div>
+        </article>
+      </div>
+
+      <div class="service-list-panel">
+        <div><p class="eyebrow">Nuestros servicios</p><h3>Soluciones técnicas que ofrecemos</h3><p>Adaptamos cada propuesta al tipo de instalación, los equipos y las necesidades técnicas de cada cliente.</p></div>
+        <ul class="service-list">
+          <li>CCTV analógico e IP</li><li>Instalación de UPS</li><li>Mantenimiento y reparación de UPS</li><li>Protección perimetral</li><li>Aire acondicionado de precisión</li><li>Aire acondicionado domiciliario</li><li>Cableado estructurado de redes</li><li>Cableado en Data Center</li><li>Instalaciones eléctricas</li><li>Sistemas de puesta a tierra</li><li>Sistemas de pararrayos</li><li>Sistemas de aterramiento</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><p class="eyebrow">Nuestra propuesta</p><h2>Trabajo técnico con enfoque en confianza y continuidad.</h2></div></div>
+      <div class="value-grid">
+        <article class="value-card"><div class="value-icon"><svg><use href="#i-shield"/></svg></div><h3>Soluciones confiables</h3><p>Servicios orientados al funcionamiento óptimo de las instalaciones y la protección de sus equipos.</p></article>
+        <article class="value-card"><div class="value-icon"><svg><use href="#i-user"/></svg></div><h3>Atención personalizada</h3><p>Evaluación de necesidades para preparar una propuesta acorde al proyecto solicitado.</p></article>
+        <article class="value-card"><div class="value-icon"><svg><use href="#i-award"/></svg></div><h3>Compromiso con el cliente</h3><p>Calidad, seguridad y eficiencia como criterios centrales de cada servicio.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process" id="proceso">
+    <div class="container">
+      <div class="section-head"><div><p class="eyebrow">Proceso de atención</p><h2>Una ruta clara desde la consulta hasta la ejecución.</h2><p class="section-copy">Cada propuesta se prepara según el tipo de servicio y las condiciones de la instalación.</p></div></div>
+      <div class="steps">
+        <article class="step"><div class="step-num">01</div><h3>Contacto inicial</h3><p>El cliente indica el servicio requerido y comparte los datos básicos de la instalación.</p></article>
+        <article class="step"><div class="step-num">02</div><h3>Evaluación técnica</h3><p>Se revisan necesidades, alcance, condiciones del lugar y equipos involucrados.</p></article>
+        <article class="step"><div class="step-num">03</div><h3>Propuesta</h3><p>Se prepara una solución y presupuesto acorde a los requerimientos identificados.</p></article>
+        <article class="step"><div class="step-num">04</div><h3>Ejecución</h3><p>Se coordina la instalación, mantenimiento o reparación del servicio contratado.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container cta-box">
+      <div><p class="eyebrow" style="color:#dffaff">Solicite una propuesta</p><h2>¿Necesita mejorar o proteger una instalación?</h2><p>Describa el servicio que necesita y Cooling and Power podrá preparar una propuesta acorde a sus requerimientos.</p></div>
+      <a class="btn btn-primary" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20coordinar%20una%20evaluación%20técnica" target="_blank" rel="noopener">Coordinar por WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="section section-alt section-contact" id="contacto">
+    <div class="container">
+      <div class="section-head"><div><p class="eyebrow">Contacto</p><h2>Cuéntenos qué servicio necesita.</h2><p class="section-copy">Llámenos o escribanos por WhatsApp para coordinar una atención.</p></div></div>
+      <div class="contact-grid">
+        <aside class="contact-card">
+          <div class="contact-card-head">
+            <p class="eyebrow">Cooling and Power</p>
+            <h3>E.A.S. Unipersonal</h3>
+            <p>Asistencia eléctrica, refrigeración y tecnología.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="contact-action" href="tel:+595982801360"><span class="contact-action-icon"><svg><use href="#i-phone"/></svg></span><span class="contact-action-copy"><small>Llamar ahora</small><strong>(0982) 801 360</strong></span><span class="contact-arrow">&rarr;</span></a>
+            <a class="contact-action whatsapp-action" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><span class="contact-action-icon"><svg><use href="#i-whatsapp"/></svg></span><span class="contact-action-copy"><small>WhatsApp</small><strong>Escribir ahora</strong></span><span class="contact-arrow">&rarr;</span></a>
+          </div>
+          <a class="contact-email" href="mailto:coolingandpower.eas@gmail.com"><span class="contact-email-icon"><svg><use href="#i-mail"/></svg></span><span class="contact-email-copy"><small>Correo electrónico</small><strong>coolingandpower.eas@gmail.com</strong></span><span class="contact-arrow">&rarr;</span></a>
+          <div class="contact-card-footer">
+            <button class="qr-trigger" id="qrTrigger" type="button">Ver código QR</button>
+          </div>
+        </aside>
+
+        <div class="contact-map-panel">
+          <div class="map-frame"><div class="map-fallback">Avda. Central esq. Piribebuy<br>San Antonio, Paraguay</div><iframe title="Ubicación de Cooling and Power" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Avda.%20Central%20esq.%20Piribebuy%2C%20San%20Antonio%2C%20Paraguay&output=embed"></iframe></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="qr-modal" id="qrModal" hidden>
+    <div class="qr-dialog" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+      <button class="qr-close" id="qrClose" type="button" aria-label="Cerrar código QR">×</button>
+      <p class="eyebrow" style="margin-bottom:8px">Código QR</p>
+      <h3 id="qrTitle" style="margin-bottom:8px">Escaneá el acceso rápido</h3>
+      <p>Usalo desde otro dispositivo para abrir el enlace compartido por la empresa.</p>
+      <img src="assets/qr.jpg" alt="Código QR de Cooling and Power" width="764" height="776" loading="lazy" decoding="async">
+      <a class="btn btn-blue" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">Abrir enlace</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-intro"><div class="footer-brand"><img src="assets/logo.jpg" alt="Logo Cooling and Power" width="760" height="760" loading="lazy" decoding="async"><span><strong>Cooling and Power</strong><small>E.A.S. Unipersonal</small></span></div><p>Soluciones en infraestructura eléctrica, refrigeración y tecnología para empresas, industrias, comercios e instituciones.</p><a class="footer-location" href="https://www.google.com/maps/search/?api=1&query=Avda.+Central+esq.+Piribebuy,+San+Antonio,+Paraguay" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>San Antonio, Paraguay</a></div>
+      <div class="footer-col footer-nav"><h3>Navegación</h3><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></div>
+      <div class="footer-col"><h3>Contacto directo</h3><div class="footer-contact-list"><a class="footer-contact-link" href="tel:+595982801360"><svg><use href="#i-phone"/></svg><span><small>Teléfono</small><strong>(0982) 801 360</strong></span></a><a class="footer-contact-link whatsapp" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small><strong>Escribir ahora</strong></span></a><a class="footer-contact-link" href="mailto:coolingandpower.eas@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>coolingandpower.eas@gmail.com</strong></span></a></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Cooling and Power E.A.S. Unipersonal.</span><span>San Antonio, Paraguay</span></div>
+  </div>
+</footer>
+
+<a class="whatsapp-fab" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp"><svg><use href="#i-whatsapp"/></svg></a>
+<nav class="mobile-nav" aria-label="Navegación inferior móvil">
+  <a href="#inicio" data-section="inicio" class="active"><svg><use href="#i-home"/></svg><span>Inicio</span></a>
+  <a href="#servicios" data-section="servicios"><svg><use href="#i-grid"/></svg><span>Servicios</span></a>
+  <a href="#empresa" data-section="empresa"><svg><use href="#i-user"/></svg><span>Empresa</span></a>
+  <a href="#contacto" data-section="contacto"><svg><use href="#i-mail"/></svg><span>Contacto</span></a>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const qrTrigger = document.getElementById('qrTrigger');
+  const qrModal = document.getElementById('qrModal');
+  const qrClose = document.getElementById('qrClose');
+  function setMobileMenu(open) {
+    mobileMenu.classList.toggle('open', open);
+    menuBtn.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  }
+
+  menuBtn.addEventListener('click', () => setMobileMenu(!mobileMenu.classList.contains('open')));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    setMobileMenu(false);
+  }));
+  document.addEventListener('click', (event) => {
+    if (!mobileMenu.classList.contains('open')) return;
+    if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target)) setMobileMenu(false);
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980) setMobileMenu(false);
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function openQrModal() {
+    qrModal.hidden = false;
+    qrModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeQrModal() {
+    qrModal.classList.remove('open');
+    qrModal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  qrTrigger.addEventListener('click', openQrModal);
+  qrClose.addEventListener('click', closeQrModal);
+  qrModal.addEventListener('click', (event) => {
+    if (event.target === qrModal) closeQrModal();
+  });
+
+  const mobileLinks = [...document.querySelectorAll('.mobile-nav a[data-section]')];
+  const observed = ['inicio','empresa','servicios','contacto'].map(id => document.getElementById(id));
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio-a.intersectionRatio)[0];
+    if (!visible) return;
+    mobileLinks.forEach(link => link.classList.toggle('active', link.dataset.section === visible.target.id));
+  }, {rootMargin:'-30% 0px -55% 0px', threshold:[0,.1,.25]});
+  observed.forEach(el => el && observer.observe(el));
+
+  document.addEventListener('keydown', (event) => {
+    if (!qrModal.hidden && event.key === 'Escape') closeQrModal();
+    if (event.key === 'Escape') setMobileMenu(false);
+  });
+</script>
+</body>
+</html>

@@ -385,6 +385,9 @@
     .qr-modal[hidden]{display:none}
     .qr-dialog{
       width:min(420px,100%);
+      max-height:calc(100dvh - 40px);
+      overflow-y:auto;
+      overscroll-behavior:contain;
       padding:24px;
       border-radius:28px;
       background:#fff;
@@ -407,6 +410,8 @@
     }
     .qr-dialog img{
       width:min(240px, 100%);
+      height:auto;
+      object-fit:contain;
       margin:18px auto 16px;
       border-radius:16px;
       border:1px solid var(--line);
@@ -464,6 +469,8 @@
       .contact-actions{grid-template-columns:1fr}
       .contact-action{min-height:88px}
       .contact-email-panel{grid-template-columns:44px minmax(0,1fr)}
+      .qr-modal{padding:14px}
+      .qr-dialog{max-height:calc(100dvh - 28px);padding:22px 18px;border-radius:22px}
       .footer-grid{gap:32px}
       .footer-bottom{display:block}
       .footer-bottom span{display:block}

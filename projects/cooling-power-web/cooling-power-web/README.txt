@@ -15,6 +15,7 @@ DATOS DE CONTACTO
 - Telefono y WhatsApp: (0982) 801 360
 - Correos: coolingandpower.eas@gmail.com / jecooling20@gmail.com
 - Direccion: Avda. Central esq. Piribebuy, San Antonio, Paraguay
+- Coordenadas: 25°24'17.7"S 57°34'35.5"W (-25.4049167, -57.5765278)
 
 PUBLICACION
 

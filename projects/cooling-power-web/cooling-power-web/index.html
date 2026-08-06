@@ -342,13 +342,15 @@
     .whatsapp-action .contact-action-icon{color:#dffff0}
     .contact-action-icon svg,.contact-email-icon svg{width:23px;height:23px}
     .contact-action-copy,.contact-email-copy{min-width:0}
-    .contact-action-copy small,.contact-email-copy small{display:block;color:#bcd1e7;font-size:.72rem;font-weight:750;margin-bottom:3px}
+    .contact-action-copy small,.contact-email-copy>small{display:block;color:#bcd1e7;font-size:.72rem;font-weight:750;margin-bottom:6px}
     .whatsapp-action .contact-action-copy small{color:#c8f8df}
     .contact-action-copy strong{display:block;color:#fff;font-size:.97rem;line-height:1.3}
     .contact-arrow{font-size:1.05rem;opacity:.85}
-    .contact-email{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;min-height:76px;margin-top:12px;padding:14px 16px;border:1px solid rgba(88,187,239,.24);border-radius:18px;background:rgba(255,255,255,.045);transition:transform .2s,background .2s,border-color .2s}
-    .contact-email:hover{transform:translateY(-1px);background:rgba(255,255,255,.08);border-color:rgba(110,219,247,.5)}
-    .contact-email-copy strong{display:block;color:#fff;font-size:.92rem;line-height:1.35;overflow-wrap:anywhere}
+    .contact-email-panel{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start;margin-top:12px;padding:14px 16px;border:1px solid rgba(88,187,239,.24);border-radius:18px;background:rgba(255,255,255,.045)}
+    .contact-email-links{display:grid;grid-template-columns:1fr;gap:8px}
+    .contact-email-link{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;min-height:42px;padding:9px 11px;border:1px solid rgba(88,187,239,.25);border-radius:12px;background:rgba(255,255,255,.045);color:#fff;font-size:.78rem;font-weight:750;line-height:1.25;transition:transform .2s,background .2s,border-color .2s}
+    .contact-email-link span:first-child{min-width:0;overflow-wrap:anywhere}
+    .contact-email-link:hover{transform:translateY(-1px);background:rgba(255,255,255,.09);border-color:rgba(110,219,247,.55)}
     .contact-card-footer{margin-top:auto;padding-top:18px}
     .contact-card-footer .qr-trigger{margin-top:0}
     .qr-trigger{
@@ -461,7 +463,7 @@
     @media(max-width:680px){
       .contact-actions{grid-template-columns:1fr}
       .contact-action{min-height:88px}
-      .contact-email{grid-template-columns:44px minmax(0,1fr) auto}
+      .contact-email-panel{grid-template-columns:44px minmax(0,1fr)}
       .footer-grid{gap:32px}
       .footer-bottom{display:block}
       .footer-bottom span{display:block}
@@ -645,7 +647,16 @@
             <a class="contact-action" href="tel:+595982801360"><span class="contact-action-icon"><svg><use href="#i-phone"/></svg></span><span class="contact-action-copy"><small>Llamar ahora</small><strong>(0982) 801 360</strong></span><span class="contact-arrow">&rarr;</span></a>
             <a class="contact-action whatsapp-action" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><span class="contact-action-icon"><svg><use href="#i-whatsapp"/></svg></span><span class="contact-action-copy"><small>WhatsApp</small><strong>Escribir ahora</strong></span><span class="contact-arrow">&rarr;</span></a>
           </div>
-          <a class="contact-email" href="mailto:coolingandpower.eas@gmail.com"><span class="contact-email-icon"><svg><use href="#i-mail"/></svg></span><span class="contact-email-copy"><small>Correo electrónico</small><strong>coolingandpower.eas@gmail.com</strong></span><span class="contact-arrow">&rarr;</span></a>
+          <div class="contact-email-panel">
+            <span class="contact-email-icon"><svg><use href="#i-mail"/></svg></span>
+            <div class="contact-email-copy">
+              <small>Correos electrónicos</small>
+              <div class="contact-email-links">
+                <a class="contact-email-link" href="mailto:coolingandpower.eas@gmail.com"><span>coolingandpower.eas@gmail.com</span><span aria-hidden="true">&rarr;</span></a>
+                <a class="contact-email-link" href="mailto:jecooling20@gmail.com"><span>jecooling20@gmail.com</span><span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </div>
+          </div>
           <div class="contact-card-footer">
             <button class="qr-trigger" id="qrTrigger" type="button">Ver código QR</button>
           </div>
@@ -674,7 +685,7 @@
     <div class="footer-grid">
       <div class="footer-intro"><div class="footer-brand"><img src="assets/logo.jpg" alt="Logo Cooling and Power" width="760" height="760" loading="lazy" decoding="async"><span><strong>Cooling and Power</strong><small>E.A.S. Unipersonal</small></span></div><p>Soluciones en infraestructura eléctrica, refrigeración y tecnología para empresas, industrias, comercios e instituciones.</p><a class="footer-location" href="https://www.google.com/maps/search/?api=1&query=Avda.+Central+esq.+Piribebuy,+San+Antonio,+Paraguay" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>San Antonio, Paraguay</a></div>
       <div class="footer-col footer-nav"><h3>Navegación</h3><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></div>
-      <div class="footer-col"><h3>Contacto directo</h3><div class="footer-contact-list"><a class="footer-contact-link" href="tel:+595982801360"><svg><use href="#i-phone"/></svg><span><small>Teléfono</small><strong>(0982) 801 360</strong></span></a><a class="footer-contact-link whatsapp" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small><strong>Escribir ahora</strong></span></a><a class="footer-contact-link" href="mailto:coolingandpower.eas@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>coolingandpower.eas@gmail.com</strong></span></a></div></div>
+      <div class="footer-col"><h3>Contacto directo</h3><div class="footer-contact-list"><a class="footer-contact-link" href="tel:+595982801360"><svg><use href="#i-phone"/></svg><span><small>Teléfono</small><strong>(0982) 801 360</strong></span></a><a class="footer-contact-link whatsapp" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small><strong>Escribir ahora</strong></span></a><a class="footer-contact-link" href="mailto:coolingandpower.eas@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>coolingandpower.eas@gmail.com</strong></span></a><a class="footer-contact-link" href="mailto:jecooling20@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>jecooling20@gmail.com</strong></span></a></div></div>
     </div>
     <div class="footer-bottom"><span>© <span id="year"></span> Cooling and Power E.A.S. Unipersonal.</span><span>San Antonio, Paraguay</span></div>
   </div>

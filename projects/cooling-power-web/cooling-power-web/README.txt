@@ -13,7 +13,7 @@ FUNCIONAMIENTO
 DATOS DE CONTACTO
 
 - Telefono y WhatsApp: (0982) 801 360
-- Correo: coolingandpower.eas@gmail.com
+- Correos: coolingandpower.eas@gmail.com / jecooling20@gmail.com
 - Direccion: Avda. Central esq. Piribebuy, San Antonio, Paraguay
 
 PUBLICACION

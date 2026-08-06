@@ -137,6 +137,49 @@
     .service-list li{display:flex;gap:10px;font-size:.93rem;color:#eef7ff}
     .service-list li::before{content:"+";font-weight:900;color:#6adcf7}
 
+    /* Work gallery */
+    .work-preview-note{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:8px 12px;border:1px solid #cce4f2;border-radius:999px;background:#edf8fd;color:#315772;font-size:.78rem;font-weight:800}
+    .work-preview-note::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan)}
+    .work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    .work-card{min-width:0;border:1px solid var(--line);border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 8px 28px rgba(6,44,89,.07);transition:transform .25s,box-shadow .25s}
+    .work-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-sm)}
+    .work-card-button{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer}
+    .work-media{position:relative;aspect-ratio:4/3;overflow:hidden;background:#dcecf5}
+    .work-media img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+    .work-card:hover .work-media img{transform:scale(1.045)}
+    .work-media::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(3,21,45,.7))}
+    .work-status{position:absolute;left:14px;top:14px;z-index:2;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--blue);font-size:.7rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+    .work-count{position:absolute;right:14px;bottom:14px;z-index:2;padding:7px 10px;border-radius:999px;background:rgba(3,21,45,.82);color:#fff;font-size:.74rem;font-weight:800;backdrop-filter:blur(8px)}
+    .work-card-body{padding:21px 22px 23px}
+    .work-category{display:block;margin-bottom:7px;color:var(--blue);font-size:.73rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .work-card-body h3{font-size:1.18rem;margin-bottom:7px}
+    .work-card-body p{margin:0;color:var(--muted);font-size:.88rem}
+    .work-open{display:flex;align-items:center;justify-content:space-between;margin-top:17px;padding-top:15px;border-top:1px solid var(--line);color:var(--navy);font-size:.83rem;font-weight:850}
+    .work-open span:last-child{display:grid;place-items:center;width:31px;height:31px;border-radius:50%;background:var(--ice);color:var(--blue)}
+    .work-mobile-hint{display:none;margin:13px 0 0;color:var(--muted);font-size:.78rem;font-weight:750}
+
+    .work-modal{position:fixed;inset:0;z-index:160;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(3,21,45,.82);backdrop-filter:blur(12px)}
+    .work-modal.open{display:flex}
+    .work-modal[hidden]{display:none}
+    .work-dialog{position:relative;width:min(980px,100%);max-height:calc(100dvh - 40px);overflow-y:auto;border-radius:28px;background:#fff;box-shadow:0 32px 90px rgba(0,0,0,.35)}
+    .work-dialog-head{display:flex;justify-content:space-between;gap:24px;padding:23px 72px 18px 25px;border-bottom:1px solid var(--line)}
+    .work-dialog-head .work-category{margin-bottom:5px}
+    .work-dialog-head h3{margin:0;font-size:1.45rem}
+    .work-counter{align-self:center;white-space:nowrap;color:var(--muted);font-size:.82rem;font-weight:850}
+    .work-close{position:absolute;right:18px;top:16px;z-index:4;width:43px;height:43px;border:0;border-radius:50%;background:#edf6fc;color:var(--navy);font-size:1.25rem;cursor:pointer}
+    .work-stage{position:relative;display:grid;place-items:center;min-height:430px;background:#071c36;overflow:hidden;touch-action:pan-y}
+    .work-stage img{display:block;width:100%;height:min(58vh,560px);object-fit:contain;user-select:none}
+    .work-arrow{position:absolute;top:50%;z-index:3;transform:translateY(-50%);display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:rgba(3,21,45,.7);color:#fff;font-size:1.5rem;cursor:pointer;backdrop-filter:blur(8px)}
+    .work-arrow:hover{background:rgba(10,117,199,.9)}
+    .work-prev{left:16px}.work-next{right:16px}
+    .work-thumbs{display:flex;gap:9px;overflow-x:auto;padding:14px 18px 5px;scrollbar-width:thin}
+    .work-thumb{flex:0 0 78px;width:78px;height:58px;padding:0;border:2px solid transparent;border-radius:11px;overflow:hidden;background:#dcecf5;cursor:pointer;opacity:.58}
+    .work-thumb.active{border-color:var(--blue);opacity:1}
+    .work-thumb img{width:100%;height:100%;object-fit:cover}
+    .work-dialog-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 22px 22px}
+    .work-dialog-footer p{margin:0;color:var(--muted);font-size:.82rem}
+    .work-dialog-footer .btn{flex:0 0 auto}
+
     /* Values */
     .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
     .value-card{padding:30px;border:1px solid var(--line);border-radius:22px;background:#fff}
@@ -447,7 +490,7 @@
       .desktop-nav,.header-cta{display:none}.menu-btn{display:flex}
       .hero-inner{grid-template-columns:1fr;min-height:auto;padding:75px 0 105px}.hero-visual{height:500px}.hero-frame{left:50%;right:auto;transform:translateX(-50%)}.hero-copy{max-width:760px}.hero{min-height:auto}
       .trust-bar{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line);padding:17px 0}.trust-item:last-child{border-bottom:0}
-      .about-grid{grid-template-columns:1fr;gap:48px}.about-media{min-height:480px;order:2}.services-grid{grid-template-columns:1fr 1fr}.service-list-panel{grid-template-columns:1fr}.value-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.steps::before,.steps::after{display:none}.contact-grid{grid-template-columns:1fr}.contact-card,.contact-map-panel{position:static}.contact-item{grid-template-columns:80px 1fr;gap:18px;padding:22px}.contact-item .ci{width:80px;height:80px;border-radius:20px}.contact-item svg{width:38px;height:38px}.contact-item strong{font-size:1.2rem;margin-bottom:12px}.contact-link,.contact-value{min-height:64px;padding:0 18px;font-size:.95rem}.map-frame{height:320px;min-height:320px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}
+      .about-grid{grid-template-columns:1fr;gap:48px}.about-media{min-height:480px;order:2}.services-grid{grid-template-columns:1fr 1fr}.service-list-panel{grid-template-columns:1fr}.work-grid{grid-template-columns:1fr 1fr}.value-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.steps::before,.steps::after{display:none}.contact-grid{grid-template-columns:1fr}.contact-card,.contact-map-panel{position:static}.contact-item{grid-template-columns:80px 1fr;gap:18px;padding:22px}.contact-item .ci{width:80px;height:80px;border-radius:20px}.contact-item svg{width:38px;height:38px}.contact-item strong{font-size:1.2rem;margin-bottom:12px}.contact-link,.contact-value{min-height:64px;padding:0 18px;font-size:.95rem}.map-frame{height:320px;min-height:320px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}
       .mobile-menu{position:fixed;left:20px;right:20px;top:88px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;box-shadow:var(--shadow);z-index:110}
       .mobile-menu.open{display:grid}.mobile-menu a{padding:13px 14px;border-radius:12px;font-weight:750}.mobile-menu a:hover{background:var(--ice)}
     }
@@ -460,7 +503,7 @@
       html{scroll-padding-top:72px}.container{width:min(calc(100% - 28px),var(--max))}.section{padding:72px 0}.header-inner{height:70px}.brand{min-width:0}.brand img{width:45px;height:45px}.brand-name{font-size:1rem}.brand-sub{font-size:.56rem}.section-head{display:block;margin-bottom:30px}
       h1{font-size:clamp(2.5rem,13vw,3.75rem)}.hero-inner{padding:58px 0 90px;gap:40px}.hero-visual{height:405px}.hero-frame{left:50%;right:auto;transform:translateX(-50%)}.hero-card{padding:13px;border-radius:16px}.hero-card.top{left:0;top:30px}.hero-card.bottom{right:-2px;bottom:24px}.hero-card small{display:none}.mini-icon{width:41px;height:41px}.hero-badge{right:14px;top:14px}
       .trust-wrap{margin-top:-35px}.trust-bar{padding:18px 22px}.about-media{min-height:400px}.about-media .main-photo{inset:0 45px 62px 0}.about-media .small-photo{height:185px}.about-note{left:15px;bottom:22px;font-size:.83rem}
-      .services-grid,.value-grid,.steps{grid-template-columns:1fr}.step{padding:24px 20px 24px 24px}.step::before{left:20px;top:31px;width:16px;height:16px}.step-num{padding-left:24px}.service-list-panel{padding:26px}.service-list{grid-template-columns:1fr}.cta-box{padding:35px 27px;display:block}.cta-box .btn{margin-top:25px}.contact-card{padding:27px}.contact-item{grid-template-columns:1fr;padding:20px}.contact-item .ci{width:64px;height:64px;border-radius:18px}.contact-item svg{width:30px;height:30px}.contact-item strong{font-size:1.05rem;margin-bottom:10px}.contact-link-group{grid-template-columns:1fr;gap:10px}.contact-link,.contact-value{min-height:58px;padding:0 16px;font-size:.92rem;border-radius:18px}.map-frame{height:280px;min-height:280px}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}
+      .services-grid,.value-grid,.steps{grid-template-columns:1fr}.step{padding:24px 20px 24px 24px}.step::before{left:20px;top:31px;width:16px;height:16px}.step-num{padding-left:24px}.service-list-panel{padding:26px}.service-list{grid-template-columns:1fr}.work-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc((100vw - 100%)/-2);padding:2px calc((100vw - 100%)/2) 16px 0;scrollbar-width:none}.work-grid::-webkit-scrollbar{display:none}.work-card{flex:0 0 min(86%,340px);scroll-snap-align:start}.work-card:hover{transform:none}.work-mobile-hint{display:block}.work-modal{padding:0;align-items:stretch}.work-dialog{width:100%;max-height:100dvh;border-radius:0}.work-dialog-head{padding:18px 65px 15px 18px}.work-dialog-head h3{font-size:1.18rem}.work-counter{display:none}.work-close{right:12px;top:11px}.work-stage{min-height:0}.work-stage img{height:52dvh}.work-arrow{width:44px;height:44px}.work-prev{left:9px}.work-next{right:9px}.work-thumbs{padding:11px 14px 3px}.work-thumb{flex-basis:68px;width:68px;height:51px}.work-dialog-footer{display:block;padding:14px 16px calc(18px + env(safe-area-inset-bottom))}.work-dialog-footer p{margin-bottom:12px}.work-dialog-footer .btn{width:100%}.cta-box{padding:35px 27px;display:block}.cta-box .btn{margin-top:25px}.contact-card{padding:27px}.contact-item{grid-template-columns:1fr;padding:20px}.contact-item .ci{width:64px;height:64px;border-radius:18px}.contact-item svg{width:30px;height:30px}.contact-item strong{font-size:1.05rem;margin-bottom:10px}.contact-link-group{grid-template-columns:1fr;gap:10px}.contact-link,.contact-value{min-height:58px;padding:0 16px;font-size:.92rem;border-radius:18px}.map-frame{height:280px;min-height:280px}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}
       .mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:130;background:rgba(255,255,255,.97);border-top:1px solid #dce8f1;box-shadow:0 -8px 22px rgba(5,38,76,.09);padding:8px 8px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}
       .mobile-nav a{display:grid;justify-items:center;gap:3px;font-size:.68rem;color:#607083;font-weight:720}.mobile-nav svg{width:21px;height:21px}.mobile-nav a.active{color:var(--blue)}
       .whatsapp-fab{right:15px;bottom:88px;width:56px;height:56px;border-radius:18px}footer{padding-bottom:125px}
@@ -507,14 +550,14 @@
       <span><span class="brand-name">Cooling and Power</span><span class="brand-sub">E.A.S. Unipersonal · Asistencia eléctrica</span></span>
     </a>
     <nav class="desktop-nav" aria-label="Navegación principal">
-      <a href="#inicio">Inicio</a><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
+      <a href="#inicio">Inicio</a><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
     </nav>
     <a class="header-cta" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener"><svg width="19" height="19"><use href="#i-whatsapp"/></svg> Solicitar presupuesto</a>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-controls="mobileMenu" aria-expanded="false"><svg class="menu-open"><use href="#i-menu"/></svg><svg class="menu-close"><use href="#i-close"/></svg></button>
   </div>
 </header>
 <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
-  <a href="#inicio">Inicio</a><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
+  <a href="#inicio">Inicio</a><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a>
   <div class="mobile-menu-actions"><a class="mobile-call" href="tel:+595982801360"><svg><use href="#i-phone"/></svg><span><small>Llamar ahora</small><strong>(0982) 801 360</strong></span></a></div>
 </nav>
 
@@ -610,6 +653,44 @@
     </div>
   </section>
 
+  <section class="section" id="trabajos">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Trabajos realizados</p>
+          <h2>Experiencia aplicada en cada instalación.</h2>
+          <p class="section-copy">Explore cada proyecto y vea las distintas etapas del trabajo realizado.</p>
+          <span class="work-preview-note">Contenido demostrativo: se reemplazará con trabajos reales</span>
+        </div>
+        <a class="btn btn-blue" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20consultar%20por%20un%20trabajo%20similar" target="_blank" rel="noopener">Consultar un proyecto</a>
+      </div>
+
+      <div class="work-grid" aria-label="Galería de trabajos demostrativos">
+        <article class="work-card">
+          <button class="work-card-button" type="button" data-work-title="Montaje eléctrico integral" data-work-category="Energía e instalaciones" data-work-images="assets/nuevas-imagenes-servicios/electricidad.webp|assets/nuevas-imagenes-servicios/puesta-tierra.webp|assets/nuevas-imagenes-servicios/pararrayos.webp" aria-label="Ver galería: Montaje eléctrico integral">
+            <div class="work-media"><img src="assets/nuevas-imagenes-servicios/electricidad.webp" alt="Vista demostrativa de montaje eléctrico" width="900" height="672" loading="lazy" decoding="async"><span class="work-status">Vista demostrativa</span><span class="work-count">3 fotos</span></div>
+            <div class="work-card-body"><span class="work-category">Energía e instalaciones</span><h3>Montaje eléctrico integral</h3><p>Ejemplo de una instalación organizada, protegida y preparada para operar.</p><span class="work-open"><span>Explorar trabajo</span><span aria-hidden="true">→</span></span></div>
+          </button>
+        </article>
+
+        <article class="work-card">
+          <button class="work-card-button" type="button" data-work-title="Seguridad y conectividad" data-work-category="CCTV y redes" data-work-images="assets/nuevas-imagenes-servicios/cctv.webp|assets/nuevas-imagenes-servicios/datacenter.webp|assets/nuevas-imagenes-servicios/electricidad.webp" aria-label="Ver galería: Seguridad y conectividad">
+            <div class="work-media"><img src="assets/nuevas-imagenes-servicios/cctv.webp" alt="Vista demostrativa de sistema de cámaras" width="900" height="672" loading="lazy" decoding="async"><span class="work-status">Vista demostrativa</span><span class="work-count">3 fotos</span></div>
+            <div class="work-card-body"><span class="work-category">CCTV y redes</span><h3>Seguridad y conectividad</h3><p>Ejemplo de integración de cámaras, cableado y equipos de comunicación.</p><span class="work-open"><span>Explorar trabajo</span><span aria-hidden="true">→</span></span></div>
+          </button>
+        </article>
+
+        <article class="work-card">
+          <button class="work-card-button" type="button" data-work-title="Climatización técnica" data-work-category="Refrigeración" data-work-images="assets/nuevas-imagenes-servicios/refrigeracion.webp|assets/nuevas-imagenes-servicios/datacenter.webp|assets/nuevas-imagenes-servicios/electricidad.webp" aria-label="Ver galería: Climatización técnica">
+            <div class="work-media"><img src="assets/nuevas-imagenes-servicios/refrigeracion.webp" alt="Vista demostrativa de climatización técnica" width="900" height="672" loading="lazy" decoding="async"><span class="work-status">Vista demostrativa</span><span class="work-count">3 fotos</span></div>
+            <div class="work-card-body"><span class="work-category">Refrigeración</span><h3>Climatización técnica</h3><p>Ejemplo de climatización para mantener ambientes y equipos protegidos.</p><span class="work-open"><span>Explorar trabajo</span><span aria-hidden="true">→</span></span></div>
+          </button>
+        </article>
+      </div>
+      <p class="work-mobile-hint">Deslice hacia los lados para explorar más trabajos.</p>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="section-head"><div><p class="eyebrow">Nuestra propuesta</p><h2>Trabajo técnico con enfoque en confianza y continuidad.</h2></div></div>
@@ -675,6 +756,25 @@
       </div>
     </div>
   </section>
+  <div class="work-modal" id="workModal" hidden>
+    <div class="work-dialog" role="dialog" aria-modal="true" aria-labelledby="workModalTitle">
+      <button class="work-close" id="workClose" type="button" aria-label="Cerrar galería">×</button>
+      <div class="work-dialog-head">
+        <div><span class="work-category" id="workModalCategory"></span><h3 id="workModalTitle"></h3></div>
+        <span class="work-counter" id="workCounter" aria-live="polite"></span>
+      </div>
+      <div class="work-stage" id="workStage">
+        <button class="work-arrow work-prev" id="workPrev" type="button" aria-label="Foto anterior">‹</button>
+        <img id="workImage" src="" alt="" width="900" height="672">
+        <button class="work-arrow work-next" id="workNext" type="button" aria-label="Foto siguiente">›</button>
+      </div>
+      <div class="work-thumbs" id="workThumbs" aria-label="Miniaturas de la galería"></div>
+      <div class="work-dialog-footer">
+        <p>Vista demostrativa. Las imágenes se reemplazarán por fotografías reales.</p>
+        <a class="btn btn-blue" id="workWhatsapp" href="https://wa.me/595982801360" target="_blank" rel="noopener">Consultar por algo similar</a>
+      </div>
+    </div>
+  </div>
   <div class="qr-modal" id="qrModal" hidden>
     <div class="qr-dialog" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
       <button class="qr-close" id="qrClose" type="button" aria-label="Cerrar código QR">×</button>
@@ -691,7 +791,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-intro"><div class="footer-brand"><img src="assets/logo.jpg" alt="Logo Cooling and Power" width="760" height="760" loading="lazy" decoding="async"><span><strong>Cooling and Power</strong><small>E.A.S. Unipersonal</small></span></div><p>Soluciones en infraestructura eléctrica, refrigeración y tecnología para empresas, industrias, comercios e instituciones.</p><a class="footer-location" href="https://www.google.com/maps/search/?api=1&query=-25.4049167%2C-57.5765278" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>San Antonio, Paraguay</a></div>
-      <div class="footer-col footer-nav"><h3>Navegación</h3><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></div>
+      <div class="footer-col footer-nav"><h3>Navegación</h3><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></div>
       <div class="footer-col"><h3>Contacto directo</h3><div class="footer-contact-list"><a class="footer-contact-link" href="tel:+595982801360"><svg><use href="#i-phone"/></svg><span><small>Teléfono</small><strong>(0982) 801 360</strong></span></a><a class="footer-contact-link whatsapp" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small><strong>Escribir ahora</strong></span></a><a class="footer-contact-link" href="mailto:coolingandpower.eas@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>coolingandpower.eas@gmail.com</strong></span></a><a class="footer-contact-link" href="mailto:jecooling20@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>jecooling20@gmail.com</strong></span></a></div></div>
     </div>
     <div class="footer-bottom"><span>© <span id="year"></span> Cooling and Power E.A.S. Unipersonal.</span><span>San Antonio, Paraguay</span></div>
@@ -702,7 +802,7 @@
 <nav class="mobile-nav" aria-label="Navegación inferior móvil">
   <a href="#inicio" data-section="inicio" class="active"><svg><use href="#i-home"/></svg><span>Inicio</span></a>
   <a href="#servicios" data-section="servicios"><svg><use href="#i-grid"/></svg><span>Servicios</span></a>
-  <a href="#empresa" data-section="empresa"><svg><use href="#i-user"/></svg><span>Empresa</span></a>
+  <a href="#trabajos" data-section="trabajos"><svg><use href="#i-camera"/></svg><span>Trabajos</span></a>
   <a href="#contacto" data-section="contacto"><svg><use href="#i-mail"/></svg><span>Contacto</span></a>
 </nav>
 
@@ -712,6 +812,21 @@
   const qrTrigger = document.getElementById('qrTrigger');
   const qrModal = document.getElementById('qrModal');
   const qrClose = document.getElementById('qrClose');
+  const workModal = document.getElementById('workModal');
+  const workClose = document.getElementById('workClose');
+  const workImage = document.getElementById('workImage');
+  const workTitle = document.getElementById('workModalTitle');
+  const workCategory = document.getElementById('workModalCategory');
+  const workCounter = document.getElementById('workCounter');
+  const workThumbs = document.getElementById('workThumbs');
+  const workPrev = document.getElementById('workPrev');
+  const workNext = document.getElementById('workNext');
+  const workStage = document.getElementById('workStage');
+  const workWhatsapp = document.getElementById('workWhatsapp');
+  let activeWorkImages = [];
+  let activeWorkIndex = 0;
+  let activeWorkOpener = null;
+  let workTouchStartX = null;
   function setMobileMenu(open) {
     mobileMenu.classList.toggle('open', open);
     menuBtn.classList.toggle('open', open);
@@ -750,8 +865,89 @@
     if (event.target === qrModal) closeQrModal();
   });
 
+  function renderWorkImage() {
+    const currentSrc = activeWorkImages[activeWorkIndex];
+    const hasMultipleImages = activeWorkImages.length > 1;
+    workImage.src = currentSrc;
+    workImage.alt = `${workTitle.textContent}, foto ${activeWorkIndex + 1} de ${activeWorkImages.length}`;
+    workCounter.textContent = `${activeWorkIndex + 1} / ${activeWorkImages.length}`;
+    workPrev.hidden = !hasMultipleImages;
+    workNext.hidden = !hasMultipleImages;
+    workThumbs.hidden = !hasMultipleImages;
+    [...workThumbs.children].forEach((thumb, index) => {
+      const active = index === activeWorkIndex;
+      thumb.classList.toggle('active', active);
+      thumb.setAttribute('aria-pressed', String(active));
+      if (active) thumb.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+    });
+  }
+
+  function changeWorkImage(direction) {
+    activeWorkIndex = (activeWorkIndex + direction + activeWorkImages.length) % activeWorkImages.length;
+    renderWorkImage();
+  }
+
+  function openWorkModal(button) {
+    activeWorkImages = button.dataset.workImages.split('|');
+    activeWorkIndex = 0;
+    activeWorkOpener = button;
+    workTitle.textContent = button.dataset.workTitle;
+    workCategory.textContent = button.dataset.workCategory;
+    workWhatsapp.href = `https://wa.me/595982801360?text=${encodeURIComponent(`Hola Cooling and Power, quiero consultar por un trabajo similar a ${button.dataset.workTitle}`)}`;
+    workThumbs.replaceChildren();
+
+    activeWorkImages.forEach((src, index) => {
+      const thumb = document.createElement('button');
+      const image = document.createElement('img');
+      thumb.className = 'work-thumb';
+      thumb.type = 'button';
+      thumb.setAttribute('aria-label', `Ver foto ${index + 1}`);
+      image.src = src;
+      image.alt = '';
+      image.loading = 'lazy';
+      thumb.append(image);
+      thumb.addEventListener('click', () => {
+        activeWorkIndex = index;
+        renderWorkImage();
+      });
+      workThumbs.append(thumb);
+    });
+
+    workModal.hidden = false;
+    workModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    renderWorkImage();
+    requestAnimationFrame(() => workClose.focus());
+  }
+
+  function closeWorkModal() {
+    workModal.classList.remove('open');
+    workModal.hidden = true;
+    document.body.style.overflow = '';
+    if (activeWorkOpener) activeWorkOpener.focus();
+  }
+
+  document.querySelectorAll('.work-card-button').forEach(button => {
+    button.addEventListener('click', () => openWorkModal(button));
+  });
+  workClose.addEventListener('click', closeWorkModal);
+  workPrev.addEventListener('click', () => changeWorkImage(-1));
+  workNext.addEventListener('click', () => changeWorkImage(1));
+  workModal.addEventListener('click', (event) => {
+    if (event.target === workModal) closeWorkModal();
+  });
+  workStage.addEventListener('touchstart', (event) => {
+    workTouchStartX = event.changedTouches[0].clientX;
+  }, {passive:true});
+  workStage.addEventListener('touchend', (event) => {
+    if (workTouchStartX === null) return;
+    const distance = event.changedTouches[0].clientX - workTouchStartX;
+    if (Math.abs(distance) > 45) changeWorkImage(distance < 0 ? 1 : -1);
+    workTouchStartX = null;
+  }, {passive:true});
+
   const mobileLinks = [...document.querySelectorAll('.mobile-nav a[data-section]')];
-  const observed = ['inicio','empresa','servicios','contacto'].map(id => document.getElementById(id));
+  const observed = ['inicio','servicios','trabajos','contacto'].map(id => document.getElementById(id));
   const observer = new IntersectionObserver(entries => {
     const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio-a.intersectionRatio)[0];
     if (!visible) return;
@@ -760,6 +956,9 @@
   observed.forEach(el => el && observer.observe(el));
 
   document.addEventListener('keydown', (event) => {
+    if (!workModal.hidden && event.key === 'ArrowLeft') changeWorkImage(-1);
+    if (!workModal.hidden && event.key === 'ArrowRight') changeWorkImage(1);
+    if (!workModal.hidden && event.key === 'Escape') closeWorkModal();
     if (!qrModal.hidden && event.key === 'Escape') closeQrModal();
     if (event.key === 'Escape') setMobileMenu(false);
   });

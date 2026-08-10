@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Biblioteca de ejemplos | Picea Digital</title>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+  <style>
+    @font-face{font-family:Manrope;src:url('../assets/fonts/manrope-latin.woff2') format('woff2');font-display:swap}
+    @font-face{font-family:League Spartan;src:url('../assets/fonts/league-spartan-latin.woff2') format('woff2');font-display:swap}
+    :root{
+      --ink:#14201b;
+      --muted:#607068;
+      --pine:#174f3a;
+      --pine-dark:#0d3024;
+      --mint:#d9eadf;
+      --cream:#f4f0e7;
+      --paper:#fffdf8;
+      --line:#dce3dd;
+      --accent:#e46f38;
+      --shadow:0 18px 48px rgba(21,55,42,.11);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:
+      radial-gradient(circle at 9% 2%,rgba(228,111,56,.12),transparent 25rem),
+      radial-gradient(circle at 95% 15%,rgba(23,79,58,.12),transparent 30rem),
+      var(--cream);font-family:Manrope,sans-serif}
+    button,input{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    img{display:block;max-width:100%}
+    .shell{width:min(1180px,calc(100% - 34px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(220,227,221,.9);background:rgba(255,253,248,.88);backdrop-filter:blur(16px)}
+    .topbar-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+    .brand img{width:118px;height:auto}
+    .internal-mark{display:flex;align-items:center;gap:9px;color:var(--pine);font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+    .internal-mark::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(228,111,56,.12)}
+    .back-link{padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:var(--pine);background:#fff;text-decoration:none;font-size:.84rem;font-weight:800}
+    main{padding:64px 0 84px}
+    .hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:56px;align-items:end;margin-bottom:38px}
+    .eyebrow{margin:0 0 14px;color:var(--accent);font-size:.76rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    h1,h2,h3{font-family:'League Spartan',sans-serif}
+    h1{max-width:760px;margin:0;font-size:clamp(3rem,7vw,6.2rem);line-height:.88;letter-spacing:-.05em}
+    .hero-copy{max-width:510px;margin:0;color:var(--muted);font-size:1.02rem;line-height:1.65}
+    .summary{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .summary span{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.65);color:var(--pine);font-size:.76rem;font-weight:800}
+    .toolbar{position:sticky;top:92px;z-index:12;margin-bottom:30px;padding:14px;border:1px solid rgba(220,227,221,.95);border-radius:20px;background:rgba(255,253,248,.9);box-shadow:0 12px 34px rgba(21,55,42,.08);backdrop-filter:blur(14px)}
+    .search{position:relative}
+    .search svg{position:absolute;left:15px;top:50%;width:19px;transform:translateY(-50%);color:#738179}
+    .search input{width:100%;height:48px;padding:0 16px 0 45px;border:1px solid var(--line);border-radius:13px;outline:none;color:var(--ink);background:#fff}
+    .search input:focus{border-color:var(--pine);box-shadow:0 0 0 3px rgba(23,79,58,.1)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    .card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--paper);box-shadow:0 10px 34px rgba(21,55,42,.07);transition:transform .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .card[hidden]{display:none}
+    .media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#dce5de}
+    .media::after{content:"";position:absolute;inset:50% 0 0;background:linear-gradient(transparent,rgba(13,48,36,.65))}
+    .media img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+    .card:hover .media img{transform:scale(1.035)}
+    .status{position:absolute;left:13px;top:13px;z-index:2;padding:7px 10px;border-radius:999px;color:var(--pine-dark);background:rgba(255,255,255,.92);font-size:.67rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
+    .card-body{padding:20px}
+    .category{margin:0 0 6px;color:var(--accent);font-size:.7rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    h3{margin:0 0 8px;font-size:1.45rem;line-height:1}
+    .description{min-height:62px;margin:0;color:var(--muted);font-size:.84rem;line-height:1.55}
+    .actions{display:grid;grid-template-columns:1fr auto;gap:9px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+    .open,.copy{min-height:43px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:.79rem;font-weight:850;text-decoration:none;cursor:pointer}
+    .open{gap:7px;color:#fff;background:var(--pine)}
+    .copy{width:45px;border:1px solid var(--line);color:var(--pine);background:#fff}
+    .copy svg{width:18px}
+    .empty{display:none;padding:54px 20px;border:1px dashed #b9c7be;border-radius:22px;color:var(--muted);background:rgba(255,255,255,.5);text-align:center}
+    .empty.show{display:block}
+    .toast{position:fixed;left:50%;bottom:24px;z-index:30;transform:translate(-50%,20px);padding:12px 16px;border-radius:999px;color:#fff;background:var(--pine-dark);box-shadow:var(--shadow);font-size:.82rem;font-weight:800;opacity:0;pointer-events:none;transition:.25s ease}
+    .toast.show{transform:translate(-50%,0);opacity:1}
+    .note{margin:34px 0 0;padding:17px 20px;border-left:3px solid var(--accent);color:var(--muted);background:rgba(255,255,255,.55);font-size:.82rem;line-height:1.55}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;gap:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:620px){.shell{width:min(100% - 24px,1180px)}.topbar-inner{min-height:68px}.brand img{width:98px}.internal-mark{display:none}.back-link{padding:9px 11px;font-size:.75rem}main{padding:44px 0 64px}h1{font-size:clamp(2.8rem,15vw,4.6rem)}.hero-copy{font-size:.92rem}.toolbar{top:78px;margin-inline:-2px;padding:10px;border-radius:16px}.grid{display:flex;gap:14px;overflow-x:auto;margin-right:-12px;padding:0 12px 10px 0;scroll-snap-type:x mandatory;scrollbar-width:none}.grid::-webkit-scrollbar{display:none}.card{flex:0 0 min(86vw,342px);scroll-snap-align:start}.description{min-height:0}.note{margin-top:24px}.toast{width:max-content;max-width:calc(100% - 28px);text-align:center}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.media img,.toast{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="../index.html" aria-label="Ir al inicio de Picea Digital">
+        <img src="../assets/logo/logo sin fondo-fix.png" alt="Picea Digital" width="285" height="103" />
+        <span class="internal-mark">Biblioteca interna</span>
+      </a>
+      <a class="back-link" href="../index.html">← Volver al sitio</a>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <p class="eyebrow">Ejemplos comerciales</p>
+        <h1 id="pageTitle">Todas las demos, en un solo lugar.</h1>
+      </div>
+      <div>
+        <p class="hero-copy">Usá esta biblioteca para encontrar una referencia, abrirla en otra pestaña y copiar el enlace exacto para compartir con un cliente.</p>
+        <div class="summary"><span id="visibleCount">4 ejemplos</span><span>Acceso mediante URL</span><span>No indexado</span></div>
+      </div>
+    </section>
+
+    <section aria-label="Biblioteca de ejemplos">
+      <div class="toolbar">
+        <label class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="searchInput" type="search" placeholder="Buscar por nombre o rubro…" autocomplete="off" />
+        </label>
+      </div>
+
+      <div class="grid" id="examplesGrid">
+        <article class="card" data-tags="tecnicos seguridad climatizacion instalaciones" data-search="manu electronica seguridad camaras aire acondicionado">
+          <div class="media"><img src="../projects/manu-electronica-web/manu-electronica-web/assets/imagenes-web/cctv-equipos.webp" alt="Vista previa de Manu Electrónica" width="900" height="672" loading="lazy" /><span class="status">Presentación comercial</span></div>
+          <div class="card-body"><p class="category">Seguridad y climatización</p><h3>Manu Electrónica</h3><p class="description">Landing para cámaras, climatización e instalaciones con contacto directo y galería.</p><div class="actions"><a class="open" href="../projects/manu-electronica-web/manu-electronica-web/index.html" target="_blank" rel="noopener">Abrir demo ↗</a><button class="copy" type="button" data-url="../projects/manu-electronica-web/manu-electronica-web/index.html" aria-label="Copiar enlace de Manu Electrónica"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg></button></div></div>
+        </article>
+
+        <article class="card" data-tags="tecnicos electricidad climatizacion" data-search="cooling power electricidad refrigeracion tecnologia cctv">
+          <div class="media"><img src="../assets/img-portfolio/cooling-power-preview.webp" alt="Vista previa de Cooling and Power" width="1200" height="800" loading="lazy" /><span class="status">Cliente / demostración</span></div>
+          <div class="card-body"><p class="category">Electricidad y tecnología</p><h3>Cooling and Power</h3><p class="description">Servicios eléctricos, refrigeración, CCTV, redes y respaldo energético.</p><div class="actions"><a class="open" href="../projects/cooling-power-web/cooling-power-web/index.html" target="_blank" rel="noopener">Abrir demo ↗</a><button class="copy" type="button" data-url="../projects/cooling-power-web/cooling-power-web/index.html" aria-label="Copiar enlace de Cooling and Power"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg></button></div></div>
+        </article>
+
+        <article class="card" data-tags="tecnicos refrigeracion climatizacion ducteria mantenimiento industrial" data-search="friogar refrigeracion climatizacion ducteria ventilacion mantenimiento industrial">
+          <div class="media"><img src="../projects/friogar-web/friogar-web/assets/hero-aire.webp" alt="Vista previa de Friogar E.A.S." width="1873" height="840" loading="lazy" /><span class="status">Cliente / demostración</span></div>
+          <div class="card-body"><p class="category">Refrigeración y climatización</p><h3>Friogar E.A.S.</h3><p class="description">Web comercial con servicios, trabajos reales, video, infraestructura y contacto directo.</p><div class="actions"><a class="open" href="../projects/friogar-web/friogar-web/index.html" target="_blank" rel="noopener">Abrir demo ↗</a><button class="copy" type="button" data-url="../projects/friogar-web/friogar-web/index.html" aria-label="Copiar enlace de Friogar E.A.S."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg></button></div></div>
+        </article>
+
+        <article class="card" data-tags="tecnicos carpinteria hogar" data-search="roble forma carpinteria muebles medida">
+          <div class="media"><img src="../assets/img-portfolio/roble-forma-preview.webp" alt="Vista previa de Roble y Forma" width="1200" height="800" loading="lazy" /><span class="status">Presentación comercial</span></div>
+          <div class="card-body"><p class="category">Carpintería y mobiliario</p><h3>Roble &amp; Forma</h3><p class="description">Catálogo de muebles a medida con proyectos visuales y contacto por WhatsApp.</p><div class="actions"><a class="open" href="../projects/carpinteria-web-demo/carpinteria-web/index.html" target="_blank" rel="noopener">Abrir demo ↗</a><button class="copy" type="button" data-url="../projects/carpinteria-web-demo/carpinteria-web/index.html" aria-label="Copiar enlace de Roble y Forma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg></button></div></div>
+        </article>
+
+      </div>
+
+      <div class="empty" id="emptyState">No encontramos ejemplos con ese nombre.</div>
+      <p class="note"><strong>Importante:</strong> esta ruta no aparece en la navegación pública ni en el sitemap. Funciona como biblioteca interna y se accede escribiendo <strong>/ejemplos/</strong> o compartiendo su enlace.</p>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Enlace copiado</div>
+
+  <script>
+    const cards = [...document.querySelectorAll('.card')];
+    const searchInput = document.getElementById('searchInput');
+    const visibleCount = document.getElementById('visibleCount');
+    const emptyState = document.getElementById('emptyState');
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    function normalize(value) {
+      return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    }
+
+    function applyFilters() {
+      const query = normalize(searchInput.value);
+      let count = 0;
+      cards.forEach((card) => {
+        const matchesSearch = !query || normalize(card.dataset.search).includes(query) || normalize(card.textContent).includes(query);
+        const visible = matchesSearch;
+        card.hidden = !visible;
+        if (visible) count += 1;
+      });
+      visibleCount.textContent = `${count} ${count === 1 ? 'ejemplo' : 'ejemplos'}`;
+      emptyState.classList.toggle('show', count === 0);
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    document.querySelectorAll('.copy').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const url = new URL(button.dataset.url, window.location.href).href;
+        try {
+          await navigator.clipboard.writeText(url);
+          showToast('Enlace copiado');
+        } catch {
+          const input = document.createElement('textarea');
+          input.value = url;
+          document.body.append(input);
+          input.select();
+          document.execCommand('copy');
+          input.remove();
+          showToast('Enlace copiado');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

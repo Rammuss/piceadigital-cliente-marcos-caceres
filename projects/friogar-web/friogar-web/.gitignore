@@ -1,0 +1,7 @@
+# Keep original media sources local; production uses optimized WebP/MP4 files.
+assets/**/*.png
+!assets/logov2.png
+
+assets/**/*.mp4
+!assets/servicios/video-servicios-preview.mp4
+!assets/servicios/video-servicios-web.mp4

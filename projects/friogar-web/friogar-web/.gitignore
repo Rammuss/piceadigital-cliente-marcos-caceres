@@ -5,3 +5,4 @@ assets/**/*.png
 assets/**/*.mp4
 !assets/servicios/video-servicios-preview.mp4
 !assets/servicios/video-servicios-web.mp4
+!assets/servicios/video-servicios-playback.mp4

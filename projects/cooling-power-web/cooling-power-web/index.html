@@ -169,11 +169,9 @@
     .work-mobile-hint{display:none;margin:13px 0 0;color:var(--muted);font-size:.78rem;font-weight:750}
     .work-video-card{grid-row:span 2;display:flex;flex-direction:column;background:#071c36}
     .work-video-media{position:relative;flex:1;min-height:650px;overflow:hidden;background:#071c36 center/contain no-repeat url('assets/trabajos-realizados/video-montaje-tablero-poster.webp')}
-    .work-video-media video{position:relative;z-index:1;width:100%;height:100%;display:block;object-fit:contain;background:transparent}
-    .work-video-media.video-unavailable video{opacity:0}
+    .work-video-media>img{position:relative;z-index:1;width:100%;height:100%;display:block;object-fit:contain;background:transparent}
     .work-video-media::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(3,21,45,.92));pointer-events:none}
-    .work-video-copy{position:absolute;z-index:2;left:24px;right:74px;bottom:24px;color:#fff}.work-video-copy .work-category{color:#77ddf5}.work-video-copy h3{margin:0 0 7px;color:#fff;font-size:1.35rem}.work-video-copy p{margin:0;color:#d4e5f3;font-size:.88rem}
-    .work-video-toggle{position:absolute;right:18px;bottom:20px;z-index:3;width:45px;height:45px;display:grid;place-items:center;padding:0;border:1px solid rgba(255,255,255,.28);border-radius:50%;color:#fff;background:rgba(3,21,45,.72);cursor:pointer;backdrop-filter:blur(8px)}.work-video-toggle svg{width:20px;height:20px;fill:currentColor}.work-video-toggle .play-icon{display:none}.work-video-toggle.paused .pause-icon{display:none}.work-video-toggle.paused .play-icon{display:block}
+    .work-video-copy{position:absolute;z-index:2;left:24px;right:24px;bottom:24px;color:#fff}.work-video-copy .work-category{color:#77ddf5}.work-video-copy h3{margin:0 0 7px;color:#fff;font-size:1.35rem}.work-video-copy p{margin:0;color:#d4e5f3;font-size:.88rem}
     .work-modal{position:fixed;inset:0;z-index:160;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(3,21,45,.82);backdrop-filter:blur(12px)}
     .work-modal.open{display:flex}
     .work-modal[hidden]{display:none}
@@ -535,6 +533,7 @@
     }
     @media(max-width:680px){
       .contact-actions{grid-template-columns:1fr}
+      .work-video-copy{right:18px}
       .contact-action{min-height:88px}
       .contact-email-panel{grid-template-columns:44px minmax(0,1fr)}
       .qr-modal{padding:14px}
@@ -709,10 +708,9 @@
       <div class="work-grid" aria-label="Galería de trabajos realizados">
         <article class="work-card work-video-card">
           <div class="work-video-media">
-            <video id="workVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/trabajos-realizados/video-montaje-tablero-poster.webp" aria-label="Video del proceso de montaje de un tablero eléctrico"><source src="assets/trabajos-realizados/video-montaje-tablero-mobile.mp4?v=2" type="video/mp4"></video>
+            <img src="assets/trabajos-realizados/montaje-tablero-animado.webp" alt="Proceso de montaje de un tablero eléctrico" width="392" height="848" loading="eager" decoding="async">
             <span class="work-status">Proceso en video</span>
             <div class="work-video-copy"><span class="work-category">Instalaciones eléctricas</span><h3>Montaje de tablero en acción</h3><p>Un recorrido breve por el armado y la organización de sus componentes.</p></div>
-            <button class="work-video-toggle" id="workVideoToggle" type="button" aria-label="Pausar video"><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg></button>
           </div>
         </article>
 
@@ -892,8 +890,6 @@
   const workNext = document.getElementById('workNext');
   const workStage = document.getElementById('workStage');
   const workWhatsapp = document.getElementById('workWhatsapp');
-  const workVideo = document.getElementById('workVideo');
-  const workVideoToggle = document.getElementById('workVideoToggle');
   const heroSection = document.getElementById('inicio');
   let activeWorkImages = [];
   let activeWorkIndex = 0;
@@ -901,45 +897,6 @@
   let workTouchStartX = null;
   const heroVisibilityObserver = new IntersectionObserver(([entry]) => document.body.classList.toggle('hero-visible', entry.isIntersecting), {threshold:.08});
   heroVisibilityObserver.observe(heroSection);
-  const workVideoMedia = workVideo.closest('.work-video-media');
-  function syncWorkVideoControl() {
-    const playing = !workVideo.paused && !workVideo.ended;
-    workVideoToggle.classList.toggle('paused', !playing);
-    workVideoToggle.setAttribute('aria-label', playing ? 'Pausar video' : 'Reproducir video');
-  }
-  async function setWorkVideoPlaying(playing) {
-    if (!playing) {
-      workVideo.pause();
-      syncWorkVideoControl();
-      return;
-    }
-    workVideo.muted = true;
-    workVideo.setAttribute('muted', '');
-    try {
-      await workVideo.play();
-      workVideoMedia.classList.remove('video-unavailable');
-    } catch {
-      workVideoMedia.classList.add('video-unavailable');
-    }
-    syncWorkVideoControl();
-  }
-  workVideoToggle.addEventListener('click', () => setWorkVideoPlaying(workVideo.paused));
-  workVideo.addEventListener('playing', syncWorkVideoControl);
-  workVideo.addEventListener('pause', syncWorkVideoControl);
-  workVideo.addEventListener('loadeddata', () => workVideoMedia.classList.remove('video-unavailable'));
-  workVideo.addEventListener('error', () => { workVideoMedia.classList.add('video-unavailable'); syncWorkVideoControl(); });
-  workVideo.defaultMuted = true;
-  workVideo.muted = true;
-  workVideo.loop = true;
-  workVideo.playsInline = true;
-  workVideo.addEventListener('loadedmetadata', () => setWorkVideoPlaying(true), {once:true});
-  workVideo.addEventListener('canplay', () => { if (workVideo.paused) setWorkVideoPlaying(true); });
-  window.addEventListener('pageshow', () => setWorkVideoPlaying(true));
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) workVideo.pause();
-    else setWorkVideoPlaying(true);
-  });
-  setWorkVideoPlaying(true);
   function setMobileMenu(open) {
     mobileMenu.classList.toggle('open', open);
     menuBtn.classList.toggle('open', open);

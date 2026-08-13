@@ -110,15 +110,23 @@
     .trust-item strong{display:block;color:var(--navy)}.trust-item span{font-size:.87rem;color:var(--muted)}
 
     /* About */
-    .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:70px;align-items:center}
+    .about-grid{display:grid;grid-template-columns:.96fr 1.04fr;gap:72px;align-items:center}
     .about-media{position:relative;min-height:520px}
     .about-media .main-photo{position:absolute;inset:0 70px 75px 0;border-radius:30px;overflow:hidden;box-shadow:var(--shadow)}
     .about-media .main-photo img{width:100%;height:100%;object-fit:cover}
     .about-media .small-photo{position:absolute;right:0;bottom:0;width:52%;height:245px;border:8px solid #fff;border-radius:26px;overflow:hidden;box-shadow:var(--shadow-sm)}
     .about-media .small-photo img{width:100%;height:100%;object-fit:cover}
-    .about-media.single-media .main-photo{inset:0;border-radius:30px;box-shadow:none;background:#fff}
-    .about-media.single-media .main-photo img{object-fit:contain}
-    .about-note{position:absolute;left:28px;bottom:34px;background:var(--navy);color:#fff;padding:15px 18px;border-radius:17px;font-weight:800;box-shadow:var(--shadow-sm)}
+    .about-media.real-work::before{content:"";position:absolute;inset:36px 24px 22px 42px;border-radius:32px;background:linear-gradient(145deg,#082b50,#0b5f9b);transform:rotate(2deg)}
+    .about-media.real-work .main-photo{inset:0 76px 66px 0;background:#0b2e50;border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 55px rgba(4,33,65,.2)}
+    .about-media.real-work .main-photo img{object-position:center center}
+    .about-media.real-work .small-photo{width:54%;height:225px;background:#0b2e50}
+    .about-media.real-work .small-photo img{object-position:center}
+    .about-note{position:absolute;left:24px;bottom:34px;background:var(--navy);color:#fff;padding:13px 17px;border-radius:15px;font-size:.86rem;font-weight:800;box-shadow:var(--shadow-sm)}
+    .about-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+    .about-proof article{position:relative;min-height:148px;padding:23px 18px 18px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#fff,#f3f9fd)}
+    .about-proof span{display:grid;place-items:center;width:34px;height:34px;margin-bottom:18px;border-radius:11px;background:var(--navy);color:#69ddf7;font-size:.78rem;font-weight:900}
+    .about-proof strong{display:block;margin-bottom:7px;color:var(--navy);line-height:1.2}
+    .about-proof p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.5}
     .check-list{display:grid;gap:13px;margin:28px 0 0;padding:0;list-style:none}
     .check-list li{display:flex;gap:12px;color:#263d57}
     .check-list li::before{content:"✓";display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#dff5ff;color:var(--blue);font-size:.8rem;font-weight:900;flex:0 0 auto;margin-top:1px}
@@ -525,7 +533,7 @@
     @media(max-width:680px){
       html{scroll-padding-top:70px}.container{width:min(calc(100% - 28px),var(--max))}.section{padding:72px 0}.topbar{display:none}.header-inner{height:70px}.brand{min-width:0}.brand img{width:45px;height:45px}.brand-name{font-size:1rem}.brand-sub{font-size:.56rem}.section-head{display:block;margin-bottom:30px}
       h1{font-size:clamp(2.5rem,13vw,3.75rem)}.hero-inner{padding:58px 0 90px;gap:40px}.hero-visual{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}.hero-frame{position:relative;grid-column:1/-1;justify-self:center;left:auto;right:auto;width:90%;height:auto;aspect-ratio:1130/1402;transform:none}.hero-card,.hero-card.top,.hero-card.bottom{position:static;width:auto;max-width:none;min-width:0;padding:11px;border-radius:15px;box-shadow:0 12px 28px rgba(3,21,45,.18)}.hero-card strong{font-size:.78rem;line-height:1.25}.hero-card small{display:none}.mini-icon{width:36px;height:36px;border-radius:11px}.mini-icon svg{width:18px;height:18px}.hero-badge{display:none}.hero-visible .whatsapp-fab{opacity:0;pointer-events:none;transform:translateY(10px)}
-      .trust-wrap{margin-top:-35px}.trust-bar{padding:18px 22px}.about-media{min-height:400px}.about-media .main-photo{inset:0 45px 62px 0}.about-media .small-photo{height:185px}.about-note{left:15px;bottom:22px;font-size:.83rem}
+      .trust-wrap{margin-top:-35px}.trust-bar{padding:18px 22px}.about-media{min-height:400px}.about-media .main-photo{inset:0 45px 62px 0}.about-media .small-photo{height:185px}.about-media.real-work .main-photo{inset:0 38px 58px 0}.about-media.real-work .small-photo{width:58%;height:165px;border-width:6px}.about-note{left:15px;bottom:22px;font-size:.75rem}.about-proof{grid-template-columns:1fr}.about-proof article{min-height:0;padding:18px;display:grid;grid-template-columns:34px 1fr;column-gap:13px}.about-proof span{grid-row:1/3;margin:0}.about-proof strong{align-self:end}.about-proof p{grid-column:2}
       .services-grid,.value-grid,.steps{grid-template-columns:1fr}.step{padding:24px 20px 24px 24px}.step::before{left:20px;top:31px;width:16px;height:16px}.step-num{padding-left:24px}.service-list-panel{padding:26px}.service-list{grid-template-columns:1fr}.work-grid{display:grid;grid-template-columns:1fr;gap:16px}.work-card:hover{transform:none}.work-video-card{grid-row:auto}.work-video-media{min-height:560px}.work-video-copy{left:18px;right:66px;bottom:18px}.work-mobile-hint{display:none}.work-modal{padding:0;align-items:stretch}.work-dialog{width:100%;max-height:100dvh;border-radius:0}.work-dialog-head{padding:18px 65px 15px 18px}.work-dialog-head h3{font-size:1.18rem}.work-counter{display:none}.work-close{right:12px;top:11px}.work-stage{min-height:0}.work-stage img{height:52dvh}.work-arrow{width:44px;height:44px}.work-prev{left:9px}.work-next{right:9px}.work-thumbs{padding:11px 14px 3px}.work-thumb{flex-basis:68px;width:68px;height:51px}.work-dialog-footer{display:block;padding:14px 16px calc(18px + env(safe-area-inset-bottom))}.work-dialog-footer p{margin-bottom:12px}.work-dialog-footer .btn{width:100%}.cta-box{padding:35px 27px;display:block}.cta-box .btn{margin-top:25px}.contact-card{padding:27px}.contact-item{grid-template-columns:1fr;padding:20px}.contact-item .ci{width:64px;height:64px;border-radius:18px}.contact-item svg{width:30px;height:30px}.contact-item strong{font-size:1.05rem;margin-bottom:10px}.contact-link-group{grid-template-columns:1fr;gap:10px}.contact-link,.contact-value{min-height:58px;padding:0 16px;font-size:.92rem;border-radius:18px}.map-frame{height:280px;min-height:280px}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}
       .mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:130;background:rgba(255,255,255,.97);border-top:1px solid #dce8f1;box-shadow:0 -8px 22px rgba(5,38,76,.09);padding:8px 8px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}
       .mobile-nav a{display:grid;justify-items:center;gap:3px;font-size:.68rem;color:#607083;font-weight:720}.mobile-nav svg{width:21px;height:21px}.mobile-nav a.active{color:var(--blue)}
@@ -634,20 +642,20 @@
 
   <section class="section" id="empresa">
     <div class="container about-grid">
-      <div class="about-media single-media">
-        <div class="main-photo"><img src="assets/imagen-para-about-media-v2.webp" alt="Servicios de electricidad, redes, Data Center y refrigeración" width="1122" height="1402" loading="lazy" decoding="async"></div>
-        <div class="about-note">Infraestructura eléctrica, refrigeración y tecnología</div>
+      <div class="about-media real-work">
+        <div class="main-photo"><img src="assets/about-tablero-bypass.webp" alt="Tablero bypass instalado por Cooling and Power" width="1400" height="646" loading="lazy" decoding="async"></div>
+        <div class="small-photo"><img src="assets/about-ups-instalado.webp" alt="Sistema UPS instalado y configurado" width="1000" height="462" loading="lazy" decoding="async"></div>
+        <div class="about-note">Tableros, respaldo energético y protección</div>
       </div>
       <div>
         <p class="eyebrow">Sobre la empresa</p>
-        <h2>Un aliado técnico para el funcionamiento de sus instalaciones.</h2>
-        <p class="section-copy">Cooling and Power E.A.S. Unipersonal ofrece soluciones integrales adaptadas a las necesidades de cada cliente. Su propuesta combina calidad, seguridad y eficiencia para proteger equipos y mantener la operación de instalaciones técnicas.</p>
-        <ul class="check-list">
-          <li>Desarrollo de proyectos para empresas, industrias, comercios e instituciones.</li>
-          <li>Servicios de instalación, mantenimiento preventivo, correctivo y reparación.</li>
-          <li>Atención personalizada y propuestas preparadas según cada requerimiento.</li>
-        </ul>
-        <div class="sector-chips"><span>Empresas</span><span>Industrias</span><span>Comercios</span><span>Instituciones</span></div>
+        <h2>Instalación y soporte técnico en un solo equipo.</h2>
+        <p class="section-copy">Cooling and Power trabaja en electricidad, UPS, climatización, seguridad y redes, desde la revisión inicial hasta la puesta en funcionamiento.</p>
+        <div class="about-proof" aria-label="Etapas de atención">
+          <article><span>01</span><strong>Evaluación técnica</strong><p>Revisión del espacio, los equipos y la necesidad.</p></article>
+          <article><span>02</span><strong>Instalación</strong><p>Ejecución ordenada según cada requerimiento.</p></article>
+          <article><span>03</span><strong>Soporte</strong><p>Mantenimiento y asistencia después del trabajo.</p></article>
+        </div>
       </div>
     </div>
   </section>
@@ -729,8 +737,8 @@
         </article>
 
         <article class="work-card">
-          <button class="work-card-button" type="button" data-work-title="Montaje de tablero eléctrico" data-work-category="Instalaciones eléctricas" data-work-images="assets/trabajos-realizados/montaje-tablero-electrico/01.webp|assets/trabajos-realizados/montaje-tablero-electrico/02.webp|assets/trabajos-realizados/montaje-tablero-electrico/03.webp|assets/trabajos-realizados/montaje-tablero-electrico/04.webp|assets/trabajos-realizados/montaje-tablero-electrico/05.webp" aria-label="Ver galería: Montaje de tablero eléctrico">
-            <div class="work-media"><img src="assets/trabajos-realizados/montaje-tablero-electrico/04.webp" alt="Tablero eléctrico con protecciones y cableado organizado" width="1200" height="1600" loading="lazy" decoding="async"><span class="work-status">Trabajo realizado</span><span class="work-count">5 fotos</span></div>
+          <button class="work-card-button" type="button" data-work-title="Montaje de tablero eléctrico" data-work-category="Instalaciones eléctricas" data-work-images="assets/trabajos-realizados/montaje-tablero-electrico/06.webp|assets/trabajos-realizados/montaje-tablero-electrico/07.webp|assets/trabajos-realizados/montaje-tablero-electrico/01.webp|assets/trabajos-realizados/montaje-tablero-electrico/02.webp|assets/trabajos-realizados/montaje-tablero-electrico/03.webp|assets/trabajos-realizados/montaje-tablero-electrico/04.webp|assets/trabajos-realizados/montaje-tablero-electrico/05.webp" aria-label="Ver galería: Montaje de tablero eléctrico">
+            <div class="work-media"><img src="assets/trabajos-realizados/montaje-tablero-electrico/06.webp" alt="Tablero eléctrico instalado, identificado y documentado por Cooling and Power" width="1280" height="591" loading="lazy" decoding="async"><span class="work-status">Trabajo realizado</span><span class="work-count">7 fotos</span></div>
             <div class="work-card-body"><span class="work-category">Instalaciones eléctricas</span><h3>Montaje de tablero eléctrico</h3><p>Armado, identificación de circuitos y pruebas eléctricas antes de la entrega.</p></div>
           </button>
         </article>

@@ -6,6 +6,14 @@
   <meta name="description" content="Cooling and Power E.A.S. Unipersonal: soluciones integrales en electricidad, refrigeración y tecnología en San Antonio, Paraguay.">
   <meta name="theme-color" content="#062d62">
   <title>Cooling and Power | Electricidad, refrigeración y tecnología</title>
+  <link rel="canonical" href="https://coolingandpowereas.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_PY">
+  <meta property="og:site_name" content="Cooling and Power">
+  <meta property="og:title" content="Cooling and Power | Electricidad, refrigeración y tecnología">
+  <meta property="og:description" content="Soluciones integrales en electricidad, refrigeración y tecnología para hogares, comercios y empresas.">
+  <meta property="og:url" content="https://coolingandpowereas.com/">
+  <meta property="og:image" content="https://coolingandpowereas.com/assets/logo.jpg">
   <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
   <style>
     :root{
@@ -160,8 +168,9 @@
     .work-card-body p{margin:0;color:var(--muted);font-size:.88rem}
     .work-mobile-hint{display:none;margin:13px 0 0;color:var(--muted);font-size:.78rem;font-weight:750}
     .work-video-card{grid-row:span 2;display:flex;flex-direction:column;background:#071c36}
-    .work-video-media{position:relative;flex:1;min-height:650px;overflow:hidden;background:radial-gradient(circle at 50% 35%,#153e62,#071c36 68%)}
-    .work-video-media video{width:100%;height:100%;display:block;object-fit:contain}
+    .work-video-media{position:relative;flex:1;min-height:650px;overflow:hidden;background:#071c36 center/contain no-repeat url('assets/trabajos-realizados/video-montaje-tablero-poster.webp')}
+    .work-video-media video{position:relative;z-index:1;width:100%;height:100%;display:block;object-fit:contain;background:transparent}
+    .work-video-media.video-unavailable video{opacity:0}
     .work-video-media::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(3,21,45,.92));pointer-events:none}
     .work-video-copy{position:absolute;z-index:2;left:24px;right:74px;bottom:24px;color:#fff}.work-video-copy .work-category{color:#77ddf5}.work-video-copy h3{margin:0 0 7px;color:#fff;font-size:1.35rem}.work-video-copy p{margin:0;color:#d4e5f3;font-size:.88rem}
     .work-video-toggle{position:absolute;right:18px;bottom:20px;z-index:3;width:45px;height:45px;display:grid;place-items:center;padding:0;border:1px solid rgba(255,255,255,.28);border-radius:50%;color:#fff;background:rgba(3,21,45,.72);cursor:pointer;backdrop-filter:blur(8px)}.work-video-toggle svg{width:20px;height:20px;fill:currentColor}.work-video-toggle .play-icon{display:none}.work-video-toggle.paused .pause-icon{display:none}.work-video-toggle.paused .play-icon{display:block}
@@ -403,6 +412,14 @@
     .contact-email-link{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;min-height:42px;padding:9px 11px;border:1px solid rgba(88,187,239,.25);border-radius:12px;background:rgba(255,255,255,.045);color:#fff;font-size:.78rem;font-weight:750;line-height:1.25;transition:transform .2s,background .2s,border-color .2s}
     .contact-email-link span:first-child{min-width:0;overflow-wrap:anywhere}
     .contact-email-link:hover{transform:translateY(-1px);background:rgba(255,255,255,.09);border-color:rgba(110,219,247,.55)}
+    .contact-hours{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start;margin-top:12px;padding:14px 16px;border:1px solid rgba(88,187,239,.24);border-radius:18px;background:rgba(255,255,255,.045)}
+    .contact-hours-icon{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.1);color:#72ddf7}
+    .contact-hours-icon svg{width:23px;height:23px}
+    .contact-hours-copy>small{display:block;color:#bcd1e7;font-size:.72rem;font-weight:750;margin-bottom:7px}
+    .contact-hours-list{display:grid;gap:3px;color:#fff;font-size:.8rem;line-height:1.45}
+    .contact-hours-list span{display:flex;justify-content:space-between;gap:14px}
+    .contact-hours-list b{font-weight:750}
+    .contact-hours-list time{color:#d8e9f7;white-space:nowrap}
     .contact-card-footer{margin-top:auto;padding-top:18px}
     .contact-card-footer .qr-trigger{margin-top:0}
     .qr-trigger{
@@ -422,6 +439,7 @@
       background:rgba(255,255,255,.1);
       border-color:rgba(110,219,247,.55);
     }
+    .qr-trigger svg{width:18px;height:18px;color:#57e19c}
     .qr-modal{
       position:fixed;
       inset:0;
@@ -539,6 +557,7 @@
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1 .37 1.97.72 2.89a2 2 0 0 1-.45 2.11L8.1 10a16 16 0 0 0 6 6l1.28-1.28a2 2 0 0 1 2.11-.45c.92.35 1.89.59 2.89.72A2 2 0 0 1 22 16.9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 6 9-6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m9 12 2 2 4-5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.8 12 7 22l5-3 5 3-1.8-10" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 22c0-4 3.6-7 8-7s8 3 8 7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
@@ -690,7 +709,7 @@
       <div class="work-grid" aria-label="Galería de trabajos realizados">
         <article class="work-card work-video-card">
           <div class="work-video-media">
-            <video id="workVideo" autoplay muted loop playsinline preload="metadata" poster="assets/trabajos-realizados/video-montaje-tablero-poster.webp" aria-label="Video del proceso de montaje de un tablero eléctrico"><source src="assets/trabajos-realizados/video-montaje-tablero.mp4" type="video/mp4"></video>
+            <video id="workVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/trabajos-realizados/video-montaje-tablero-poster.webp" aria-label="Video del proceso de montaje de un tablero eléctrico"><source src="assets/trabajos-realizados/video-montaje-tablero-mobile.mp4" type="video/mp4"></video>
             <span class="work-status">Proceso en video</span>
             <div class="work-video-copy"><span class="work-category">Instalaciones eléctricas</span><h3>Montaje de tablero en acción</h3><p>Un recorrido breve por el armado y la organización de sus componentes.</p></div>
             <button class="work-video-toggle" id="workVideoToggle" type="button" aria-label="Pausar video"><svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg></button>
@@ -783,8 +802,19 @@
               </div>
             </div>
           </div>
+          <div class="contact-hours">
+            <span class="contact-hours-icon"><svg><use href="#i-clock"/></svg></span>
+            <div class="contact-hours-copy">
+              <small>Horario de atención</small>
+              <div class="contact-hours-list">
+                <span><b>Lunes a viernes</b><time>08:00 a 18:00</time></span>
+                <span><b>Sábado</b><time>09:00 a 12:00</time></span>
+                <span><b>Domingo</b><time>Cerrado</time></span>
+              </div>
+            </div>
+          </div>
           <div class="contact-card-footer">
-            <button class="qr-trigger" id="qrTrigger" type="button">Ver código QR</button>
+            <button class="qr-trigger" id="qrTrigger" type="button"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg><span id="qrTriggerLabel">Escanear para abrir WhatsApp</span></button>
           </div>
         </aside>
 
@@ -815,12 +845,12 @@
   </div>
   <div class="qr-modal" id="qrModal" hidden>
     <div class="qr-dialog" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
-      <button class="qr-close" id="qrClose" type="button" aria-label="Cerrar código QR">×</button>
-      <p class="eyebrow" style="margin-bottom:8px">Código QR</p>
-      <h3 id="qrTitle" style="margin-bottom:8px">Escaneá el acceso rápido</h3>
-      <p>Usalo desde otro dispositivo para abrir el enlace compartido por la empresa.</p>
-      <img src="assets/qr.jpg" alt="Código QR de Cooling and Power" width="764" height="776" loading="lazy" decoding="async">
-      <a class="btn btn-blue" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">Abrir enlace</a>
+      <button class="qr-close" id="qrClose" type="button" aria-label="Cerrar código QR de WhatsApp">×</button>
+      <p class="eyebrow" style="margin-bottom:8px">WhatsApp de la empresa</p>
+      <h3 id="qrTitle" style="margin-bottom:8px">Abrí el chat desde tu celular</h3>
+      <p>Escaneá este código con la cámara del teléfono para iniciar una conversación con Cooling and Power.</p>
+      <img src="assets/qr.jpg" alt="Código QR para abrir el WhatsApp de Cooling and Power" width="764" height="776" loading="lazy" decoding="async">
+      <a class="btn btn-blue" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><svg width="19" height="19" aria-hidden="true"><use href="#i-whatsapp"/></svg> Abrir WhatsApp en este dispositivo</a>
     </div>
   </div>
 </main>
@@ -830,7 +860,7 @@
     <div class="footer-grid">
       <div class="footer-intro"><div class="footer-brand"><img src="assets/logo.jpg" alt="Logo Cooling and Power" width="760" height="760" loading="lazy" decoding="async"><span><strong>Cooling and Power</strong><small>E.A.S. Unipersonal</small></span></div><p>Soluciones en infraestructura eléctrica, refrigeración y tecnología para empresas, industrias, comercios e instituciones.</p><a class="footer-location" href="https://www.google.com/maps/search/?api=1&query=-25.4049167%2C-57.5765278" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg>San Antonio, Paraguay</a></div>
       <div class="footer-col footer-nav"><h3>Navegación</h3><a href="#empresa">Empresa</a><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></div>
-      <div class="footer-col"><h3>Contacto directo</h3><div class="footer-contact-list"><a class="footer-contact-link" href="tel:+595982801360"><svg><use href="#i-phone"/></svg><span><small>Teléfono</small><strong>(0982) 801 360</strong></span></a><a class="footer-contact-link whatsapp" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small><strong>Escribir ahora</strong></span></a><a class="footer-contact-link" href="mailto:coolingandpowereas@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>coolingandpowereas@gmail.com</strong></span></a><a class="footer-contact-link" href="mailto:jecooling20@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>jecooling20@gmail.com</strong></span></a></div></div>
+      <div class="footer-col"><h3>Contacto directo</h3><div class="footer-contact-list"><a class="footer-contact-link" href="tel:+595982801360"><svg><use href="#i-phone"/></svg><span><small>Teléfono</small><strong>(0982) 801 360</strong></span></a><a class="footer-contact-link whatsapp" href="https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta" target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg><span><small>WhatsApp</small><strong>Escribir ahora</strong></span></a><a class="footer-contact-link" href="mailto:coolingandpowereas@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>coolingandpowereas@gmail.com</strong></span></a><a class="footer-contact-link" href="mailto:jecooling20@gmail.com"><svg><use href="#i-mail"/></svg><span><small>Correo electrónico</small><strong>jecooling20@gmail.com</strong></span></a><div class="footer-contact-link"><svg><use href="#i-clock"/></svg><span><small>Horario de atención</small><strong>Lun–vie 08:00–18:00 · Sáb 09:00–12:00</strong></span></div></div></div>
     </div>
     <div class="footer-bottom"><span>© <span id="year"></span> Cooling and Power E.A.S. Unipersonal.</span><span>San Antonio, Paraguay</span></div>
   </div>
@@ -848,6 +878,7 @@
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const qrTrigger = document.getElementById('qrTrigger');
+  const qrTriggerLabel = document.getElementById('qrTriggerLabel');
   const qrModal = document.getElementById('qrModal');
   const qrClose = document.getElementById('qrClose');
   const workModal = document.getElementById('workModal');
@@ -871,13 +902,33 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const heroVisibilityObserver = new IntersectionObserver(([entry]) => document.body.classList.toggle('hero-visible', entry.isIntersecting), {threshold:.08});
   heroVisibilityObserver.observe(heroSection);
-  function setWorkVideoPlaying(playing) {
-    if (playing && !reducedMotion.matches) workVideo.play().catch(() => {});
-    else workVideo.pause();
-    workVideoToggle.classList.toggle('paused', !playing || reducedMotion.matches);
-    workVideoToggle.setAttribute('aria-label', playing && !reducedMotion.matches ? 'Pausar video' : 'Reproducir video');
+  const workVideoMedia = workVideo.closest('.work-video-media');
+  function syncWorkVideoControl() {
+    const playing = !workVideo.paused && !workVideo.ended;
+    workVideoToggle.classList.toggle('paused', !playing);
+    workVideoToggle.setAttribute('aria-label', playing ? 'Pausar video' : 'Reproducir video');
+  }
+  async function setWorkVideoPlaying(playing) {
+    if (!playing || reducedMotion.matches) {
+      workVideo.pause();
+      syncWorkVideoControl();
+      return;
+    }
+    workVideo.muted = true;
+    workVideo.setAttribute('muted', '');
+    try {
+      await workVideo.play();
+      workVideoMedia.classList.remove('video-unavailable');
+    } catch {
+      workVideoMedia.classList.add('video-unavailable');
+    }
+    syncWorkVideoControl();
   }
   workVideoToggle.addEventListener('click', () => setWorkVideoPlaying(workVideo.paused));
+  workVideo.addEventListener('playing', syncWorkVideoControl);
+  workVideo.addEventListener('pause', syncWorkVideoControl);
+  workVideo.addEventListener('loadeddata', () => workVideoMedia.classList.remove('video-unavailable'));
+  workVideo.addEventListener('error', () => { workVideoMedia.classList.add('video-unavailable'); syncWorkVideoControl(); });
   const workVideoObserver = new IntersectionObserver(([entry]) => setWorkVideoPlaying(entry.isIntersecting && entry.intersectionRatio >= .35), {threshold:[0,.35]});
   workVideoObserver.observe(workVideo);
   document.addEventListener('visibilitychange', () => { if (document.hidden) setWorkVideoPlaying(false); });
@@ -901,7 +952,16 @@
   });
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  const whatsappUrl = 'https://wa.me/595982801360?text=Hola%20Cooling%20and%20Power,%20quiero%20hacer%20una%20consulta';
+  const mobileQrQuery = window.matchMedia('(max-width: 680px)');
+  function updateQrAction() {
+    qrTriggerLabel.textContent = mobileQrQuery.matches ? 'Abrir WhatsApp' : 'Escanear para abrir WhatsApp';
+  }
   function openQrModal() {
+    if (mobileQrQuery.matches) {
+      window.open(whatsappUrl, '_blank', 'noopener');
+      return;
+    }
     qrModal.hidden = false;
     qrModal.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -914,6 +974,8 @@
   }
 
   qrTrigger.addEventListener('click', openQrModal);
+  mobileQrQuery.addEventListener('change', updateQrAction);
+  updateQrAction();
   qrClose.addEventListener('click', closeQrModal);
   qrModal.addEventListener('click', (event) => {
     if (event.target === qrModal) closeQrModal();

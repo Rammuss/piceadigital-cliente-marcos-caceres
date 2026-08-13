@@ -14,11 +14,12 @@ DATOS DE CONTACTO
 
 - Telefono y WhatsApp: (0982) 801 360
 - Correos: coolingandpowereas@gmail.com / jecooling20@gmail.com
+- Dominio confirmado: https://coolingandpowereas.com/
+- Horario: lunes a viernes de 08:00 a 18:00; sabados de 09:00 a 12:00; domingos cerrado
 - Direccion: Avda. Central esq. Piribebuy, San Antonio, Paraguay
 - Coordenadas: 25°24'17.7"S 57°34'35.5"W (-25.4049167, -57.5765278)
 
 PUBLICACION
 
-Publique index.html y la carpeta assets conservando su estructura. Antes de compartir
-la URL final, complete los metadatos Open Graph con el dominio definitivo para obtener
-una vista previa correcta en WhatsApp y redes sociales.
+Publique index.html y la carpeta assets conservando su estructura. Los metadatos
+Open Graph ya utilizan el dominio definitivo para la vista previa en redes sociales.

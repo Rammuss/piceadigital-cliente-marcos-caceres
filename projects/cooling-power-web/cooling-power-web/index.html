@@ -169,7 +169,7 @@
     .work-mobile-hint{display:none;margin:13px 0 0;color:var(--muted);font-size:.78rem;font-weight:750}
     .work-video-card{grid-row:span 2;display:flex;flex-direction:column;background:#071c36}
     .work-video-media{position:relative;flex:1;min-height:650px;overflow:hidden;background:#071c36 center/contain no-repeat url('assets/trabajos-realizados/video-montaje-tablero-poster.webp')}
-    .work-video-media>img{position:relative;z-index:1;width:100%;height:100%;display:block;object-fit:contain;background:transparent}
+    .work-video-media>video{position:relative;z-index:1;width:100%;height:100%;display:block;object-fit:contain;background:transparent}
     .work-video-media::after{content:"";position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(3,21,45,.92));pointer-events:none}
     .work-video-copy{position:absolute;z-index:2;left:24px;right:24px;bottom:24px;color:#fff}.work-video-copy .work-category{color:#77ddf5}.work-video-copy h3{margin:0 0 7px;color:#fff;font-size:1.35rem}.work-video-copy p{margin:0;color:#d4e5f3;font-size:.88rem}
     .work-modal{position:fixed;inset:0;z-index:160;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(3,21,45,.82);backdrop-filter:blur(12px)}
@@ -708,7 +708,7 @@
       <div class="work-grid" aria-label="Galería de trabajos realizados">
         <article class="work-card work-video-card">
           <div class="work-video-media">
-            <img src="assets/trabajos-realizados/montaje-tablero-animado.webp" alt="Proceso de montaje de un tablero eléctrico" width="392" height="848" loading="eager" decoding="async">
+            <video id="workVideo" muted loop playsinline webkit-playsinline preload="none" poster="assets/trabajos-realizados/video-montaje-tablero-poster.webp" data-src="assets/trabajos-realizados/video-montaje-tablero-mobile.mp4" aria-label="Proceso de montaje de un tablero eléctrico"></video>
             <span class="work-status">Proceso en video</span>
             <div class="work-video-copy"><span class="work-category">Instalaciones eléctricas</span><h3>Montaje de tablero en acción</h3><p>Un recorrido breve por el armado y la organización de sus componentes.</p></div>
           </div>
@@ -890,6 +890,8 @@
   const workNext = document.getElementById('workNext');
   const workStage = document.getElementById('workStage');
   const workWhatsapp = document.getElementById('workWhatsapp');
+  const workVideo = document.getElementById('workVideo');
+  const workVideoCard = workVideo.closest('.work-video-card');
   const heroSection = document.getElementById('inicio');
   let activeWorkImages = [];
   let activeWorkIndex = 0;
@@ -897,6 +899,60 @@
   let workTouchStartX = null;
   const heroVisibilityObserver = new IntersectionObserver(([entry]) => document.body.classList.toggle('hero-visible', entry.isIntersecting), {threshold:.08});
   heroVisibilityObserver.observe(heroSection);
+  let workVideoBlobUrl = null;
+  let workVideoLoadPromise = null;
+  let workVideoVisible = false;
+  async function ensureWorkVideo() {
+    if (workVideoBlobUrl) return workVideoBlobUrl;
+    if (workVideoLoadPromise) return workVideoLoadPromise;
+    workVideoLoadPromise = fetch(workVideo.dataset.src, {cache:'force-cache'})
+      .then(response => {
+        if (!response.ok) throw new Error(`Video ${response.status}`);
+        return response.blob();
+      })
+      .then(blob => {
+        workVideoBlobUrl = URL.createObjectURL(blob);
+        workVideo.src = workVideoBlobUrl;
+        workVideo.load();
+        return workVideoBlobUrl;
+      })
+      .catch(error => {
+        workVideoLoadPromise = null;
+        throw error;
+      });
+    return workVideoLoadPromise;
+  }
+  async function playWorkVideo() {
+    if (!workVideoVisible || document.hidden) return;
+    try {
+      await ensureWorkVideo();
+      workVideo.defaultMuted = true;
+      workVideo.muted = true;
+      workVideo.loop = true;
+      await workVideo.play();
+      workVideoCard.classList.add('is-playing');
+    } catch {
+      workVideoCard.classList.remove('is-playing');
+    }
+  }
+  const workVideoObserver = new IntersectionObserver(([entry]) => {
+    workVideoVisible = entry.isIntersecting;
+    if (workVideoVisible) playWorkVideo();
+    else workVideo.pause();
+  }, {rootMargin:'220px 0px', threshold:0});
+  workVideoObserver.observe(workVideoCard);
+  workVideo.addEventListener('playing', () => workVideoCard.classList.add('is-playing'));
+  workVideo.addEventListener('pause', () => workVideoCard.classList.remove('is-playing'));
+  document.addEventListener('touchstart', playWorkVideo, {once:true, passive:true});
+  document.addEventListener('click', playWorkVideo, {once:true, passive:true});
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) workVideo.pause();
+    else playWorkVideo();
+  });
+  window.addEventListener('pageshow', playWorkVideo);
+  window.addEventListener('beforeunload', () => {
+    if (workVideoBlobUrl) URL.revokeObjectURL(workVideoBlobUrl);
+  });
   function setMobileMenu(open) {
     mobileMenu.classList.toggle('open', open);
     menuBtn.classList.toggle('open', open);

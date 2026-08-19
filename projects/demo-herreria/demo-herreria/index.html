@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Herrería & Automatizaciones | Demo</title>
+  <meta name="description" content="Portones, automatización con control remoto y soldadura en general." />
+  <style>
+    :root{
+      --bg:#0d0f11;
+      --panel:#15181b;
+      --panel-2:#1b1f23;
+      --text:#f5f3ee;
+      --muted:#a9b0b7;
+      --line:rgba(255,255,255,.08);
+      --accent:#f1a12f;
+      --accent-2:#ffca70;
+      --green:#25d366;
+      --max:1180px;
+      --radius:26px;
+      --shadow:0 25px 80px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+    .nav{position:fixed;top:0;left:0;right:0;z-index:40;background:rgba(13,15,17,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .navin{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.02em}
+    .mark{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,var(--accent-2),#d77b00);color:#1a1a1a;box-shadow:0 10px 25px rgba(241,161,47,.28)}
+    .brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+    .links{display:flex;align-items:center;gap:26px;color:#d7dbde;font-size:14px}
+    .links a:hover{color:#fff}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;border-radius:999px;font-weight:800;border:1px solid transparent;transition:.2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-accent{background:var(--accent);color:#171717}
+    .btn-outline{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.18)}
+    .btn-wa{background:var(--green);color:#0a190d}
+    .btn-call{background:#22272c;color:#fff;border-color:rgba(255,255,255,.1)}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#f6c677}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(241,161,47,.12)}
+
+    .hero{padding:150px 0 90px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 28%,rgba(241,161,47,.12),transparent 28%),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:auto,40px 40px,40px 40px;mask-image:linear-gradient(to bottom,black 70%,transparent)}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:50px}
+    h1{font-size:clamp(46px,6vw,86px);line-height:.97;letter-spacing:-.055em;margin:22px 0 24px;max-width:720px}
+    .stroke{color:transparent;-webkit-text-stroke:1.5px #e8eaeb}
+    .hero p{font-size:19px;color:#c0c6cc;max-width:620px;margin:0 0 32px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .trust{display:flex;flex-wrap:wrap;gap:24px;margin-top:28px;font-size:13px;color:var(--muted)}
+    .tick{color:var(--accent)}
+
+    .hero-photo{height:560px;border-radius:34px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.1);box-shadow:var(--shadow);background:#101214}
+    .hero-photo img{width:100%;height:100%;object-fit:cover}
+    .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,10,.12),rgba(7,9,10,.32) 45%,rgba(7,9,10,.65) 100%)}
+    .hero-card{position:absolute;left:22px;top:22px;z-index:2;background:rgba(8,10,12,.72);backdrop-filter:blur(8px);padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.08);font-size:12px;color:#ccd2d7}
+    .hero-card b{display:block;color:#fff;font-size:15px}
+    .hero-label{position:absolute;left:24px;bottom:22px;right:24px;z-index:2;display:flex;justify-content:space-between;gap:10px;align-items:end}
+    .hero-label span{font-size:12px;color:#e6eaed;text-transform:uppercase;letter-spacing:.16em}
+    .hero-chip{background:rgba(8,10,12,.74);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.09);padding:10px 14px;border-radius:999px;font-size:12px;color:#fff}
+
+    section{padding:100px 0}
+    .light{background:#f2f0eb;color:#17191b}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:42px}
+    .section-head h2{font-size:clamp(36px,5vw,60px);line-height:1.02;letter-spacing:-.045em;margin:0;max-width:760px}
+    .section-head p{max-width:460px;margin:0;color:#8d949a}
+    .light .section-head p{color:#666d72}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{background:#faf9f6;border:1px solid #dbd8d1;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:.24s ease;box-shadow:0 8px 18px rgba(0,0,0,.02)}
+    .service:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(0,0,0,.08)}
+    .service-media{height:220px;position:relative}
+    .service-media img{width:100%;height:100%;object-fit:cover}
+    .service-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.3))}
+    .service-body{padding:24px 24px 26px}
+    .num{font-size:12px;color:#8f969b;letter-spacing:.14em}
+    .service h3{font-size:26px;line-height:1.08;letter-spacing:-.025em;margin:12px 0 10px}
+    .service p{margin:0;color:#646a6f}
+
+    .feature{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .feature-card{background:linear-gradient(145deg,#181c20,#111315);border:1px solid var(--line);border-radius:28px;padding:48px;min-height:520px}
+    .feature-card h2{font-size:clamp(38px,5vw,60px);line-height:1;letter-spacing:-.045em;margin:16px 0 20px}
+    .feature-card p{font-size:18px;color:#aeb4ba}
+    .bullets{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:30px 0}
+    .bullet{padding:14px 15px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:14px}
+    .feature-art{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line);min-height:520px;background:#0f1113}
+    .feature-art img{width:100%;height:100%;object-fit:cover}
+    .feature-art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,13,.08),rgba(10,12,13,.25) 45%,rgba(10,12,13,.65))}
+    .feature-badge{position:absolute;left:20px;bottom:20px;z-index:2;background:rgba(8,10,12,.74);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:12px 14px;border-radius:15px;font-size:12px;color:#dce1e5}
+    .feature-badge b{display:block;color:#fff;font-size:15px}
+
+    .gallery{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:260px 260px;gap:16px}
+    .g{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#15181b}
+    .g:first-child{grid-row:1/3}
+    .g img{width:100%;height:100%;object-fit:cover}
+    .g:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.72))}
+    .caption{position:absolute;left:22px;bottom:20px;z-index:2}
+    .caption span{font-size:12px;color:#d7dde2;text-transform:uppercase;letter-spacing:.13em}
+    .caption b{display:block;font-size:20px}
+
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .step{background:#faf9f6;border:1px solid #dbd8d1;border-radius:22px;padding:24px;min-height:210px}
+    .sn{font-size:12px;color:#9a620e;letter-spacing:.14em;margin-bottom:10px}
+    .step h3{margin:0 0 10px;font-size:24px;letter-spacing:-.02em}
+    .step p{margin:0;color:#61676d}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .contact-panel,.map-card{border-radius:28px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#171b1f,#101214)}
+    .contact-panel{padding:40px}
+    .contact-panel h2{font-size:clamp(34px,4vw,52px);line-height:1.03;letter-spacing:-.04em;margin:18px 0 14px}
+    .contact-panel p{color:#adb4ba;margin:0 0 24px}
+    .contact-list{display:grid;gap:14px;margin-bottom:24px}
+    .contact-item{display:flex;gap:14px;align-items:center;padding:15px 16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+    .contact-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#20252a;color:var(--accent);font-weight:900}
+    .contact-item small{display:block;color:#8c949b;font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+    .contact-item b{display:block;color:#fff;font-size:17px}
+    .contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .map-card{position:relative;min-height:100%}
+    .map-card iframe{width:100%;height:100%;min-height:620px;border:0;display:block}
+    .map-badge{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(10,12,13,.78);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:14px 16px;border-radius:16px;font-size:13px;color:#d8dde0}
+    .map-badge b{display:block;color:#fff;margin-bottom:2px}
+
+    .cta{padding-top:0}
+    .cta-box{background:linear-gradient(130deg,#1b1f23,#0d0f11);border:1px solid var(--line);border-radius:30px;padding:46px;display:flex;justify-content:space-between;align-items:center;gap:24px;box-shadow:var(--shadow)}
+    .cta-box h2{font-size:clamp(34px,4vw,54px);line-height:1;letter-spacing:-.04em;margin:0 0 12px}
+    .cta-box p{margin:0;color:#aab1b8;max-width:620px}
+
+    footer{padding:30px 0 42px;border-top:1px solid rgba(255,255,255,.06);background:#0b0d0f}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .mini{display:flex;gap:16px;flex-wrap:wrap;color:#b8bec3}
+    .legal{margin:20px 0 0;color:#7d858c;font-size:13px}
+    .float{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#08150b;font-weight:900;box-shadow:0 18px 40px rgba(37,211,102,.34);z-index:60}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    @media (max-width:1040px){
+      .hero-grid,.feature,.contact-grid{grid-template-columns:1fr}
+      .services,.process{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr;grid-template-rows:320px 220px 220px}
+      .g:first-child{grid-row:1/2;grid-column:1/3}
+      .map-card iframe{min-height:400px}
+      .cta-box{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:760px){
+      .links{display:none}
+      .hero{padding:126px 0 76px}
+      h1{font-size:46px}
+      .hero p{font-size:17px}
+      .hero-photo{height:420px}
+      section{padding:76px 0}
+      .section-head{margin-bottom:28px;gap:18px;flex-direction:column;align-items:flex-start}
+      .section-head h2{font-size:40px}
+      .services,.process,.contact-actions{grid-template-columns:1fr}
+      .feature-card{padding:30px;min-height:auto}
+      .bullets{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr;grid-template-rows:280px repeat(4,190px)}
+      .g:first-child{grid-column:auto}
+      .contact-panel{padding:28px}
+      .cta-box{padding:34px 26px}
+      .cta-box h2{font-size:38px}
+      .foot{flex-direction:column;align-items:flex-start}
+      .mini{display:block}
+      .mini a{display:block;margin:8px 0}
+      .float{right:16px;bottom:16px;width:54px;height:54px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#inicio"><span class="mark">H</span><span>HERRERÍA <small>& Automatizaciones</small></span></a>
+      <div class="links">
+        <a href="#servicios">Servicios</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#proceso">Cómo trabajamos</a>
+        <a href="#contacto">Contacto</a>
+        <a class="btn btn-accent" href="https://wa.me/595992729195?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener">Pedir presupuesto</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> Herrería · Automatización · Soldadura</div>
+          <h1>Metal que protege.<br><span class="stroke">Tecnología que simplifica.</span></h1>
+          <p>Fabricación de portones y estructuras metálicas, automatización con control remoto y trabajos de soldadura en general.</p>
+          <div class="hero-actions">
+            <a class="btn btn-wa" href="https://wa.me/595992729195?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener">Solicitar presupuesto</a>
+            <a class="btn btn-outline" href="#trabajos">Ver trabajos ↓</a>
+          </div>
+          <div class="trust">
+            <span><b class="tick">✓</b> Trabajos a medida</span>
+            <span><b class="tick">✓</b> Instalación</span>
+            <span><b class="tick">✓</b> Atención directa</span>
+          </div>
+        </div>
+
+        <div class="hero-photo reveal">
+          <img src="assets/hero-porton.png" alt="Portón moderno automatizado" />
+          <div class="hero-card">SOLUCIÓN DESTACADA<b>Portones automatizados</b></div>
+          <div class="hero-label">
+            <span>Fabricación + automatización</span>
+            <div class="hero-chip">Demo con imágenes de ejemplo</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="light" id="servicios">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow" style="color:#9a620e"><span class="dot"></span> Servicios</div>
+            <h2>Soluciones en metal para hogares y negocios.</h2>
+          </div>
+          <p>Ahora el ejemplo ya incluye imágenes para que el cliente visualice mejor el tipo de trabajos que podría mostrar en su web.</p>
+        </div>
+
+        <div class="services">
+          <article class="service reveal">
+            <div class="service-media"><img src="assets/porton-moderno.png" alt="Portón metálico moderno" /></div>
+            <div class="service-body">
+              <span class="num">01 / FABRICACIÓN</span>
+              <h3>Portones y estructuras metálicas</h3>
+              <p>Portones corredizos, batientes, rejas y estructuras fabricadas a medida para viviendas y negocios.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-media"><img src="assets/automatizacion.png" alt="Automatización con control remoto" /></div>
+            <div class="service-body">
+              <span class="num">02 / AUTOMATIZACIÓN</span>
+              <h3>Control remoto para portones</h3>
+              <p>Instalación de sistemas automáticos para abrir y cerrar el portón con comodidad y seguridad.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-media"><img src="assets/soldadura.png" alt="Trabajo de soldadura en taller" /></div>
+            <div class="service-body">
+              <span class="num">03 / TALLER</span>
+              <h3>Soldadura en general</h3>
+              <p>Reparaciones, modificaciones y trabajos metálicos para distintos tipos de proyectos a medida.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap feature">
+        <div class="feature-card reveal">
+          <div class="eyebrow"><span class="dot"></span> Automatización</div>
+          <h2>Tu portón.<br>Ahora automático.</h2>
+          <p>Convertí un acceso convencional en una solución práctica para entrar y salir sin bajar del vehículo.</p>
+          <div class="bullets">
+            <div class="bullet">✓ Motor para portón</div>
+            <div class="bullet">✓ Control remoto</div>
+            <div class="bullet">✓ Instalación</div>
+            <div class="bullet">✓ Configuración</div>
+          </div>
+          <a class="btn btn-accent" href="https://wa.me/595992729195?text=Hola%2C%20quiero%20consultar%20por%20automatizaci%C3%B3n%20de%20port%C3%B3n" target="_blank" rel="noopener">Consultar automatización</a>
+        </div>
+
+        <div class="feature-art reveal">
+          <img src="assets/automatizacion.png" alt="Portón automatizado con control remoto" />
+          <div class="feature-badge">COMODIDAD Y SEGURIDAD<b>Abrí tu portón con control remoto</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trabajos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow"><span class="dot"></span> Trabajos</div>
+            <h2>Diseño, fabricación e instalación.</h2>
+          </div>
+          <p>Estas son imágenes de ejemplo. En la versión final se pueden reemplazar por fotos reales del cliente para darle más identidad.</p>
+        </div>
+
+        <div class="gallery">
+          <div class="g reveal">
+            <img src="assets/hero-porton.png" alt="Portón corredizo moderno" />
+            <div class="caption"><span>Portones</span><b>Fabricación a medida</b></div>
+          </div>
+          <div class="g reveal">
+            <img src="assets/taller-porton.png" alt="Portón metálico en taller" />
+            <div class="caption"><span>Taller</span><b>Producción metálica</b></div>
+          </div>
+          <div class="g reveal">
+            <img src="assets/soldadura.png" alt="Trabajo de soldadura" />
+            <div class="caption"><span>Soldadura</span><b>Trabajo preciso</b></div>
+          </div>
+          <div class="g reveal">
+            <img src="assets/escalera-metalica.png" alt="Escalera metálica moderna" />
+            <div class="caption"><span>Estructuras</span><b>Soluciones a medida</b></div>
+          </div>
+          <div class="g reveal">
+            <img src="assets/porton-moderno.png" alt="Portón doble metálico" />
+            <div class="caption"><span>Instalación</span><b>Terminación profesional</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="light" id="proceso">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow" style="color:#9a620e"><span class="dot"></span> Cómo trabajamos</div>
+            <h2>De la idea a la instalación.</h2>
+          </div>
+          <p>Un proceso claro para que el visitante entienda rápidamente cómo se gestiona un trabajo desde el primer contacto.</p>
+        </div>
+
+        <div class="process">
+          <div class="step reveal"><div class="sn">PASO 01</div><h3>Contactanos</h3><p>Contanos qué necesitás y dónde se realizará el trabajo.</p></div>
+          <div class="step reveal"><div class="sn">PASO 02</div><h3>Presupuestamos</h3><p>Evaluamos el proyecto y definimos la mejor solución según medidas y necesidad.</p></div>
+          <div class="step reveal"><div class="sn">PASO 03</div><h3>Fabricamos</h3><p>Desarrollamos el trabajo en taller con materiales y terminaciones adecuadas.</p></div>
+          <div class="step reveal"><div class="sn">PASO 04</div><h3>Instalamos</h3><p>Realizamos el montaje y dejamos todo listo para utilizar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="wrap contact-grid">
+        <div class="contact-panel reveal">
+          <div class="eyebrow"><span class="dot"></span> Contacto</div>
+          <h2>Hablemos de tu próximo proyecto.</h2>
+          <p>Consultá por fabricación de portones, automatización, reparaciones o trabajos de soldadura. Atención directa para coordinar medidas y presupuesto.</p>
+
+          <div class="contact-list">
+            <a class="contact-item" href="https://wa.me/595992729195?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener">
+              <span class="contact-icon">WA</span>
+              <span><small>WhatsApp</small><b>+595 992 729195</b></span>
+            </a>
+            <a class="contact-item" href="tel:+595992729195">
+              <span class="contact-icon">☎</span>
+              <span><small>Llamadas</small><b>+595 992 729195</b></span>
+            </a>
+            <a class="contact-item" href="mailto:contacto@herreriaautomatizaciones.com">
+              <span class="contact-icon">✉</span>
+              <span><small>Correo</small><b>contacto@herreriaautomatizaciones.com</b></span>
+            </a>
+            <div class="contact-item">
+              <span class="contact-icon">⌖</span>
+              <span><small>Zona de atención</small><b>Asunción y alrededores, Paraguay</b></span>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-wa" href="https://wa.me/595992729195?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            <a class="btn btn-call" href="tel:+595992729195">Llamar ahora</a>
+          </div>
+        </div>
+
+        <div class="map-card reveal">
+          <iframe title="Mapa de zona de atención" src="https://www.google.com/maps?q=Asunci%C3%B3n%2C%20Paraguay&z=12&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="map-badge"><b>Zona de atención</b>Asunción y alrededores · ubicación demostrativa</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <div>
+            <h2>¿Tenés un proyecto en mente?</h2>
+            <p>Mandanos un mensaje. Podés contarnos qué necesitás y solicitar un presupuesto directamente por WhatsApp.</p>
+          </div>
+          <a class="btn btn-accent" href="https://wa.me/595992729195?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener">Hablar por WhatsApp →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div class="brand"><span class="mark">H</span><span>HERRERÍA <small>& Automatizaciones</small></span></div>
+        <div class="mini">
+          <a href="#servicios">Servicios</a>
+          <a href="#trabajos">Trabajos</a>
+          <a href="#contacto">Contacto</a>
+          <a href="https://wa.me/595992729195" target="_blank" rel="noopener">+595 992 729195</a>
+        </div>
+      </div>
+      <p class="legal">Sitio demostrativo. El nombre, logotipo, fotografías y datos comerciales pueden personalizarse en la versión final.</p>
+    </div>
+  </footer>
+
+  <a class="float" href="https://wa.me/595992729195?text=Hola%2C%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

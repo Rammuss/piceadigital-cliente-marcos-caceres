@@ -49,8 +49,8 @@ p{margin:0}
 .btn-dark{background:var(--navy);color:#fff}
 .btn-outline-light{border:1px solid rgba(255,255,255,.4);color:#fff}
 .ghost-link{font-size:13px;font-weight:800;color:#fff}
-.hero-profile{justify-self:end;width:min(340px,100%);background:rgba(255,255,255,.94);color:var(--ink);box-shadow:0 22px 55px rgba(0,0,0,.22)}
-.hero-profile img{width:100%;height:380px;object-fit:cover;object-position:center 18%}
+.hero-profile{justify-self:end;width:min(420px,100%);background:rgba(255,255,255,.96);color:var(--ink);box-shadow:0 22px 55px rgba(0,0,0,.22);overflow:hidden}
+.hero-profile img{width:100%;aspect-ratio:1.18/1;object-fit:cover;object-position:78% 22%}
 .hero-profile-info{padding:21px}
 .hero-profile-info span{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--copper);font-weight:900}
 .hero-profile-info h2{font-size:32px;margin-top:6px}
@@ -95,8 +95,8 @@ p{margin:0}
 
 .profile-section{background:var(--sand)}
 .profile-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:70px;align-items:center}
-.profile-photo{margin:0;height:620px;overflow:hidden}
-.profile-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.profile-photo{margin:0;height:620px;overflow:hidden;border-radius:6px}
+.profile-photo img{width:100%;height:100%;object-fit:cover;object-position:78% 22%}
 .profile-copy>p{margin-top:20px;max-width:600px;color:var(--muted);font-size:16px}
 .profile-lines{margin-top:30px;border-top:1px solid #d4cbc1}
 .profile-lines div{padding:15px 0;border-bottom:1px solid #d4cbc1}
@@ -183,8 +183,8 @@ p{margin:0}
   .hero-copy p{font-size:14.5px;line-height:1.68}
   .hero-actions{display:grid;gap:12px}
   .hero-actions .btn{width:100%}
-  .hero-profile{width:100%;display:grid;grid-template-columns:120px 1fr}
-  .hero-profile img{height:160px}
+  .hero-profile{width:100%;display:grid;grid-template-columns:132px 1fr}
+  .hero-profile img{height:100%;min-height:172px;aspect-ratio:auto;object-position:72% 20%}
   .hero-profile-info{padding:16px}
   .hero-profile-info h2{font-size:27px}
 
@@ -202,6 +202,7 @@ p{margin:0}
   .review-copy>p,.profile-copy>p{font-size:14px;line-height:1.68}
   .review-image{height:390px}
   .profile-photo{height:430px}
+  .profile-photo img{object-position:72% 20%}
   .process-grid{grid-template-columns:1fr;gap:10px}
   .process-card{min-height:170px;padding:20px}
   .process-card h3{margin-top:22px}

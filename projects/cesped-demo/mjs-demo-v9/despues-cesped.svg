@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dff3ff"/>
+      <stop offset="100%" stop-color="#f7fbff"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#49c45d"/>
+      <stop offset="100%" stop-color="#1d8c3f"/>
+    </linearGradient>
+    <pattern id="grassTexture" width="70" height="70" patternUnits="userSpaceOnUse">
+      <path d="M15,58 l5,-22 l6,20 l5,-16" fill="none" stroke="#79dc74" stroke-width="2.8" opacity=".7" stroke-linecap="round"/>
+      <path d="M40,50 l4,-18 l5,16 l5,-14" fill="none" stroke="#5ccf65" stroke-width="2.8" opacity=".7" stroke-linecap="round"/>
+      <path d="M58,60 l5,-22 l6,18 l4,-14" fill="none" stroke="#96ea80" stroke-width="2.8" opacity=".55" stroke-linecap="round"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity=".18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect y="610" width="1600" height="290" fill="#d8c5ad"/>
+
+  <!-- walls -->
+  <polygon points="100,190 420,250 420,680 100,700" fill="#f1f1ec"/>
+  <polygon points="1500,190 1180,250 1180,680 1500,700" fill="#efefe9"/>
+  <rect x="420" y="250" width="760" height="430" fill="#faf9f5"/>
+
+  <!-- fence lines -->
+  <g stroke="#c9c7bf" stroke-width="6" opacity=".8">
+    <line x1="420" y1="250" x2="100" y2="190"/>
+    <line x1="1180" y1="250" x2="1500" y2="190"/>
+    <line x1="420" y1="680" x2="100" y2="700"/>
+    <line x1="1180" y1="680" x2="1500" y2="700"/>
+  </g>
+
+  <!-- patio border -->
+  <polygon points="260,610 800,540 1340,610 1180,680 420,680" fill="#f0ede8"/>
+
+  <!-- synthetic grass area -->
+  <polygon points="325,575 800,515 1275,575 1125,645 475,645" fill="url(#grass)" filter="url(#shadow)"/>
+  <polygon points="325,575 800,515 1275,575 1125,645 475,645" fill="url(#grassTexture)" opacity=".9"/>
+
+  <!-- turf seam / neat border -->
+  <polyline points="325,575 800,515 1275,575" fill="none" stroke="#dcf7d2" stroke-width="6" opacity=".8"/>
+  <polyline points="475,645 1125,645" fill="none" stroke="#147a45" stroke-width="6" opacity=".85"/>
+
+  <!-- decorative planter -->
+  <rect x="1120" y="300" width="100" height="150" rx="12" fill="#d9b38c"/>
+  <path d="M1170,335 l18,-42 l18,30 l13,-24" fill="none" stroke="#6c8747" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- title block -->
+  <rect x="70" y="60" rx="20" ry="20" width="330" height="110" fill="rgba(255,255,255,.88)"/>
+  <text x="100" y="108" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#147a45">DESPUÉS</text>
+  <text x="100" y="145" font-family="Arial, sans-serif" font-size="24" fill="#315942">Con césped sintético</text>
+</svg>

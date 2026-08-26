@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Venta e instalación de césped sintético para patios, jardines, terrazas y espacios comerciales en Paraguay. Consultá con MJS y solicitá tu presupuesto por WhatsApp.">
+  <title>Venta e Instalación de Césped Sintético en Paraguay | MJS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#147a45; --green2:#0e5c34; --dark:#0a3924; --lime:#b9df4a;
+      --cream:#f6f7f1; --ink:#13231b; --muted:#6b756f; --border:rgba(19,35,27,.10);
+      --shadow:0 24px 70px rgba(10,57,36,.12); --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Manrope",system-ui,sans-serif;color:var(--ink);background:#fff;overflow-x:hidden}
+    img{display:block;width:100%}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .section{padding:96px 0}
+    h1,h2,h3{font-family:"Montserrat","Manrope",sans-serif;margin:0;line-height:1.04}
+    h2{font-size:clamp(2rem,4.2vw,3.35rem);letter-spacing:-.045em}
+    p{line-height:1.72}
+    .lead{font-size:1.06rem;color:var(--muted);max-width:650px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.77rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--green)}
+    .eyebrow:before{content:"";width:28px;height:2px;background:var(--lime);border-radius:99px}
+    .btn{min-height:54px;padding:0 23px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;border:1px solid transparent;transition:.2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--lime);color:#17320e;box-shadow:0 14px 34px rgba(124,174,37,.23)}
+    .btn-secondary{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.22);backdrop-filter:blur(12px)}
+    .btn svg{width:20px;height:20px}
+
+    .nav{position:absolute;left:0;right:0;top:0;z-index:20;padding:21px 0}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;color:#fff}
+    .brand-mark{width:48px;height:48px;border-radius:15px;background:var(--lime);color:#17320e;display:grid;place-items:center;font:800 1rem "Montserrat";box-shadow:0 12px 30px rgba(0,0,0,.16)}
+    .brand-text strong{display:block;font-size:.98rem}
+    .brand-text span{font-size:.72rem;color:rgba(255,255,255,.69)}
+    .nav-links{display:flex;align-items:center;gap:28px;color:rgba(255,255,255,.85);font-size:.88rem;font-weight:700}
+    .nav-cta{border:1px solid rgba(255,255,255,.25);padding:11px 15px;border-radius:13px;background:rgba(255,255,255,.08);color:#fff}
+
+    .hero{
+      min-height:760px;position:relative;display:flex;align-items:flex-end;color:#fff;
+      background:#0a3924;overflow:hidden;
+    }
+    .hero-bg{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease;background-position:center;background-size:cover;background-repeat:no-repeat}
+    .hero-bg.active{opacity:1}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,35,22,.94) 0%,rgba(5,35,22,.74) 42%,rgba(5,35,22,.20) 78%,rgba(5,35,22,.18) 100%)}
+    .hero-bg.one{background-image:url("https://images.unsplash.com/photo-1715934514075-06f0dbda1c09?auto=format&fit=crop&fm=jpg&q=75&w=2000")}
+    .hero-bg.two{background-image:url("https://images.unsplash.com/photo-1696846912293-9a8013e17403?auto=format&fit=crop&fm=jpg&q=75&w=2000")}
+    .hero-bg.three{background-image:url("https://images.unsplash.com/photo-1756199648832-c93bee9cb736?auto=format&fit=crop&fm=jpg&q=75&w=2000")}
+    .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:180px;background:linear-gradient(transparent,rgba(3,26,16,.38));z-index:1}
+    .hero-content{position:relative;z-index:3;padding:168px 0 88px;max-width:780px}
+    .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 12px;border-radius:999px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);font-size:.77rem;font-weight:800;margin-bottom:22px}
+    .hero-badge i{width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 5px rgba(185,223,74,.15)}
+    .hero h1{font-size:clamp(3rem,7vw,6.05rem);letter-spacing:-.065em;max-width:800px}
+    .hero h1 span{color:var(--lime)}
+    .hero p{max-width:650px;color:rgba(255,255,255,.78);font-size:clamp(1rem,1.9vw,1.18rem);margin:24px 0 30px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:13px}
+    .hero-proof{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:34px;color:rgba(255,255,255,.75);font-size:.83rem;font-weight:700}
+    .proof-item{display:flex;align-items:center;gap:8px}.proof-item svg{width:17px;height:17px;color:var(--lime)}
+
+    .hero-dots{display:flex;gap:8px;margin-top:24px}
+    .hero-dot{width:30px;height:4px;border-radius:99px;border:0;background:rgba(255,255,255,.28);padding:0;cursor:pointer;transition:.25s}
+    .hero-dot.active{background:var(--lime);width:48px}
+    
+    .hero-mini{position:absolute;right:max(32px,calc((100vw - var(--max))/2));bottom:72px;z-index:4;width:290px;padding:20px;border-radius:22px;background:rgba(255,255,255,.94);color:var(--ink);box-shadow:0 24px 80px rgba(0,0,0,.22)}
+    .hero-mini small{font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.12em}.hero-mini strong{display:block;font-family:"Montserrat";font-size:1.15rem;margin:7px 0 5px}.hero-mini p{margin:0;color:var(--muted);font-size:.8rem;line-height:1.5}
+
+    .benefits{background:var(--dark);color:#fff;padding-bottom:1px}
+    .benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);transform:translateY(34px);background:#fff;color:var(--ink);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+    .benefit{padding:24px;border-right:1px solid var(--border)}.benefit:last-child{border-right:0}
+    .benefit-icon{width:42px;height:42px;border-radius:13px;background:#eff6da;color:var(--green);display:grid;place-items:center;margin-bottom:14px}.benefit-icon svg{width:21px;height:21px}
+    .benefit strong{display:block;font-size:.95rem}.benefit span{font-size:.78rem;color:var(--muted)}
+
+    .services{padding-top:135px;background:var(--cream)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:46px}.section-head .copy{max-width:620px}.section-head .lead{margin:17px 0 0}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{background:#fff;border:1px solid var(--border);border-radius:22px;padding:28px;min-height:250px;display:flex;flex-direction:column;transition:.22s}
+    .service:hover{transform:translateY(-5px);box-shadow:0 18px 48px rgba(10,57,36,.09)}
+    .service-num{font:800 .72rem "Montserrat";color:#98a39c;letter-spacing:.12em}
+    .service-icon{width:52px;height:52px;border-radius:15px;background:var(--green);color:#fff;display:grid;place-items:center;margin:24px 0 22px}.service-icon svg{width:25px;height:25px}
+    .service h3{font-size:1.17rem}.service p{font-size:.87rem;color:var(--muted);margin:9px 0 0}
+
+    .projects-grid{display:grid;grid-template-columns:1.25fr .75fr;grid-template-rows:300px 300px;gap:15px;margin-top:42px}
+    .project{position:relative;border-radius:22px;overflow:hidden;background:#dde4dd}.project:first-child{grid-row:1/3}
+    .project img{height:100%;object-fit:cover;transition:.5s}.project:hover img{transform:scale(1.04)}
+    .project:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 48%,rgba(3,24,15,.72))}
+    .project-label{position:absolute;left:22px;bottom:18px;z-index:2;color:#fff}.project-label span{font-size:.73rem;color:rgba(255,255,255,.72)}.project-label strong{display:block;font-size:1rem;margin-top:3px}
+    .projects-note{display:flex;align-items:center;gap:11px;margin-top:22px;color:var(--muted);font-size:.83rem}.projects-note svg{width:18px;height:18px;color:var(--green)}
+
+    .process{background:var(--dark);color:#fff;position:relative;overflow:hidden}.process .eyebrow{color:var(--lime)}.process .lead{color:rgba(255,255,255,.64)}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+    .step{border:1px solid rgba(255,255,255,.13);border-radius:22px;padding:28px;background:rgba(255,255,255,.045)}
+    .step-number{width:46px;height:46px;border-radius:14px;background:var(--lime);color:#17320e;display:grid;place-items:center;font:800 .92rem "Montserrat";margin-bottom:24px}
+    .step h3{font-size:1.15rem}.step p{font-size:.86rem;color:rgba(255,255,255,.62);margin-bottom:0}
+
+    .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:70px;align-items:center}
+    .about-photo{position:relative}.about-photo img{height:520px;object-fit:cover;border-radius:26px}
+    .about-stamp{position:absolute;right:-22px;bottom:32px;width:150px;height:150px;border-radius:50%;background:var(--lime);display:grid;place-items:center;text-align:center;padding:22px;font:800 .83rem/1.25 "Montserrat";color:#17320e;box-shadow:0 18px 40px rgba(80,120,20,.2);transform:rotate(-7deg)}
+    .about-copy .lead{margin:18px 0 26px}
+    .checklist{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-top:28px}
+    .check{display:flex;gap:10px;align-items:flex-start;font-size:.87rem;font-weight:700}
+    .check i{width:23px;height:23px;flex:0 0 23px;border-radius:50%;background:#edf5d9;color:var(--green);display:grid;place-items:center;font-style:normal}.check svg{width:14px;height:14px}
+
+    .cta-wrap{padding:24px 0 92px}
+    .cta{min-height:390px;border-radius:30px;overflow:hidden;color:#fff;display:flex;align-items:center;padding:55px;background:linear-gradient(90deg,rgba(8,57,33,.94),rgba(8,57,33,.72),rgba(8,57,33,.20)),url("https://images.unsplash.com/photo-1696846912293-9a8013e17403?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000") center/cover no-repeat}
+    .cta-copy{max-width:610px}.cta h2{font-size:clamp(2.2rem,4.4vw,3.8rem)}.cta p{color:rgba(255,255,255,.72);max-width:520px}
+
+
+
+
+    .product-types{background:#fff}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+    .product-card{border:1px solid var(--border);border-radius:24px;overflow:hidden;background:#fff;transition:.22s}
+    .product-card:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(10,57,36,.08)}
+    .product-thumb{height:220px;position:relative;overflow:hidden;background:#dce6dd}
+    .product-thumb img{height:100%;object-fit:cover}
+    .product-badge{position:absolute;left:16px;top:16px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.92);font-size:.7rem;font-weight:800;color:var(--green)}
+    .product-body{padding:22px}
+    .product-body h3{font-size:1.08rem}
+    .product-body p{margin:9px 0 0;color:var(--muted);font-size:.86rem}
+    .section-note{font-size:.78rem;color:var(--muted);margin-top:16px}
+
+    .before-after{background:var(--cream)}
+    .ba-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center}
+    .ba-copy .lead{margin:16px 0 0}
+    .ba-frame{position:relative;height:500px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);background:#d8dfd9}
+    .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .ba-after{clip-path:inset(0 50% 0 0)}
+    .ba-line{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+    .ba-handle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;font-weight:900;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+    .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+    .ba-label{position:absolute;top:18px;z-index:3;padding:8px 11px;border-radius:10px;background:rgba(5,35,22,.78);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.08em}
+    .ba-label.before{left:18px}.ba-label.after{right:18px}
+    .ba-disclaimer{font-size:.76rem;color:var(--muted);margin-top:14px}
+
+    .trust-section{background:#fff;padding:0 0 96px}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .trust-item{border:1px solid var(--border);border-radius:20px;padding:24px;background:#fff}
+    .trust-item span{display:block;font-size:.7rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+    .trust-item strong{display:block;font-size:1rem}
+    .trust-item p{margin:8px 0 0;color:var(--muted);font-size:.82rem}
+
+    .faq-section{padding:0 0 96px;background:#fff}
+    .faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:54px;align-items:start}
+    .faq-list{display:grid;gap:12px}
+    details.faq-item{border:1px solid var(--border);border-radius:18px;background:#fff;overflow:hidden}
+    details.faq-item summary{cursor:pointer;list-style:none;padding:20px 22px;font-weight:800;display:flex;justify-content:space-between;gap:20px}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary::after{content:"+";font-size:1.35rem;color:var(--green);font-weight:700}
+    details.faq-item[open] summary::after{content:"−"}
+    .faq-answer{padding:0 22px 20px;color:var(--muted);font-size:.88rem;line-height:1.65}
+    
+    .testimonials-section{padding:0 0 96px;background:#fff}
+    .testimonials-wrap{overflow:hidden}
+    .testimonials-head{margin-bottom:28px}
+    .testimonials-head p{margin:14px 0 0;color:var(--muted);max-width:700px}
+    .testimonials-track{
+      display:flex;gap:18px;overflow-x:auto;padding-bottom:8px;
+      scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    }
+    .testimonials-track::-webkit-scrollbar{height:8px}
+    .testimonials-track::-webkit-scrollbar-thumb{background:#cfd7d1;border-radius:99px}
+    .testimonial-card{
+      min-width:340px;max-width:340px;scroll-snap-align:start;
+      background:var(--cream);border:1px solid var(--border);border-radius:24px;
+      padding:26px;display:flex;flex-direction:column;gap:16px;
+      box-shadow:0 14px 34px rgba(10,57,36,.05);
+    }
+    .stars{font-size:1rem;letter-spacing:.12em;color:#d4aa1c}
+    .testimonial-text{font-size:.92rem;line-height:1.72;color:var(--ink);margin:0}
+    .testimonial-person{display:flex;align-items:center;gap:12px;margin-top:auto}
+    .avatar{
+      width:46px;height:46px;border-radius:50%;
+      background:var(--green);color:#fff;display:grid;place-items:center;
+      font-weight:800;font-size:.95rem;flex:0 0 46px;
+    }
+    .person-data strong{display:block;font-size:.92rem}
+    .person-data span{display:block;font-size:.78rem;color:var(--muted)}
+    .testimonials-note{margin-top:14px;font-size:.78rem;color:var(--muted)}
+    
+    .contact-section{padding:0 0 42px;background:#fff}
+    .contact-box{background:var(--cream);border:1px solid var(--border);border-radius:28px;padding:40px}
+    .contact-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
+    .contact-head p{margin:12px 0 0;color:var(--muted);max-width:620px}
+    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .contact-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:24px;display:flex;flex-direction:column;min-height:190px;transition:.2s}
+    .contact-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(10,57,36,.08)}
+    .contact-icon{width:46px;height:46px;border-radius:14px;background:#edf5d9;color:var(--green);display:grid;place-items:center;font-size:1.15rem;margin-bottom:18px}
+    .contact-card small{font-size:.72rem;text-transform:uppercase;letter-spacing:.11em;font-weight:800;color:#8a948e}
+    .contact-card strong{font-size:1.02rem;margin:7px 0 4px}
+    .contact-card span{font-size:.84rem;color:var(--muted);margin-bottom:18px}
+    .contact-link{margin-top:auto;font-size:.84rem;font-weight:800;color:var(--green)}
+    
+    .map-section{padding:0 0 92px;background:#fff}
+    .map-card{overflow:hidden;border-radius:28px;border:1px solid var(--border);box-shadow:var(--shadow);background:#fff}
+    .map-top{display:flex;justify-content:space-between;gap:30px;align-items:end;padding:34px 36px}
+    .map-top h2{font-size:clamp(1.8rem,3vw,2.6rem)}
+    .map-top p{margin:10px 0 0;color:var(--muted);max-width:620px}
+    .map-frame{height:430px;background:#e9eee9}
+    .map-frame iframe{width:100%;height:100%;border:0;display:block}
+    .map-note{font-size:.75rem;color:var(--muted);padding:12px 18px 16px}
+    
+    
+    footer{background:var(--dark);color:#fff;padding:64px 0 0;border-top:0}
+    .footer-grid{display:grid;grid-template-columns:1.35fr .8fr 1fr 1fr;gap:42px;padding-bottom:44px}
+    .footer-brand-block .footer-brand{display:flex;align-items:center;gap:12px;font-weight:800;margin-bottom:16px}
+    .footer-mark{width:42px;height:42px;border-radius:13px;background:var(--lime);color:#17320e;display:grid;place-items:center;font:800 .82rem "Montserrat"}
+    .footer-brand-block p{font-size:.84rem;line-height:1.65;color:rgba(255,255,255,.62);max-width:330px;margin:0}
+    .footer-title{font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:16px}
+    .footer-links{display:grid;gap:11px}
+    .footer-links a{font-size:.84rem;color:rgba(255,255,255,.72);transition:.2s}
+    .footer-links a:hover{color:#fff;transform:translateX(2px)}
+    .footer-contact{display:grid;gap:12px}
+    .footer-contact a,.footer-contact span{font-size:.84rem;color:rgba(255,255,255,.72);line-height:1.5}
+    .footer-contact a:hover{color:#fff}
+    .footer-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 16px;border-radius:13px;background:var(--lime);color:#17320e;font-weight:800;font-size:.82rem;margin-top:16px}
+
+    .footer-social{margin-top:24px}
+    .footer-social-title{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:12px}
+    .social-icons{display:flex;align-items:center;gap:10px}
+    .social-icon{
+      width:40px;height:40px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#fff;transition:.2s ease;
+    }
+    .social-icon:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+    .social-icon svg{width:19px;height:19px;fill:currentColor}
+
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding:20px 0 24px}
+    .footer-bottom-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .footer-bottom p{font-size:.74rem;color:rgba(255,255,255,.46);margin:0}
+
+
+    .wa-float{position:fixed;right:22px;bottom:22px;z-index:50;width:58px;height:58px;border-radius:18px;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 34px rgba(18,104,54,.28);transition:.2s}.wa-float:hover{transform:translateY(-3px)}.wa-float svg{width:29px;height:29px}
+    .reveal{opacity:0;transform:translateY(18px);transition:.65s}.reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:980px){
+      .nav-links a:not(.nav-cta){display:none}.hero-mini{display:none}
+      .benefits-grid{grid-template-columns:1fr 1fr}.benefit:nth-child(2){border-right:0}.benefit:nth-child(-n+2){border-bottom:1px solid var(--border)}
+      .services-grid{grid-template-columns:1fr 1fr}.projects-grid{grid-template-columns:1fr 1fr;grid-template-rows:420px 250px}.project:first-child{grid-column:1/3;grid-row:auto}
+      .steps{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:40px}
+    }
+    @media(max-width:680px){
+      .container{width:calc(100% - 28px)}.section{padding:72px 0}.nav{padding:15px 0}.brand-text span{display:none}.nav-cta{font-size:.77rem;padding:10px 12px}
+      .hero{min-height:690px;background-position:62% center}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,27,17,.22),rgba(4,27,17,.86) 70%,rgba(4,27,17,.96))}
+      .hero-content{padding:120px 0 54px}.hero h1{font-size:clamp(2.65rem,14vw,4.2rem)}.hero p{font-size:.96rem}.hero-actions{display:grid}.btn{width:100%}
+      .benefits-grid{transform:translateY(22px)}.benefit{padding:18px 15px}.services{padding-top:105px}.section-head{display:block;margin-bottom:30px}
+      .services-grid{grid-template-columns:1fr}.projects-grid{grid-template-columns:1fr;grid-template-rows:none}.project,.project:first-child{grid-column:auto;grid-row:auto;height:290px}
+      .about-photo img{height:390px}.about-stamp{width:118px;height:118px;font-size:.68rem;padding:15px;right:10px}.checklist{grid-template-columns:1fr}
+      .cta{padding:34px 24px;min-height:430px;background-position:60% center}.product-grid{grid-template-columns:1fr}.ba-grid{grid-template-columns:1fr;gap:28px}.ba-frame{height:390px}.trust-grid{grid-template-columns:1fr 1fr}.faq-grid{grid-template-columns:1fr;gap:28px}.contact-box{padding:26px 20px}.contact-head{display:block}.contact-grid{grid-template-columns:1fr}.testimonial-card{min-width:86vw;max-width:86vw}.map-top{padding:26px 22px;display:block}.map-frame{height:360px}.footer-grid{grid-template-columns:1fr;gap:30px}.footer-bottom-inner{flex-direction:column;align-items:flex-start}.wa-float{right:14px;bottom:14px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"MJS Venta e Instalación de Césped Sintético",
+    "description":"Venta e instalación de césped sintético para patios, jardines, terrazas y espacios comerciales.",
+    "telephone":"+595975432133"
+  }
+  </script>
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#inicio">
+      <div class="brand-mark">MJS</div>
+      <div class="brand-text"><strong>MJS Césped Sintético</strong><span>Venta e instalación</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#reseñas">Reseñas</a><a href="#preguntas">FAQ</a><a href="#contacto">Contacto</a>
+      <a class="nav-cta" href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quiero%20consultar%20por%20césped%20sintético" target="_blank">Pedir presupuesto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="hero-bg one active" aria-hidden="true"></div>
+  <div class="hero-bg two" aria-hidden="true"></div>
+  <div class="hero-bg three" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge"><i></i> Venta + instalación profesional</div>
+      <h1><span>Venta e instalación de césped sintético</span> para patios, jardines, terrazas y comercios.</h1>
+      <p>MJS ofrece venta e instalación profesional de césped sintético para hogares y negocios. Consultanos por WhatsApp y recibí un presupuesto personalizado para tu espacio.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quiero%20pedir%20un%20presupuesto%20para%20césped%20sintético" target="_blank">Pedir presupuesto</a>
+        <a class="btn btn-secondary" href="#trabajos">Ver trabajos →</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item">✓ Presupuesto personalizado</div><div class="proof-item">✓ Instalación prolija</div><div class="proof-item">✓ Atención directa</div>
+      </div>
+      <div class="hero-dots" aria-label="Imágenes de portada">
+        <button class="hero-dot active" type="button" data-slide="0" aria-label="Imagen 1"></button>
+        <button class="hero-dot" type="button" data-slide="1" aria-label="Imagen 2"></button>
+        <button class="hero-dot" type="button" data-slide="2" aria-label="Imagen 3"></button>
+      </div>
+    </div>
+    <div class="hero-mini"><small>Consultá rápido</small><strong>Mandanos fotos + medidas</strong><p>Con esos datos podemos orientarte y preparar un presupuesto para tu espacio.</p></div>
+  </div>
+</header>
+
+<section class="benefits">
+  <div class="container">
+    <div class="benefits-grid">
+      <div class="benefit"><div class="benefit-icon">✦</div><strong>Espacios renovados</strong><span>Más verdes y visualmente prolijos.</span></div>
+      <div class="benefit"><div class="benefit-icon">⌁</div><strong>Bajo mantenimiento</strong><span>Ideal para disfrutar más y mantener menos.</span></div>
+      <div class="benefit"><div class="benefit-icon">↔</div><strong>A medida</strong><span>Adaptamos el trabajo a cada espacio.</span></div>
+      <div class="benefit"><div class="benefit-icon">✓</div><strong>Terminación profesional</strong><span>Cuidamos cortes, bordes y detalles.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="copy"><span class="eyebrow">Nuestros servicios</span><h2>Una solución para cada tipo de espacio.</h2></div>
+      <p class="lead">Venta e instalación de césped sintético para transformar áreas residenciales y comerciales con una terminación limpia y moderna.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service reveal"><span class="service-num">01</span><div class="service-icon">⌂</div><h3>Patios y jardines</h3><p>Renová espacios exteriores con una superficie verde, prolija y lista para disfrutar.</p></article>
+      <article class="service reveal"><span class="service-num">02</span><div class="service-icon">▦</div><h3>Terrazas y balcones</h3><p>Una alternativa visual para darle más calidez a pisos y superficies urbanas.</p></article>
+      <article class="service reveal"><span class="service-num">03</span><div class="service-icon">▥</div><h3>Espacios comerciales</h3><p>Aplicaciones para exhibiciones, accesos, áreas recreativas y espacios de negocio.</p></article>
+      <article class="service reveal"><span class="service-num">04</span><div class="service-icon">⌁</div><h3>Venta de césped</h3><p>Te orientamos según el uso, el tamaño del área y el resultado visual que buscás.</p></article>
+      <article class="service reveal"><span class="service-num">05</span><div class="service-icon">✦</div><h3>Instalación profesional</h3><p>Preparación, corte, colocación y terminaciones pensadas para cada superficie.</p></article>
+      <article class="service reveal"><span class="service-num">06</span><div class="service-icon">◎</div><h3>Proyectos personalizados</h3><p>Evaluamos tu idea y buscamos una solución ajustada al espacio disponible.</p></article>
+    </div>
+  </div>
+</section>
+
+
+<section class="section product-types" id="tipos">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="copy">
+        <span class="eyebrow">Tipos de césped</span>
+        <h2>Elegí la opción adecuada para cada uso.</h2>
+      </div>
+      <p class="lead">Opciones pensadas para distintos espacios, niveles de tránsito y resultados visuales.</p>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card reveal">
+        <div class="product-thumb">
+          <img src="https://images.unsplash.com/photo-1715934514075-06f0dbda1c09?auto=format&fit=crop&fm=jpg&q=70&w=1200" alt="Césped sintético residencial" loading="lazy">
+          <span class="product-badge">Residencial</span>
+        </div>
+        <div class="product-body">
+          <h3>Césped para patios y jardines</h3>
+          <p>Enfocado en apariencia natural, confort visual y uso cotidiano en áreas residenciales.</p>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-thumb">
+          <img src="https://images.unsplash.com/photo-1756199648832-c93bee9cb736?auto=format&fit=crop&fm=jpg&q=70&w=1200" alt="Césped sintético para alto tránsito" loading="lazy">
+          <span class="product-badge">Alto tránsito</span>
+        </div>
+        <div class="product-body">
+          <h3>Césped para espacios de mayor uso</h3>
+          <p>Una opción pensada para zonas con circulación frecuente, áreas recreativas o espacios comerciales.</p>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-thumb">
+          <img src="https://images.unsplash.com/photo-1696846912293-9a8013e17403?auto=format&fit=crop&fm=jpg&q=70&w=1200" alt="Césped sintético decorativo" loading="lazy">
+          <span class="product-badge">Decorativo</span>
+        </div>
+        <div class="product-body">
+          <h3>Césped para terrazas y áreas decorativas</h3>
+          <p>Ideal para sumar verde a balcones, terrazas, exhibiciones y espacios donde importa especialmente la estética.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="section-note">Consultanos para ayudarte a elegir la opción más adecuada para tu espacio.</div>
+  </div>
+</section>
+
+<section class="section" id="trabajos">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="copy"><span class="eyebrow">Trabajos realizados</span><h2>El resultado se ve.</h2></div>
+      <p class="lead">Conocé algunos de los espacios que pueden transformarse con una instalación prolija y bien terminada.</p>
+    </div>
+    <div class="projects-grid reveal">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1756199648832-c93bee9cb736?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000" alt="Patio con césped sintético">
+        <div class="project-label"><span>Trabajo realizado</span><strong>Patio residencial</strong></div>
+      </div>
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1715934514075-06f0dbda1c09?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000" alt="Jardín con césped sintético">
+        <div class="project-label"><span>Trabajo realizado</span><strong>Jardín exterior</strong></div>
+      </div>
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1696846912293-9a8013e17403?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000" alt="Área social verde">
+        <div class="project-label"><span>Trabajo realizado</span><strong>Quincho / área social</strong></div>
+      </div>
+    </div>
+    <div class="projects-note">Cada proyecto se adapta al espacio, el uso y la terminación buscada.</div>
+  </div>
+</section>
+
+
+<section class="section before-after" id="antes-despues">
+  <div class="container ba-grid">
+    <div class="ba-copy reveal">
+      <span class="eyebrow">Antes y después</span>
+      <h2>Del terreno al césped sintético.</h2>
+      <p class="lead">Compará cómo cambia un terreno sin pasto después de instalar césped sintético. Una buena terminación transforma el espacio y mejora su aspecto de inmediato.</p>
+      <div class="ba-disclaimer">Deslizá para comparar el antes y el después.</div>
+    </div>
+
+    <div class="reveal">
+      <div class="ba-frame" id="baFrame">
+        <img src="antes-terreno.svg" alt="Terreno sin césped antes de la instalación" loading="lazy">
+        <img class="ba-after" id="baAfter" src="despues-cesped.svg" alt="Terreno con césped sintético después de la instalación" loading="lazy">
+        <span class="ba-label before">ANTES</span>
+        <span class="ba-label after">DESPUÉS</span>
+        <div class="ba-line" id="baLine"></div>
+        <div class="ba-handle" id="baHandle">↔</div>
+        <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Comparar antes y después">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section process" id="proceso">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="copy"><span class="eyebrow">Cómo trabajamos</span><h2>De la consulta al espacio terminado.</h2></div>
+      <p class="lead">Un proceso simple pensado para que puedas consultar rápido y avanzar con claridad.</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal"><div class="step-number">01</div><h3>Nos enviás fotos y medidas</h3><p>Contanos qué espacio querés transformar y mandanos fotos y medidas aproximadas.</p></article>
+      <article class="step reveal"><div class="step-number">02</div><h3>Preparamos tu presupuesto</h3><p>Analizamos el trabajo y te pasamos una propuesta de acuerdo con el espacio y la necesidad.</p></article>
+      <article class="step reveal"><div class="step-number">03</div><h3>Coordinamos la instalación</h3><p>Definimos la fecha y realizamos el trabajo cuidando cortes, terminaciones y detalles finales.</p></article>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="trust-section" id="confianza">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="copy">
+        <span class="eyebrow">Confianza</span>
+        <h2>Confianza desde el primer contacto.</h2>
+      </div>
+      <p class="lead">Trabajamos con una atención simple, directa y enfocada en que sepas qué esperar desde el primer contacto.</p>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-item reveal"><span>01</span><strong>Presupuesto personalizado</strong><p>La propuesta se adapta al tamaño, superficie y tipo de proyecto.</p></div>
+      <div class="trust-item reveal"><span>02</span><strong>Contacto directo</strong><p>WhatsApp y teléfono visibles para facilitar una respuesta rápida.</p></div>
+      <div class="trust-item reveal"><span>03</span><strong>Proceso explicado</strong><p>El cliente sabe qué datos enviar y cómo avanza la instalación.</p></div>
+      <div class="trust-item reveal"><span>04</span><strong>Trabajos visibles</strong><p>Galería y comparaciones que permiten evaluar el resultado antes de consultar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section" id="reseñas">
+  <div class="container">
+    <div class="testimonials-wrap reveal">
+      <div class="testimonials-head">
+        <span class="eyebrow">Confianza y respaldo</span>
+        <h2>Lo que valoran nuestros clientes.</h2>
+        <p>
+La experiencia de quienes ya confiaron en nuestro trabajo es parte de nuestra mejor presentación.
+        </p>
+      </div>
+
+      <div class="testimonials-track">
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            “Muy buen trabajo. Quedó prolijo, rápido y el cambio en el patio fue total.
+            Nos respondieron bien desde el primer mensaje.”
+          </p>
+          <div class="testimonial-person">
+            <div class="avatar">JR</div>
+            <div class="person-data">
+              <strong>Cliente MJS</strong>
+              <span>Patio residencial</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            “Pedimos presupuesto por WhatsApp, enviamos las medidas y enseguida tuvimos respuesta.
+            La instalación quedó excelente.”
+          </p>
+          <div class="testimonial-person">
+            <div class="avatar">MC</div>
+            <div class="person-data">
+              <strong>Cliente MJS</strong>
+              <span>Terraza / balcón</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            “Nos gustó la atención y la forma de explicar todo. El resultado se ve muy bien
+            y el espacio quedó mucho más presentable.”
+          </p>
+          <div class="testimonial-person">
+            <div class="avatar">LG</div>
+            <div class="person-data">
+              <strong>Cliente MJS</strong>
+              <span>Espacio comercial</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            “La terminación quedó muy linda y se nota el cuidado en los detalles.
+            Recomendado para quien quiera renovar su espacio.”
+          </p>
+          <div class="testimonial-person">
+            <div class="avatar">AF</div>
+            <div class="person-data">
+              <strong>Cliente MJS</strong>
+              <span>Jardín exterior</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="testimonials-note">
+        Gracias a cada cliente por confiar en nuestro trabajo.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about-grid">
+    <div class="about-photo reveal">
+      <img src="https://images.unsplash.com/photo-1767969217509-7edd70a96e1b?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000" alt="Jardín exterior">
+      <div class="about-stamp">MJS<br>VENTA +<br>INSTALACIÓN</div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">Sobre MJS</span><h2>Una forma práctica de renovar tus espacios.</h2>
+      <p class="lead">En MJS nos dedicamos a la venta e instalación de césped sintético para hogares, comercios y diferentes tipos de ambientes. Buscamos una terminación limpia y una atención directa desde la primera consulta.</p>
+      <a class="btn btn-primary" href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quiero%20consultar%20por%20una%20instalación%20de%20césped%20sintético" target="_blank">Consultar por WhatsApp</a>
+      <div class="checklist"><div class="check"><i>✓</i>Atención personalizada</div><div class="check"><i>✓</i>Presupuestos a medida</div><div class="check"><i>✓</i>Terminación prolija</div><div class="check"><i>✓</i>Contacto directo</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-wrap">
+  <div class="container">
+    <div class="cta reveal">
+      <div class="cta-copy">
+        <span class="eyebrow" style="color:var(--lime)">Presupuesto sin compromiso</span>
+        <h2>¿Querés transformar tu espacio?</h2>
+        <p>Escribinos por WhatsApp. Podés enviarnos fotos y medidas aproximadas para comenzar.</p>
+        <a class="btn btn-primary" href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quiero%20cotizar%20césped%20sintético.%20Les%20envío%20fotos%20y%20medidas." target="_blank">Hablar con MJS →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="faq-section" id="preguntas">
+  <div class="container faq-grid">
+    <div class="reveal">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Preguntas frecuentes.</h2>
+      <p class="lead">Encontrá respuestas rápidas a las consultas más comunes antes de pedir tu presupuesto.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>¿Realizan también la instalación?</summary>
+        <div class="faq-answer">Sí. Realizamos venta e instalación de césped sintético, adaptando cada trabajo al tipo de espacio y superficie.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo puedo pedir un presupuesto?</summary>
+        <div class="faq-answer">Podés escribir por WhatsApp y enviar fotos del lugar junto con medidas aproximadas. Con esos datos se puede orientar mejor la consulta.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Se puede instalar sobre piso o cemento?</summary>
+        <div class="faq-answer">Depende de la superficie y del estado del área. Lo ideal es revisar cada caso antes de confirmar la forma de instalación.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué tipo de césped me conviene?</summary>
+        <div class="faq-answer">La elección depende del uso, el tránsito, el espacio y el resultado visual que buscás. Te orientamos para elegir la alternativa más conveniente.</div>
+      </details>
+      <details class="faq-item">
+        <summary>¿En qué zonas trabajan?</summary>
+        <div class="faq-answer">Consultanos por WhatsApp para confirmar disponibilidad y cobertura en tu zona.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contacto">
+  <div class="container">
+    <div class="contact-box reveal">
+      <div class="contact-head">
+        <div>
+          <span class="eyebrow">Contacto</span>
+          <h2>Hablemos de tu proyecto.</h2>
+          <p>Elegí la forma más cómoda para comunicarte con MJS. Podés escribir por WhatsApp, llamar directamente o enviar un correo.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quiero%20consultar%20por%20césped%20sintético" target="_blank" rel="noopener">
+          <div class="contact-icon">💬</div>
+          <small>WhatsApp</small>
+          <strong>+595 975 432133</strong>
+          <span>Consultas, fotos, medidas y presupuestos.</span>
+          <div class="contact-link">Escribir ahora →</div>
+        </a>
+
+        <a class="contact-card" href="tel:+595975432133">
+          <div class="contact-icon">☎</div>
+          <small>Teléfono</small>
+          <strong>+595 975 432133</strong>
+          <span>Llamanos directamente para una consulta rápida.</span>
+          <div class="contact-link">Llamar ahora →</div>
+        </a>
+
+        <a class="contact-card" href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quisiera%20consultar%20por%20correo%20electrónico" target="_blank" rel="noopener">
+          <div class="contact-icon">✉</div>
+          <small>Correo electrónico</small>
+          <strong>Contacto comercial</strong>
+          <span>Solicitá nuestro correo para enviar planos, medidas o información del proyecto.</span>
+          <div class="contact-link">Solicitar correo →</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-section" id="ubicacion">
+  <div class="container">
+    <div class="map-card reveal">
+      <div class="map-top">
+        <div>
+          <span class="eyebrow">Ubicación</span>
+          <h2>Encontranos y consultá tu zona.</h2>
+          <p>Consultá nuestra ubicación y coordiná fácilmente tu visita o servicio.</p>
+        </div>
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Asuncion+Paraguay" target="_blank" rel="noopener">
+          Abrir en Google Maps
+        </a>
+      </div>
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=Asuncion%20Paraguay&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa de ubicación de referencia">
+        </iframe>
+      </div>
+      <div class="map-note">Consultá por WhatsApp para confirmar la ubicación y zona de cobertura.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <div class="footer-brand">
+          <span class="footer-mark">MJS</span>
+          <span>MJS Césped Sintético</span>
+        </div>
+        <p>
+          Venta e instalación de césped sintético para patios, jardines, terrazas y espacios comerciales.
+          Atención directa y presupuestos personalizados.
+        </p>
+        <a class="footer-cta" href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quiero%20solicitar%20un%20presupuesto" target="_blank" rel="noopener">
+          Pedir presupuesto
+        </a>
+
+        <div class="footer-social">
+          <div class="footer-social-title">Síguenos</div>
+          <div class="social-icons" aria-label="Redes sociales">
+            <span class="social-icon" title="Facebook" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.5 8H16V4.5c-.43-.06-1.92-.18-3.68-.18-3.67 0-6.18 2.24-6.18 6.36V14H2v4h4.14v10h5V18h4.2l.67-4h-4.87v-2.93C11.14 9.91 11.46 8 13.5 8Z"/>
+              </svg>
+            </span>
+
+            <span class="social-icon" title="Instagram" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3Zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3ZM17.8 6.2a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/>
+              </svg>
+            </span>
+
+            <span class="social-icon" title="TikTok" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.2 2h3.1c.3 1.6 1.2 2.9 2.7 3.8v3.3a8.4 8.4 0 0 1-2.7-.8v7.1A6.6 6.6 0 1 1 10.7 8.8c.4 0 .8 0 1.2.1v3.3a3.3 3.3 0 1 0 2.3 3.2V2Z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Navegación</div>
+        <div class="footer-links">
+          <a href="#servicios">Servicios</a>
+          <a href="#tipos">Tipos de césped</a>
+          <a href="#trabajos">Trabajos</a>
+          <a href="#reseñas">Reseñas</a>
+          <a href="#preguntas">Preguntas frecuentes</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Contacto</div>
+        <div class="footer-contact">
+          <a href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quiero%20consultar%20por%20césped%20sintético" target="_blank" rel="noopener">
+            WhatsApp: +595 975 432133
+          </a>
+          <a href="tel:+595975432133">Teléfono: +595 975 432133</a>
+          <a href="#contacto">Contacto comercial</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Ubicación</div>
+        <div class="footer-contact">
+          <span>Consultá nuestra zona de cobertura y disponibilidad.</span>
+          <a href="#ubicacion">Ver ubicación en el mapa →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p>© 2026 MJS Césped Sintético. Todos los derechos reservados.</p>
+        <p>Venta e instalación de césped sintético en Paraguay.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/595975432133?text=Hola%20MJS%2C%20quiero%20consultar%20por%20césped%20sintético" target="_blank" aria-label="WhatsApp">☎</a>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  })
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Hero: cambia solo la imagen de fondo; el H1 y CTA permanecen fijos.
+const heroSlides=[...document.querySelectorAll('.hero-bg')];
+const heroDots=[...document.querySelectorAll('.hero-dot')];
+let currentSlide=0;
+let heroTimer;
+
+function showHeroSlide(index){
+  currentSlide=index;
+  heroSlides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+  heroDots.forEach((dot,i)=>dot.classList.toggle('active',i===index));
+}
+function startHero(){
+  heroTimer=setInterval(()=>showHeroSlide((currentSlide+1)%heroSlides.length),5200);
+}
+heroDots.forEach((dot,i)=>{
+  dot.addEventListener('click',()=>{
+    clearInterval(heroTimer);
+    showHeroSlide(i);
+    startHero();
+  });
+});
+if(heroSlides.length>1) startHero();
+
+// Comparador antes/después.
+const baRange=document.getElementById('baRange');
+const baAfter=document.getElementById('baAfter');
+const baLine=document.getElementById('baLine');
+const baHandle=document.getElementById('baHandle');
+if(baRange && baAfter){
+  const updateBA=()=>{
+    const v=Number(baRange.value);
+    baAfter.style.clipPath=`inset(0 ${100-v}% 0 0)`;
+    baLine.style.left=`${v}%`;
+    baHandle.style.left=`${v}%`;
+  };
+  baRange.addEventListener('input',updateBA);
+  updateBA();
+}
+</script>
+</body>
+</html>

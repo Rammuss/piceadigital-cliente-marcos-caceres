@@ -130,14 +130,8 @@
     .before-after{background:var(--cream)}
     .ba-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:center}
     .ba-copy .lead{margin:16px 0 0}
-    .ba-frame{position:relative;height:500px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);background:#d8dfd9}
-    .ba-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .ba-after{clip-path:inset(0 50% 0 0)}
-    .ba-line{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(0,0,0,.08)}
-    .ba-handle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#fff;color:var(--green);display:grid;place-items:center;font-weight:900;box-shadow:0 8px 24px rgba(0,0,0,.18)}
-    .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
-    .ba-label{position:absolute;top:18px;z-index:3;padding:8px 11px;border-radius:10px;background:rgba(5,35,22,.78);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.08em}
-    .ba-label.before{left:18px}.ba-label.after{right:18px}
+    .ba-frame{position:relative;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);background:#d8dfd9}
+    .ba-frame img{display:block;width:100%;height:auto}
     .ba-disclaimer{font-size:.76rem;color:var(--muted);margin-top:14px}
 
     .trust-section{background:#fff;padding:0 0 96px}
@@ -420,19 +414,13 @@
     <div class="ba-copy reveal">
       <span class="eyebrow">Antes y después</span>
       <h2>Del terreno al césped sintético.</h2>
-      <p class="lead">Compará cómo cambia un terreno sin pasto después de instalar césped sintético. Una buena terminación transforma el espacio y mejora su aspecto de inmediato.</p>
-      <div class="ba-disclaimer">Deslizá para comparar el antes y el después.</div>
+      <p class="lead">Compará el cambio visual entre el estado inicial del terreno y el resultado final con césped sintético instalado.</p>
+      <div class="ba-disclaimer">Vista previa visual del antes y después.</div>
     </div>
 
     <div class="reveal">
       <div class="ba-frame" id="baFrame">
-        <img src="antes-terreno.svg" alt="Terreno sin césped antes de la instalación" loading="lazy">
-        <img class="ba-after" id="baAfter" src="despues-cesped.svg" alt="Terreno con césped sintético después de la instalación" loading="lazy">
-        <span class="ba-label before">ANTES</span>
-        <span class="ba-label after">DESPUÉS</span>
-        <div class="ba-line" id="baLine"></div>
-        <div class="ba-handle" id="baHandle">↔</div>
-        <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Comparar antes y después">
+        <img src="ChatGPT Image 26 ago 2026, 14_38_58.png" alt="Comparativa antes y después de la instalación de césped sintético" loading="lazy">
       </div>
     </div>
   </div>

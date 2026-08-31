@@ -1,0 +1,10 @@
+{
+  "name": "frioexpert-project",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@tabler/icons-react": "^3.45.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}

@@ -1,0 +1,5494 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FrioExpert | Refrigeracion y climatizacion</title>
+  <meta name="description" content="Instalacion, mantenimiento y reparacion de aires acondicionados, heladeras y freezers para hogares y negocios." />
+  <link rel="preload" href="../../assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../assets/fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" href="assets/img/hero-frioexpert.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/equipos-frioexpert.png" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style id="frioexpert-premium-mobile-overrides">
+    /* Premium hero ticker */
+    .hero-marquee {
+      position: relative;
+      overflow: hidden;
+      margin: 14px 0 0;
+      border: 1px solid rgba(21, 101, 192, .10);
+      border-radius: 16px;
+      background: linear-gradient(90deg, rgba(236, 246, 255, .92), rgba(255,255,255,.96), rgba(236,246,255,.92));
+      box-shadow: 0 10px 28px rgba(26, 84, 132, .05);
+      mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent);
+    }
+    .hero-marquee-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      min-width: max-content;
+      gap: 24px;
+      padding: 11px 0;
+      animation: frioexpertTicker 30s linear infinite;
+      will-change: transform;
+    }
+    .hero-marquee-track span {
+      white-space: nowrap;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #23415b;
+    }
+    .hero-marquee-track i {
+      color: #2f9bd8;
+      font-style: normal;
+      font-size: 10px;
+      opacity: .8;
+    }
+    @keyframes frioexpertTicker {
+      from { transform: translate3d(0,0,0); }
+      to { transform: translate3d(-50%,0,0); }
+    }
+
+    /* Mobile burger */
+    .mobile-menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid rgba(24, 75, 112, .12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.92);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(23, 76, 115, .06);
+    }
+    .mobile-menu-toggle span {
+      width: 19px;
+      height: 2px;
+      border-radius: 999px;
+      background: #143b57;
+      transition: transform .25s ease, opacity .2s ease;
+    }
+    .topbar.menu-open .mobile-menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .topbar.menu-open .mobile-menu-toggle span:nth-child(2) { opacity: 0; }
+    .topbar.menu-open .mobile-menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Testimonials mobile carousel controls */
+    .testimonial-mobile-controls { display: none; }
+
+    @media (max-width: 780px) {
+      .hero-section { overflow: visible; }
+      .hero-frame { position: relative; }
+      .topbar {
+        position: relative;
+        z-index: 50;
+        min-height: 62px;
+        padding-block: 8px;
+      }
+      .brand-copy > span { display: none; }
+      .brand-copy strong { font-size: 20px; }
+      .brand-mark { width: 38px; height: 38px; }
+      .phone-chip { display: none !important; }
+      .mobile-menu-toggle { display: inline-flex; flex: 0 0 auto; }
+
+      .site-nav {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        z-index: 49;
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 3px;
+        padding: 10px;
+        border: 1px solid rgba(24, 75, 112, .10);
+        border-radius: 18px;
+        background: rgba(255,255,255,.98);
+        box-shadow: 0 22px 55px rgba(18, 60, 90, .16);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px) scale(.985);
+        transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+      }
+      .site-nav a {
+        display: block;
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        font-size: 15px;
+      }
+      .site-nav a:hover, .site-nav a.is-active { background: #eef7fc; }
+      .topbar.menu-open .site-nav {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+
+      .hero-marquee {
+        margin-top: 8px;
+        border-radius: 13px;
+        mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+      }
+      .hero-marquee-track {
+        gap: 18px;
+        padding: 9px 0;
+        animation-duration: 24s;
+      }
+      .hero-marquee-track span { font-size: 10.5px; letter-spacing: .065em; }
+
+      /* Keep the commercial message visible immediately on small screens */
+      .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+        padding-top: 20px !important;
+      }
+      .hero-copy {
+        width: 100% !important;
+        max-width: none !important;
+        text-align: left;
+      }
+      .hero-copy .eyebrow {
+        margin-bottom: 10px !important;
+        font-size: 11px !important;
+      }
+      .hero-title {
+        max-width: 100% !important;
+        margin: 0 !important;
+        font-size: clamp(38px, 11vw, 52px) !important;
+        line-height: .96 !important;
+        letter-spacing: -.045em !important;
+        text-wrap: balance;
+      }
+      .hero-title span { display: inline; }
+      .title-line { margin-block: 14px !important; }
+      .hero-description {
+        max-width: 34rem !important;
+        margin: 0 !important;
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+      }
+      .hero-actions {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 9px !important;
+        margin-top: 17px !important;
+      }
+      .hero-actions .button-primary,
+      .hero-actions .button-link {
+        min-height: 48px;
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-visual {
+        width: 100% !important;
+        margin-top: 2px !important;
+      }
+      .hero-image-wrap {
+        min-height: 225px !important;
+        max-height: 250px !important;
+        border-radius: 20px !important;
+        overflow: hidden;
+      }
+      .hero-image-wrap > img {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 225px !important;
+        object-fit: cover !important;
+        object-position: 62% center !important;
+      }
+      .dotted-path, .spark-right { display: none !important; }
+      .experience-card {
+        transform: scale(.84);
+        transform-origin: left bottom;
+        left: 10px !important;
+        bottom: 8px !important;
+      }
+
+      /* Horizontal testimonial carousel */
+      .testimonial-mobile-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 18px 0 12px;
+        color: rgba(24, 58, 82, .56);
+        font-size: 12px;
+      }
+      .testimonial-mobile-controls button {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        border: 1px solid rgba(24,75,112,.12);
+        border-radius: 999px;
+        background: #fff;
+        color: #153d59;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .testimonials-grid {
+        display: flex !important;
+        grid-template-columns: none !important;
+        gap: 14px !important;
+        width: calc(100% + 18px);
+        margin-right: -18px;
+        padding: 0 18px 14px 0;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 0 18px;
+        overscroll-behavior-inline: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .testimonials-grid::-webkit-scrollbar { display: none; }
+      .testimonial-card {
+        flex: 0 0 min(86vw, 340px) !important;
+        width: min(86vw, 340px) !important;
+        min-width: 0 !important;
+        scroll-snap-align: start;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .testimonials-decor { pointer-events: none; opacity: .45; }
+
+      /* Redundant help banner removed; keep footer compact */
+      .footer-help-section { padding-top: 0 !important; }
+      .site-footer { margin-top: 0 !important; }
+    }
+
+    @media (max-width: 430px) {
+      .hero-title { font-size: clamp(36px, 10.6vw, 44px) !important; }
+      .hero-description { font-size: 14px !important; }
+      .hero-image-wrap, .hero-image-wrap > img { min-height: 205px !important; }
+      .hero-image-wrap { max-height: 220px !important; }
+      .experience-card { transform: scale(.76); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-marquee-track { animation: none !important; transform: none !important; }
+      .hero-marquee { overflow-x: auto; mask-image: none; }
+    }
+  </style>
+
+
+  <style id="frioexpert-glass-hero-v3">
+    /* =========================================================
+       HERO V3 — background auto-slider + glassmorphism content
+       ========================================================= */
+    .hero-section {
+      position: relative;
+      overflow: clip;
+    }
+
+    .hero-frame {
+      position: relative;
+    }
+
+    .hero-stage {
+      position: relative;
+      min-height: 660px;
+      margin-top: 16px;
+      overflow: hidden;
+      border-radius: 30px;
+      isolation: isolate;
+      background: #10324a;
+      box-shadow: 0 28px 80px rgba(16, 55, 82, .13);
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      background: #10324a;
+    }
+
+    .hero-background-track {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: heroBackgroundScroll 14s cubic-bezier(.7, 0, .3, 1) infinite;
+      will-change: transform;
+    }
+
+    .hero-slide {
+      position: relative;
+      flex: 0 0 33.333333%;
+      width: 33.333333%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transform: scale(1.045);
+      animation: heroImageBreath 8s ease-in-out infinite alternate;
+    }
+
+    .hero-slide:nth-child(2) img {
+      object-position: center 48%;
+    }
+
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(5, 23, 37, .70) 0%, rgba(8, 29, 43, .34) 54%, rgba(7, 26, 40, .20) 100%),
+        linear-gradient(180deg, rgba(6, 22, 35, .16), rgba(6, 22, 35, .44));
+      pointer-events: none;
+    }
+
+    .hero-stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: radial-gradient(circle at 72% 32%, rgba(255,255,255,.12), transparent 26%);
+    }
+
+    @keyframes heroBackgroundScroll {
+      0%, 42%   { transform: translate3d(0, 0, 0); }
+      50%, 92%  { transform: translate3d(-33.333333%, 0, 0); }
+      100%      { transform: translate3d(-66.666666%, 0, 0); }
+    }
+
+    @keyframes heroImageBreath {
+      from { transform: scale(1.035); }
+      to   { transform: scale(1.075); }
+    }
+
+    .hero-glass-layout {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      min-height: 660px;
+      padding: clamp(34px, 5vw, 70px);
+    }
+
+    .hero-glass-panel {
+      width: min(720px, 66%);
+      padding: clamp(30px, 4.2vw, 54px);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.22), rgba(255,255,255,.10));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.36),
+        0 28px 80px rgba(4, 19, 30, .24);
+      -webkit-backdrop-filter: blur(22px) saturate(125%);
+      backdrop-filter: blur(22px) saturate(125%);
+      color: #fff;
+    }
+
+    .hero-glass-panel .eyebrow {
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.94);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-glass-panel .eyebrow svg {
+      color: #9ee0ff;
+    }
+
+    .hero-glass-title {
+      max-width: 680px;
+      margin: 0;
+      font-family: var(--font-display, "League Spartan", "Manrope", sans-serif);
+      font-size: clamp(54px, 5.8vw, 86px);
+      line-height: .91;
+      letter-spacing: -.048em;
+      color: #fff;
+      text-wrap: balance;
+    }
+
+    .hero-glass-title span {
+      display: block;
+      color: #a9e5ff;
+    }
+
+    .hero-glass-description {
+      max-width: 590px;
+      margin: 24px 0 0;
+      color: rgba(255,255,255,.80);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .hero-glass-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .hero-glass-actions .button-primary {
+      box-shadow: 0 14px 34px rgba(0, 89, 148, .28);
+    }
+
+    .hero-glass-actions .button-link {
+      min-height: 48px;
+      padding-inline: 18px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      -webkit-backdrop-filter: blur(9px);
+      backdrop-filter: blur(9px);
+    }
+
+    .hero-glass-actions .button-link svg {
+      stroke: currentColor;
+    }
+
+    .hero-glass-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 18px;
+      margin-top: 26px;
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .hero-glass-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-glass-trust span::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #b9edff;
+      font-size: 11px;
+    }
+
+    .hero-slider-caption {
+      position: absolute;
+      z-index: 4;
+      right: 28px;
+      bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 13px;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 999px;
+      background: rgba(11, 33, 48, .30);
+      color: rgba(255,255,255,.78);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      -webkit-backdrop-filter: blur(13px);
+      backdrop-filter: blur(13px);
+    }
+
+    .hero-slider-caption::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #9ee0ff;
+      box-shadow: 0 0 0 5px rgba(158,224,255,.12);
+    }
+
+    /* Old split hero is no longer used in v3. */
+    .hero-marquee,
+    .hero-content {
+      display: none !important;
+    }
+
+    /* =========================================================
+       TESTIMONIALS — auto-scrolling mobile carousel
+       ========================================================= */
+    .testimonial-mobile-controls > span {
+      text-align: center;
+      flex: 1 1 auto;
+    }
+
+    @media (max-width: 780px) {
+      .hero-section {
+        overflow: visible;
+      }
+
+      .hero-stage {
+        min-height: 590px;
+        margin-top: 10px;
+        border-radius: 22px;
+      }
+
+      .hero-glass-layout {
+        min-height: 590px;
+        align-items: flex-end;
+        padding: 18px;
+      }
+
+      .hero-stage::before {
+        background:
+          linear-gradient(180deg, rgba(5, 22, 34, .20) 0%, rgba(5, 22, 34, .47) 44%, rgba(5, 22, 34, .82) 100%);
+      }
+
+      .hero-slide img {
+        object-position: 62% center;
+      }
+
+      .hero-slide:nth-child(2) img {
+        object-position: 56% center;
+      }
+
+      .hero-glass-panel {
+        width: 100%;
+        padding: 22px 19px 20px;
+        border-radius: 22px;
+        background:
+          linear-gradient(145deg, rgba(255,255,255,.20), rgba(255,255,255,.10));
+        -webkit-backdrop-filter: blur(17px) saturate(120%);
+        backdrop-filter: blur(17px) saturate(120%);
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,.30),
+          0 18px 50px rgba(3, 16, 25, .25);
+      }
+
+      .hero-glass-panel .eyebrow {
+        margin-bottom: 12px !important;
+        padding: 7px 10px;
+        font-size: 10px !important;
+      }
+
+      .hero-glass-title {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(39px, 11.8vw, 52px);
+        line-height: .93;
+        letter-spacing: -.045em;
+      }
+
+      .hero-glass-description {
+        margin-top: 15px;
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .hero-glass-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .hero-glass-actions .button-primary,
+      .hero-glass-actions .button-link {
+        width: 100%;
+        min-height: 47px;
+        justify-content: center;
+      }
+
+      .hero-glass-trust {
+        gap: 7px 12px;
+        margin-top: 16px;
+        font-size: 10.5px;
+      }
+
+      .hero-glass-trust span::before {
+        width: 18px;
+        height: 18px;
+      }
+
+      .hero-slider-caption {
+        top: 14px;
+        right: 14px;
+        bottom: auto;
+        max-width: calc(100% - 28px);
+        font-size: 9px;
+      }
+
+      .testimonial-mobile-controls > span {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-stage,
+      .hero-glass-layout {
+        min-height: 560px;
+      }
+
+      .hero-glass-layout {
+        padding: 14px;
+      }
+
+      .hero-glass-panel {
+        padding: 19px 16px 17px;
+      }
+
+      .hero-glass-title {
+        font-size: clamp(36px, 11.3vw, 45px);
+      }
+
+      .hero-glass-description {
+        font-size: 13.5px;
+        line-height: 1.45;
+      }
+
+      .hero-glass-trust {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px 10px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-background-track,
+      .hero-slide img {
+        animation: none !important;
+      }
+      .hero-background-track {
+        transform: translate3d(0,0,0) !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-mobile-rating-v4">
+    /* =========================================================
+       HERO V4 — mobile commercial structure inspired by HVAC refs
+       ========================================================= */
+
+    .hero-google-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.23);
+      border-radius: 999px;
+      background: rgba(8, 29, 43, .22);
+      color: #fff;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.16);
+    }
+
+    .hero-google-mark {
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #fff;
+      color: #4285f4;
+      font-weight: 900;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero-google-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      text-align: left;
+      line-height: 1.05;
+    }
+
+    .hero-google-copy strong {
+      font-size: 12px;
+      color: #fff;
+    }
+
+    .hero-google-copy span {
+      font-size: 10px;
+      color: rgba(255,255,255,.68);
+    }
+
+    .hero-google-stars {
+      margin-left: 2px;
+      color: #ffd34d;
+      font-size: 11px;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    .hero-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-proof-card {
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      padding: 15px 14px 13px;
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 17px;
+      background:
+        linear-gradient(145deg, rgba(6, 26, 39, .32), rgba(255,255,255,.09));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+      -webkit-backdrop-filter: blur(13px);
+      backdrop-filter: blur(13px);
+    }
+
+    .hero-proof-card::after {
+      content: "";
+      position: absolute;
+      right: -15px;
+      bottom: -18px;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(169,229,255,.14);
+      border-radius: 50%;
+    }
+
+    .hero-proof-value {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-family: var(--font-display, "League Spartan", "Manrope", sans-serif);
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -.035em;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .hero-proof-value .star {
+      color: #ffd34d;
+      font-size: .78em;
+      vertical-align: 2px;
+    }
+
+    .hero-proof-label {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-top: 6px;
+      color: rgba(255,255,255,.58);
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .hero-proof-card.is-google {
+      border-color: rgba(255,211,77,.28);
+    }
+
+    .hero-proof-card.is-primary {
+      background:
+        linear-gradient(145deg, rgba(0, 116, 176, .34), rgba(255,255,255,.10));
+    }
+
+    /* Remove the explanatory "background changes" chip */
+    .hero-slider-caption {
+      display: none !important;
+    }
+
+    @media (min-width: 781px) {
+      .hero-google-rating {
+        margin-bottom: 18px;
+      }
+      .hero-proof-grid {
+        max-width: 600px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .hero-stage {
+        min-height: 690px;
+      }
+
+      .hero-glass-layout {
+        min-height: 690px;
+        align-items: flex-end;
+        padding: 14px;
+      }
+
+      .hero-glass-panel {
+        padding: 20px 16px 16px;
+        border-radius: 21px;
+      }
+
+      .hero-google-rating {
+        margin-bottom: 11px;
+        padding: 7px 9px;
+        gap: 7px;
+      }
+
+      .hero-google-mark {
+        width: 23px;
+        height: 23px;
+        font-size: 13px;
+      }
+
+      .hero-google-copy strong {
+        font-size: 10.5px;
+      }
+
+      .hero-google-copy span,
+      .hero-google-stars {
+        font-size: 9px;
+      }
+
+      .hero-glass-title {
+        font-size: clamp(38px, 11.5vw, 49px);
+        line-height: .92;
+      }
+
+      .hero-glass-description {
+        margin-top: 13px;
+        font-size: 13.5px;
+        line-height: 1.43;
+      }
+
+      .hero-glass-actions {
+        margin-top: 16px;
+      }
+
+      .hero-glass-actions .button-primary,
+      .hero-glass-actions .button-link {
+        min-height: 45px;
+      }
+
+      .hero-proof-grid {
+        gap: 7px;
+        margin-top: 14px;
+      }
+
+      .hero-proof-card {
+        padding: 11px 8px 10px;
+        border-radius: 13px;
+        text-align: center;
+      }
+
+      .hero-proof-value {
+        font-size: clamp(19px, 5.6vw, 24px);
+      }
+
+      .hero-proof-label {
+        margin-top: 5px;
+        font-size: 8.7px;
+      }
+
+      /* The old generic trust chips are replaced by the visual proof cards */
+      .hero-glass-trust {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-stage,
+      .hero-glass-layout {
+        min-height: 650px;
+      }
+
+      .hero-glass-title {
+        font-size: clamp(36px, 10.9vw, 44px);
+      }
+
+      .hero-proof-value {
+        font-size: 19px;
+      }
+
+      .hero-proof-label {
+        font-size: 8px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-stage,
+      .hero-glass-layout {
+        min-height: 675px;
+      }
+
+      .hero-glass-panel {
+        padding-inline: 14px;
+      }
+
+      .hero-proof-grid {
+        gap: 5px;
+      }
+
+      .hero-proof-card {
+        padding-inline: 6px;
+      }
+
+      .hero-proof-value {
+        font-size: 17px;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-fullscreen-slider-v5">
+    /* =========================================================
+       V5 — Mobile fullscreen hero + visible 3-slide background
+       + phone in navbar + WhatsApp CTA
+       ========================================================= */
+
+    .hero-background-track {
+      width: 400% !important;
+      animation: none !important;
+      transform: translate3d(0, 0, 0);
+      transition: transform .85s cubic-bezier(.22,.8,.2,1);
+    }
+
+    .hero-slide {
+      flex: 0 0 25% !important;
+      width: 25% !important;
+    }
+
+    .hero-slider-dots {
+      position: absolute;
+      z-index: 6;
+      left: 50%;
+      top: 18px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 9px;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 999px;
+      background: rgba(4,22,34,.22);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-slider-dot {
+      width: 22px;
+      height: 4px;
+      border: 0;
+      padding: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,.34);
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-slider-dot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: #a9e5ff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s ease;
+    }
+
+    .hero-slider-dot.is-active::after {
+      transform: scaleX(1);
+    }
+
+    .hero-slider-index {
+      position: absolute;
+      z-index: 6;
+      right: 18px;
+      top: 17px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(4,22,34,.22);
+      color: rgba(255,255,255,.86);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .button-whatsapp {
+      background: #16a765 !important;
+      border-color: #16a765 !important;
+      color: #fff !important;
+      box-shadow: 0 14px 32px rgba(22,167,101,.28) !important;
+    }
+
+    .button-whatsapp:hover {
+      background: #128953 !important;
+      border-color: #128953 !important;
+    }
+
+    .button-whatsapp svg {
+      fill: none;
+      stroke: currentColor;
+    }
+
+    @media (max-width: 780px) {
+      .hero-section {
+        min-height: 100svh;
+      }
+
+      .hero-frame {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .topbar {
+        display: flex !important;
+        align-items: center !important;
+        gap: 7px !important;
+        width: 100%;
+        min-height: 66px !important;
+        padding: 7px 8px !important;
+      }
+
+      .brand {
+        min-width: 0;
+        flex: 1 1 auto;
+        gap: 8px !important;
+      }
+
+      .brand-mark {
+        width: 34px !important;
+        height: 34px !important;
+        flex: 0 0 34px;
+      }
+
+      .brand-copy {
+        min-width: 0;
+      }
+
+      .brand-copy strong {
+        font-size: 16px !important;
+        white-space: nowrap;
+      }
+
+      .phone-chip {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        min-height: 42px !important;
+        padding: 0 9px !important;
+        border: 1px solid rgba(24,75,112,.12) !important;
+        border-radius: 13px !important;
+        background: rgba(255,255,255,.94) !important;
+        color: #143b57 !important;
+        box-shadow: 0 7px 18px rgba(23,76,115,.05) !important;
+        flex: 0 0 auto;
+        font-size: 10.5px !important;
+        font-weight: 800 !important;
+        letter-spacing: -.01em;
+      }
+
+      .phone-chip svg {
+        width: 17px !important;
+        height: 17px !important;
+        flex: 0 0 17px;
+      }
+
+      .mobile-menu-toggle {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 13px !important;
+        flex: 0 0 42px !important;
+      }
+
+      .hero-stage {
+        flex: 1 1 auto;
+        width: 100%;
+        min-height: calc(100svh - 82px) !important;
+        margin-top: 8px !important;
+        border-radius: 22px !important;
+      }
+
+      .hero-glass-layout {
+        min-height: calc(100svh - 82px) !important;
+        align-items: flex-end !important;
+        padding: 82px 14px 14px !important;
+      }
+
+      .hero-stage::before {
+        background:
+          linear-gradient(180deg,
+            rgba(5,22,34,.07) 0%,
+            rgba(5,22,34,.13) 24%,
+            rgba(5,22,34,.34) 47%,
+            rgba(5,22,34,.82) 100%) !important;
+      }
+
+      .hero-slide img {
+        object-position: 58% center !important;
+      }
+
+      .hero-slide:nth-child(2) img {
+        object-position: 50% center !important;
+      }
+
+      .hero-slide:nth-child(3) {
+        background: #e8f0f4;
+      }
+
+      .hero-slide:nth-child(3) img {
+        object-position: center !important;
+        filter: saturate(.92) contrast(1.04);
+      }
+
+      .hero-glass-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 18px 15px 15px !important;
+        border-radius: 21px !important;
+        background:
+          linear-gradient(145deg, rgba(20,36,47,.54), rgba(255,255,255,.10)) !important;
+        -webkit-backdrop-filter: blur(17px) saturate(120%) !important;
+        backdrop-filter: blur(17px) saturate(120%) !important;
+      }
+
+      .hero-google-rating {
+        margin-bottom: 10px !important;
+      }
+
+      .hero-glass-panel .eyebrow {
+        margin-bottom: 10px !important;
+      }
+
+      .hero-glass-title {
+        font-size: clamp(35px, 10.7vw, 45px) !important;
+        line-height: .92 !important;
+      }
+
+      .hero-glass-description {
+        margin-top: 12px !important;
+        font-size: 13px !important;
+        line-height: 1.42 !important;
+      }
+
+      .hero-glass-actions {
+        margin-top: 15px !important;
+      }
+
+      .hero-glass-actions .button-primary,
+      .hero-glass-actions .button-link {
+        min-height: 46px !important;
+      }
+
+      .hero-proof-grid {
+        margin-top: 13px !important;
+      }
+
+      .hero-proof-card {
+        padding: 10px 7px 9px !important;
+      }
+
+      .hero-proof-value {
+        font-size: 18px !important;
+      }
+
+      .hero-slider-dots {
+        top: 14px;
+      }
+
+      .hero-slider-index {
+        top: 13px;
+        right: 13px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .topbar {
+        gap: 5px !important;
+      }
+
+      .brand-copy strong {
+        font-size: 15px !important;
+      }
+
+      .phone-chip {
+        padding-inline: 7px !important;
+        font-size: 9.5px !important;
+      }
+
+      .phone-chip svg {
+        width: 15px !important;
+        height: 15px !important;
+      }
+
+      .hero-glass-layout {
+        padding-inline: 11px !important;
+        padding-bottom: 11px !important;
+      }
+    }
+
+    @media (max-width: 365px) {
+      .brand-copy strong {
+        font-size: 14px !important;
+      }
+
+      .phone-chip span {
+        font-size: 9px !important;
+      }
+
+      .phone-chip {
+        padding-inline: 6px !important;
+      }
+
+      .hero-glass-title {
+        font-size: 34px !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-background-track {
+        transition: none !important;
+        transform: translate3d(0,0,0) !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-open-background-v6">
+    /* =========================================================
+       V6 — Open background hero
+       Large glass panel removed. Glass only on small UI elements.
+       ========================================================= */
+
+    /* Navbar becomes the main glass surface */
+    .topbar {
+      background: rgba(255,255,255,.76) !important;
+      border: 1px solid rgba(255,255,255,.66) !important;
+      box-shadow:
+        0 14px 38px rgba(15, 54, 80, .08),
+        inset 0 1px 0 rgba(255,255,255,.85) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(135%) !important;
+      backdrop-filter: blur(18px) saturate(135%) !important;
+    }
+
+    .phone-chip,
+    .mobile-menu-toggle {
+      background: rgba(255,255,255,.54) !important;
+      border-color: rgba(19, 69, 103, .10) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(125%) !important;
+      backdrop-filter: blur(12px) saturate(125%) !important;
+    }
+
+    /* Remove the large glass container visually */
+    .hero-glass-panel {
+      width: min(760px, 72%) !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+      color: #fff;
+    }
+
+    /* Dark gradient only where copy needs readability */
+    .hero-stage::before {
+      background:
+        linear-gradient(90deg,
+          rgba(5, 20, 31, .76) 0%,
+          rgba(5, 20, 31, .52) 31%,
+          rgba(5, 20, 31, .18) 64%,
+          rgba(5, 20, 31, .04) 100%),
+        linear-gradient(180deg,
+          rgba(5, 20, 31, .06) 0%,
+          rgba(5, 20, 31, .10) 54%,
+          rgba(5, 20, 31, .42) 100%) !important;
+    }
+
+    .hero-stage::after {
+      background:
+        linear-gradient(180deg, transparent 64%, rgba(5,20,31,.24) 100%) !important;
+    }
+
+    .hero-glass-layout {
+      align-items: center !important;
+      justify-content: flex-start;
+    }
+
+    .hero-glass-panel .eyebrow {
+      background: rgba(9, 33, 48, .30) !important;
+      border-color: rgba(255,255,255,.24) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+      -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
+      backdrop-filter: blur(14px) saturate(120%) !important;
+    }
+
+    .hero-google-rating {
+      background: rgba(9, 33, 48, .34) !important;
+      border-color: rgba(255,255,255,.22) !important;
+      box-shadow:
+        0 10px 28px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.13);
+      -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
+      backdrop-filter: blur(14px) saturate(120%) !important;
+    }
+
+    .hero-glass-title {
+      max-width: 700px;
+      text-shadow:
+        0 2px 8px rgba(0,0,0,.20),
+        0 14px 36px rgba(0,0,0,.18);
+    }
+
+    .hero-glass-description {
+      max-width: 590px;
+      color: rgba(255,255,255,.88) !important;
+      text-shadow: 0 2px 16px rgba(0,0,0,.28);
+    }
+
+    .hero-glass-actions .button-link {
+      background: rgba(255,255,255,.14) !important;
+      border-color: rgba(255,255,255,.28) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.14);
+      -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
+      backdrop-filter: blur(14px) saturate(120%) !important;
+    }
+
+    .hero-proof-grid {
+      max-width: 560px;
+    }
+
+    .hero-proof-card {
+      background: rgba(8, 30, 44, .28) !important;
+      border-color: rgba(255,255,255,.20) !important;
+      box-shadow:
+        0 10px 26px rgba(0,0,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.10) !important;
+      -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
+      backdrop-filter: blur(14px) saturate(120%) !important;
+    }
+
+    .hero-proof-card.is-primary {
+      background: rgba(0, 116, 176, .26) !important;
+    }
+
+    .hero-proof-card.is-google {
+      background: rgba(95, 74, 5, .20) !important;
+      border-color: rgba(255,211,77,.26) !important;
+    }
+
+    /* Keep the slider controls visible but subtle */
+    .hero-slider-dots,
+    .hero-slider-index {
+      background: rgba(7, 28, 42, .28) !important;
+      border-color: rgba(255,255,255,.18) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      backdrop-filter: blur(12px) !important;
+    }
+
+    @media (max-width: 780px) {
+      .hero-stage {
+        min-height: calc(100svh - 82px) !important;
+      }
+
+      .hero-glass-layout {
+        min-height: calc(100svh - 82px) !important;
+        align-items: flex-end !important;
+        padding: 80px 18px 24px !important;
+      }
+
+      /* Make much more of the image visible */
+      .hero-stage::before {
+        background:
+          linear-gradient(180deg,
+            rgba(5,22,34,.02) 0%,
+            rgba(5,22,34,.04) 28%,
+            rgba(5,22,34,.13) 48%,
+            rgba(5,22,34,.60) 71%,
+            rgba(5,22,34,.88) 100%) !important;
+      }
+
+      .hero-stage::after {
+        background: none !important;
+      }
+
+      .hero-glass-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+
+      .hero-glass-panel .eyebrow {
+        width: fit-content;
+        margin-bottom: 9px !important;
+        padding: 7px 10px !important;
+      }
+
+      .hero-google-rating {
+        width: fit-content;
+        margin-bottom: 9px !important;
+        padding: 7px 9px !important;
+      }
+
+      .hero-glass-title {
+        max-width: 100% !important;
+        font-size: clamp(36px, 10.8vw, 45px) !important;
+        line-height: .91 !important;
+        text-shadow:
+          0 2px 8px rgba(0,0,0,.28),
+          0 12px 30px rgba(0,0,0,.22) !important;
+      }
+
+      .hero-glass-description {
+        max-width: 94%;
+        margin-top: 11px !important;
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+      }
+
+      .hero-glass-actions {
+        margin-top: 14px !important;
+      }
+
+      .hero-glass-actions .button-primary,
+      .hero-glass-actions .button-link {
+        min-height: 45px !important;
+      }
+
+      .hero-proof-grid {
+        max-width: 100%;
+        margin-top: 12px !important;
+        gap: 7px !important;
+      }
+
+      .hero-proof-card {
+        padding: 9px 6px 8px !important;
+      }
+
+      .hero-proof-value {
+        font-size: 18px !important;
+      }
+
+      .hero-proof-label {
+        font-size: 7.9px !important;
+      }
+
+      /* Give the background a larger unobstructed top zone */
+      .hero-slider-dots {
+        top: 13px !important;
+      }
+
+      .hero-slider-index {
+        top: 12px !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-glass-layout {
+        padding: 78px 15px 20px !important;
+      }
+
+      .hero-glass-title {
+        font-size: clamp(34px, 10.7vw, 43px) !important;
+      }
+
+      .hero-glass-description {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 365px) {
+      .hero-glass-layout {
+        padding-inline: 13px !important;
+      }
+
+      .hero-glass-title {
+        font-size: 33px !important;
+      }
+
+      .hero-proof-value {
+        font-size: 17px !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v7-metrics-top">
+    .hero-proof-grid.is-top {
+      margin-top: 0 !important;
+      margin-bottom: 18px !important;
+    }
+
+    .hero-proof-grid.is-top .hero-proof-card {
+      min-height: 72px;
+    }
+
+    @media (max-width: 780px) {
+      .hero-proof-grid.is-top {
+        margin-bottom: 12px !important;
+      }
+
+      .hero-proof-grid.is-top .hero-proof-card {
+        min-height: 60px;
+      }
+
+      .hero-glass-title {
+        margin-top: 0 !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v9-line-fix">
+    /* Remove inherited underline/accent from the secondary hero CTA */
+    .hero-glass-actions .button-link::before,
+    .hero-glass-actions .button-link::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    .hero-glass-actions .button-link {
+      text-decoration: none !important;
+      border-bottom: 1px solid rgba(255,255,255,.28) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.14) !important;
+      background-image: none !important;
+    }
+
+    .hero-glass-actions {
+      border: 0 !important;
+      background-image: none !important;
+    }
+  </style>
+
+
+  <style id="frioexpert-navbar-premium-v10">
+    /* =========================================================
+       V10 — Premium floating navbar, always visible on scroll
+       ========================================================= */
+    .hero-frame {
+      padding-top: 112px !important;
+    }
+
+    .topbar {
+      position: fixed !important;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 120 !important;
+      width: min(calc(100% - 32px), 1360px);
+      min-height: 68px !important;
+      padding: 10px 18px !important;
+      border: 1px solid rgba(255,255,255,.64) !important;
+      border-radius: 24px !important;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.72)) !important;
+      box-shadow:
+        0 16px 40px rgba(12, 46, 69, .08),
+        inset 0 1px 0 rgba(255,255,255,.85) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
+      backdrop-filter: blur(18px) saturate(140%) !important;
+      transition:
+        top .28s ease,
+        width .28s ease,
+        padding .28s ease,
+        box-shadow .28s ease,
+        background .28s ease,
+        border-color .28s ease,
+        transform .28s ease !important;
+    }
+
+    .topbar.is-scrolled {
+      top: 10px;
+      width: min(calc(100% - 20px), 1280px);
+      padding: 8px 16px !important;
+      border-color: rgba(255,255,255,.72) !important;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.84)) !important;
+      box-shadow:
+        0 18px 50px rgba(12, 46, 69, .12),
+        inset 0 1px 0 rgba(255,255,255,.92) !important;
+    }
+
+    .brand {
+      gap: 12px !important;
+    }
+
+    .brand-mark {
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 16px !important;
+      background: linear-gradient(180deg, #f9fcff, #eef6fd) !important;
+      border: 1px solid rgba(25, 102, 206, .10);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+    }
+
+    .brand-mark svg {
+      stroke-width: 2.2 !important;
+    }
+
+    .brand-copy strong {
+      font-size: 18px !important;
+      letter-spacing: -.03em;
+      color: #0f2742 !important;
+    }
+
+    .brand-copy > span {
+      font-size: 11px !important;
+      color: #69788c !important;
+      letter-spacing: -.01em;
+    }
+
+    .site-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(16, 59, 91, .06);
+      border-radius: 999px;
+      background: rgba(248, 251, 255, .68);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .site-nav a {
+      position: relative;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 16px !important;
+      border-radius: 999px;
+      color: #22354a !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      letter-spacing: -.01em;
+      transition:
+        background .22s ease,
+        color .22s ease,
+        transform .22s ease,
+        box-shadow .22s ease !important;
+    }
+
+    .site-nav a:hover {
+      background: rgba(255,255,255,.84);
+      color: #0d59ff !important;
+      transform: translateY(-1px);
+    }
+
+    .site-nav a.is-active {
+      background: linear-gradient(180deg, #ffffff, #f4f8ff);
+      color: #0d59ff !important;
+      box-shadow:
+        0 8px 18px rgba(13, 89, 255, .10),
+        inset 0 1px 0 rgba(255,255,255,.95);
+    }
+
+    .phone-chip {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 9px !important;
+      min-height: 44px !important;
+      padding: 0 16px !important;
+      border: 1px solid rgba(25, 102, 206, .10) !important;
+      border-radius: 999px !important;
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(246,250,255,.78)) !important;
+      color: #12436b !important;
+      box-shadow:
+        0 10px 24px rgba(22, 76, 117, .06),
+        inset 0 1px 0 rgba(255,255,255,.9) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      backdrop-filter: blur(10px) !important;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease !important;
+    }
+
+    .phone-chip:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 12px 28px rgba(22, 76, 117, .10),
+        inset 0 1px 0 rgba(255,255,255,.95) !important;
+    }
+
+    .phone-chip svg {
+      width: 17px !important;
+      height: 17px !important;
+    }
+
+    .phone-chip span {
+      font-size: 14px !important;
+      font-weight: 800 !important;
+      letter-spacing: -.015em;
+    }
+
+    @media (max-width: 980px) {
+      .hero-frame {
+        padding-top: 102px !important;
+      }
+
+      .site-nav {
+        gap: 2px;
+      }
+
+      .site-nav a {
+        padding-inline: 12px !important;
+        font-size: 13px !important;
+      }
+
+      .phone-chip {
+        padding-inline: 13px !important;
+      }
+
+      .phone-chip span {
+        font-size: 13px !important;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .hero-frame {
+        padding-top: 88px !important;
+      }
+
+      .topbar {
+        top: 12px;
+        width: calc(100% - 20px) !important;
+        min-height: 62px !important;
+        padding: 8px 10px !important;
+        border-radius: 20px !important;
+      }
+
+      .topbar.is-scrolled {
+        top: 8px;
+        width: calc(100% - 14px) !important;
+        padding-inline: 9px !important;
+      }
+
+      .brand {
+        min-width: 0;
+        gap: 9px !important;
+      }
+
+      .brand-mark {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 14px !important;
+      }
+
+      .brand-copy strong {
+        font-size: 16px !important;
+      }
+
+      .brand-copy > span {
+        display: none !important;
+      }
+
+      .phone-chip {
+        display: inline-flex !important;
+        min-height: 42px !important;
+        padding: 0 10px !important;
+        gap: 6px !important;
+        border-radius: 14px !important;
+        flex: 0 0 auto;
+      }
+
+      .phone-chip span {
+        font-size: 11px !important;
+      }
+
+      .phone-chip svg {
+        width: 16px !important;
+        height: 16px !important;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex !important;
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 14px !important;
+        flex: 0 0 42px !important;
+        background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(247,250,255,.72)) !important;
+        border: 1px solid rgba(25, 102, 206, .10) !important;
+        box-shadow:
+          0 8px 18px rgba(22, 76, 117, .05),
+          inset 0 1px 0 rgba(255,255,255,.92) !important;
+      }
+
+      .site-nav {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 10px;
+        border: 1px solid rgba(255,255,255,.74) !important;
+        border-radius: 20px !important;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,251,255,.92)) !important;
+        box-shadow:
+          0 18px 44px rgba(12, 46, 69, .14),
+          inset 0 1px 0 rgba(255,255,255,.9) !important;
+        -webkit-backdrop-filter: blur(16px) saturate(135%) !important;
+        backdrop-filter: blur(16px) saturate(135%) !important;
+      }
+
+      .site-nav a {
+        justify-content: flex-start !important;
+        min-height: 46px;
+        padding: 0 14px !important;
+        border-radius: 14px !important;
+      }
+
+      .site-nav a.is-active {
+        box-shadow: none !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .phone-chip {
+        padding-inline: 8px !important;
+      }
+
+      .phone-chip span {
+        font-size: 10px !important;
+      }
+    }
+
+    @media (max-width: 365px) {
+      .brand-copy strong {
+        font-size: 15px !important;
+      }
+
+      .phone-chip span {
+        font-size: 9.5px !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v11-navbar-center-hero">
+    /* Keep fixed navbar mathematically centered */
+    .topbar {
+      left: 50% !important;
+      right: auto !important;
+      transform: translateX(-50%) !important;
+      margin: 0 !important;
+    }
+
+    .topbar.is-scrolled {
+      transform: translateX(-50%) !important;
+    }
+
+    /* Center the desktop hero composition */
+    @media (min-width: 781px) {
+      .hero-stage::before {
+        background:
+          linear-gradient(180deg,
+            rgba(5,20,31,.12) 0%,
+            rgba(5,20,31,.25) 32%,
+            rgba(5,20,31,.48) 100%),
+          radial-gradient(
+            ellipse at 50% 57%,
+            rgba(5,20,31,.54) 0%,
+            rgba(5,20,31,.34) 35%,
+            rgba(5,20,31,.10) 72%
+          ) !important;
+      }
+
+      .hero-glass-layout {
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center;
+        padding-left: clamp(50px, 7vw, 110px) !important;
+        padding-right: clamp(50px, 7vw, 110px) !important;
+      }
+
+      .hero-glass-panel {
+        width: min(840px, 78%) !important;
+        margin-inline: auto !important;
+        text-align: center;
+      }
+
+      .hero-proof-grid.is-top {
+        width: min(100%, 540px);
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 24px !important;
+      }
+
+      .hero-glass-title {
+        max-width: 820px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        font-size: clamp(58px, 5vw, 82px) !important;
+        line-height: .92 !important;
+        text-wrap: balance;
+      }
+
+      .hero-glass-description {
+        max-width: 680px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        font-size: 17px !important;
+      }
+
+      .hero-glass-actions {
+        justify-content: center !important;
+      }
+
+      .hero-slider-dots {
+        left: 50% !important;
+      }
+    }
+
+    /* Tablet gets a slightly narrower centered composition */
+    @media (min-width: 781px) and (max-width: 1100px) {
+      .hero-glass-panel {
+        width: min(860px, 88%) !important;
+      }
+
+      .hero-glass-title {
+        font-size: clamp(50px, 6vw, 68px) !important;
+      }
+    }
+
+    /* Preserve mobile's more practical left alignment */
+    @media (max-width: 780px) {
+      .topbar {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+      }
+
+      .hero-glass-panel,
+      .hero-glass-title,
+      .hero-glass-description {
+        text-align: left !important;
+      }
+
+      .hero-proof-grid.is-top {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+
+      .hero-glass-actions {
+        justify-content: flex-start !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-seo-h1-v12">
+    @media (min-width: 781px) {
+      .hero-glass-title {
+        max-width: 940px !important;
+        font-size: clamp(54px, 4.5vw, 76px) !important;
+        line-height: .94 !important;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .hero-glass-title {
+        font-size: clamp(32px, 9.7vw, 42px) !important;
+        line-height: .94 !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-glass-title {
+        font-size: 31px !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v13-mobile-hero-distribution">
+    @media (max-width: 780px) {
+      /* Use the full hero height better */
+      .hero-glass-layout {
+        align-items: stretch !important;
+        padding-top: 84px !important;
+        padding-bottom: 18px !important;
+      }
+
+      .hero-glass-panel {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 100% !important;
+      }
+
+      /* Metrics stay visibly higher */
+      .hero-proof-grid.is-top {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .hero-proof-grid.is-top .hero-proof-card {
+        min-height: 58px !important;
+      }
+
+      /* Push the H1 down into the middle area */
+      .hero-glass-title {
+        margin-top: auto !important;
+        margin-bottom: 0 !important;
+      }
+
+      .hero-glass-description {
+        margin-top: 12px !important;
+      }
+
+      .hero-glass-actions {
+        margin-top: 16px !important;
+        padding-bottom: max(0px, env(safe-area-inset-bottom)) !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-glass-layout {
+        padding-top: 78px !important;
+        padding-bottom: 16px !important;
+      }
+
+      .hero-proof-grid.is-top .hero-proof-card {
+        min-height: 54px !important;
+      }
+
+      .hero-glass-title {
+        font-size: clamp(31px, 9.8vw, 40px) !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-glass-layout {
+        padding-top: 74px !important;
+      }
+
+      .hero-glass-title {
+        font-size: 30px !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v14-mobile-center-content">
+    @media (max-width: 780px) {
+      .hero-glass-layout {
+        align-items: stretch !important;
+        padding-top: 84px !important;
+        padding-bottom: 18px !important;
+      }
+
+      .hero-glass-panel {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        min-height: 100% !important;
+      }
+
+      /* Keep metrics high */
+      .hero-proof-grid.is-top {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* Bring the whole content block upward */
+      .hero-glass-title {
+        margin-top: 18px !important;
+        margin-bottom: 0 !important;
+      }
+
+      .hero-glass-description {
+        margin-top: 12px !important;
+      }
+
+      .hero-glass-actions {
+        margin-top: 18px !important;
+        padding-bottom: 0 !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-glass-layout {
+        padding-top: 78px !important;
+      }
+
+      .hero-glass-title {
+        margin-top: 16px !important;
+        font-size: clamp(31px, 9.8vw, 40px) !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-glass-layout {
+        padding-top: 74px !important;
+      }
+
+      .hero-glass-title {
+        margin-top: 14px !important;
+        font-size: 30px !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v15-mobile-balanced">
+    .hero-content-stack {
+      display: block;
+    }
+
+    @media (max-width: 780px) {
+      .hero-glass-layout {
+        align-items: stretch !important;
+        padding-top: 84px !important;
+        padding-bottom: 18px !important;
+      }
+
+      .hero-glass-panel {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 100% !important;
+      }
+
+      /* Metrics stay in the top zone, but not glued to the edge */
+      .hero-proof-grid.is-top {
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* Center the main block within the remaining space */
+      .hero-content-stack {
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+      }
+
+      .hero-glass-title {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .hero-glass-description {
+        margin-top: 12px !important;
+      }
+
+      .hero-glass-actions {
+        margin-top: 18px !important;
+        padding-bottom: 0 !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-glass-layout {
+        padding-top: 78px !important;
+        padding-bottom: 16px !important;
+      }
+
+      .hero-proof-grid.is-top {
+        margin-top: 4px !important;
+      }
+
+      .hero-glass-title {
+        font-size: clamp(31px, 9.8vw, 40px) !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-glass-layout {
+        padding-top: 74px !important;
+      }
+
+      .hero-glass-title {
+        font-size: 30px !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v16-mobile-background-filter">
+    @media (max-width: 780px) {
+      /* Mobile only: improve H1 readability without changing desktop */
+      .hero-stage::before {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(4, 18, 28, .08) 0%,
+            rgba(4, 18, 28, .12) 22%,
+            rgba(4, 18, 28, .26) 40%,
+            rgba(4, 18, 28, .50) 58%,
+            rgba(4, 18, 28, .72) 76%,
+            rgba(4, 18, 28, .84) 100%
+          ) !important;
+      }
+
+      .hero-stage::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse at 48% 58%,
+            rgba(4, 18, 28, .38) 0%,
+            rgba(4, 18, 28, .24) 28%,
+            rgba(4, 18, 28, .08) 52%,
+            transparent 72%
+          ) !important;
+      }
+
+      .hero-glass-title {
+        text-shadow:
+          0 2px 8px rgba(0,0,0,.42),
+          0 10px 28px rgba(0,0,0,.28) !important;
+      }
+
+      .hero-glass-description {
+        text-shadow:
+          0 2px 10px rgba(0,0,0,.34) !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v17-premium-type-cta">
+    /* H1 — calmer palette and stronger editorial hierarchy */
+    .hero-glass-title {
+      font-family: var(--font-display, "League Spartan", "Manrope", sans-serif) !important;
+      font-weight: 700 !important;
+      letter-spacing: -.046em !important;
+      text-wrap: balance;
+    }
+
+    .hero-glass-title .hero-title-main,
+    .hero-glass-title .hero-title-service,
+    .hero-glass-title .hero-title-location {
+      display: block;
+    }
+
+    .hero-glass-title .hero-title-main {
+      color: #ffffff !important;
+      font-weight: 650;
+    }
+
+    .hero-glass-title .hero-title-service {
+      margin-top: .04em;
+      color: #ffffff !important;
+      font-weight: 800;
+    }
+
+    .hero-glass-title .hero-title-location {
+      margin-top: .02em;
+      color: #9edfff !important;
+      font-weight: 750;
+      letter-spacing: -.038em;
+    }
+
+    .hero-glass-description {
+      color: rgba(255,255,255,.82) !important;
+      font-weight: 450;
+      letter-spacing: -.01em;
+    }
+
+    /* Primary CTA */
+    .hero-glass-actions .premium-primary-cta {
+      position: relative;
+      display: grid !important;
+      grid-template-columns: auto minmax(0,1fr) auto;
+      align-items: center;
+      gap: 12px;
+      min-height: 58px !important;
+      padding: 8px 12px 8px 9px !important;
+      border: 1px solid rgba(255,255,255,.16) !important;
+      border-radius: 17px !important;
+      background:
+        linear-gradient(135deg, #18b66c 0%, #0ca760 100%) !important;
+      box-shadow:
+        0 16px 34px rgba(8,125,71,.28),
+        inset 0 1px 0 rgba(255,255,255,.20) !important;
+      text-align: left;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-glass-actions .premium-primary-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(105deg, transparent 15%, rgba(255,255,255,.10) 48%, transparent 72%);
+      transform: translateX(-110%);
+      transition: transform .7s ease;
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .hero-glass-actions .premium-primary-cta:hover::before {
+        transform: translateX(110%);
+      }
+
+      .hero-glass-actions .premium-primary-cta:hover {
+        transform: translateY(-2px) !important;
+        box-shadow:
+          0 20px 42px rgba(8,125,71,.34),
+          inset 0 1px 0 rgba(255,255,255,.24) !important;
+      }
+    }
+
+    .premium-cta-icon {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 12px;
+      background: rgba(255,255,255,.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.15);
+    }
+
+    .premium-cta-icon svg {
+      width: 20px !important;
+      height: 20px !important;
+      stroke: currentColor;
+    }
+
+    .premium-cta-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.08;
+    }
+
+    .premium-cta-copy strong {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.015em;
+    }
+
+    .premium-cta-copy small {
+      margin-top: 4px;
+      color: rgba(255,255,255,.68);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: .02em;
+    }
+
+    .premium-cta-arrow {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(0,0,0,.09);
+      color: #fff;
+      font-size: 16px;
+      transition: transform .22s ease;
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .premium-primary-cta:hover .premium-cta-arrow {
+        transform: translate(2px,-2px);
+      }
+    }
+
+    /* Secondary CTA */
+    .hero-glass-actions .premium-secondary-cta {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 52px !important;
+      padding: 0 18px !important;
+      border: 1px solid rgba(255,255,255,.24) !important;
+      border-radius: 17px !important;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.15), rgba(255,255,255,.08)) !important;
+      color: #fff !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.15),
+        0 10px 26px rgba(0,0,0,.08) !important;
+      -webkit-backdrop-filter: blur(14px) saturate(125%) !important;
+      backdrop-filter: blur(14px) saturate(125%) !important;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+
+    .premium-secondary-arrow {
+      display: inline-flex;
+      font-size: 18px;
+      line-height: 1;
+      color: #a9e5ff;
+      transition: transform .22s ease;
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .premium-secondary-cta:hover {
+        background:
+          linear-gradient(135deg, rgba(255,255,255,.20), rgba(255,255,255,.11)) !important;
+        transform: translateY(-1px);
+      }
+
+      .premium-secondary-cta:hover .premium-secondary-arrow {
+        transform: translateX(4px);
+      }
+    }
+
+    @media (min-width: 781px) {
+      .hero-glass-title .hero-title-location {
+        color: #9edfff !important;
+      }
+
+      .hero-glass-actions {
+        gap: 10px !important;
+      }
+
+      .hero-glass-actions .premium-primary-cta {
+        min-width: 270px;
+      }
+
+      .hero-glass-actions .premium-secondary-cta {
+        min-width: 190px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .hero-glass-title {
+        line-height: .92 !important;
+        letter-spacing: -.042em !important;
+      }
+
+      .hero-glass-title .hero-title-main {
+        font-size: .96em;
+      }
+
+      .hero-glass-title .hero-title-service {
+        font-size: 1.04em;
+      }
+
+      .hero-glass-title .hero-title-location {
+        font-size: .96em;
+        color: #a5e4ff !important;
+      }
+
+      .hero-glass-actions {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+      }
+
+      .hero-glass-actions .premium-primary-cta {
+        width: 100% !important;
+        min-height: 57px !important;
+      }
+
+      .hero-glass-actions .premium-secondary-cta {
+        width: 100% !important;
+        min-height: 49px !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .premium-cta-copy strong {
+        font-size: 13px;
+      }
+
+      .premium-cta-icon {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-services-premium-v18">
+    .services-premium-section {
+      position: relative;
+      padding: clamp(76px, 8vw, 118px) 0;
+      background:
+        radial-gradient(circle at 82% 4%, rgba(25, 116, 212, .07), transparent 26%),
+        linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      overflow: hidden;
+    }
+
+    .services-premium-shell {
+      width: min(calc(100% - 40px), 1240px);
+      margin-inline: auto;
+    }
+
+    .services-premium-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      align-items: end;
+      gap: 56px;
+    }
+
+    .services-premium-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: #0868e8;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .services-premium-kicker-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(8,104,232,.12);
+      border-radius: 11px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(18,83,143,.06);
+    }
+
+    .services-premium-kicker-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .services-premium-title {
+      max-width: 760px;
+      margin: 0;
+      font-family: var(--font-display, "League Spartan", "Manrope", sans-serif);
+      font-size: clamp(42px, 4.8vw, 68px);
+      line-height: .98;
+      letter-spacing: -.052em;
+      color: #0c2746;
+      text-wrap: balance;
+    }
+
+    .services-premium-title span {
+      display: block;
+      color: #0874ee;
+    }
+
+    .services-premium-intro {
+      max-width: 470px;
+      margin: 0 0 5px;
+      color: #627286;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .services-premium-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 52px;
+    }
+
+    .service-premium-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 340px;
+      padding: 24px;
+      border: 1px solid rgba(17,72,118,.08);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(249,252,255,.96));
+      box-shadow:
+        0 20px 50px rgba(15,67,108,.055),
+        inset 0 1px 0 rgba(255,255,255,.95);
+      transition:
+        transform .28s ease,
+        box-shadow .28s ease,
+        border-color .28s ease;
+    }
+
+    .service-premium-card::before {
+      content: "";
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      top: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0c76f0, rgba(98,206,255,.35), transparent);
+      opacity: .72;
+    }
+
+    .service-premium-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .service-premium-number {
+      color: #8ea0b1;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .service-premium-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(8,104,232,.11);
+      border-radius: 15px;
+      background: linear-gradient(180deg, #f4f9ff, #edf6ff);
+      color: #0874ee;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.95);
+    }
+
+    .service-premium-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service-premium-card h3 {
+      margin: 34px 0 0;
+      font-family: var(--font-display, "League Spartan", "Manrope", sans-serif);
+      font-size: 25px;
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      color: #0f2a49;
+    }
+
+    .service-premium-card p {
+      margin: 15px 0 0;
+      color: #68788a;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .service-premium-card > a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 24px;
+      color: #0868e8;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .service-premium-card > a span {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: #edf6ff;
+      transition: transform .22s ease, background .22s ease;
+    }
+
+    .services-premium-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin-top: 18px;
+      padding: 20px 22px;
+      border: 1px solid rgba(8,104,232,.09);
+      border-radius: 20px;
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 14px 40px rgba(15,67,108,.045);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+
+    .services-premium-bottom > div {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .services-premium-bottom strong {
+      color: #102d4c;
+      font-size: 14px;
+    }
+
+    .services-premium-bottom span {
+      color: #788696;
+      font-size: 12px;
+    }
+
+    .services-premium-bottom > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 14px;
+      background: #0fa964;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(15,169,100,.18);
+    }
+
+    .services-premium-bottom > a svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .service-premium-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(8,104,232,.16);
+        box-shadow:
+          0 28px 62px rgba(15,67,108,.10),
+          inset 0 1px 0 rgba(255,255,255,.96);
+      }
+
+      .service-premium-card > a:hover span {
+        transform: translate(2px,-2px);
+        background: #e3f1ff;
+      }
+
+      .services-premium-bottom > a:hover {
+        transform: translateY(-1px);
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .services-premium-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-premium-card {
+        min-height: 310px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .services-premium-section {
+        padding: 68px 0;
+      }
+
+      .services-premium-shell {
+        width: min(calc(100% - 28px), 1240px);
+      }
+
+      .services-premium-head {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .services-premium-title {
+        max-width: 100%;
+        font-size: clamp(36px, 10vw, 48px);
+        line-height: .98;
+      }
+
+      .services-premium-intro {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .services-premium-grid {
+        display: flex;
+        gap: 12px;
+        margin-top: 34px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        padding: 2px 1px 10px;
+      }
+
+      .services-premium-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .service-premium-card {
+        flex: 0 0 min(82vw, 320px);
+        min-height: 300px;
+        scroll-snap-align: start;
+        padding: 22px;
+        border-radius: 22px;
+      }
+
+      .service-premium-card::before {
+        left: 22px;
+        right: 22px;
+      }
+
+      .service-premium-card h3 {
+        margin-top: 28px;
+        font-size: 24px;
+      }
+
+      .services-premium-bottom {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 10px;
+        padding: 18px;
+      }
+
+      .services-premium-bottom > a {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .services-premium-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .service-premium-card {
+        flex-basis: 84vw;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-services-direct-v19">
+    .services-premium-section {
+      padding-top: clamp(64px, 7vw, 92px) !important;
+      padding-bottom: clamp(64px, 7vw, 92px) !important;
+    }
+
+    .services-premium-head {
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr) !important;
+      gap: 36px !important;
+    }
+
+    .services-premium-title {
+      max-width: 560px !important;
+    }
+
+    .services-premium-intro {
+      max-width: 480px !important;
+      font-size: 15px !important;
+      line-height: 1.55 !important;
+    }
+
+    .services-premium-grid {
+      margin-top: 38px !important;
+    }
+
+    .service-premium-card {
+      min-height: 270px !important;
+      padding: 22px !important;
+    }
+
+    .service-premium-card h3 {
+      margin-top: 26px !important;
+      font-size: 24px !important;
+    }
+
+    .service-premium-card p {
+      margin-top: 11px !important;
+      font-size: 13.5px !important;
+      line-height: 1.5 !important;
+    }
+
+    .service-premium-card > a {
+      padding-top: 18px !important;
+    }
+
+    @media (max-width: 780px) {
+      .services-premium-head {
+        gap: 12px !important;
+      }
+
+      .services-premium-title {
+        font-size: clamp(34px, 9.5vw, 44px) !important;
+      }
+
+      .services-premium-intro {
+        font-size: 13.5px !important;
+        line-height: 1.5 !important;
+      }
+
+      .services-premium-grid {
+        margin-top: 26px !important;
+      }
+
+      .service-premium-card {
+        min-height: 245px !important;
+      }
+    }
+  </style>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+
+  <style id="frioexpert-lucide-icons-v20">
+    .services-premium-kicker-icon i,
+    .service-premium-icon i {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .services-premium-kicker-icon .lucide {
+      width: 18px !important;
+      height: 18px !important;
+      stroke-width: 1.9 !important;
+    }
+
+    .service-premium-icon .lucide {
+      width: 22px !important;
+      height: 22px !important;
+      stroke-width: 1.8 !important;
+    }
+
+    .service-premium-icon {
+      color: #0874ee !important;
+    }
+  </style>
+
+
+  <!-- Iconify: logo / icon library -->
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+  <!-- AOS: subtle section animations on scroll -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+
+  <style id="frioexpert-iconify-aos-v21">
+    .brand-mark-iconify {
+      position: relative;
+      overflow: hidden;
+      color: #0b72f2 !important;
+      background:
+        radial-gradient(circle at 35% 25%, #ffffff 0%, #f3f9ff 58%, #e7f3ff 100%) !important;
+      border: 1px solid rgba(10, 112, 242, .13) !important;
+    }
+
+    .brand-mark-iconify::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: inherit;
+      border: 1px solid rgba(10,112,242,.07);
+      pointer-events: none;
+    }
+
+    .brand-mark-iconify iconify-icon {
+      position: relative;
+      z-index: 1;
+      font-size: 30px;
+      filter: drop-shadow(0 5px 12px rgba(14,103,211,.12));
+      transition: transform .35s cubic-bezier(.2,.8,.2,1);
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .brand:hover .brand-mark-iconify iconify-icon {
+        transform: rotate(18deg) scale(1.06);
+      }
+    }
+
+    /* AOS should feel subtle, not theatrical */
+    [data-aos] {
+      will-change: transform, opacity;
+    }
+
+    .service-premium-card[data-aos],
+    .equipment-card[data-aos],
+    .testimonial-card[data-aos] {
+      transition-property: transform, opacity, box-shadow, border-color !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .brand-mark-iconify iconify-icon {
+        transition: none !important;
+      }
+    }
+  </style>
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/countup.js@2.8.0/dist/countUp.umd.js"></script>
+
+
+  <style id="frioexpert-cobertura-redesign-v22">
+    .coverage-redesign {
+      position: relative;
+      padding: clamp(72px, 8vw, 110px) 0;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(13,104,232,.05), transparent 23%),
+        radial-gradient(circle at 88% 8%, rgba(82,201,255,.06), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #f3f8fd 100%);
+      overflow: hidden;
+    }
+
+    .coverage-shell-redesign {
+      width: min(calc(100% - 40px), 1240px);
+      margin-inline: auto;
+    }
+
+    .coverage-head-redesign {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(380px, .85fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    .coverage-kicker-redesign {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: #0c6ff0;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .coverage-kicker-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid rgba(12,111,240,.11);
+      box-shadow: 0 10px 22px rgba(18,83,143,.06);
+      color: #0c6ff0;
+    }
+
+    .coverage-kicker-icon iconify-icon {
+      font-size: 20px;
+    }
+
+    .coverage-title-redesign {
+      margin: 0;
+      max-width: 720px;
+      font-family: var(--font-display, "League Spartan", "Manrope", sans-serif);
+      font-size: clamp(42px, 4.8vw, 68px);
+      line-height: .98;
+      letter-spacing: -.052em;
+      color: #0d2646;
+      text-wrap: balance;
+    }
+
+    .coverage-title-redesign span {
+      color: #0c6ff0;
+    }
+
+    .coverage-description-redesign {
+      max-width: 560px;
+      margin: 16px 0 0;
+      color: #677789;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .coverage-stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .coverage-stat-card {
+      min-width: 0;
+      padding: 18px 18px 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(16,73,118,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,251,255,.94));
+      box-shadow:
+        0 18px 38px rgba(15,67,108,.055),
+        inset 0 1px 0 rgba(255,255,255,.96);
+    }
+
+    .coverage-stat-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: #eef6ff;
+      color: #0c6ff0;
+    }
+
+    .coverage-stat-icon iconify-icon {
+      font-size: 20px;
+    }
+
+    .coverage-stat-value {
+      display: block;
+      margin-top: 18px;
+      color: #102c4b;
+      font-family: var(--font-display, "League Spartan", "Manrope", sans-serif);
+      font-size: 33px;
+      line-height: .95;
+      letter-spacing: -.05em;
+    }
+
+    .coverage-stat-label {
+      display: block;
+      margin-top: 7px;
+      color: #7a8998;
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .coverage-main-card {
+      border: 1px solid rgba(16,73,118,.08);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.98), rgba(249,252,255,.95));
+      box-shadow:
+        0 28px 62px rgba(15,67,108,.07),
+        inset 0 1px 0 rgba(255,255,255,.95);
+      overflow: hidden;
+    }
+
+    .coverage-main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      gap: 0;
+    }
+
+    .coverage-zone-block,
+    .coverage-side-block {
+      padding: 32px;
+    }
+
+    .coverage-zone-block {
+      border-right: 1px solid rgba(16,73,118,.08);
+    }
+
+    .coverage-side-block {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      background: linear-gradient(180deg, rgba(247,251,255,.66), rgba(255,255,255,.4));
+    }
+
+    .coverage-block-head {
+      margin-bottom: 24px;
+    }
+
+    .coverage-block-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .coverage-block-title strong {
+      display: block;
+      color: #102c4b;
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+    }
+
+    .coverage-block-title p {
+      margin: 8px 0 0;
+      color: #6f7f90;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .coverage-block-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: linear-gradient(180deg, #f3f9ff, #edf6ff);
+      border: 1px solid rgba(12,111,240,.10);
+      color: #0c6ff0;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.95);
+      flex: 0 0 48px;
+    }
+
+    .coverage-block-icon iconify-icon {
+      font-size: 24px;
+    }
+
+    .coverage-block-icon.is-clock {
+      color: #2878f0;
+    }
+
+    .coverage-city-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .coverage-city-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(16,73,118,.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(246,250,255,.84));
+      color: #15324f;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.95);
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .coverage-city-pill::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      margin-right: 10px;
+      background: #0c6ff0;
+      box-shadow: 0 0 0 4px rgba(12,111,240,.10);
+      flex: 0 0 9px;
+    }
+
+    .coverage-inline-note {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      color: #738293;
+      font-size: 14px;
+    }
+
+    .coverage-inline-note a {
+      color: #0c6ff0;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .coverage-hours-card,
+    .coverage-cta-card {
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px solid rgba(16,73,118,.08);
+      background: rgba(255,255,255,.78);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.94);
+    }
+
+    .coverage-hours-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .coverage-hours-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 58px;
+      padding: 0 16px;
+      border-radius: 16px;
+      background: #f6faff;
+      border: 1px solid rgba(16,73,118,.06);
+    }
+
+    .coverage-hours-item span {
+      color: #495b70;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .coverage-hours-item strong {
+      color: #0c6ff0;
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .coverage-cta-card strong {
+      display: block;
+      color: #102c4b;
+      font-size: 20px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+    }
+
+    .coverage-cta-card p {
+      margin: 10px 0 0;
+      color: #6e7e8f;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .coverage-cta-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 50px;
+      margin-top: 18px;
+      padding: 0 18px;
+      border-radius: 14px;
+      background: #12ad63;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 14px 28px rgba(18,173,99,.18);
+    }
+
+    .coverage-cta-card a iconify-icon {
+      font-size: 20px;
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .coverage-city-pill:hover {
+        transform: translateY(-2px);
+        border-color: rgba(12,111,240,.16);
+        box-shadow: 0 12px 24px rgba(15,67,108,.06), inset 0 1px 0 rgba(255,255,255,.96);
+      }
+
+      .coverage-cta-card a:hover {
+        transform: translateY(-1px);
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .coverage-head-redesign {
+        grid-template-columns: 1fr;
+      }
+
+      .coverage-stat-strip {
+        max-width: 760px;
+      }
+
+      .coverage-main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .coverage-zone-block {
+        border-right: 0;
+        border-bottom: 1px solid rgba(16,73,118,.08);
+      }
+    }
+
+    @media (max-width: 780px) {
+      .coverage-redesign {
+        padding: 64px 0;
+      }
+
+      .coverage-shell-redesign {
+        width: min(calc(100% - 28px), 1240px);
+      }
+
+      .coverage-title-redesign {
+        font-size: clamp(34px, 10vw, 46px);
+      }
+
+      .coverage-description-redesign {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .coverage-stat-strip {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .coverage-stat-card {
+        padding: 16px;
+        border-radius: 18px;
+      }
+
+      .coverage-stat-value {
+        margin-top: 14px;
+        font-size: 28px;
+      }
+
+      .coverage-main-card {
+        border-radius: 24px;
+      }
+
+      .coverage-zone-block,
+      .coverage-side-block {
+        padding: 22px 18px;
+      }
+
+      .coverage-block-title strong {
+        font-size: 18px;
+      }
+
+      .coverage-block-title p,
+      .coverage-inline-note {
+        font-size: 13px;
+      }
+
+      .coverage-city-list {
+        gap: 10px;
+      }
+
+      .coverage-city-pill {
+        min-height: 42px;
+        padding: 0 14px;
+        font-size: 13px;
+      }
+
+      .coverage-hours-card,
+      .coverage-cta-card {
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+      .coverage-hours-item {
+        min-height: 52px;
+        padding-inline: 14px;
+      }
+
+      .coverage-hours-item span,
+      .coverage-hours-item strong {
+        font-size: 13px;
+      }
+
+      .coverage-cta-card strong {
+        font-size: 18px;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-coverage-v23-fix">
+    /* IMPORTANT: reset inherited legacy coverage rules */
+    .coverage-v23 .coverage-shell-redesign {
+      position: relative !important;
+      width: min(calc(100% - 40px), 1180px) !important;
+      max-width: none !important;
+      min-height: 0 !important;
+      margin: 0 auto !important;
+    }
+
+    .coverage-v23 .coverage-head-redesign {
+      display: block !important;
+      width: 100% !important;
+      max-width: 780px !important;
+      margin: 0 0 34px !important;
+      text-align: left !important;
+    }
+
+    .coverage-v23 .coverage-kicker-redesign {
+      margin: 0 0 14px !important;
+    }
+
+    .coverage-v23 .coverage-title-redesign {
+      width: 100% !important;
+      max-width: 760px !important;
+      margin: 0 !important;
+      font-size: clamp(42px, 4.7vw, 66px) !important;
+      line-height: .98 !important;
+      letter-spacing: -.052em !important;
+      text-align: left !important;
+    }
+
+    .coverage-v23 .coverage-title-redesign span {
+      display: inline !important;
+      color: #0c6ff0 !important;
+    }
+
+    .coverage-v23 .coverage-description-redesign {
+      max-width: 520px !important;
+      margin: 15px 0 0 !important;
+      font-size: 15px !important;
+      line-height: 1.6 !important;
+      text-align: left !important;
+    }
+
+    .coverage-v23 .coverage-summary-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .coverage-v23 .coverage-summary-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+      min-height: 74px;
+      padding: 14px 16px;
+      border: 1px solid rgba(16,73,118,.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 12px 30px rgba(15,67,108,.045);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .coverage-v23 .coverage-summary-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 13px;
+      background: #eef6ff;
+      color: #0c6ff0;
+    }
+
+    .coverage-v23 .coverage-summary-icon iconify-icon {
+      font-size: 22px;
+    }
+
+    .coverage-v23 .coverage-summary-item > div {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .coverage-v23 .coverage-summary-item strong {
+      color: #102c4b;
+      font-size: 15px;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .coverage-v23 .coverage-summary-item span:not(.coverage-summary-icon) {
+      color: #758596;
+      font-size: 11px;
+      line-height: 1.2;
+    }
+
+    .coverage-v23 .coverage-main-card {
+      width: 100% !important;
+      border-radius: 26px !important;
+    }
+
+    .coverage-v23 .coverage-main-grid {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr) !important;
+      align-items: stretch !important;
+    }
+
+    .coverage-v23 .coverage-zone-block {
+      min-width: 0;
+      padding: 30px !important;
+      border-right: 1px solid rgba(16,73,118,.08) !important;
+      border-bottom: 0 !important;
+    }
+
+    .coverage-v23 .coverage-side-block {
+      min-width: 0;
+      display: flex !important;
+      flex-direction: column;
+      gap: 12px !important;
+      padding: 30px !important;
+    }
+
+    .coverage-v23 .coverage-block-title {
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 13px !important;
+    }
+
+    .coverage-v23 .coverage-block-title strong {
+      font-size: 18px !important;
+    }
+
+    .coverage-v23 .coverage-block-title p {
+      margin: 6px 0 0 !important;
+      font-size: 12.5px !important;
+      line-height: 1.5 !important;
+    }
+
+    .coverage-v23 .coverage-block-icon {
+      width: 44px !important;
+      height: 44px !important;
+      flex-basis: 44px !important;
+      border-radius: 14px !important;
+    }
+
+    .coverage-v23 .coverage-city-list {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 9px !important;
+      margin-top: 22px !important;
+    }
+
+    .coverage-v23 .coverage-city-pill {
+      min-height: 40px !important;
+      padding: 0 13px !important;
+      font-size: 12.5px !important;
+    }
+
+    .coverage-v23 .coverage-inline-note {
+      margin-top: 20px !important;
+      font-size: 12.5px !important;
+    }
+
+    .coverage-v23 .coverage-hours-card {
+      padding: 20px !important;
+      border-radius: 18px !important;
+    }
+
+    .coverage-v23 .coverage-hours-list {
+      margin-top: 18px !important;
+      gap: 8px !important;
+    }
+
+    .coverage-v23 .coverage-hours-item {
+      min-height: 50px !important;
+      padding: 0 13px !important;
+      border-radius: 13px !important;
+    }
+
+    .coverage-v23 .coverage-hours-item span,
+    .coverage-v23 .coverage-hours-item strong {
+      font-size: 12.5px !important;
+    }
+
+    .coverage-v23 .coverage-whatsapp-cta {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 12px;
+      min-height: 68px;
+      padding: 10px 14px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #16b46a, #0ca55f);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(16,166,96,.18);
+      text-decoration: none;
+    }
+
+    .coverage-v23 .coverage-whatsapp-cta > iconify-icon {
+      font-size: 25px;
+    }
+
+    .coverage-v23 .coverage-whatsapp-cta > span {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .coverage-v23 .coverage-whatsapp-cta strong {
+      font-size: 13px;
+      color: #fff;
+    }
+
+    .coverage-v23 .coverage-whatsapp-cta small {
+      color: rgba(255,255,255,.72);
+      font-size: 10px;
+    }
+
+    .coverage-v23 .coverage-whatsapp-cta b {
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .coverage-v23 .coverage-main-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .coverage-v23 .coverage-zone-block {
+        border-right: 0 !important;
+        border-bottom: 1px solid rgba(16,73,118,.08) !important;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .coverage-v23 .coverage-shell-redesign {
+        width: min(calc(100% - 28px), 1180px) !important;
+      }
+
+      .coverage-v23 .coverage-head-redesign {
+        margin-bottom: 24px !important;
+      }
+
+      .coverage-v23 .coverage-title-redesign {
+        font-size: clamp(35px, 10vw, 46px) !important;
+      }
+
+      .coverage-v23 .coverage-summary-row {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 9px;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+      }
+
+      .coverage-v23 .coverage-summary-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .coverage-v23 .coverage-summary-item {
+        flex: 0 0 210px;
+        scroll-snap-align: start;
+        min-height: 68px;
+      }
+
+      .coverage-v23 .coverage-zone-block,
+      .coverage-v23 .coverage-side-block {
+        padding: 20px 17px !important;
+      }
+
+      .coverage-v23 .coverage-city-list {
+        margin-top: 18px !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-auto-carousels-v24">
+    /* ===========================
+       SERVICES AUTO CAROUSEL
+       =========================== */
+    .services-premium-grid {
+      display: flex !important;
+      grid-template-columns: none !important;
+      gap: 14px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-top: 38px !important;
+      padding: 3px 2px 18px !important;
+      overflow-x: auto !important;
+      overflow-y: visible !important;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      overscroll-behavior-inline: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .services-premium-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .services-premium-grid .service-premium-card {
+      flex: 0 0 calc((100% - 28px) / 3.15) !important;
+      width: auto !important;
+      min-width: 0 !important;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    /* ===========================
+       TESTIMONIAL AUTO CAROUSEL
+       =========================== */
+    .testimonials-shell {
+      width: min(100%, 1080px) !important;
+    }
+
+    .testimonial-mobile-controls {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: fit-content;
+      margin: 0 auto 18px;
+      color: rgba(24,58,82,.55);
+      font-size: 12px;
+    }
+
+    .testimonial-mobile-controls button {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border: 1px solid rgba(24,75,112,.11);
+      border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      color: #153d59;
+      box-shadow: 0 8px 20px rgba(23,76,115,.05);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .testimonials-grid {
+      display: flex !important;
+      grid-template-columns: none !important;
+      gap: 15px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 4px 2px 20px !important;
+      overflow-x: auto !important;
+      overflow-y: visible !important;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      overscroll-behavior-inline: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .testimonials-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonials-grid .testimonial-card {
+      flex: 0 0 calc((100% - 15px) / 2.35) !important;
+      width: auto !important;
+      min-width: 0 !important;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      opacity: 1 !important;
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .testimonial-mobile-controls button:hover {
+        transform: translateY(-1px);
+        background: #fff;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .services-premium-grid .service-premium-card {
+        flex-basis: calc((100% - 14px) / 2.2) !important;
+      }
+
+      .testimonials-grid .testimonial-card {
+        flex-basis: calc((100% - 15px) / 1.7) !important;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .services-premium-grid {
+        width: calc(100% + 14px) !important;
+        margin-right: -14px !important;
+        padding-right: 14px !important;
+      }
+
+      .services-premium-grid .service-premium-card {
+        flex: 0 0 min(82vw, 320px) !important;
+      }
+
+      .testimonial-mobile-controls {
+        width: 100% !important;
+        justify-content: space-between !important;
+        margin: 18px 0 12px !important;
+      }
+
+      .testimonial-mobile-controls > span {
+        text-align: center;
+        flex: 1 1 auto;
+        font-size: 11px;
+      }
+
+      .testimonials-grid {
+        width: calc(100% + 18px) !important;
+        margin-right: -18px !important;
+        padding-right: 18px !important;
+      }
+
+      .testimonials-grid .testimonial-card {
+        flex: 0 0 min(86vw, 340px) !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .services-premium-grid,
+      .testimonials-grid {
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v25-services-static-testimonials-infinite">
+    /* =========================================
+       SERVICIOS: SIN SCROLL / SIN CARRUSEL
+       ========================================= */
+    .services-premium-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-top: 38px !important;
+      padding: 0 !important;
+      overflow: visible !important;
+      scroll-snap-type: none !important;
+    }
+
+    .services-premium-grid .service-premium-card {
+      width: auto !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      flex: initial !important;
+      scroll-snap-align: none !important;
+    }
+
+    /* =========================================
+       TESTIMONIOS: CARRUSEL CONTINUO INFINITO
+       ========================================= */
+    .testimonial-mobile-controls {
+      display: none !important;
+    }
+
+    .testimonials-shell {
+      width: min(100%, 1180px) !important;
+      overflow: hidden;
+    }
+
+    .testimonials-grid {
+      display: flex !important;
+      grid-template-columns: none !important;
+      gap: 16px !important;
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 6px 0 22px !important;
+      overflow-x: auto !important;
+      overflow-y: visible !important;
+      scroll-snap-type: none !important;
+      scroll-behavior: auto !important;
+      overscroll-behavior-inline: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+
+    .testimonials-grid:active {
+      cursor: grabbing;
+    }
+
+    .testimonials-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonials-grid .testimonial-card {
+      flex: 0 0 350px !important;
+      width: 350px !important;
+      min-width: 350px !important;
+      max-width: 350px !important;
+      scroll-snap-align: none !important;
+      opacity: 1 !important;
+    }
+
+    @media (max-width: 1040px) {
+      .services-premium-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+
+      .testimonials-grid .testimonial-card {
+        flex-basis: 330px !important;
+        width: 330px !important;
+        min-width: 330px !important;
+        max-width: 330px !important;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .services-premium-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+        overflow: visible !important;
+      }
+
+      .services-premium-grid .service-premium-card {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        flex: initial !important;
+      }
+
+      .testimonials-grid {
+        width: calc(100% + 14px) !important;
+        margin-right: -14px !important;
+        padding-right: 14px !important;
+      }
+
+      .testimonials-grid .testimonial-card {
+        flex: 0 0 min(84vw, 330px) !important;
+        width: min(84vw, 330px) !important;
+        min-width: min(84vw, 330px) !important;
+        max-width: min(84vw, 330px) !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .testimonials-grid {
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v26-section-rhythm-and-testimonial-marquee">
+    /* =====================================================
+       ALTERNATING SECTION BACKGROUNDS
+       ===================================================== */
+    .services-premium-section {
+      background:
+        radial-gradient(circle at 86% 0%, rgba(70,159,255,.045), transparent 24%),
+        #ffffff !important;
+      border-top: 1px solid rgba(17,72,118,.045);
+    }
+
+    .equipment-section {
+      padding-top: 34px !important;
+      padding-bottom: 42px !important;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(43,128,235,.045), transparent 26%),
+        linear-gradient(180deg, #f2f7fc 0%, #edf4fa 100%) !important;
+      border-top: 1px solid rgba(17,72,118,.055);
+      border-bottom: 1px solid rgba(17,72,118,.045);
+    }
+
+    .equipment-section .equipment-grid {
+      box-shadow:
+        0 22px 58px rgba(22,65,105,.055),
+        inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .testimonials-section {
+      background:
+        radial-gradient(circle at 50% 26%, #ffffff 0%, #fbfdff 48%, #f7fbff 100%) !important;
+      border-top: 1px solid rgba(17,72,118,.04);
+      border-bottom: 1px solid rgba(17,72,118,.04);
+    }
+
+    .coverage-redesign {
+      background:
+        radial-gradient(circle at 90% 8%, rgba(80,174,255,.065), transparent 24%),
+        radial-gradient(circle at 8% 18%, rgba(31,112,229,.045), transparent 24%),
+        linear-gradient(180deg, #edf5fb 0%, #eaf3fa 100%) !important;
+      border-top: 1px solid rgba(17,72,118,.055);
+      border-bottom: 1px solid rgba(17,72,118,.05);
+    }
+
+    .contact-section {
+      background:
+        radial-gradient(circle at 50% 10%, rgba(48,137,245,.035), transparent 28%),
+        #ffffff !important;
+      border-top: 1px solid rgba(17,72,118,.04);
+    }
+
+    .footer-help-section {
+      background:
+        linear-gradient(180deg, #f3f8fc 0%, #edf4fa 100%) !important;
+      border-top: 1px solid rgba(17,72,118,.055);
+    }
+
+    /* =====================================================
+       TESTIMONIALS: REAL CONTINUOUS INFINITE MARQUEE
+       ===================================================== */
+    .testimonial-mobile-controls {
+      display: none !important;
+    }
+
+    .testimonials-shell {
+      width: min(calc(100% - 20px), 1180px) !important;
+      max-width: 1180px !important;
+      overflow: hidden !important;
+    }
+
+    .testimonials-grid {
+      display: flex !important;
+      grid-template-columns: none !important;
+      gap: 16px !important;
+      width: max-content !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 5px 0 24px !important;
+      overflow: visible !important;
+      scroll-snap-type: none !important;
+      scroll-behavior: auto !important;
+      will-change: transform;
+      transform: translate3d(0,0,0);
+    }
+
+    .testimonials-grid .testimonial-card {
+      flex: 0 0 350px !important;
+      width: 350px !important;
+      min-width: 350px !important;
+      max-width: 350px !important;
+      opacity: 1 !important;
+      scroll-snap-align: none !important;
+    }
+
+    @media (max-width: 1040px) {
+      .testimonials-grid .testimonial-card {
+        flex-basis: 325px !important;
+        width: 325px !important;
+        min-width: 325px !important;
+        max-width: 325px !important;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .equipment-section {
+        padding-top: 20px !important;
+        padding-bottom: 26px !important;
+      }
+
+      .testimonials-shell {
+        width: calc(100% - 22px) !important;
+      }
+
+      .testimonials-grid {
+        gap: 12px !important;
+      }
+
+      .testimonials-grid .testimonial-card {
+        flex: 0 0 min(82vw, 320px) !important;
+        width: min(82vw, 320px) !important;
+        min-width: min(82vw, 320px) !important;
+        max-width: min(82vw, 320px) !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .testimonials-grid {
+        transform: none !important;
+      }
+    }
+  </style>
+
+
+  <style id="frioexpert-v27-mobile-services-fix">
+    /* Fix a previous !important 2-column rule leaking into mobile */
+    @media (max-width: 780px) {
+      .services-premium-section {
+        padding-top: 58px !important;
+        padding-bottom: 62px !important;
+      }
+
+      .services-premium-shell {
+        width: min(calc(100% - 28px), 1240px) !important;
+      }
+
+      .services-premium-head {
+        display: block !important;
+        grid-template-columns: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 0 !important;
+      }
+
+      .services-premium-heading {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      .services-premium-kicker {
+        margin: 0 0 14px !important;
+      }
+
+      .services-premium-title {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        font-size: clamp(38px, 10.5vw, 46px) !important;
+        line-height: .94 !important;
+        letter-spacing: -.05em !important;
+      }
+
+      .services-premium-title span {
+        display: block !important;
+      }
+
+      .services-premium-intro {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 330px !important;
+        margin: 16px 0 0 !important;
+        padding: 0 !important;
+        font-size: 13.5px !important;
+        line-height: 1.55 !important;
+        text-align: left !important;
+      }
+
+      .services-premium-grid {
+        margin-top: 28px !important;
+      }
+
+      .service-premium-card {
+        min-height: 240px !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .services-premium-title {
+        font-size: clamp(36px, 10.8vw, 42px) !important;
+      }
+
+      .services-premium-intro {
+        max-width: 300px !important;
+      }
+
+      .service-premium-card {
+        padding: 20px !important;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-phone-tabler" viewBox="0 0 24 24">
+      <path d="M5 4.5h3a1 1 0 0 1 1 .8l1 4a1 1 0 0 1-.27.95l-1.8 1.8a14 14 0 0 0 4.82 4.82l1.8-1.8a1 1 0 0 1 .95-.27l4 1a1 1 0 0 1 .8 1v3a2 2 0 0 1-2.18 2A19 19 0 0 1 3 6.68 2 2 0 0 1 5 4.5Z" />
+    </symbol>
+    <symbol id="icon-shield-check-tabler" viewBox="0 0 24 24">
+      <path d="M12 3l7 4v4c0 5-3 8.5-7 10-4-1.5-7-5-7-10V7l7-4Z" />
+      <path d="m9 12 2 2 4-4" />
+    </symbol>
+    <symbol id="icon-home-tabler" viewBox="0 0 24 24">
+      <path d="M4 11.5 12 5l8 6.5" />
+      <path d="M6.5 10.5V19h11v-8.5" />
+    </symbol>
+    <symbol id="icon-bolt-tabler" viewBox="0 0 24 24">
+      <path d="M13 2 5 14h6l-1 8 9-12h-6l0-8Z" />
+    </symbol>
+    <symbol id="icon-user-shield-tabler" viewBox="0 0 24 24">
+      <path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+      <path d="M6 19a6 6 0 0 1 12 0" />
+      <path d="M18.5 8.5 21 10v2c0 2.2-1.1 3.8-2.5 4.5-1.4-.7-2.5-2.3-2.5-4.5v-2l2.5-1.5Z" />
+    </symbol>
+    <symbol id="icon-map-pin-tabler" viewBox="0 0 24 24">
+      <path d="M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </symbol>
+    <symbol id="icon-clock-tabler" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </symbol>
+    <symbol id="icon-whatsapp-tabler" viewBox="0 0 24 24">
+      <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+      <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+    </symbol>
+    <symbol id="icon-mail-tabler" viewBox="0 0 24 24">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" />
+      <path d="m5.5 8 6.5 5 6.5-5" />
+    </symbol>
+    <symbol id="icon-headset-tabler" viewBox="0 0 24 24">
+      <path d="M4 12a8 8 0 0 1 16 0" />
+      <path d="M4 12v4a2 2 0 0 0 2 2h1v-7H6a2 2 0 0 0-2 2Zm16 0v4a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 2Z" />
+      <path d="M7 18a5 5 0 0 0 5 3h2" />
+    </symbol>
+    <symbol id="icon-user-tabler" viewBox="0 0 24 24">
+      <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+      <path d="M5 20a7 7 0 0 1 14 0" />
+    </symbol>
+    <symbol id="icon-tools-tabler" viewBox="0 0 24 24">
+      <path d="M14.7 6.3a3 3 0 0 0 3.9 3.9l-7.9 7.9a2 2 0 0 1-2.8-2.8l7.9-7.9Z" />
+      <path d="M16 4a3 3 0 0 1 4 4l-2.2 2.2" />
+      <path d="m5 19 3-3" />
+    </symbol>
+    <symbol id="icon-check-circle-tabler" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <path d="m8.5 12 2.5 2.5 4.5-5" />
+    </symbol>
+    <symbol id="icon-snowflake-tabler" viewBox="0 0 24 24">
+      <path d="M12 3v18" />
+      <path d="m8 7 4 4 4-4" />
+      <path d="m8 17 4-4 4 4" />
+      <path d="M4.2 7.5 19.8 16.5" />
+      <path d="m7 15.8 1.5-5.5 5.5 1.5" />
+      <path d="m15.5 13.7 5.5 1.5-1.5 5.5" />
+      <path d="M19.8 7.5 4.2 16.5" />
+      <path d="m15.5 10.3 5.5-1.5-1.5-5.5" />
+      <path d="m7 8.2 1.5 5.5 5.5-1.5" />
+    </symbol>
+    <symbol id="icon-fridge-tabler" viewBox="0 0 24 24">
+      <path d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4Z" />
+      <path d="M7 10h10" />
+      <path d="M10 7h.01" />
+      <path d="M10 14h.01" />
+    </symbol>
+    <symbol id="icon-freezer-tabler" viewBox="0 0 24 24">
+      <path d="M5 8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V8Z" />
+      <path d="M7 8h10" />
+      <path d="m9 5 1.5-2h3L15 5" />
+    </symbol>
+    <symbol id="icon-door-tabler" viewBox="0 0 24 24">
+      <path d="M6 21V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v16" />
+      <path d="M6 21h12" />
+      <path d="M13 12h.01" />
+    </symbol>
+    <symbol id="icon-device-display-tabler" viewBox="0 0 24 24">
+      <path d="M7 4h10a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
+      <path d="M8 8h8" />
+      <path d="M8 12h8" />
+      <path d="M8 16h5" />
+    </symbol>
+    <symbol id="icon-store-tabler" viewBox="0 0 24 24">
+      <path d="M4 9 5.5 5h13L20 9" />
+      <path d="M5 9h14v9a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9Z" />
+      <path d="M9 13h6" />
+    </symbol>
+    <symbol id="icon-brand-facebook-tabler" viewBox="0 0 24 24">
+      <path d="M7 10v4h3v7h4v-7h3l1-4h-4v-2a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v2H7" />
+    </symbol>
+    <symbol id="icon-brand-instagram-tabler" viewBox="0 0 24 24">
+      <path d="M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8" />
+      <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0" />
+      <path d="M16.5 7.5v.01" />
+    </symbol>
+    <symbol id="icon-brand-tiktok-tabler" viewBox="0 0 24 24">
+      <path d="M21 7.917v4.034a9.948 9.948 0 0 1-5-1.951v4.5a6.5 6.5 0 1 1-8-6.326v4.326a2.5 2.5 0 1 0 4 2V3h4.083a6.005 6.005 0 0 0 4.917 4.917" />
+    </symbol>
+  </svg>
+  <main class="page-shell">
+    <section class="hero-section" id="inicio">
+      <div class="hero-frame">
+        <header class="topbar">
+          <a class="brand" href="#inicio" aria-label="FrioExpert, volver al inicio">
+            <span class="brand-mark brand-mark-iconify" aria-hidden="true">
+              <iconify-icon icon="solar:snowflake-bold-duotone"></iconify-icon>
+            </span>
+            <span class="brand-copy">
+              <strong>FrioExpert</strong>
+              <span>Refrigeracion y climatizacion</span>
+            </span>
+          </a>
+
+          <nav class="site-nav" id="main-navigation" aria-label="Principal">
+            <a class="is-active" href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#equipos">Equipos</a>
+            <a href="#opiniones">Opiniones</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+
+          <a class="phone-chip" href="tel:+595986689470" aria-label="Llamar al 0986 689 470">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#icon-phone-tabler"></use>
+            </svg>
+            <span>0986 689 470</span>
+          </a>
+
+          <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-navigation">
+            <span></span><span></span><span></span>
+          </button>
+        </header>
+
+        <div class="hero-stage fade-scale" style="--delay: 90ms;">
+          <div class="hero-background" aria-hidden="true">
+            <div class="hero-background-track">
+              <div class="hero-slide">
+                <img src="assets/img/hero-frioexpert.png" alt="" width="1680" height="960" />
+              </div>
+              <div class="hero-slide">
+                <img src="assets/img/equipos-frioexpert.png" alt="" width="1680" height="960" />
+              </div>
+              <div class="hero-slide">
+                <img src="assets/img/equipos-comerciales-card-white.png" alt="" width="1366" height="1168" />
+              </div>
+              <div class="hero-slide">
+                <img src="assets/img/hero-frioexpert.png" alt="" width="1680" height="960" />
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-slider-dots" aria-label="Imágenes destacadas">
+            <button class="hero-slider-dot is-active" type="button" aria-label="Ver imagen 1" data-hero-slide="0"></button>
+            <button class="hero-slider-dot" type="button" aria-label="Ver imagen 2" data-hero-slide="1"></button>
+            <button class="hero-slider-dot" type="button" aria-label="Ver imagen 3" data-hero-slide="2"></button>
+          </div>
+          <div class="hero-slider-index" aria-hidden="true"><span class="hero-slider-current">01</span> / 03</div>
+
+          <div class="hero-glass-layout">
+            <div class="hero-glass-panel">
+              <div class="hero-proof-grid is-top fade-up" style="--delay: 150ms;" aria-label="Indicadores destacados">
+                <article class="hero-proof-card is-primary">
+                  <strong class="hero-proof-value">24/7</strong>
+                  <span class="hero-proof-label">Emergencias</span>
+                </article>
+
+                <article class="hero-proof-card is-google">
+                  <strong class="hero-proof-value">4.9 <span class="star">★</span></strong>
+                  <span class="hero-proof-label">Google Rating</span>
+                </article>
+
+                <article class="hero-proof-card">
+                  <strong class="hero-proof-value">100%</strong>
+                  <span class="hero-proof-label">Satisfaccion</span>
+                </article>
+              </div>
+
+              <div class="hero-content-stack">
+                <h1 class="hero-glass-title fade-up" style="--delay: 220ms;">
+                  <span class="hero-title-main">Servicio tecnico de refrigeracion y</span>
+                  <span class="hero-title-service">aire acondicionado</span>
+                  <span class="hero-title-location">en Asuncion y Central</span>
+                </h1>
+
+                <p class="hero-glass-description fade-up" style="--delay: 300ms;">
+                  Instalacion, mantenimiento y reparacion de aires acondicionados, heladeras, freezers y equipos de refrigeracion.
+                </p>
+
+                <div class="hero-glass-actions fade-up" style="--delay: 370ms;">
+                  <a class="button-primary button-whatsapp premium-primary-cta" href="https://wa.me/595986689470" target="_blank" rel="noreferrer" aria-label="Escribir por WhatsApp al 0986 689 470">
+                    <span class="premium-cta-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <use href="#icon-whatsapp-tabler"></use>
+                      </svg>
+                    </span>
+                    <span class="premium-cta-copy">
+                      <strong>Consultar por WhatsApp</strong>
+                      <small>0986 689 470</small>
+                    </span>
+                    <span class="premium-cta-arrow" aria-hidden="true">↗</span>
+                  </a>
+
+                  <a class="button-link premium-secondary-cta" href="#servicios">
+                    <span>Ver todos los servicios</span>
+                    <span class="premium-secondary-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-slider-caption">El fondo cambia automaticamente</div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="services-premium-section" id="servicios" data-aos="fade-up" data-aos-duration="700">
+      <div class="services-premium-shell">
+        <header class="services-premium-head">
+          <div class="services-premium-heading">
+            <p class="services-premium-kicker fade-up" style="--delay: 60ms;">
+              <span class="services-premium-kicker-icon" aria-hidden="true">
+                <i data-lucide="settings-2" aria-hidden="true"></i>
+              </span>
+              <span>Servicios profesionales</span>
+            </p>
+
+            <h2 class="services-premium-title fade-up" style="--delay: 130ms;">
+              Nuestros
+              <span>servicios</span>
+            </h2>
+          </div>
+
+          <p class="services-premium-intro fade-up" style="--delay: 200ms;">
+            Instalacion, mantenimiento y reparacion de equipos de refrigeracion y aire acondicionado.
+          </p>
+        </header>
+
+        <div class="services-premium-grid">
+          <article class="service-premium-card fade-up" data-aos="fade-up" data-aos-delay="0" data-aos-duration="650" style="--delay: 230ms;">
+            <div class="service-premium-top">
+              <span class="service-premium-number">01</span>
+              <span class="service-premium-icon" aria-hidden="true">
+                <i data-lucide="air-vent" aria-hidden="true"></i>
+              </span>
+            </div>
+            <h3>Instalacion</h3>
+            <p>Instalamos aires acondicionados y equipos de refrigeracion.</p>
+            <a href="https://wa.me/595986689470?text=Hola%20FrioExpert%2C%20quiero%20consultar%20por%20una%20instalacion."
+               target="_blank" rel="noreferrer">
+              Consultar <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="service-premium-card fade-up" data-aos="fade-up" data-aos-delay="80" data-aos-duration="650" style="--delay: 300ms;">
+            <div class="service-premium-top">
+              <span class="service-premium-number">02</span>
+              <span class="service-premium-icon" aria-hidden="true">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+              </span>
+            </div>
+            <h3>Mantenimiento</h3>
+            <p>Limpieza y revision para mantener el equipo funcionando bien.</p>
+            <a href="https://wa.me/595986689470?text=Hola%20FrioExpert%2C%20quiero%20consultar%20por%20mantenimiento."
+               target="_blank" rel="noreferrer">
+              Consultar <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="service-premium-card fade-up" data-aos="fade-up" data-aos-delay="160" data-aos-duration="650" style="--delay: 370ms;">
+            <div class="service-premium-top">
+              <span class="service-premium-number">03</span>
+              <span class="service-premium-icon" aria-hidden="true">
+                <i data-lucide="wrench" aria-hidden="true"></i>
+              </span>
+            </div>
+            <h3>Reparacion</h3>
+            <p>Detectamos la falla y reparamos el equipo.</p>
+            <a href="https://wa.me/595986689470?text=Hola%20FrioExpert%2C%20necesito%20diagnostico%20o%20reparacion."
+               target="_blank" rel="noreferrer">
+              Consultar <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="service-premium-card fade-up" data-aos="fade-up" data-aos-delay="240" data-aos-duration="650" style="--delay: 440ms;">
+            <div class="service-premium-top">
+              <span class="service-premium-number">04</span>
+              <span class="service-premium-icon" aria-hidden="true">
+                <i data-lucide="gauge" aria-hidden="true"></i>
+              </span>
+            </div>
+            <h3>Carga de gas</h3>
+            <p>Revision del sistema y carga de refrigerante cuando corresponde.</p>
+            <a href="https://wa.me/595986689470?text=Hola%20FrioExpert%2C%20quiero%20consultar%20por%20carga%20de%20gas."
+               target="_blank" rel="noreferrer">
+              Consultar <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="equipment-section" id="equipos" data-aos="fade-up" data-aos-duration="700">
+      <div class="equipment-shell">
+        <div class="equipment-grid">
+          <div class="equipment-intro">
+            <p class="section-kicker fade-up" style="--delay: 60ms;">
+              <span class="kicker-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" role="img" focusable="false">
+                  <path d="M14 24h36a4 4 0 0 1 4 4v18a5 5 0 0 1-5 5H15a5 5 0 0 1-5-5V28a4 4 0 0 1 4-4Z" />
+                  <path d="M24 24v-4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v4" />
+                  <path d="M28 32h8" />
+                  <path d="M44 16 31 29l4 4 13-13" />
+                  <path d="m40 20 8 8" />
+                </svg>
+              </span>
+              <span>Equipos especializados</span>
+            </p>
+
+            <h2 class="section-title fade-up" style="--delay: 130ms;">
+              Equipos que
+              <span>atendemos</span>
+            </h2>
+
+            <span class="title-line short fade-up" style="--delay: 200ms;" aria-hidden="true"></span>
+
+            <p class="section-caption fade-up" style="--delay: 260ms;">
+              Soluciones para cada necesidad de refrigeracion.
+            </p>
+
+            <div class="equipment-photo-wrap fade-scale" style="--delay: 180ms;">
+              <img src="assets/img/equipos-frioexpert.png" alt="Tecnico trabajando sobre el sistema interno de un equipo de refrigeracion comercial." width="1680" height="960" />
+              <aside class="specialists-card fade-up" style="--delay: 320ms;">
+                <span class="specialists-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" focusable="false">
+                    <path d="M16 4.5 25 7.4v6.5c0 5.8-3.6 9.9-9 12.1-5.4-2.2-9-6.3-9-12.1V7.4l9-2.9Z" />
+                    <path d="m12.8 15.4 2.2 2.3 4.4-4.6" />
+                  </svg>
+                </span>
+                <span class="specialists-copy">
+                  <span>Tecnicos especializados</span>
+                  <strong>en cada equipo</strong>
+                </span>
+                <span class="specialists-accent" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+                    <path d="M5 19h5M10 14h5M15 9h4" />
+                  </svg>
+                </span>
+              </aside>
+            </div>
+
+            <div class="equipment-path" aria-hidden="true">
+              <svg viewBox="0 0 112 150" role="img" focusable="false">
+                <path d="M104 8H74c-14 0-25 11-25 25v29c0 11-7 20-18 24l-18 7c-8 3-13 10-13 19v12" />
+              </svg>
+            </div>
+
+            <div class="equipment-sparks" aria-hidden="true">
+              <span class="spark spark-a">
+                <svg viewBox="0 0 48 48" role="img" focusable="false">
+                  <path d="M24 6v10M24 32v10M42 24H32M16 24H6M35.3 12.7l-7 7M19.7 28.3l-7 7M35.3 35.3l-7-7M19.7 19.7l-7-7" />
+                </svg>
+              </span>
+              <span class="spark spark-b">
+                <svg viewBox="0 0 48 48" role="img" focusable="false">
+                  <path d="M24 10v8M24 30v8M38 24h-8M18 24h-8" />
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="equipment-catalog">
+            <div class="catalog-head fade-up" style="--delay: 120ms;">
+              <span class="catalog-kicker">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-snowflake" aria-hidden="true">
+                  <path d="M10 4l2 1l2 -1"></path>
+                  <path d="M12 2v6.5l3 1.72"></path>
+                  <path d="M17.928 6.268l.134 2.232l1.866 1.232"></path>
+                  <path d="M20.66 7l-5.629 3.25l.01 3.458"></path>
+                  <path d="M19.928 14.268l-1.866 1.232l-.134 2.232"></path>
+                  <path d="M20.66 17l-5.629 -3.25l-2.99 1.738"></path>
+                  <path d="M14 20l-2 -1l-2 1"></path>
+                  <path d="M12 22v-6.5l-3 -1.72"></path>
+                  <path d="M6.072 17.732l-.134 -2.232l-1.866 -1.232"></path>
+                  <path d="M3.34 17l5.629 -3.25l-.01 -3.458"></path>
+                  <path d="M4.072 9.732l1.866 -1.232l.134 -2.232"></path>
+                  <path d="M3.34 7l5.629 3.25l2.99 -1.738"></path>
+                </svg>
+                <span>Trabajamos con</span>
+              </span>
+              <span class="catalog-accent" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-air-conditioning" aria-hidden="true">
+                  <path d="M8 16a3 3 0 0 1 -3 3"></path>
+                  <path d="M16 16a3 3 0 0 0 3 3"></path>
+                  <path d="M12 16v4"></path>
+                  <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -4"></path>
+                  <path d="M7 13v-3a1 1 0 0 1 1 -1h8a1 1 0 0 1 1 1v3"></path>
+                </svg>
+              </span>
+            </div>
+
+            <div class="equipment-cards">
+              <article class="equipment-card fade-up" style="--delay:160ms;--icon-scale:1" data-aos="fade-up" data-aos-delay="0" data-aos-duration="650">
+                <span class="card-number">01</span>
+                <div class="card-figure">
+                  <img class="equipment-photo-card" src="assets/img/ac-split-card-white.png" alt="Equipo split con unidad interior y condensadora exterior." width="1464" height="1098" />
+                </div>
+                <span class="card-badge" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-snowflake" aria-hidden="true">
+                    <path d="M10 4l2 1l2 -1"></path>
+                    <path d="M12 2v6.5l3 1.72"></path>
+                    <path d="M17.928 6.268l.134 2.232l1.866 1.232"></path>
+                    <path d="M20.66 7l-5.629 3.25l.01 3.458"></path>
+                    <path d="M19.928 14.268l-1.866 1.232l-.134 2.232"></path>
+                    <path d="M20.66 17l-5.629 -3.25l-2.99 1.738"></path>
+                    <path d="M14 20l-2 -1l-2 1"></path>
+                    <path d="M12 22v-6.5l-3 -1.72"></path>
+                    <path d="M6.072 17.732l-.134 -2.232l-1.866 -1.232"></path>
+                    <path d="M3.34 17l5.629 -3.25l-.01 -3.458"></path>
+                    <path d="M4.072 9.732l1.866 -1.232l.134 -2.232"></path>
+                    <path d="M3.34 7l5.629 3.25l2.99 -1.738"></path>
+                  </svg>
+                </span>
+                <h3><span>Aires</span><span>acondicionados</span></h3>
+              </article>
+
+              <article class="equipment-card fade-up" style="--delay:230ms;--icon-scale:0.98" data-aos="fade-up" data-aos-delay="70" data-aos-duration="650">
+                <span class="card-number">02</span>
+                <div class="card-figure">
+                  <img class="equipment-photo-card" src="assets/img/heladera-card-white.png" alt="Heladera de dos puertas en color gris oscuro." width="1536" height="1024" />
+                </div>
+                <span class="card-badge" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-fridge" aria-hidden="true">
+                    <path d="M5 5a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2l0 -14"></path>
+                    <path d="M5 10h14"></path>
+                    <path d="M9 13v3"></path>
+                    <path d="M9 6v1"></path>
+                  </svg>
+                </span>
+                <h3><span>Heladeras</span></h3>
+              </article>
+
+              <article class="equipment-card fade-up" style="--delay:300ms;--icon-scale:1.02" data-aos="fade-up" data-aos-delay="140" data-aos-duration="650">
+                <span class="card-number">03</span>
+                <div class="card-figure">
+                  <img class="equipment-photo-card" src="assets/img/freezer-card-white.png" alt="Freezer horizontal blanco con tapas corredizas de vidrio." width="1380" height="1138" />
+                </div>
+                <span class="card-badge" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-archive" aria-hidden="true">
+                    <path d="M3 6a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2"></path>
+                    <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
+                    <path d="M10 12l4 0"></path>
+                  </svg>
+                </span>
+                <h3><span>Freezers</span></h3>
+              </article>
+
+              <article class="equipment-card fade-up" style="--delay:370ms;--icon-scale:0.98" data-aos="fade-up" data-aos-delay="210" data-aos-duration="650">
+                <span class="card-number">04</span>
+                <div class="card-figure">
+                  <img class="equipment-photo-card" src="assets/img/coldroom-card-white.png" alt="Camara frigorifica compacta con puerta frontal y unidad superior." width="1431" height="1098" />
+                </div>
+                <span class="card-badge" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-door" aria-hidden="true">
+                    <path d="M14 12v.01"></path>
+                    <path d="M3 21h18"></path>
+                    <path d="M6 21v-16a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v16"></path>
+                  </svg>
+                </span>
+                <h3><span>Camaras</span><span>frigorificas</span></h3>
+              </article>
+
+              <article class="equipment-card fade-up" style="--delay:440ms;--icon-scale:0.98" data-aos="fade-up" data-aos-delay="280" data-aos-duration="650">
+                <span class="card-number">05</span>
+                <div class="card-figure">
+                  <img class="equipment-photo-card" src="assets/img/exhibidora-card-white.png" alt="Exhibidora vertical negra con puertas de vidrio e interior iluminado." width="1400" height="1120" />
+                </div>
+                <span class="card-badge" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-layout-rows" aria-hidden="true">
+                    <path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12"></path>
+                    <path d="M4 12l16 0"></path>
+                  </svg>
+                </span>
+                <h3><span>Exhibidoras</span></h3>
+              </article>
+
+              <article class="equipment-card fade-up" style="--delay:510ms;--icon-scale:0.98" data-aos="fade-up" data-aos-delay="350" data-aos-duration="650">
+                <span class="card-number">06</span>
+                <div class="card-figure">
+                  <img class="equipment-photo-card" src="assets/img/equipos-comerciales-card-white.png" alt="Equipos comerciales de refrigeración en acero inoxidable para cocina profesional." width="1366" height="1168" />
+                </div>
+                <span class="card-badge" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-building-store" aria-hidden="true">
+                    <path d="M3 21l18 0"></path>
+                    <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"></path>
+                    <path d="M5 21l0 -10.15"></path>
+                    <path d="M19 21l0 -10.15"></path>
+                    <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
+                  </svg>
+                </span>
+                <h3><span>Equipos</span><span>comerciales</span></h3>
+              </article>
+            </div>
+
+            <div class="equipment-guarantees fade-up" style="--delay: 560ms;">
+              <article class="guarantee-item">
+                <span class="guarantee-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" focusable="false">
+                    <path d="M16 4.5 24.5 7l3.5 8.5-3.5 8.5L16 27.5 7.5 24 4 15.5 7.5 7 16 4.5Z" />
+                    <path d="m12.6 16 2.1 2.2 4.7-4.8" />
+                  </svg>
+                </span>
+                <span>Marcas lideres</span>
+              </article>
+              <article class="guarantee-item">
+                <span class="guarantee-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" focusable="false">
+                    <path d="M16 4.5 25 7.4v6.5c0 5.8-3.6 9.9-9 12.1-5.4-2.2-9-6.3-9-12.1V7.4l9-2.9Z" />
+                    <path d="M12 16h8M16 12v8" />
+                  </svg>
+                </span>
+                <span>Repuestos originales</span>
+              </article>
+              <article class="guarantee-item">
+                <span class="guarantee-icon" aria-hidden="true">
+                  <svg viewBox="0 0 32 32" role="img" focusable="false">
+                    <path d="M16 5l7 2.2v6c0 4.7-2.9 8.5-7 10.3-4.1-1.8-7-5.6-7-10.3v-6L16 5Z" />
+                    <path d="M11 24.2 8.4 28 16 26l7.6 2-2.6-3.8" />
+                  </svg>
+                </span>
+                <span>Garantia en cada trabajo</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section" id="opiniones" data-aos="fade-up" data-aos-duration="700">
+      <div class="testimonials-shell">
+        <div class="testimonials-decor decor-left-path" aria-hidden="true">
+          <svg viewBox="0 0 132 178" role="img" focusable="false">
+            <path d="M119 8H81c-25 0-45 20-45 45v38c0 12-5 24-14 32l-9 8c-7 6-11 15-11 24v15" />
+            <circle cx="48" cy="136" r="7" />
+          </svg>
+        </div>
+        <span class="testimonials-decor decor-left-spark spark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img" focusable="false">
+            <path d="M24 6v10M24 32v10M42 24H32M16 24H6M35.3 12.7l-7 7M19.7 28.3l-7 7M35.3 35.3l-7-7M19.7 19.7l-7-7" />
+          </svg>
+        </span>
+        <span class="testimonials-decor decor-left-lines" aria-hidden="true">
+          <svg viewBox="0 0 18 14" role="img" focusable="false">
+            <path d="M2 12 7 7M9 10l7-7" />
+          </svg>
+        </span>
+        <div class="testimonials-decor decor-right-bubble" aria-hidden="true">
+          <svg viewBox="0 0 96 86" role="img" focusable="false">
+            <path d="M46 12c21 0 38 14 38 32S67 76 46 76c-6 0-12-1-17-3L15 79l5-14C12 60 8 53 8 44c0-18 17-32 38-32Z" />
+            <path d="m40 38 6 6 10-12" />
+            <path d="M36 36c0-5 4-8 10-8s10 3 10 8c0 9-10 17-10 17S36 45 36 36Z" />
+          </svg>
+        </div>
+        <span class="testimonials-decor decor-right-lines" aria-hidden="true">
+          <svg viewBox="0 0 22 20" role="img" focusable="false">
+            <path d="M2 16 8 10M9 18l6-8M15 12l5-7" />
+          </svg>
+        </span>
+
+        <header class="testimonials-head">
+          <p class="testimonials-kicker fade-up" style="--delay: 80ms;">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M8 8h16a4 4 0 0 1 4 4v9a4 4 0 0 1-4 4h-9l-5 4v-4H8a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4Z" />
+              <path d="M11.5 16h1M16 16h1M20.5 16h1" />
+            </svg>
+            <span>Lo que dicen nuestros clientes</span>
+          </p>
+
+          <h2 class="testimonials-title fade-up" style="--delay: 150ms;">
+            Opiniones de <span>clientes</span>
+          </h2>
+
+          <span class="testimonials-line fade-up" style="--delay: 220ms;" aria-hidden="true"></span>
+
+          <p class="testimonials-description fade-up" style="--delay: 290ms;">
+            Comentarios reales de quienes ya confiaron en nosotros.
+          </p>
+        </header>
+
+        <div class="testimonial-mobile-controls" aria-label="Controles de opiniones">
+          <button type="button" class="testimonial-prev" aria-label="Opinion anterior">←</button>
+          <span>Opiniones de nuestros clientes</span>
+          <button type="button" class="testimonial-next" aria-label="Opinion siguiente">→</button>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card fade-up" style="--delay: 360ms;" data-aos="fade-up" data-aos-delay="0" data-aos-duration="650">
+            <div class="testimonial-top">
+              <div class="testimonial-avatar" aria-hidden="true">
+                <img src="assets/img/testimonial-sebas-benitez.png" alt="Sebas Benitez" width="1254" height="1254" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Sebas Benitez</strong>
+                <span>Hogar</span>
+              </div>
+              <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+            </div>
+            <span class="testimonial-separator" aria-hidden="true"></span>
+            <p class="testimonial-copy">Llegaron rapido y solucionaron el problema.</p>
+            <span class="testimonial-mark mark-spark" aria-hidden="true">
+              <svg viewBox="0 0 36 36" role="img" focusable="false">
+                <path d="M18 4v8M18 24v8M32 18h-8M12 18H4M26 10l-4 4M14 22l-4 4M26 26l-4-4M14 14l-4-4" />
+              </svg>
+            </span>
+          </article>
+
+          <article class="testimonial-card fade-up" style="--delay: 460ms;" data-aos="fade-up" data-aos-delay="100" data-aos-duration="650">
+            <div class="testimonial-top">
+              <div class="testimonial-avatar" aria-hidden="true">
+                <img src="assets/img/testimonial-esteban-sciaca.png" alt="Esteban Sciaca" width="1254" height="1254" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Esteban Sciaca</strong>
+                <span>Comercio</span>
+              </div>
+              <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+            </div>
+            <span class="testimonial-separator" aria-hidden="true"></span>
+            <p class="testimonial-copy">Muy buen servicio y atencion.</p>
+            <span class="testimonial-mark mark-like" aria-hidden="true">
+              <svg viewBox="0 0 36 36" role="img" focusable="false">
+                <path d="M12 16v16H7V16h5ZM17 32h10c2 0 3.7-1.4 4.1-3.3l1.7-8a4 4 0 0 0-3.9-4.7H24l.8-5.4c.2-1.5-.3-2.9-1.4-3.9L22 5l-7.1 8.5a4 4 0 0 0-.9 2.6V28c0 2.2 1.8 4 4 4Z" />
+                <path d="M23 6v4" />
+              </svg>
+            </span>
+          </article>
+
+          <article class="testimonial-card fade-up" style="--delay: 560ms;" data-aos="fade-up" data-aos-delay="200" data-aos-duration="650">
+            <div class="testimonial-top">
+              <div class="testimonial-avatar" aria-hidden="true">
+                <img src="assets/img/testimonial-isaac-valdez.png" alt="Isaac Valdez" width="1254" height="1254" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Isaac Valdez</strong>
+                <span>Oficina</span>
+              </div>
+              <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+            </div>
+            <span class="testimonial-separator" aria-hidden="true"></span>
+            <p class="testimonial-copy">Todo quedo funcionando perfecto.</p>
+            <span class="testimonial-mark mark-spark" aria-hidden="true">
+              <svg viewBox="0 0 36 36" role="img" focusable="false">
+                <path d="M18 4v8M18 24v8M32 18h-8M12 18H4M26 10l-4 4M14 22l-4 4M26 26l-4-4M14 14l-4-4" />
+              </svg>
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="coverage-section coverage-redesign coverage-v23" id="cobertura" data-aos="fade-up" data-aos-duration="650">
+      <div class="coverage-shell coverage-shell-redesign">
+        <header class="coverage-head coverage-head-redesign">
+          <p class="coverage-kicker coverage-kicker-redesign">
+            <span class="coverage-kicker-icon" aria-hidden="true">
+              <iconify-icon icon="solar:map-point-wave-bold-duotone"></iconify-icon>
+            </span>
+            <span>Cobertura y horarios</span>
+          </p>
+
+          <h2 class="coverage-title coverage-title-redesign">
+            Cobertura en <span>Asunción y Central</span>
+          </h2>
+
+          <p class="coverage-description coverage-description-redesign">
+            Servicio técnico para hogares, comercios y empresas.
+          </p>
+        </header>
+
+        <div class="coverage-summary-row" data-aos="fade-up" data-aos-delay="80">
+          <div class="coverage-summary-item">
+            <span class="coverage-summary-icon">
+              <iconify-icon icon="solar:map-bold-duotone"></iconify-icon>
+            </span>
+            <div>
+              <strong>6+ zonas</strong>
+              <span>de cobertura</span>
+            </div>
+          </div>
+
+          <div class="coverage-summary-item">
+            <span class="coverage-summary-icon">
+              <iconify-icon icon="solar:calendar-mark-bold-duotone"></iconify-icon>
+            </span>
+            <div>
+              <strong>Lun–Sáb</strong>
+              <span>atención semanal</span>
+            </div>
+          </div>
+
+          <div class="coverage-summary-item">
+            <span class="coverage-summary-icon">
+              <iconify-icon icon="logos:whatsapp-icon"></iconify-icon>
+            </span>
+            <div>
+              <strong>Respuesta directa</strong>
+              <span>por WhatsApp</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverage-main-card" data-aos="fade-up" data-aos-delay="120">
+          <div class="coverage-main-grid">
+            <section class="coverage-zone-block">
+              <div class="coverage-block-title">
+                <span class="coverage-block-icon" aria-hidden="true">
+                  <iconify-icon icon="solar:route-bold-duotone"></iconify-icon>
+                </span>
+                <div>
+                  <strong>Zonas donde trabajamos</strong>
+                  <p>Algunas de las ciudades donde damos servicio.</p>
+                </div>
+              </div>
+
+              <div class="coverage-city-list">
+                <span class="coverage-city-pill">Asunción</span>
+                <span class="coverage-city-pill">San Lorenzo</span>
+                <span class="coverage-city-pill">Fernando de la Mora</span>
+                <span class="coverage-city-pill">Lambaré</span>
+                <span class="coverage-city-pill">Luque</span>
+                <span class="coverage-city-pill">Villa Elisa</span>
+              </div>
+
+              <div class="coverage-inline-note">
+                <span>¿Tu ciudad no aparece?</span>
+                <a href="https://wa.me/595986689470" target="_blank" rel="noreferrer">Consultanos</a>
+              </div>
+            </section>
+
+            <aside class="coverage-side-block">
+              <section class="coverage-hours-card">
+                <div class="coverage-block-title">
+                  <span class="coverage-block-icon is-clock" aria-hidden="true">
+                    <iconify-icon icon="solar:alarm-bold-duotone"></iconify-icon>
+                  </span>
+                  <div>
+                    <strong>Horarios</strong>
+                    <p>Horario habitual de atención.</p>
+                  </div>
+                </div>
+
+                <div class="coverage-hours-list">
+                  <div class="coverage-hours-item">
+                    <span>Lunes a viernes</span>
+                    <strong>08:00 – 18:00</strong>
+                  </div>
+                  <div class="coverage-hours-item">
+                    <span>Sábados</span>
+                    <strong>08:00 – 13:00</strong>
+                  </div>
+                </div>
+              </section>
+
+              <a class="coverage-whatsapp-cta"
+                 href="https://wa.me/595986689470"
+                 target="_blank"
+                 rel="noreferrer">
+                <iconify-icon icon="logos:whatsapp-icon"></iconify-icon>
+                <span>
+                  <strong>Confirmar cobertura</strong>
+                  <small>Escribinos por WhatsApp</small>
+                </span>
+                <b aria-hidden="true">↗</b>
+              </a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto" data-aos="fade-up" data-aos-duration="700">
+      <div class="contact-shell">
+        <span class="contact-decor contact-spark-large spark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img" focusable="false">
+            <path d="M24 6v10M24 32v10M42 24H32M16 24H6M35.3 12.7l-7 7M19.7 28.3l-7 7M35.3 35.3l-7-7M19.7 19.7l-7-7" />
+          </svg>
+        </span>
+        <span class="contact-decor contact-spark-small spark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" role="img" focusable="false">
+            <path d="M20 8v7M20 25v7M32 20h-7M15 20H8" />
+          </svg>
+        </span>
+        <span class="contact-decor contact-wave" aria-hidden="true">
+          <svg viewBox="0 0 182 38" role="img" focusable="false">
+            <path d="M2 18c20 0 20-16 40-16s20 16 40 16 20-16 40-16 20 16 40 16 20-16 40-16" />
+            <circle cx="82" cy="18" r="7" />
+          </svg>
+        </span>
+        <span class="contact-decor contact-toolbox" aria-hidden="true">
+          <svg viewBox="0 0 64 60" role="img" focusable="false">
+            <path d="M14 24h36a4 4 0 0 1 4 4v18a5 5 0 0 1-5 5H15a5 5 0 0 1-5-5V28a4 4 0 0 1 4-4Z" />
+            <path d="M24 24v-4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v4" />
+            <path d="M28 32h8" />
+            <path d="M44 16 31 29l4 4 13-13" />
+            <path d="m40 20 8 8" />
+          </svg>
+        </span>
+        <span class="contact-decor contact-tool-lines" aria-hidden="true">
+          <svg viewBox="0 0 22 22" role="img" focusable="false">
+            <path d="M3 18 9 12M9 15l5-7M14 10l5-6" />
+          </svg>
+        </span>
+
+        <header class="contact-head">
+          <p class="contact-kicker fade-up" style="--delay: 60ms;">
+            <svg viewBox="0 0 24 28" aria-hidden="true">
+              <path d="M12 2c5.1 0 9 3.7 9 8.6C21 16.4 12 26 12 26S3 16.4 3 10.6C3 5.7 6.9 2 12 2Z" />
+              <circle cx="12" cy="10" r="3.2" />
+            </svg>
+            <span>Estamos para ayudarte</span>
+          </p>
+
+          <h2 class="contact-title fade-up" style="--delay: 120ms;">Contacto</h2>
+          <span class="contact-line fade-up" style="--delay: 180ms;" aria-hidden="true"></span>
+          <p class="contact-description fade-up" style="--delay: 240ms;">
+            Elegi la forma mas comoda para comunicarte con nosotros.
+          </p>
+        </header>
+
+        <div class="contact-cards">
+          <a class="contact-card fade-up" style="--delay: 320ms;" href="https://wa.me/595986689470" target="_blank" rel="noreferrer">
+            <span class="contact-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false">
+                <use href="#icon-whatsapp-tabler"></use>
+              </svg>
+            </span>
+            <span class="contact-card-copy">
+              <strong>WhatsApp</strong>
+              <span>0986 689 470</span>
+            </span>
+            <span class="contact-card-accent" aria-hidden="true"></span>
+          </a>
+
+          <a class="contact-card fade-up" style="--delay: 405ms;" href="tel:+595986689470">
+            <span class="contact-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36" role="img" focusable="false">
+                <use href="#icon-phone-tabler"></use>
+              </svg>
+            </span>
+            <span class="contact-card-copy">
+              <strong>Llamadas</strong>
+              <span>0986 689 470</span>
+            </span>
+            <span class="contact-card-accent" aria-hidden="true"></span>
+          </a>
+
+          <a class="contact-card fade-up" style="--delay: 490ms;" href="mailto:hola@frioexpert.com">
+            <span class="contact-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 36 36" role="img" focusable="false">
+                <use href="#icon-mail-tabler"></use>
+              </svg>
+            </span>
+            <span class="contact-card-copy">
+              <strong>Correo</strong>
+              <span class="is-email">hola@frioexpert.com</span>
+            </span>
+            <span class="contact-card-accent" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="contact-map fade-scale" style="--delay: 260ms;">
+          <iframe
+            class="contact-map-frame"
+            title="Mapa de cobertura en Asunción"
+            src="https://www.google.com/maps?q=Asunci%C3%B3n%2C%20Paraguay&z=11&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="contact-cta-wrap">
+          <a class="contact-cta fade-up" style="--delay: 540ms;" href="https://wa.me/595986689470" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#icon-whatsapp-tabler"></use>
+            </svg>
+            <span>Escribinos por WhatsApp</span>
+          </a>
+          <span class="contact-cta-decor" aria-hidden="true">
+            <svg viewBox="0 0 72 42" role="img" focusable="false">
+              <path d="M70 8c-16 0-16 12-32 12S22 8 6 8" />
+              <path d="m8 4-6 4 6 4" />
+              <path d="M56 8c0 6 5 11 11 11" />
+              <circle cx="58" cy="10" r="4.5" />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="footer-help-section">
+    <footer class="site-footer">
+      <div class="footer-main">
+        <section class="footer-brand-col">
+          <a class="footer-brand" href="#inicio" aria-label="FrioExpert, volver al inicio">
+            <span class="footer-brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" role="img" focusable="false">
+                <path d="M32 5v54M11.2 16.9l41.6 30.2M11.2 47.1l41.6-30.2M21.9 10.8 42.1 53.2M42.1 10.8 21.9 53.2" />
+                <circle cx="32" cy="32" r="8.5" />
+              </svg>
+            </span>
+            <span class="footer-brand-copy">
+              <strong><span>Frio</span><span>Expert</span></strong>
+              <span>Refrigeracion</span>
+            </span>
+          </a>
+          <p>Brindamos soluciones de refrigeracion con calidad, compromiso y atencion profesional.</p>
+          <ul class="footer-attributes">
+            <li><span class="footer-attr-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 6v5c0 4.5-2.8 7.8-7 9.5-4.2-1.7-7-5-7-9.5V6l7-2.5Z" /><path d="m9.3 11.9 1.8 1.9 3.7-4" /></svg></span><span>Tecnicos calificados</span></li>
+            <li><span class="footer-attr-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-user-tabler"></use></svg></span><span>Garantia en todos nuestros trabajos</span></li>
+            <li><span class="footer-attr-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-tools-tabler"></use></svg></span><span>Repuestos de calidad</span></li>
+            <li><span class="footer-attr-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-clock-tabler"></use></svg></span><span>Atencion rapida y confiable</span></li>
+          </ul>
+        </section>
+
+        <nav class="footer-links-col" aria-label="Servicios">
+          <h3>SERVICIOS</h3>
+          <ul>
+            <li><a href="#servicios">Instalacion</a></li>
+            <li><a href="#servicios">Mantenimiento</a></li>
+            <li><a href="#servicios">Reparacion</a></li>
+            <li><a href="#servicios">Carga de gas</a></li>
+            <li><a href="#servicios">Limpieza profunda</a></li>
+            <li><a href="#servicios">Venta de equipos</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-links-col" aria-label="Enlaces rapidos">
+          <h3>ENLACES RAPIDOS</h3>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#opiniones">Sobre nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#equipos">Equipos que atendemos</a></li>
+            <li><a href="#opiniones">Opiniones</a></li>
+            <li><a href="#cobertura">Zona de cobertura</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer-contact-col">
+          <h3>CONTACTO RAPIDO</h3>
+          <ul>
+            <li><span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-whatsapp-tabler"></use></svg></span><span><strong>WhatsApp</strong><span>(0986) 689 470</span></span></li>
+            <li><span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><use href="#icon-phone-tabler"></use></svg></span><span><strong>Llamanos</strong><span>(0986) 689 470</span></span></li>
+            <li><span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><use href="#icon-mail-tabler"></use></svg></span><span><strong>Email</strong><span>contacto@frioexpert.com</span></span></li>
+            <li><span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 36 36"><use href="#icon-map-pin-tabler"></use></svg></span><span><strong>Asuncion y alrededores</strong><span>Paraguay</span></span></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-legal">&#169; 2025 FrioExpert Refrigeracion. Todos los derechos reservados.</p>
+        <div class="footer-trust">
+          <span class="footer-bottom-sep" aria-hidden="true"></span>
+          <span class="footer-trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icon-shield-check-tabler"></use></svg></span>
+          <span>Tu equipo en manos<br />de expertos</span>
+        </div>
+        <div class="footer-social">
+          <span class="footer-bottom-sep" aria-hidden="true"></span>
+          <span class="footer-social-label">Seguinos en nuestras redes</span>
+          <div class="footer-social-icons">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-brand-facebook-tabler"></use></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-brand-instagram-tabler"></use></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-brand-tiktok-tabler"></use></svg></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <script id="frioexpert-mobile-interactions">
+    (() => {
+      const topbar = document.querySelector('.topbar');
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.querySelector('.site-nav');
+
+      const syncNavbarScrollState = () => {
+        if (!topbar) return;
+        topbar.classList.toggle('is-scrolled', window.scrollY > 18);
+      };
+
+      syncNavbarScrollState();
+      window.addEventListener('scroll', syncNavbarScrollState, { passive: true });
+
+      const heroTrack = document.querySelector('.hero-background-track');
+      const heroDots = Array.from(document.querySelectorAll('.hero-slider-dot'));
+      const heroCurrent = document.querySelector('.hero-slider-current');
+      const heroReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let heroSlideIndex = 0;
+      let heroSlideTimer = null;
+      let heroResetting = false;
+
+      const paintHeroSlide = (index, animate = true) => {
+        if (!heroTrack) return;
+        heroSlideIndex = index;
+        heroTrack.style.transition = animate
+          ? 'transform .85s cubic-bezier(.22,.8,.2,1)'
+          : 'none';
+        heroTrack.style.transform = `translate3d(-${index * 25}%,0,0)`;
+
+        const visibleIndex = index === 3 ? 0 : index;
+        heroDots.forEach((dot, i) => dot.classList.toggle('is-active', i === visibleIndex));
+        if (heroCurrent) heroCurrent.textContent = String(visibleIndex + 1).padStart(2, '0');
+      };
+
+      const nextHeroSlide = () => {
+        if (!heroTrack || heroResetting) return;
+        const nextIndex = heroSlideIndex + 1;
+        paintHeroSlide(nextIndex, true);
+
+        if (nextIndex === 3) {
+          heroResetting = true;
+          window.setTimeout(() => {
+            paintHeroSlide(0, false);
+            heroResetting = false;
+          }, 900);
+        }
+      };
+
+      const stopHeroSlider = () => {
+        if (heroSlideTimer) {
+          clearInterval(heroSlideTimer);
+          heroSlideTimer = null;
+        }
+      };
+
+      const startHeroSlider = () => {
+        stopHeroSlider();
+        if (!heroTrack || heroReducedMotion) return;
+        heroSlideTimer = setInterval(nextHeroSlide, 4800);
+      };
+
+      heroDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          heroResetting = false;
+          paintHeroSlide(index, true);
+          startHeroSlider();
+        });
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopHeroSlider();
+        else startHeroSlider();
+      });
+
+      startHeroSlider();
+
+      if (topbar && toggle && nav) {
+        const closeMenu = () => {
+          topbar.classList.remove('menu-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Abrir menu');
+        };
+
+        toggle.addEventListener('click', () => {
+          const open = !topbar.classList.contains('menu-open');
+          topbar.classList.toggle('menu-open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Cerrar menu' : 'Abrir menu');
+        });
+
+        nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('click', (event) => {
+          if (!topbar.contains(event.target)) closeMenu();
+        });
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > 780) closeMenu();
+        });
+      }
+
+      const reducedCarouselMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const setupInfiniteTestimonials = () => {
+        const track = document.querySelector('.testimonials-grid');
+        if (!track || reducedCarouselMotion) return;
+
+        /* Avoid cloning twice if this initializer ever runs again. */
+        if (track.dataset.marqueeReady === 'true') return;
+        track.dataset.marqueeReady = 'true';
+
+        const originals = Array.from(
+          track.querySelectorAll('.testimonial-card:not([data-marquee-clone])')
+        );
+        if (originals.length < 2) return;
+
+        originals.forEach((card) => {
+          const clone = card.cloneNode(true);
+          clone.dataset.marqueeClone = 'true';
+          clone.setAttribute('aria-hidden', 'true');
+          clone.removeAttribute('data-aos');
+          clone.removeAttribute('data-aos-delay');
+          clone.removeAttribute('data-aos-duration');
+          clone.classList.remove('aos-init', 'aos-animate');
+          track.appendChild(clone);
+        });
+
+        let position = 0;
+        let cycleWidth = 0;
+        let lastTime = performance.now();
+        let frameId = null;
+
+        const measure = () => {
+          const firstClone = track.querySelector('[data-marquee-clone="true"]');
+          if (!firstClone) return;
+          cycleWidth = firstClone.offsetLeft;
+          if (cycleWidth > 0) {
+            position = position % cycleWidth;
+            track.style.transform = `translate3d(${-position}px,0,0)`;
+          }
+        };
+
+        const speed = () => window.innerWidth <= 780 ? 28 : 36;
+
+        const tick = (now) => {
+          const dt = Math.min((now - lastTime) / 1000, 0.05);
+          lastTime = now;
+
+          if (!document.hidden && cycleWidth > 0) {
+            position += speed() * dt;
+
+            if (position >= cycleWidth) {
+              position -= cycleWidth;
+            }
+
+            track.style.transform = `translate3d(${-position}px,0,0)`;
+          }
+
+          frameId = requestAnimationFrame(tick);
+        };
+
+        /* Wait one frame so cloned cards have their final responsive widths. */
+        requestAnimationFrame(() => {
+          measure();
+          lastTime = performance.now();
+          frameId = requestAnimationFrame(tick);
+        });
+
+        window.addEventListener('resize', () => {
+          requestAnimationFrame(measure);
+          lastTime = performance.now();
+        }, { passive: true });
+
+        document.addEventListener('visibilitychange', () => {
+          lastTime = performance.now();
+        });
+      };
+
+      setupInfiniteTestimonials();
+    })();
+  </script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+
+
+  <script>
+    window.addEventListener('load', function () {
+      if (window.AOS) {
+        AOS.init({
+          once: true,
+          duration: 650,
+          easing: 'ease-out-cubic',
+          offset: 70,
+          anchorPlacement: 'top-bottom',
+          disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        });
+      }
+    });
+  </script>
+
+
+  <script>
+    window.addEventListener('load', function () {
+      if (window.countUp) {
+        document.querySelectorAll('[data-countup]').forEach(function (el) {
+          const target = Number(el.getAttribute('data-countup'));
+          if (!Number.isFinite(target)) return;
+          const counter = new countUp.CountUp(el, target, {
+            duration: 1.6,
+            useGrouping: false
+          });
+          if (!counter.error) counter.start();
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

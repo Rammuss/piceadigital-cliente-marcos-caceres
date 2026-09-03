@@ -1,0 +1,2629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AF Studio Barber</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --bg: #070707;
+      --fg: #f7f2ea;
+      --muted: rgba(247, 242, 234, .7);
+      --line: rgba(247, 242, 234, .16);
+      --panel: rgba(10, 10, 10, .46);
+      --orange: #ff5a23;
+      --cream: #efe5d6;
+      --dark: #111;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px clamp(20px, 4vw, 56px);
+      color: #fff;
+      mix-blend-mode: difference;
+    }
+
+    .brand {
+      font-weight: 950;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      color: rgba(255, 255, 255, .72);
+      font-size: .8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .frame-story {
+      position: relative;
+      min-height: 360vh;
+      background: #050505;
+    }
+
+    .frame-stage {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      height: 100vh;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .story-scroll {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .frame-canvas,
+    .fallback-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .frame-canvas {
+      z-index: -4;
+      background: #090909;
+    }
+
+    .fallback-bg {
+      z-index: -5;
+      background:
+        radial-gradient(circle at 70% 28%, rgba(255, 90, 35, .28), transparent 30%),
+        radial-gradient(circle at 28% 72%, rgba(114, 178, 255, .18), transparent 24%),
+        linear-gradient(135deg, #181818, #050505 66%);
+    }
+
+    .stage-shade {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .32)),
+        linear-gradient(90deg, rgba(0, 0, 0, .42), rgba(0, 0, 0, .04));
+    }
+
+    .stage-frame {
+      position: absolute;
+      inset: clamp(18px, 3vw, 42px);
+      z-index: -2;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .story-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: grid;
+      place-items: center;
+      padding: 92px clamp(20px, 5vw, 70px);
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      place-items: end center;
+      padding-bottom: clamp(60px, 7vw, 110px);
+    }
+
+    .values-copy {
+      place-items: center;
+    }
+
+    .story-grid {
+      width: min(1180px, 100%);
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 34px;
+      align-items: end;
+    }
+
+    .story-panel {
+      width: min(980px, 100%);
+    }
+
+    .story-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      backdrop-filter: blur(16px);
+    }
+
+    .eyebrow {
+      margin-bottom: 16px;
+      color: rgba(247, 242, 234, .64);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      font-size: clamp(3.2rem, 9vw, 9rem);
+      line-height: .84;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      color: #fff;
+      font-size: 1.14rem;
+    }
+
+    p {
+      max-width: 740px;
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      pointer-events: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .06);
+      color: #fff;
+      font-size: .88rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .btn.primary {
+      border-color: transparent;
+      background: var(--orange);
+      color: #190701;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      width: min(1180px, 100%);
+      margin-top: 26px;
+    }
+
+    .value {
+      min-height: 180px;
+      display: grid;
+      align-content: end;
+      gap: 10px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(16px);
+    }
+
+    .value p {
+      margin-top: 0;
+      font-size: .98rem;
+    }
+
+    .mini-note {
+      position: absolute;
+      right: clamp(20px, 5vw, 70px);
+      bottom: clamp(22px, 5vw, 58px);
+      z-index: 5;
+      width: min(330px, calc(100% - 40px));
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, .38);
+      backdrop-filter: blur(14px);
+      display: none;
+    }
+
+    .normal-section {
+      position: relative;
+      z-index: 5;
+      padding: clamp(76px, 10vw, 138px) clamp(20px, 5vw, 70px);
+    }
+
+    .normal-section.light {
+      background: var(--cream);
+      color: var(--dark);
+    }
+
+    .services-section {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .normal-section.dark {
+      background: #0d0d0d;
+    }
+
+    .inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .95fr 1fr;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .light .eyebrow,
+    .light p {
+      color: rgba(17, 17, 17, .66);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .services-track-wrap {
+      overflow: visible;
+      margin-top: 18px;
+    }
+
+    .services-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      padding-right: clamp(20px, 5vw, 70px);
+    }
+
+    .service-card {
+      width: min(460px, 82vw);
+      min-height: 520px;
+      display: grid;
+      align-content: end;
+      gap: 14px;
+      padding: 26px;
+      border-radius: 8px;
+      overflow: hidden;
+      color: #fff;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .82)),
+        radial-gradient(circle at 70% 25%, rgba(255, 90, 35, .18), transparent 28%),
+        #191919;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .18);
+    }
+
+    .service-card:nth-child(1) {
+      background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .82)),
+        url("../assets/images/servicio-corte.jpg");
+    }
+
+    .service-card:nth-child(2) {
+      background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .82)),
+        url("../assets/images/servicio-barba.jpg");
+    }
+
+    .service-card:nth-child(3) {
+      background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, .06), rgba(0, 0, 0, .82)),
+        url("../assets/images/servicio-experiencia.jpg");
+    }
+
+    .service-card p {
+      color: rgba(255, 255, 255, .76);
+    }
+
+    .service-price {
+      width: max-content;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #190701;
+      font-size: .78rem;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-top: 28px;
+    }
+
+    .booking-card {
+      min-height: 214px;
+      padding: 24px;
+      border-radius: 8px;
+      background: rgba(55, 61, 76, .92);
+    }
+
+    .booking-card h3,
+    .booking-copy h3 {
+      margin-bottom: 16px;
+    }
+
+    .booking-card p,
+    .booking-copy p {
+      margin-top: 0;
+    }
+
+    .card {
+      min-height: 260px;
+      display: grid;
+      align-content: end;
+      gap: 12px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .065);
+    }
+
+    .light .card {
+      border-color: rgba(17, 17, 17, .14);
+      background: rgba(17, 17, 17, .05);
+    }
+
+    .light .card h3 {
+      color: #111;
+    }
+
+    .membership {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .events-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .event-list {
+      display: grid;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .event-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .event-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--orange);
+      border-radius: 50%;
+      color: var(--orange);
+      font-size: .82rem;
+      font-weight: 950;
+    }
+
+    .event-item p {
+      margin-top: 8px;
+    }
+
+    .event-tags {
+      margin-top: 28px;
+    }
+
+    .image-panel {
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .52)),
+        url("../assets/images/eventos.jpg"),
+        radial-gradient(circle at 70% 30%, rgba(255, 90, 35, .18), transparent 30%),
+        linear-gradient(135deg, #171717, #050505 64%);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .founder-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .founder-image {
+      min-height: 430px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .42)),
+        url("../assets/images/fundador.jpg"),
+        radial-gradient(circle at 70% 30%, rgba(255, 90, 35, .18), transparent 30%),
+        linear-gradient(135deg, #171717, #050505 64%);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .founder-divider {
+      height: 1px;
+      margin: 28px 0;
+      background: rgba(255, 255, 255, .28);
+    }
+
+    .cert-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .cert-card {
+      padding: 22px 26px;
+      border: 1px solid var(--orange);
+      border-left-width: 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .cert-card p {
+      margin-top: 8px;
+    }
+
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .quote {
+      position: relative;
+      min-height: 300px;
+      display: grid;
+      align-content: space-between;
+      gap: 26px;
+      padding: 28px;
+      border: 1px solid var(--orange);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .055);
+    }
+
+    .quote::before {
+      content: "“";
+      position: absolute;
+      top: -30px;
+      left: 18px;
+      color: var(--orange);
+      font-size: 72px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .quote p {
+      font-size: clamp(1rem, 1.45vw, 1.15rem);
+    }
+
+    .quote strong {
+      color: #fff;
+    }
+
+    .franchise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .franchise-card {
+      min-height: 185px;
+      display: grid;
+      align-content: end;
+      gap: 12px;
+      padding: 22px;
+      border: 1px solid rgba(255, 90, 35, .38);
+      border-radius: 8px;
+      background: rgba(255, 90, 35, .28);
+    }
+
+    .franchise-card.wide {
+      grid-column: span 2;
+    }
+
+    .final-cta {
+      margin-top: 46px;
+      padding-top: 42px;
+      border-top: 1px solid rgba(255, 255, 255, .28);
+    }
+
+    .final-cta h2 {
+      font-size: clamp(3rem, 8vw, 7.6rem);
+    }
+
+    .logo-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      align-items: center;
+      margin: 38px auto;
+      width: min(880px, 100%);
+    }
+
+    .logo-box {
+      min-height: 64px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .9);
+      color: #111;
+      font-size: .78rem;
+      font-weight: 950;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .price,
+    .remaining {
+      margin-top: 20px;
+      color: var(--orange);
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .features {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+      color: var(--muted);
+      list-style: none;
+    }
+
+    .features li {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .features li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .6em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .meter {
+      height: 14px;
+      margin: 20px 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .14);
+      overflow: hidden;
+    }
+
+    .meter span {
+      display: block;
+      width: 27%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--orange);
+      transform-origin: left center;
+    }
+
+
+    /* ===== Premium scroll layer: services onward ===== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      height: 3px;
+      pointer-events: none;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .scroll-progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--orange), #ff936c);
+      transform: scaleX(0);
+      transform-origin: left center;
+      box-shadow: 0 0 18px rgba(255, 90, 35, .5);
+    }
+
+    .normal-section {
+      isolation: isolate;
+    }
+
+    .normal-section::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: clamp(20px, 5vw, 70px);
+      width: min(120px, 18vw);
+      height: 1px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+      opacity: .58;
+      transform: scaleX(.28);
+      transform-origin: left center;
+    }
+
+    .section-head h2,
+    #eventos h2,
+    #prueba-social h2,
+    #fundador > .inner > h2,
+    #testimonios h2,
+    #franquicias > .inner > h2 {
+      will-change: transform, opacity, clip-path;
+    }
+
+    .service-card,
+    .card,
+    .booking-card,
+    .quote,
+    .franchise-card,
+    .cert-card,
+    .logo-box,
+    .event-item {
+      will-change: transform, opacity;
+    }
+
+    .service-card {
+      position: relative;
+      border: 1px solid rgba(255,255,255,.18);
+      transform-style: preserve-3d;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.11) 48%, transparent 72%);
+      transform: translateX(-120%);
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: max-content;
+      color: rgba(255,255,255,.72);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .service-kicker i { color: var(--orange); font-size: 1rem; }
+
+    .premium-stats {
+      position: relative;
+      z-index: 6;
+      padding: 0 clamp(20px, 5vw, 70px) clamp(76px, 9vw, 126px);
+      background: var(--cream);
+      color: var(--dark);
+      overflow: hidden;
+    }
+
+    .stats-shell {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding-top: 34px;
+      border-top: 1px solid rgba(17,17,17,.14);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .stat-card {
+      position: relative;
+      min-height: 180px;
+      display: grid;
+      align-content: space-between;
+      gap: 24px;
+      padding: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(17,17,17,.12);
+      border-radius: 8px;
+      background: rgba(255,255,255,.34);
+    }
+
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      right: -44px;
+      bottom: -72px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,90,35,.22);
+      box-shadow: 0 0 0 22px rgba(255,90,35,.04), 0 0 0 44px rgba(255,90,35,.025);
+    }
+
+    .stat-icon,
+    .booking-icon,
+    .franchise-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      color: var(--orange);
+      font-size: 1rem;
+    }
+
+    .stat-number {
+      display: flex;
+      align-items: flex-start;
+      gap: 3px;
+      color: #111;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 950;
+      letter-spacing: -.05em;
+      line-height: .86;
+    }
+
+    .stat-number sup {
+      padding-top: .1em;
+      color: var(--orange);
+      font-size: .38em;
+      letter-spacing: 0;
+    }
+
+    .stat-card p {
+      margin-top: 10px;
+      color: rgba(17,17,17,.62);
+      font-size: .92rem;
+    }
+
+    .membership > .card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .membership > .card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      top: -100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,90,35,.18), transparent 66%);
+      pointer-events: none;
+    }
+
+    .features li {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      padding-left: 0;
+    }
+
+    .features li::before { display: none; }
+    .features li i { color: var(--orange); margin-top: .18em; }
+
+    .counter-inline { font-variant-numeric: tabular-nums; }
+
+    .meter span {
+      box-shadow: 0 0 22px rgba(255,90,35,.35);
+    }
+
+    .booking-card,
+    .booking-copy {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-card {
+      border: 1px solid rgba(255,255,255,.1);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,196,116,.17), transparent 26%),
+        rgba(55, 61, 76, .92);
+    }
+
+    .booking-copy {
+      min-height: 214px;
+      padding: 24px;
+      border: 1px solid rgba(17,17,17,.14);
+      border-radius: 8px;
+      background: rgba(17,17,17,.045);
+    }
+
+    .booking-icon {
+      margin-bottom: 42px;
+    }
+
+    .booking-time {
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      color: rgba(17,17,17,.12);
+      font-size: clamp(3.4rem, 7vw, 6rem);
+      font-weight: 950;
+      letter-spacing: -.08em;
+      line-height: 1;
+    }
+
+    .booking-card .booking-time { color: rgba(255,255,255,.11); }
+
+    .event-icon {
+      font-size: 1rem;
+    }
+
+    .event-icon i {
+      transform: translateY(1px);
+    }
+
+    .events-layout {
+      perspective: 1200px;
+    }
+
+    .image-panel {
+      position: relative;
+      overflow: hidden;
+      transform-origin: center center;
+    }
+
+    .image-panel::after,
+    .founder-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.08) 48%, transparent 72%);
+      transform: translateX(-120%);
+    }
+
+    .logo-strip {
+      position: relative;
+    }
+
+    .logo-box {
+      position: relative;
+      overflow: hidden;
+      transition: border-color .25s ease, transform .25s ease;
+    }
+
+    .logo-box::after {
+      content: "";
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      bottom: 8px;
+      height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .25s ease;
+    }
+
+    .founder-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founder-badge {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      background: rgba(0,0,0,.58);
+      color: #fff;
+      backdrop-filter: blur(12px);
+    }
+
+    .founder-badge strong { color: var(--orange); font-size: 1.35rem; }
+    .founder-badge span { font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+
+    .quote {
+      transform-style: preserve-3d;
+      perspective: 900px;
+    }
+
+    .quote .quote-mark {
+      color: var(--orange);
+      font-size: 1.1rem;
+    }
+
+    .franchise-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .franchise-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% -70% 35%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.16);
+      pointer-events: none;
+    }
+
+    .franchise-icon {
+      margin-bottom: 18px;
+      color: #fff;
+      border-color: rgba(255,255,255,.32);
+      background: rgba(255,255,255,.08);
+    }
+
+    .final-cta {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before { display: none; }
+
+    .final-cta-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--orange), rgba(255,255,255,.45), transparent);
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+
+    /* Cierre scrollytelling: palabra por palabra -> frase completa */
+    .standard-scroll {
+      position: relative;
+      min-height: 72vh;
+      display: grid;
+      place-items: center;
+      padding: clamp(54px, 8vw, 96px) 0 clamp(28px, 5vw, 56px);
+    }
+
+    .standard-word-stage {
+      position: relative;
+      width: 100%;
+      min-height: clamp(260px, 43vw, 520px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      perspective: 900px;
+    }
+
+    .standard-word {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 0 10px;
+      color: var(--fg);
+      font-size: clamp(4.2rem, 15vw, 13rem);
+      font-weight: 950;
+      line-height: .78;
+      letter-spacing: -.075em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(70px) scale(.82);
+      filter: blur(12px);
+      will-change: transform, opacity, filter;
+    }
+
+    .standard-word.is-accent { color: var(--orange); }
+
+    .standard-full {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      padding: 0 8px;
+      text-align: center;
+      font-size: clamp(3rem, 9.5vw, 8.4rem);
+      font-weight: 950;
+      line-height: .84;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: scale(.9);
+      filter: blur(10px);
+      will-change: transform, opacity, filter;
+    }
+
+    .standard-full .accent { color: var(--orange); }
+
+    .standard-support {
+      width: min(820px, 100%);
+      margin: 0 auto;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .standard-support p { margin-left: auto; margin-right: auto; }
+    .standard-support .actions { justify-content: center; }
+
+    .standard-progress {
+      position: absolute;
+      left: 50%;
+      bottom: 16px;
+      z-index: 1;
+      width: min(300px, 64vw);
+      height: 2px;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,.12);
+      overflow: hidden;
+    }
+
+    .standard-progress span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+
+    .image-panel.is-revealed::after,
+    .founder-image.is-revealed::after {
+      animation: premiumSweep 1.2s cubic-bezier(.2,.75,.2,1) .15s both;
+    }
+
+    @keyframes premiumSweep {
+      from { transform: translateX(-120%); }
+      to { transform: translateX(120%); }
+    }
+
+    .btn i { margin-left: 8px; }
+
+    @media (max-width: 640px) {
+      .standard-scroll {
+        min-height: 64vh;
+        padding: 44px 0 28px;
+        overflow: hidden;
+      }
+
+      .standard-word-stage {
+        width: 100%;
+        min-height: 300px;
+        overflow: hidden;
+      }
+
+      /* En mobile cada palabra tiene una escala propia para que nunca desborde. */
+      .standard-word {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 18px;
+        white-space: nowrap;
+        font-size: clamp(3.8rem, 20vw, 6.2rem);
+        line-height: .84;
+        letter-spacing: -.065em;
+      }
+
+      .standard-word:nth-child(1) { font-size: clamp(4.2rem, 22vw, 6.4rem); }
+      .standard-word:nth-child(2) { font-size: clamp(2.7rem, 14.5vw, 4.8rem); letter-spacing: -.055em; }
+      .standard-word:nth-child(3) { font-size: clamp(3.4rem, 18.5vw, 5.7rem); }
+      .standard-word:nth-child(4) { font-size: clamp(4rem, 21vw, 6.1rem); }
+
+      .standard-full {
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 18px;
+        font-size: clamp(2rem, 9.6vw, 3.65rem);
+        line-height: .9;
+        letter-spacing: -.045em;
+        text-wrap: balance;
+      }
+
+      .standard-progress {
+        width: min(250px, calc(100vw - 72px));
+        bottom: 22px;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .service-card:hover { border-color: rgba(255,90,35,.5); }
+      .logo-box:hover { transform: translateY(-4px); border-color: rgba(255,90,35,.5); }
+      .logo-box:hover::after { transform: scaleX(1); }
+      .quote:hover { border-color: rgba(255,90,35,.72); }
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        display: none;
+      }
+
+      .story-grid,
+      .values-grid,
+      .section-head,
+      .booking-layout,
+      .events-layout,
+      .founder-layout,
+      .logo-strip,
+      .quotes,
+      .franchise-grid,
+      .cards,
+      .membership,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-track {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .service-card {
+        width: 100%;
+        min-height: 360px;
+      }
+
+      .stat-card {
+        min-height: 150px;
+      }
+
+      .booking-time {
+        font-size: clamp(3rem, 14vw, 5.4rem);
+      }
+
+      .story-layer {
+        align-items: center;
+      }
+
+      .mini-note {
+        display: none;
+      }
+
+      .image-panel,
+      .founder-image {
+        min-height: 340px;
+      }
+
+      .franchise-card.wide {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .actions,
+      .btn {
+        width: 100%;
+      }
+    }
+
+
+    /* ===== v4: responsive + scroll-linked sections ===== */
+    .membership > * { min-width: 0; }
+
+    #membresia .membership {
+      grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr);
+    }
+
+    #membresia h2 {
+      max-width: 100%;
+      font-size: clamp(3rem, 4.7vw, 5.45rem);
+      line-height: .84;
+      letter-spacing: -.055em;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    #membresia .price {
+      max-width: 100%;
+      font-size: clamp(2rem, 4.1vw, 3.8rem);
+      white-space: normal;
+    }
+
+    #membresia .remaining {
+      font-size: clamp(3rem, 5vw, 5rem);
+    }
+
+    #membresia .card {
+      min-height: 470px;
+      align-content: center;
+    }
+
+    .testimonials-viewport {
+      width: 100%;
+      overflow: visible;
+    }
+
+    .testimonial-scroll-ui {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+      color: rgba(255,255,255,.52);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .testimonial-count {
+      display: flex;
+      gap: 5px;
+      min-width: 58px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .testimonial-index { color: var(--orange); }
+
+    .testimonial-progress {
+      position: relative;
+      flex: 1;
+      height: 2px;
+      overflow: hidden;
+      background: rgba(255,255,255,.12);
+    }
+
+    .testimonial-progress span {
+      position: absolute;
+      inset: 0;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+
+    .testimonial-hint { white-space: nowrap; }
+
+    @media (max-width: 900px) {
+      .normal-section {
+        padding-left: clamp(18px, 5vw, 28px);
+        padding-right: clamp(18px, 5vw, 28px);
+      }
+
+      .normal-section h2,
+      #eventos h2,
+      #prueba-social h2,
+      #fundador > .inner > h2,
+      #testimonios h2,
+      #franquicias > .inner > h2 {
+        font-size: clamp(2.55rem, 11.5vw, 5.2rem);
+        line-height: .88;
+        letter-spacing: -.045em;
+      }
+
+      #membresia .membership {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      #membresia .card {
+        min-height: auto;
+        padding: clamp(22px, 6vw, 30px);
+      }
+
+      #membresia h2 {
+        font-size: clamp(2.7rem, 13vw, 4.9rem);
+        line-height: .84;
+        letter-spacing: -.055em;
+      }
+
+      #membresia .price {
+        font-size: clamp(2rem, 9.8vw, 3.35rem);
+      }
+
+      #membresia .features { gap: 16px; }
+
+      #testimonios {
+        overflow: hidden;
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+
+      #testimonios .inner {
+        width: 100%;
+      }
+
+      .testimonials-viewport {
+        overflow: visible;
+        width: calc(100vw - clamp(36px, 10vw, 56px));
+      }
+
+      #testimonios .quotes {
+        display: flex;
+        grid-template-columns: none;
+        width: max-content;
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      #testimonios .quote {
+        flex: 0 0 min(82vw, 390px);
+        width: min(82vw, 390px);
+        min-height: 290px;
+        padding: 26px;
+        transform-origin: 50% 50%;
+      }
+
+      .testimonial-scroll-ui {
+        width: min(100%, 520px);
+      }
+
+      .testimonial-hint { display: none; }
+
+      .stats-grid { gap: 10px; }
+      .stat-card { min-width: 0; }
+      .stat-number { font-size: clamp(2.5rem, 15vw, 4.4rem); }
+      .booking-copy, .booking-card { min-width: 0; }
+      .founder-layout > *, .events-layout > * { min-width: 0; }
+      .logo-strip { gap: 10px; }
+    }
+
+    @media (max-width: 560px) {
+      .topbar { padding: 16px 18px; }
+      .brand { font-size: .82rem; }
+      #membresia h2 { font-size: clamp(2.55rem, 12.5vw, 4rem); }
+      #membresia .price { font-size: clamp(1.9rem, 9.5vw, 2.8rem); }
+      .testimonial-scroll-ui { gap: 10px; }
+      #testimonios .quote { flex-basis: 84vw; width: 84vw; }
+      .standard-support { padding: 0 4px; }
+    }
+
+
+    /* ===== Integrated light -> dark mosaic transition ===== */
+    #reservas {
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    #reservas > .inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .dark-mosaic-transition {
+      position: absolute;
+      inset: 0;
+      z-index: 12;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .dark-mosaic-tile {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #0d0d0d;
+      transform: scale(0);
+      will-change: transform;
+    }
+
+    .dark-mosaic-tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 90, 35, .06);
+      opacity: .75;
+    }
+
+    .dark-mosaic-copy {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 14;
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      width: min(86vw, 640px);
+      color: var(--cream);
+      text-align: center;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .dark-mosaic-copy i {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 90, 35, .55);
+      border-radius: 50%;
+      color: var(--orange);
+      font-size: 1rem;
+    }
+
+    .dark-mosaic-copy strong {
+      font-size: clamp(1.4rem, 3vw, 2.8rem);
+      font-weight: 950;
+      letter-spacing: -.035em;
+      text-transform: uppercase;
+    }
+
+    .dark-mosaic-copy span {
+      color: rgba(247, 242, 234, .55);
+      font-size: .66rem;
+      font-weight: 900;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .dark-mosaic-line {
+      width: min(220px, 48vw);
+      height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: center;
+    }
+
+    @media (max-width: 900px) {
+      .dark-mosaic-transition {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+      }
+
+      .dark-mosaic-copy strong {
+        font-size: clamp(1.35rem, 7vw, 2.15rem);
+      }
+
+      .dark-mosaic-copy span {
+        font-size: .56rem;
+        letter-spacing: .16em;
+      }
+    }
+
+
+    /* ===== AF floating barber-pole scroll indicator ===== */
+    .barber-scroll-indicator {
+      position: fixed;
+      right: clamp(14px, 1.8vw, 28px);
+      top: 50%;
+      z-index: 72;
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-50%) translateX(22px);
+      will-change: transform, opacity;
+    }
+
+    .barber-pole-shell {
+      position: relative;
+      width: 34px;
+      height: 138px;
+      padding: 7px 5px;
+      border: 1px solid rgba(239, 229, 214, .28);
+      border-radius: 999px;
+      background: linear-gradient(90deg, #6c512f 0%, #d0a45d 20%, #f2d794 48%, #9e753d 74%, #49321d 100%);
+      box-shadow:
+        0 16px 38px rgba(0, 0, 0, .34),
+        0 0 0 1px rgba(255, 255, 255, .035),
+        inset 0 0 14px rgba(255, 220, 151, .2);
+      transform-origin: 50% 50%;
+      will-change: transform;
+    }
+
+    .barber-pole-shell::before,
+    .barber-pole-shell::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 48px;
+      height: 11px;
+      border: 1px solid rgba(255, 236, 196, .35);
+      border-radius: 999px;
+      background: linear-gradient(180deg, #f0d490, #7f5b30 72%, #382719);
+      box-shadow: 0 5px 14px rgba(0,0,0,.3);
+      transform: translateX(-50%);
+    }
+
+    .barber-pole-shell::before { top: -7px; }
+    .barber-pole-shell::after { bottom: -7px; }
+
+    .barber-pole-window {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+      background: #efe9df;
+      box-shadow: inset 7px 0 12px rgba(255,255,255,.32), inset -8px 0 12px rgba(0,0,0,.16);
+    }
+
+    .barber-pole-stripes {
+      position: absolute;
+      inset: -18%;
+      background: repeating-linear-gradient(
+        145deg,
+        #d42d2d 0 18px,
+        #f4eee4 18px 38px,
+        #234e9e 38px 56px,
+        #f4eee4 56px 76px
+      );
+      background-position: 0 0;
+      filter: saturate(.96) contrast(1.06);
+      transform: scale(1.2);
+      transform-origin: 50% 50%;
+      will-change: background-position, transform;
+    }
+
+    .barber-pole-glass {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(255,255,255,.34), transparent 31%, transparent 68%, rgba(0,0,0,.18));
+      box-shadow: inset 0 0 16px rgba(255,255,255,.14);
+    }
+
+    .barber-scroll-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 90, 35, .36);
+      border-radius: 50%;
+      background: rgba(8, 8, 8, .76);
+      color: var(--orange);
+      font-size: .9rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .barber-scroll-label {
+      max-width: 104px;
+      color: rgba(247,242,234,.78);
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .18em;
+      line-height: 1.25;
+      text-align: center;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .barber-scroll-percent {
+      color: rgba(247,242,234,.46);
+      font-size: .58rem;
+      font-variant-numeric: tabular-nums;
+      font-weight: 850;
+      letter-spacing: .14em;
+    }
+
+    .barber-scroll-indicator.is-on-light .barber-scroll-label {
+      color: rgba(17, 17, 17, .72);
+    }
+
+    .barber-scroll-indicator.is-on-light .barber-scroll-percent {
+      color: rgba(17, 17, 17, .62);
+    }
+
+    .barber-scroll-indicator.is-on-light .barber-scroll-icon {
+      border-color: rgba(255, 90, 35, .42);
+      background: rgba(239, 229, 214, .88);
+      color: #d94716;
+      box-shadow: 0 8px 24px rgba(17, 17, 17, .12);
+    }
+
+    .barber-scroll-indicator.is-on-dark .barber-scroll-label {
+      color: rgba(247, 242, 234, .82);
+    }
+
+    .barber-scroll-indicator.is-on-dark .barber-scroll-percent {
+      color: rgba(247, 242, 234, .58);
+    }
+
+    @media (max-width: 900px) {
+      .barber-scroll-indicator {
+        right: 8px;
+        top: 59%;
+        gap: 7px;
+      }
+
+      .barber-pole-shell {
+        width: 22px;
+        height: 84px;
+        padding: 5px 3px;
+      }
+
+      .barber-pole-shell::before,
+      .barber-pole-shell::after {
+        width: 30px;
+        height: 8px;
+      }
+
+      .barber-scroll-icon {
+        width: 28px;
+        height: 28px;
+        font-size: .72rem;
+      }
+
+      .barber-scroll-label { display: none; }
+      .barber-scroll-percent { font-size: .52rem; letter-spacing: .08em; }
+    }
+
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">AF Studio Barber</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#membresia">Membresía</a>
+      <a href="#reservas">Reservas</a>
+    </nav>
+  </header>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <aside class="barber-scroll-indicator" id="barberScrollIndicator" aria-hidden="true">
+    <div class="barber-scroll-icon"><i class="bi bi-scissors"></i></div>
+    <div class="barber-pole-shell">
+      <div class="barber-pole-window">
+        <div class="barber-pole-stripes"></div>
+        <div class="barber-pole-glass"></div>
+      </div>
+    </div>
+    <div class="barber-scroll-label">Services</div>
+    <div class="barber-scroll-percent">00%</div>
+  </aside>
+
+
+  <main>
+    <section class="frame-story">
+      <div class="frame-stage">
+        <canvas class="frame-canvas" id="frameCanvas" width="1920" height="1080" aria-hidden="true"></canvas>
+        <div class="fallback-bg"></div>
+        <div class="stage-shade"></div>
+        <div class="stage-frame"></div>
+      </div>
+
+      <div class="story-scroll">
+        <div class="story-layer hero-copy">
+          <div class="story-grid">
+            <div class="story-panel">
+              <div class="eyebrow">Premium Barbering Paraguay</div>
+              <h1>Your Barber.<br>Your Standard.</h1>
+              <p>Premium barbering for men who demand excellence. Una experiencia de alto nivel, con barberos especializados, atención personalizada y un estándar de servicio pensado para quienes no quieren improvisar con su imagen.</p>
+              <div class="actions">
+                <a class="btn primary" href="#reservas">Reservar turno</a>
+                <a class="btn" href="#membresia">Conocer la membresía</a>
+              </div>
+            </div>
+            <aside class="story-card">
+              <div class="eyebrow">Trusted in Paraguay</div>
+              <p>Trusted by locals, foreigners and leading brands in Paraguay.</p>
+              <h3>Consistencia, atención y calidad en cada visita.</h3>
+            </aside>
+          </div>
+        </div>
+
+        <div class="story-layer values-copy">
+          <div class="story-panel" style="width:min(1180px,100%)">
+            <div class="eyebrow">Propuesta de valor</div>
+            <h2>Una barbería pensada para extranjeros</h2>
+            <p>Cuando estás lejos de casa, encontrar un servicio confiable importa. En AF Studio Barber, cada cliente recibe el mismo estándar de calidad, atención y profesionalismo en cada visita. Sabés exactamente qué esperar cada vez que te sentás en nuestra silla.</p>
+            <div class="values-grid">
+              <article class="value"><h3>Excellence</h3><p>Barberos capacitados y un estándar de trabajo elevado.</p></article>
+              <article class="value"><h3>Consistency</h3><p>La misma calidad de servicio en cada visita.</p></article>
+              <article class="value"><h3>Experience</h3><p>Pensada para hombres que valoran su tiempo y su imagen.</p></article>
+              <article class="value"><h3>Trust</h3><p>Más de 10 años de trayectoria y clientes fidelizados.</p></article>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="normal-section light services-section" id="servicios">
+      <div class="inner">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Servicios</div>
+            <h2>The AF Experience</h2>
+          </div>
+          <p>Un servicio de barbería realizado por profesionales bajo el estándar AF Studio Barber. Cada corte es una experiencia pensada para hombres que no aceptan menos que la excelencia.</p>
+        </div>
+        <div class="services-track-wrap">
+          <div class="services-track">
+            <article class="service-card">
+              <div class="service-price">Desde USD 20</div>
+              <h3>Corte Premium</h3>
+              <p>Servicio de barbería realizado por profesionales bajo el estándar AF Studio Barber.</p>
+            </article>
+            <article class="service-card">
+              <h3>Barba y Perfilado</h3>
+              <p>Perfilado preciso y cuidado completo de la barba con técnicas profesionales y productos premium.</p>
+            </article>
+            <article class="service-card">
+              <h3>Experiencia Completa</h3>
+              <p>El servicio integral AF: corte, barba y ritual de grooming para una experiencia sin compromisos.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="premium-stats" aria-label="AF Studio en números">
+      <div class="stats-shell">
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-icon"><i class="bi bi-award"></i></div>
+            <div><div class="stat-number"><span data-count="10">0</span><sup>+</sup></div><p>Años construyendo el estándar AF.</p></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon"><i class="bi bi-person-badge"></i></div>
+            <div><div class="stat-number"><span data-count="200">0</span></div><p>Membresías disponibles en la propuesta exclusiva.</p></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon"><i class="bi bi-moon-stars"></i></div>
+            <div><div class="stat-number">22:00</div><p>Inicio del horario nocturno mediante reserva.</p></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon"><i class="bi bi-scissors"></i></div>
+            <div><div class="stat-number"><span data-count="3">0</span></div><p>Experiencias principales de barbería premium.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="normal-section dark" id="membresia">
+      <div class="inner membership">
+        <article class="card">
+          <div class="eyebrow">Membresía exclusiva</div>
+          <h2>The AF Membership</h2>
+          <p>Una membresía creada para clientes que consideran su imagen parte de su estándar personal. Solo 200 membresías disponibles.</p>
+          <div class="price"><span class="counter-inline" data-count="200000" data-format="py">0</span> Gs. / mes</div>
+          <ul class="features">
+            <li><i class="bi bi-infinity"></i><span>Cortes ilimitados durante todo el mes.</span></li>
+            <li><i class="bi bi-moon-stars"></i><span>Reservas nocturnas exclusivas para miembros.</span></li>
+            <li><i class="bi bi-clock"></i><span>Atención mediante reserva a partir de las 22:00 hs.</span></li>
+          </ul>
+        </article>
+        <aside class="card">
+          <div class="eyebrow">Disponibilidad limitada</div>
+          <div class="remaining"><span class="counter-inline" data-count="145">0</span></div>
+          <p>membresías restantes</p>
+          <div class="meter"><span></span></div>
+          <p><strong class="counter-inline" data-count="55">0</strong> de <strong>200</strong> ya fueron adquiridas. La exclusividad es real.</p>
+          <div class="actions"><a class="btn primary" href="#">Become a member <i class="bi bi-arrow-up-right"></i></a></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="normal-section light" id="reservas">
+      <div class="inner">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Reservas</div>
+            <h2>Book Your Experience</h2>
+          </div>
+          <p>Dos modalidades de atención para adaptarse a tu ritmo. Durante el día, servicio por orden de llegada. Por la noche, reserva anticipada para quienes prefieren planificar.</p>
+        </div>
+        <div class="booking-layout">
+          <article class="booking-card">
+            <div class="booking-icon"><i class="bi bi-sun"></i></div>
+            <div class="booking-time">DAY</div>
+            <h3>Atención Diurna</h3>
+            <p>Servicio disponible por orden de llegada durante el horario diurno. Sin reserva previa necesaria.</p>
+          </article>
+          <article class="booking-copy">
+            <div class="booking-icon"><i class="bi bi-moon-stars"></i></div>
+            <div class="booking-time">22:00</div>
+            <h3>Reservas Nocturnas</h3>
+            <p>Agendá tu horario con anticipación. Atención exclusiva mediante reserva de <strong>22:00 a 10:00 hs.</strong></p>
+            <div class="actions">
+              <a class="btn primary" href="#">Book a night appointment <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="dark-mosaic-transition" aria-hidden="true">
+        <span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span>
+        <span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span>
+        <span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span>
+        <span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span><span class="dark-mosaic-tile"></span>
+      </div>
+    </section>
+
+    <section class="normal-section dark" id="eventos">
+      <div class="inner events-layout">
+        <div>
+          <div class="eyebrow">Eventos corporativos</div>
+          <h2>Barbering for Events</h2>
+          <p>Llevamos AF Studio Barber a tu próximo evento. Creamos experiencias de barbería premium para empresas, marcas y eventos que buscan ofrecer algo diferente a sus invitados.</p>
+
+          <div class="event-list">
+            <article class="event-item">
+              <div class="event-icon" aria-hidden="true"><i class="bi bi-briefcase"></i></div>
+              <div>
+                <h3>Día del Trabajador</h3>
+                <p>Una experiencia especial para reconocer y agasajar a los colaboradores de tu empresa.</p>
+              </div>
+            </article>
+            <article class="event-item">
+              <div class="event-icon" aria-hidden="true"><i class="bi bi-heart"></i></div>
+              <div>
+                <h3>Bodas</h3>
+                <p>Servicio de barbería para novios, padrinos e invitados. Impecables en el gran día.</p>
+              </div>
+            </article>
+            <article class="event-item">
+              <div class="event-icon" aria-hidden="true"><i class="bi bi-stars"></i></div>
+              <div>
+                <h3>Despedidas de Soltero</h3>
+                <p>Una experiencia premium para compartir antes del gran día.</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="event-tags">Corporate Events · Brand Activations · Private Events</p>
+        </div>
+        <div class="image-panel"></div>
+      </div>
+    </section>
+
+    <section class="normal-section dark" id="prueba-social">
+      <div class="inner">
+        <div class="eyebrow">Prueba social</div>
+        <h2>Trusted by Leading Brands</h2>
+        <p>Marcas que ya confiaron en AF Studio Barber. Una trayectoria respaldada por las empresas y organizaciones más reconocidas de Paraguay.</p>
+
+        <div class="logo-strip">
+          <div class="logo-box">Shell</div>
+          <div class="logo-box">Mercedes</div>
+          <div class="logo-box">Toyota</div>
+          <div class="logo-box">Radio Disney</div>
+          <div class="logo-box">Subaru</div>
+          <div class="logo-box">Peter</div>
+        </div>
+
+        <p>Trusted by leading companies, brands and organizations in Paraguay.</p>
+      </div>
+    </section>
+
+    <section class="normal-section dark" id="fundador">
+      <div class="inner">
+        <div class="eyebrow">El fundador</div>
+        <h2>The Standard Behind AF</h2>
+
+        <div class="founder-layout" style="margin-top:34px">
+          <div class="founder-image"><div class="founder-badge"><strong>10+</strong><span>años de trayectoria</span></div></div>
+          <div>
+            <h3>Adrian Fernandez</h3>
+            <p>Fundador y referente detrás de AF Studio Barber. Su trayectoria y formación profesional son parte fundamental del estándar de trabajo de la marca. Más de una década construyendo una referencia en barbería premium en Paraguay.</p>
+
+            <div class="founder-divider"></div>
+
+            <h3>Certificaciones</h3>
+            <p>Formación internacional que garantiza el más alto nivel técnico en cada servicio.</p>
+
+            <div class="cert-list">
+              <article class="cert-card">
+                <h3>Certificación 01</h3>
+                <p>Formación técnica de nivel internacional.</p>
+              </article>
+              <article class="cert-card">
+                <h3>Certificación 02</h3>
+                <p>Especialización en técnicas avanzadas de barbería.</p>
+              </article>
+              <article class="cert-card">
+                <h3>Certificación 03</h3>
+                <p>Estándares de servicio y experiencia al cliente.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="normal-section dark" id="testimonios">
+      <div class="inner">
+        <div class="eyebrow">Testimonios</div>
+        <h2>What Our Clients Say</h2>
+        <p><em>"More than a haircut. A standard."</em> Personas de todo el mundo confían en AF Studio Barber.</p>
+
+        <div class="testimonials-viewport">
+          <div class="quotes">
+          <article class="quote">
+            <i class="bi bi-quote quote-mark" aria-hidden="true"></i>
+            <p>"Encontré AF Studio Barber siendo extranjero en Paraguay y nunca más busqué otra opción. La consistencia y el profesionalismo son reales."</p>
+            <p><strong>— Cliente AF</strong> · Brasil / Asunción</p>
+          </article>
+          <article class="quote">
+            <i class="bi bi-quote quote-mark" aria-hidden="true"></i>
+            <p>"La membresía cambió completamente mi rutina. Cortes ilimitados, horario nocturno y un servicio que siempre cumple lo que promete."</p>
+            <p><strong>— Cliente AF</strong> · Argentina / Asunción</p>
+          </article>
+          <article class="quote">
+            <i class="bi bi-quote quote-mark" aria-hidden="true"></i>
+            <p>"Más que una barbería, es un estándar. Recomiendo AF Studio Barber a todos los que valoran su imagen y su tiempo."</p>
+            <p><strong>— Cliente AF</strong> · España / Asunción</p>
+          </article>
+          </div>
+        </div>
+        <div class="testimonial-scroll-ui" aria-hidden="true">
+          <div class="testimonial-count"><span class="testimonial-index">01</span><span class="testimonial-total">/ 03</span></div>
+          <div class="testimonial-progress"><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="normal-section dark" id="franquicias">
+      <div class="inner">
+        <div class="eyebrow">Franquicias</div>
+        <h2>Bring AF to Your City</h2>
+        <p>Más de 10 años de trayectoria, una marca reconocida y una base de clientes fidelizados. Ahora, llevá el modelo AF Studio Barber a una nueva ubicación.</p>
+
+        <div class="franchise-grid">
+          <article class="franchise-card">
+            <div class="franchise-icon"><i class="bi bi-people"></i></div>
+            <h3>Cultura de Trabajo</h3>
+            <p>Metodología desarrollada durante más de 10 años.</p>
+          </article>
+          <article class="franchise-card">
+            <div class="franchise-icon"><i class="bi bi-graph-up-arrow"></i></div>
+            <h3>Oportunidad de Negocio</h3>
+            <p>Modelo probado con marca posicionada.</p>
+          </article>
+          <article class="franchise-card">
+            <div class="franchise-icon"><i class="bi bi-box-seam"></i></div>
+            <h3>Línea de Productos</h3>
+            <p>Acceso a la línea de productos AF.</p>
+          </article>
+          <article class="franchise-card wide">
+            <div class="franchise-icon"><i class="bi bi-badge-ad"></i></div>
+            <h3>Cartelería Incluida</h3>
+            <p>Identidad completa para el punto de venta.</p>
+          </article>
+          <article class="franchise-card">
+            <div class="franchise-icon"><i class="bi bi-trophy"></i></div>
+            <h3>Marca con Trayectoria</h3>
+            <p>Más de 10 años de experiencia y clientes fidelizados.</p>
+          </article>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="#">Quiero ser franquiciado <i class="bi bi-arrow-up-right"></i></a>
+        </div>
+
+        <div class="final-cta"><span class="final-cta-line" aria-hidden="true"></span>
+          <div class="standard-scroll">
+            <div class="standard-word-stage" aria-label="Your Standard Starts Here">
+              <span class="standard-word">Your</span>
+              <span class="standard-word is-accent">Standard</span>
+              <span class="standard-word">Starts</span>
+              <span class="standard-word">Here.</span>
+              <div class="standard-full">Your <span class="accent">Standard</span><br>Starts Here.</div>
+              <div class="standard-progress" aria-hidden="true"><span></span></div>
+            </div>
+            <div class="standard-support">
+              <p>Encontrá una barbería donde la calidad, la experiencia y el servicio están a otro nivel.</p>
+              <p><strong>AF STUDIO BARBER</strong> — Premium barbering for men who demand excellence.</p>
+              <div class="actions">
+                <a class="btn primary" href="#">Reservar mi turno <i class="bi bi-arrow-right"></i></a>
+                <a class="btn" href="#">Conocer la membresía</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (window.Lenis) {
+      const lenis = new Lenis({ duration: 1.08, smoothWheel: true });
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    const canvas = document.querySelector("#frameCanvas");
+    const context = canvas.getContext("2d");
+    const frameCount = 96;
+    const frameState = { frame: 0 };
+    const images = [];
+
+    function framePath(index) {
+      return `../assets/frames/hero/hero-barber-frames-webp/hero-barber-frames/frame_${String(index + 1).padStart(3, "0")}.webp`;
+    }
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth * window.devicePixelRatio;
+      canvas.height = window.innerHeight * window.devicePixelRatio;
+      renderFrame();
+    }
+
+    function drawCover(image) {
+      const canvasRatio = canvas.width / canvas.height;
+      const imageRatio = image.width / image.height;
+      let width = canvas.width;
+      let height = canvas.height;
+      let x = 0;
+      let y = 0;
+
+      if (imageRatio > canvasRatio) {
+        height = canvas.height;
+        width = height * imageRatio;
+        x = (canvas.width - width) / 2;
+      } else {
+        width = canvas.width;
+        height = width / imageRatio;
+        y = (canvas.height - height) / 2;
+      }
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, x, y, width, height);
+    }
+
+    function renderFrame() {
+      const image = images[Math.round(frameState.frame)];
+      if (image && image.complete) {
+        drawCover(image);
+      }
+    }
+
+    for (let i = 0; i < frameCount; i += 1) {
+      const image = new Image();
+      image.src = framePath(i);
+      image.onload = () => {
+        if (i === 0) renderFrame();
+      };
+      images.push(image);
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    gsap.set(".values-copy", { autoAlpha: 0, y: 50, scale: .96 });
+    gsap.set(".value", { autoAlpha: 0, y: 36 });
+
+    const storyTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".frame-story",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1
+      }
+    });
+
+    storyTl
+      .to(frameState, {
+        frame: frameCount - 1,
+        snap: "frame",
+        ease: "none",
+        duration: 4,
+        onUpdate: renderFrame
+      }, 0)
+      .to(".hero-copy", { y: -90, autoAlpha: 0, scale: .94, duration: .8 }, .9)
+      .to(".stage-shade", {
+        background: "linear-gradient(180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .38)), linear-gradient(90deg, rgba(0, 0, 0, .48), rgba(0, 0, 0, .08))",
+        duration: .9
+      }, .9)
+      .to(".stage-frame", { inset: "12%", opacity: .92, duration: .9 }, .95)
+      .to(".values-copy", { autoAlpha: 1, y: 0, scale: 1, duration: .85 }, 1.35)
+      .to(".value", { autoAlpha: 1, y: 0, stagger: .08, duration: .6 }, 1.65)
+      .to(".values-copy", { y: -80, autoAlpha: 0, scale: .96, duration: .8 }, 3.15)
+      .to(".frame-stage, .story-scroll", { autoAlpha: 0, duration: .35 }, 3.85);
+
+    // Progreso global de lectura
+    gsap.to(".scroll-progress span", {
+      scaleX: 1,
+      ease: "none",
+      scrollTrigger: { start: 0, end: "max", scrub: .25 }
+    });
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mm = gsap.matchMedia();
+
+    function formatCounterValue(el, value) {
+      return Math.round(value).toLocaleString("es-PY");
+    }
+
+    // Todo lo que sigue de Servicios en adelante queda ligado al progreso del scroll.
+    // Al subir, las animaciones también retroceden en vez de ejecutarse una sola vez.
+    if (!reduceMotion) {
+      gsap.utils.toArray(".normal-section, .premium-stats").forEach((section) => {
+        const eyebrow = section.querySelector(":scope > .inner > .eyebrow, .section-head .eyebrow, :scope > .stats-shell > .eyebrow");
+        const heading = section.querySelector(":scope > .inner > h2, .section-head h2");
+        const intro = section.querySelector(":scope > .inner > p, .section-head > p");
+        const editorialTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 92%",
+            end: "top 46%",
+            scrub: .8
+          }
+        });
+
+        if (eyebrow) editorialTl.fromTo(eyebrow, { x: -28, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none" }, 0);
+        if (heading) editorialTl.fromTo(heading,
+          { y: 72, autoAlpha: 0, clipPath: "inset(0 0 100% 0)" },
+          { y: 0, autoAlpha: 1, clipPath: "inset(0 0 0% 0)", ease: "none" }, .08
+        );
+        if (intro) editorialTl.fromTo(intro, { y: 34, autoAlpha: 0 }, { y: 0, autoAlpha: 1, ease: "none" }, .16);
+      });
+
+      // Contadores realmente ligados al scroll: avanzan y retroceden con la página.
+      gsap.utils.toArray("[data-count]").forEach((el) => {
+        const target = Number(el.dataset.count || 0);
+        const state = { value: 0 };
+        gsap.to(state, {
+          value: target,
+          ease: "none",
+          onUpdate: () => { el.textContent = formatCounterValue(el, state.value); },
+          scrollTrigger: {
+            trigger: el,
+            start: "top 92%",
+            end: "top 52%",
+            scrub: .8
+          }
+        });
+      });
+
+      // Servicios desktop: escena pinneada y recorrido horizontal.
+      mm.add("(min-width: 901px)", () => {
+        const servicesTrack = document.querySelector(".services-track");
+        const servicesSection = document.querySelector(".services-section");
+        const serviceCards = gsap.utils.toArray(".service-card");
+
+        const servicesTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: servicesSection,
+            start: "top top",
+            end: "+=1800",
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true
+          }
+        });
+
+        servicesTl
+          .fromTo(".services-section .section-head",
+            { y: 90, autoAlpha: 0 },
+            { y: 0, autoAlpha: 1, ease: "none", duration: .7 }, 0)
+          .fromTo(serviceCards,
+            { y: 120, autoAlpha: 0, scale: .9, rotateX: 6 },
+            { y: 0, autoAlpha: 1, scale: 1, rotateX: 0, stagger: .14, ease: "none", duration: .9 }, .12)
+          .to(servicesTrack, {
+            x: () => {
+              const distance = servicesTrack.scrollWidth - window.innerWidth + 140;
+              return distance > 0 ? -distance : 0;
+            },
+            ease: "none",
+            duration: 2
+          }, .95)
+          .to(serviceCards, { scale: .975, autoAlpha: .88, stagger: .08, ease: "none", duration: .5 }, 2.62);
+
+        return () => servicesTl.kill();
+      });
+
+      // Servicios mobile: cada card responde a su propio tramo de scroll.
+      mm.add("(max-width: 900px)", () => {
+        gsap.utils.toArray(".service-card").forEach((card, index) => {
+          gsap.fromTo(card,
+            { y: 72, autoAlpha: .25, scale: .92, rotateX: 5 },
+            {
+              y: 0, autoAlpha: 1, scale: 1, rotateX: 0, ease: "none",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 92%",
+                end: "top 48%",
+                scrub: .75
+              }
+            }
+          );
+          gsap.to(card, {
+            y: -22,
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "center 55%",
+              end: "bottom 12%",
+              scrub: .8
+            }
+          });
+        });
+      });
+
+      // Números / estadísticas: revelado progresivo.
+      gsap.fromTo(".stat-card",
+        { y: 82, autoAlpha: .2, scale: .92 },
+        {
+          y: 0, autoAlpha: 1, scale: 1, stagger: .12, ease: "none",
+          scrollTrigger: { trigger: ".premium-stats", start: "top 92%", end: "center 58%", scrub: .9 }
+        }
+      );
+
+      // Membership: arreglado para no desbordar y animado con scrub.
+      const membershipTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#membresia",
+          start: "top 90%",
+          end: "center 45%",
+          scrub: 1
+        }
+      });
+      membershipTl
+        .fromTo("#membresia .card:first-child", { x: -90, autoAlpha: .18, scale: .94 }, { x: 0, autoAlpha: 1, scale: 1, ease: "none" }, 0)
+        .fromTo("#membresia .card:last-child", { x: 90, autoAlpha: .18, scale: .94 }, { x: 0, autoAlpha: 1, scale: 1, ease: "none" }, 0)
+        .fromTo("#membresia .features li", { x: -22, autoAlpha: 0 }, { x: 0, autoAlpha: 1, stagger: .12, ease: "none" }, .25)
+        .fromTo("#membresia .meter span", { scaleX: 0 }, { scaleX: 1, ease: "none" }, .35);
+
+      // Reservas: el cambio DAY -> NIGHT se siente durante el recorrido, no como una entrada única.
+      const bookingTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#reservas .booking-layout",
+          start: "top 92%",
+          end: "bottom 38%",
+          scrub: 1
+        }
+      });
+      bookingTl
+        .fromTo("#reservas .booking-card", { x: -100, autoAlpha: .18, rotateY: 8 }, { x: 0, autoAlpha: 1, rotateY: 0, ease: "none" }, 0)
+        .fromTo("#reservas .booking-copy", { x: 100, autoAlpha: .18, rotateY: -8 }, { x: 0, autoAlpha: 1, rotateY: 0, ease: "none" }, 0)
+        .fromTo("#reservas .booking-time", { scale: .62, autoAlpha: 0 }, { scale: 1, autoAlpha: 1, stagger: .12, ease: "none" }, .18)
+        .to("#reservas .booking-card", { y: -18, ease: "none" }, .64)
+        .to("#reservas .booking-copy", { y: 18, ease: "none" }, .64);
+
+      // Transición integrada: la propia sección clara de Reservas se convierte en negro
+      // mediante una cuadrícula de piezas que se acoplan con el scroll. No hay una pantalla vacía intermedia.
+      const mosaicTiles = gsap.utils.toArray(".dark-mosaic-tile");
+      const transitionBarberIndicator = document.querySelector("#barberScrollIndicator");
+
+      if (mosaicTiles.length) {
+        // Orígenes alternados para que las piezas parezcan encajar entre sí.
+        mosaicTiles.forEach((tile, index) => {
+          const col = index % (window.innerWidth <= 900 ? 4 : 6);
+          const row = Math.floor(index / (window.innerWidth <= 900 ? 4 : 6));
+          const originX = col % 2 === 0 ? "0%" : "100%";
+          const originY = row % 2 === 0 ? "100%" : "0%";
+          gsap.set(tile, { scale: 0, transformOrigin: `${originX} ${originY}` });
+        });
+
+        const mosaicTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#reservas",
+            start: "55% top",
+            end: "bottom top",
+            scrub: 1,
+            invalidateOnRefresh: true,
+            onUpdate(self) {
+              // El pole cambia de contraste exactamente cuando la transición ya domina el fondo.
+              if (transitionBarberIndicator) {
+                transitionBarberIndicator.classList.toggle("is-on-light", self.progress < .55);
+                transitionBarberIndicator.classList.toggle("is-on-dark", self.progress >= .55);
+              }
+            },
+            onLeaveBack() {
+              if (transitionBarberIndicator) {
+                transitionBarberIndicator.classList.add("is-on-light");
+                transitionBarberIndicator.classList.remove("is-on-dark");
+              }
+            }
+          }
+        });
+
+        mosaicTl
+          .to("#reservas > .inner", { y: -28, scale: .985, filter: "blur(2px)", autoAlpha: .72, ease: "none", duration: .42 }, 0)
+          .to(mosaicTiles, {
+            scale: 1,
+            duration: .62,
+            stagger: {
+              each: .018,
+              from: "end",
+              grid: window.innerWidth <= 900 ? [6, 4] : [4, 6]
+            },
+            ease: "none"
+          }, .08)
+          ;
+      }
+
+      // Eventos: lista + imagen en un mismo timeline de scroll.
+      const eventsTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#eventos",
+          start: "top 90%",
+          end: "bottom 32%",
+          scrub: 1
+        }
+      });
+      eventsTl
+        .fromTo("#eventos .event-item", { x: -64, autoAlpha: 0 }, { x: 0, autoAlpha: 1, stagger: .15, ease: "none" }, 0)
+        .fromTo("#eventos .event-icon", { scale: .45, rotation: -25 }, { scale: 1, rotation: 0, stagger: .15, ease: "none" }, 0)
+        .fromTo("#eventos .image-panel", { scale: 1.16, clipPath: "inset(12% 0 12% 0)", y: 70 }, { scale: 1, clipPath: "inset(0% 0 0% 0)", y: -24, ease: "none" }, .08);
+
+      // Prueba social: pared de logos que se construye con el scroll.
+      gsap.fromTo("#prueba-social .logo-box",
+        { y: 54, autoAlpha: 0, scale: .88 },
+        {
+          y: 0, autoAlpha: 1, scale: 1, stagger: .1, ease: "none",
+          scrollTrigger: { trigger: "#prueba-social", start: "top 92%", end: "center 48%", scrub: .9 }
+        }
+      );
+
+      // Fundador: reveal fotográfico, badge y certificaciones progresivos.
+      const founderTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#fundador .founder-layout",
+          start: "top 92%",
+          end: "bottom 35%",
+          scrub: 1
+        }
+      });
+      founderTl
+        .fromTo("#fundador .founder-image", { clipPath: "inset(0 100% 0 0)", scale: 1.1 }, { clipPath: "inset(0 0% 0 0)", scale: 1, ease: "none" }, 0)
+        .fromTo("#fundador .founder-badge", { y: 28, autoAlpha: 0, scale: .88 }, { y: 0, autoAlpha: 1, scale: 1, ease: "none" }, .22)
+        .fromTo("#fundador .cert-card", { x: 70, autoAlpha: 0 }, { x: 0, autoAlpha: 1, stagger: .14, ease: "none" }, .24);
+
+      // Testimonios desktop: siguen el scroll y revierten al subir.
+      mm.add("(min-width: 901px)", () => {
+        const desktopQuotes = gsap.utils.toArray("#testimonios .quote");
+        const testimonialsDesktopTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#testimonios",
+            start: "top 92%",
+            end: "center 42%",
+            scrub: 1
+          }
+        });
+        testimonialsDesktopTl.fromTo(desktopQuotes,
+          { y: 90, autoAlpha: .12, rotateX: 10, scale: .91 },
+          { y: 0, autoAlpha: 1, rotateX: 0, scale: 1, stagger: .16, ease: "none" }
+        );
+        return () => testimonialsDesktopTl.kill();
+      });
+
+      // Testimonios mobile: carrusel horizontal controlado totalmente por scroll.
+      mm.add("(max-width: 900px)", () => {
+        const section = document.querySelector("#testimonios");
+        const track = section.querySelector(".quotes");
+        const cards = gsap.utils.toArray("#testimonios .quote");
+        const indexEl = section.querySelector(".testimonial-index");
+        const progressEl = section.querySelector(".testimonial-progress span");
+
+        gsap.set(cards, { autoAlpha: .48, scale: .91 });
+        gsap.set(cards[0], { autoAlpha: 1, scale: 1 });
+
+        const quoteTween = gsap.to(track, {
+          x: () => {
+            const viewport = section.querySelector(".testimonials-viewport");
+            return -(track.scrollWidth - viewport.clientWidth);
+          },
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: () => "+=" + Math.max(1250, window.innerWidth * 2.8),
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            onUpdate(self) {
+              const active = Math.min(cards.length - 1, Math.round(self.progress * (cards.length - 1)));
+              cards.forEach((card, i) => {
+                gsap.set(card, { autoAlpha: i === active ? 1 : .48, scale: i === active ? 1 : .91 });
+              });
+              indexEl.textContent = String(active + 1).padStart(2, "0");
+              gsap.set(progressEl, { scaleX: self.progress });
+            }
+          }
+        });
+
+        return () => quoteTween.kill();
+      });
+
+      // Franquicias: cards ligadas al recorrido antes del cierre final.
+      const franchiseTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#franquicias .franchise-grid",
+          start: "top 92%",
+          end: "bottom 44%",
+          scrub: 1
+        }
+      });
+      franchiseTl
+        .fromTo("#franquicias .franchise-card", { y: 72, autoAlpha: .15, scale: .92 }, { y: 0, autoAlpha: 1, scale: 1, stagger: .11, ease: "none" }, 0)
+        .fromTo("#franquicias .franchise-icon", { scale: 0, rotation: -35 }, { scale: 1, rotation: 0, stagger: .11, ease: "none" }, .08)
+        .to("#franquicias .final-cta-line", { scaleX: 1, ease: "none" }, .72);
+
+      // Cierre: palabra por palabra -> frase completa. Pin y scrub en desktop y mobile.
+      const standardWords = gsap.utils.toArray("#franquicias .standard-word");
+      const standardTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#franquicias .standard-scroll",
+          start: "top top",
+          end: () => "+=" + (window.innerWidth <= 900 ? 1900 : 2300),
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+
+      standardTl
+        .to("#franquicias .standard-progress span", { scaleX: 1, duration: 3.72, ease: "none" }, 0)
+        .to("#franquicias .standard-progress", { autoAlpha: 0, duration: .2, ease: "none" }, 3.76);
+
+      standardWords.forEach((word, index) => {
+        const at = index * 1.0;
+        standardTl
+          .to(word, { autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", duration: .42, ease: "none" }, at)
+          .to(word, { autoAlpha: 0, y: -72, scale: 1.14, filter: "blur(8px)", duration: .42, ease: "none" }, at + .58);
+      });
+
+      standardTl
+        .to("#franquicias .standard-full", { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: .72, ease: "none" }, 4.05)
+        .to("#franquicias .standard-full", { letterSpacing: "-.04em", duration: .65, ease: "none" }, 4.18)
+        .to("#franquicias .standard-support", { autoAlpha: 1, y: 0, duration: .62, ease: "none" }, 4.58);
+    } else {
+      // Estado accesible para usuarios que prefieren menos movimiento.
+      gsap.set(".standard-word", { autoAlpha: 0 });
+      gsap.set("#franquicias .standard-full, #franquicias .standard-support", { autoAlpha: 1, y: 0, scale: 1, filter: "none" });
+      gsap.utils.toArray("[data-count]").forEach((el) => {
+        el.textContent = formatCounterValue(el, Number(el.dataset.count || 0));
+      });
+    }
+
+
+
+    // Barber pole: elemento narrativo fijo desde Servicios hasta el cierre.
+    // Las franjas y la inclinación responden al progreso real del scroll.
+    const barberIndicator = document.querySelector("#barberScrollIndicator");
+    const barberStripes = barberIndicator?.querySelector(".barber-pole-stripes");
+    const barberShell = barberIndicator?.querySelector(".barber-pole-shell");
+    const barberLabel = barberIndicator?.querySelector(".barber-scroll-label");
+    const barberPercent = barberIndicator?.querySelector(".barber-scroll-percent");
+    const barberIcon = barberIndicator?.querySelector(".barber-scroll-icon i");
+
+    const barberSections = [
+      { selector: "#servicios", label: "Services", icon: "bi-scissors", theme: "light" },
+      { selector: "#membresia", label: "Membership", icon: "bi-gem", theme: "dark" },
+      { selector: "#reservas", label: "Booking", icon: "bi-moon-stars", theme: "light" },
+      { selector: "#eventos", label: "Events", icon: "bi-stars", theme: "dark" },
+      { selector: "#prueba-social", label: "Trusted", icon: "bi-award", theme: "dark" },
+      { selector: "#fundador", label: "Founder", icon: "bi-person-badge", theme: "dark" },
+      { selector: "#testimonios", label: "Reviews", icon: "bi-quote", theme: "dark" },
+      { selector: "#franquicias", label: "Franchise", icon: "bi-graph-up-arrow", theme: "dark" }
+    ];
+
+    function setBarberSection(meta) {
+      if (!barberIndicator || !meta) return;
+      if (barberLabel && barberLabel.textContent !== meta.label) {
+        gsap.to(barberLabel, {
+          autoAlpha: 0,
+          y: -6,
+          duration: .12,
+          overwrite: true,
+          onComplete: () => {
+            barberLabel.textContent = meta.label;
+            gsap.fromTo(barberLabel, { autoAlpha: 0, y: 6 }, { autoAlpha: 1, y: 0, duration: .18, overwrite: true });
+          }
+        });
+      }
+      if (barberIcon) barberIcon.className = `bi ${meta.icon}`;
+      barberIndicator.classList.toggle("is-on-light", meta.theme === "light");
+      barberIndicator.classList.toggle("is-on-dark", meta.theme !== "light");
+    }
+
+    if (barberIndicator && !reduceMotion) {
+      ScrollTrigger.create({
+        trigger: "#servicios",
+        endTrigger: "#franquicias",
+        start: "top 72%",
+        end: "bottom bottom",
+        onEnter: () => gsap.to(barberIndicator, { autoAlpha: 1, x: 0, duration: .35, ease: "power2.out" }),
+        onEnterBack: () => gsap.to(barberIndicator, { autoAlpha: 1, x: 0, duration: .3, ease: "power2.out" }),
+        onLeave: () => gsap.to(barberIndicator, { autoAlpha: 0, x: 20, duration: .25, ease: "power2.in" }),
+        onLeaveBack: () => gsap.to(barberIndicator, { autoAlpha: 0, x: 20, duration: .25, ease: "power2.in" }),
+        onUpdate(self) {
+          const p = self.progress;
+          // La textura permanece dentro del cilindro y lo que se mueve es su background.
+          // Así nunca queda el pole blanco aunque el recorrido sea largo.
+          const stripeTravel = window.innerWidth <= 900 ? 5200 : 4400;
+          if (barberStripes) {
+            gsap.set(barberStripes, {
+              backgroundPositionY: `${p * stripeTravel}px`,
+              backgroundPositionX: `${Math.sin(p * Math.PI * 24) * 10}px`,
+              rotation: Math.sin(p * Math.PI * 18) * 1.6
+            });
+          }
+          if (barberShell) {
+            gsap.set(barberShell, { rotation: Math.sin(p * Math.PI * 30) * 2.8 });
+          }
+          if (barberPercent) barberPercent.textContent = `${String(Math.round(p * 100)).padStart(2, "0")}%`;
+        }
+      });
+
+      barberSections.forEach((meta) => {
+        ScrollTrigger.create({
+          trigger: meta.selector,
+          start: "top 58%",
+          end: "bottom 42%",
+          onEnter: () => setBarberSection(meta),
+          onEnterBack: () => setBarberSection(meta)
+        });
+      });
+    } else if (barberIndicator) {
+      gsap.set(barberIndicator, { autoAlpha: 0 });
+    }
+
+    window.addEventListener("load", () => ScrollTrigger.refresh());
+  </script>
+</body>
+</html>

@@ -2662,6 +2662,45 @@
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script><script>
+const tracking={
+  ga4:"G-PEFPMM9NYR",
+  pixel:"2431513420610437"
+};
+
+function loadGA4(id){
+  if(!id||window.gtag)return;
+  const script=document.createElement("script");
+  script.async=true;
+  script.src=`https://www.googletagmanager.com/gtag/js?id=${id}`;
+  document.head.appendChild(script);
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function gtag(){window.dataLayer.push(arguments)};
+  window.gtag("js",new Date());
+  window.gtag("config",id,{anonymize_ip:true,page_title:document.title,page_path:location.pathname});
+}
+
+function loadPixel(id){
+  if(!id||window.fbq)return;
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];
+    t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
+  }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+  window.fbq("init",id);
+  window.fbq("track","PageView");
+}
+
+function trackGA4(name,params){
+  if(typeof window.gtag==="function")window.gtag("event",name,params||{});
+}
+
+function trackPixel(name,params){
+  if(typeof window.fbq==="function")window.fbq("track",name,params||{});
+}
+
+loadGA4(tracking.ga4);
+loadPixel(tracking.pixel);
+
 const whatsappBase="https://wa.me/595986689470?text=";
 const messages={
   consulta:"Hola, vi la promo de páginas web y quiero saber cuál de los planes me conviene.",
@@ -2674,6 +2713,11 @@ document.querySelectorAll(".wa-link").forEach(a=>{
   a.href=whatsappBase+encodeURIComponent(messages[key]);
   a.target="_blank";
   a.rel="noopener";
+  a.dataset.waSource=key;
+  a.addEventListener("click",()=>{
+    trackGA4("click_whatsapp",{source:key,link_url:a.href});
+    trackPixel("Lead",{content_name:`whatsapp_${key}`});
+  });
 });
 
 const navLinks=[...document.querySelectorAll("[data-plan-nav]")];

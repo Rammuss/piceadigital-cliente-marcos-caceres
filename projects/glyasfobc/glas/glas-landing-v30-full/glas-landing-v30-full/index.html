@@ -17,6 +17,60 @@
     @media(max-width:1080px){.excelencia-media,.esg-media{min-height:360px;}}
     @media(max-width:680px){.excelencia-media,.esg-media{min-height:280px;}.excelencia-media img,.esg-media img{object-fit:contain;background:rgba(8,22,39,.45);}}
   </style>
+
+  <style>
+    /* V29 — CTA de Grupo Listello más claro en mobile */
+    @media (max-width: 430px){
+      .site-header .navbar{gap:6px;}
+      .site-header .partner-link{
+        width:auto !important;
+        min-width:138px;
+        height:42px;
+        min-height:42px;
+        padding:4px 8px 4px 5px !important;
+        gap:6px;
+        justify-content:flex-start !important;
+        flex-shrink:0;
+      }
+      .site-header .partner-copy{
+        display:flex !important;
+        flex-direction:column;
+        justify-content:center;
+        min-width:0;
+        line-height:1;
+      }
+      .site-header .partner-copy small{
+        display:block !important;
+        font-size:.42rem !important;
+        letter-spacing:.09em;
+        line-height:1;
+        margin-bottom:3px;
+        white-space:nowrap;
+      }
+      .site-header .partner-copy strong{
+        display:block !important;
+        font-size:.69rem !important;
+        line-height:1.05;
+        white-space:nowrap;
+      }
+      .site-header .partner-arrow{
+        display:block !important;
+        width:12px;
+        height:12px;
+        flex:0 0 12px;
+      }
+      .site-header .partner-logo{
+        width:31px;
+        height:31px;
+        flex:0 0 31px;
+      }
+    }
+    @media (max-width: 360px){
+      .site-header .brand-copy{display:none;}
+      .site-header .partner-link{min-width:132px;}
+      .site-header .partner-copy strong{font-size:.65rem !important;}
+    }
+  </style>
 </head>
 <body>
 <header class="site-header">

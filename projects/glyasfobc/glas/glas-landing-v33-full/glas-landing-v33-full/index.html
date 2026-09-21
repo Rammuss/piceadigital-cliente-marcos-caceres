@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="GL&AS Family Office & Business Consulting en Paraguay.">
+  <script>document.documentElement.classList.add('animations-pending');</script>
+  <title>GL&AS | Family Office & Business Consulting</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    .excelencia-media{align-items:stretch;min-height:420px;padding:0;overflow:hidden;}
+    .excelencia-media img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;border-radius:17px;}
+    .esg-media{align-items:stretch;min-height:420px;padding:0;overflow:hidden;}
+    .esg-media img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;border-radius:17px;}
+    @media(max-width:1080px){.excelencia-media,.esg-media{min-height:360px;}}
+    @media(max-width:680px){.excelencia-media,.esg-media{min-height:280px;}.excelencia-media img,.esg-media img{object-fit:contain;background:rgba(8,22,39,.45);}}
+  </style>
+
+  <style>
+    /* V29 — CTA de Grupo Listello más claro en mobile */
+    @media (max-width: 430px){
+      .site-header .navbar{gap:6px;}
+      .site-header .partner-link{
+        width:auto !important;
+        min-width:138px;
+        height:42px;
+        min-height:42px;
+        padding:4px 8px 4px 5px !important;
+        gap:6px;
+        justify-content:flex-start !important;
+        flex-shrink:0;
+      }
+      .site-header .partner-copy{
+        display:flex !important;
+        flex-direction:column;
+        justify-content:center;
+        min-width:0;
+        line-height:1;
+      }
+      .site-header .partner-copy small{
+        display:block !important;
+        font-size:.42rem !important;
+        letter-spacing:.09em;
+        line-height:1;
+        margin-bottom:3px;
+        white-space:nowrap;
+      }
+      .site-header .partner-copy strong{
+        display:block !important;
+        font-size:.69rem !important;
+        line-height:1.05;
+        white-space:nowrap;
+      }
+      .site-header .partner-arrow{
+        display:block !important;
+        width:12px;
+        height:12px;
+        flex:0 0 12px;
+      }
+      .site-header .partner-logo{
+        width:31px;
+        height:31px;
+        flex:0 0 31px;
+      }
+    }
+    @media (max-width: 360px){
+      .site-header .brand-copy{display:none;}
+      .site-header .partner-link{min-width:132px;}
+      .site-header .partner-copy strong{font-size:.65rem !important;}
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="#inicio" aria-label="GL&AS - Inicio">
+      <img src="assets/img/sello-color.png" alt="" class="brand-seal">
+      <span class="brand-copy">GL&AS<small>FAMILY OFFICE & BUSINESS CONSULTING</small></span>
+    </a>
+    <a class="partner-link" href="https://grupolistello.com/index" target="_blank" rel="noopener noreferrer" aria-label="Visitar Grupo Listello, firma legal aliada">
+      <img class="partner-logo" src="assets/img/grupo-listello-icon.png" alt="">
+      <span class="partner-copy"><small>Firma legal aliada</small><strong>Grupo Listello</strong></span>
+      <i class="partner-arrow" data-lucide="arrow-right" aria-hidden="true"></i>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <i data-lucide="menu" aria-hidden="true"></i>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-menu" data-mobile-nav aria-label="Navegación móvil">
+    <div class="mobile-nav-links">
+      <a href="#family-office">Family Office</a>
+      <a href="#inversion">Inversión & Estrategia</a>
+      <a href="#excelencia">Excelencia Operativa</a>
+      <a href="#esg">Sostenibilidad & ESG</a>
+      <a href="#talento">Talento & Organización</a>
+      <a href="#innovacion">Innovación & Tecnología</a>
+    </div>
+    <div class="mobile-contact-panel">
+      <a class="mobile-contact-main" href="#contacto"><i data-lucide="contact" aria-hidden="true"></i><span>Contacto</span><i data-lucide="chevron-right" aria-hidden="true"></i></a>
+      <div class="mobile-contact-actions">
+        <a href="tel:+595994257076" aria-label="Llamar al +595 994 257 076"><i data-lucide="phone" aria-hidden="true"></i><span>Llamar</span></a>
+        <a href="https://wa.me/595994257076?text=Hola%2C%20llegu%C3%A9%20desde%20la%20web%20de%20GL%26AS.%20Quisiera%20realizar%20una%20consulta%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
+      </div>
+      <a class="mobile-email" href="mailto:Edgardo.listello@glyasfobc.com"><i data-lucide="mail" aria-hidden="true"></i><span>Edgardo.listello@glyasfobc.com</span></a>
+      <a class="mobile-email" href="mailto:administracion@glyasfobc.com"><i data-lucide="mail" aria-hidden="true"></i><span>administracion@glyasfobc.com</span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero-home" id="inicio">
+    <div class="hero-world-anchor" aria-hidden="true">
+      <div class="hero-world-motion">
+        <img class="hero-world" src="assets/img/hero-world.webp" alt="">
+      </div>
+    </div>
+    <div class="container hero-home-inner">
+      <div class="hero-title">GL<span>&</span>AS</div>
+      <div class="logo-stage"><img src="assets/img/logo-main.png" alt="GL&AS"></div>
+      <h1 class="hero-kicker">Family Office & Business Consulting</h1>
+      <p class="hero-lead">Acompañamos el patrimonio, la estrategia y el talento de familias empresarias y organizaciones en Paraguay.</p>
+      <div class="service-grid">
+        <a class="service-card" href="#family-office"><span class="icon"><i data-lucide="landmark" aria-hidden="true"></i></span><strong>Family Office</strong></a>
+        <a class="service-card" href="#inversion"><span class="icon"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i></span><strong>Inversión & Estrategia</strong></a>
+        <a class="service-card" href="#excelencia"><span class="icon"><i data-lucide="gauge" aria-hidden="true"></i></span><strong>Excelencia Operativa</strong></a>
+        <a class="service-card" href="#esg"><span class="icon"><i data-lucide="leaf" aria-hidden="true"></i></span><strong>Sostenibilidad & ESG</strong></a>
+        <a class="service-card" href="#talento"><span class="icon"><i data-lucide="users" aria-hidden="true"></i></span><strong>Talento & Organización</strong></a>
+        <a class="service-card" href="#innovacion"><span class="icon"><i data-lucide="cpu" aria-hidden="true"></i></span><strong>Innovación & Tecnología</strong></a>
+      </div>
+      <a class="scroll-hint" href="#family-office" aria-label="Explorar áreas y desplazarse hacia abajo"><span class="scroll-hint-label">Explorar áreas</span><span class="mouse-scroll" aria-hidden="true"><span class="mouse-wheel"></span></span></a>
+    </div>
+  </section>
+
+  <section class="major-section" id="family-office">
+    <div class="container reveal">
+      <div class="section-identity"><img src="assets/img/logo-main.png" alt="GL&AS"><div><strong>GL<span>&</span>AS</strong><small>Family Office & Business Consulting</small></div></div>
+      <div class="split">
+        <div>
+          
+          <h2 class="page-title">Capital internacional para proyectos productivos en Paraguay</h2>
+          <div class="copy"><p>Los capitales internacionales buscan oportunidades de inversión en empresas y proyectos productivos paraguayos. GL&AS Family Office & Business Consulting EAS, respaldada por nuestra trayectoria internacional y una red de consultoras asociadas en más de 40 países, conecta capital, empresas y proyectos con una visión de largo plazo.</p><p>Trabajamos exclusivamente con proyectos productivos y empresas con fundamentos sólidos, en todos los sectores de la economía.</p></div>
+          <div class="chips sector-badges">
+            <span><i data-lucide="tractor" aria-hidden="true"></i>Agroindustria</span>
+            <span><i data-lucide="sprout" aria-hidden="true"></i>Agricultura</span>
+            <span><i data-lucide="beef" aria-hidden="true"></i>Ganadería</span>
+            <span><i data-lucide="factory" aria-hidden="true"></i>Industria</span>
+            <span><i data-lucide="boxes" aria-hidden="true"></i>Maquila</span>
+            <span><i data-lucide="wheat" aria-hidden="true"></i>Alimentos</span>
+            <span><i data-lucide="cpu" aria-hidden="true"></i>Tecnología</span>
+            <span><i data-lucide="zap" aria-hidden="true"></i>Energía</span>
+            <span><i data-lucide="construction" aria-hidden="true"></i>Infraestructura</span>
+            <span><i data-lucide="truck" aria-hidden="true"></i>Logística</span>
+            <span><i data-lucide="hard-hat" aria-hidden="true"></i>Construcción</span>
+            <span><i data-lucide="briefcase" aria-hidden="true"></i>Servicios</span>
+            <span><i data-lucide="store" aria-hidden="true"></i>Comercio</span>
+            <span><i data-lucide="plane" aria-hidden="true"></i>Turismo</span>
+            <span><i data-lucide="recycle" aria-hidden="true"></i>Economía circular</span>
+            <span><i data-lucide="ship" aria-hidden="true"></i>Exportación</span>
+          </div>
+        </div>
+        <div class="visual-panel media-panel family-office-media">
+          <img src="assets/img/family-office-network.png" alt="Mapa de conexiones internacionales con Paraguay como centro">
+        </div>
+      </div>
+      <div class="section sub-section"><div class="section-label">Modalidades</div><h3 class="section-title">Modalidades de inversión</h3><div class="cards two"><article class="card"><h4>Créditos productivos</h4><p>Financiación de proyectos y expansión empresarial, con estructuras adaptadas a cada operación, incluyendo períodos de gracia y plazos acordes al proyecto.</p></article><article class="card"><h4>Socios e inversión de capital</h4><p>Participación accionaria, ampliaciones de capital e incorporación de inversores como socios estratégicos.</p></article><article class="card"><h4>Joint Ventures & Alianzas Estratégicas</h4><p>Vinculación de empresas paraguayas con capital, tecnología, conocimiento y socios internacionales.</p></article><article class="card"><h4>Project Finance</h4><p>Estructuración de operaciones desde USD 1 millón, sujeta a características, solvencia, escala y viabilidad de cada proyecto.</p></article></div></div>
+      <div class="section sub-section"><div class="section-label">Nuestro diferencial</div><h3 class="section-title">Acompañamos cada operación de punta a punta</h3><div class="quote-line"><p>Integramos capital internacional, estructuración, experiencia empresarial y profesionales especializados, acompañando cada operación desde su análisis hasta su ejecución.</p><p>En proyectos seleccionados, podemos participar en la fiscalización y seguimiento, contribuyendo a optimizar los costos de control y auditoría.</p></div><div class="notice"><strong>IMPORTANTE</strong>GL&AS no es un banco, entidad financiera ni fondo de inversión. Actuamos como consultora empresarial e intermediaria, estructurando proyectos y conectando empresas paraguayas con potenciales inversores, socios estratégicos y fuentes internacionales de capital. GL&AS no recibe ni administra fondos de inversores.</div></div>
+      <div class="cta"><div class="cta-line">Capital · Experiencia · Estructuración · Empresas paraguayas</div><a class="btn" href="#contacto" data-area="Family Office">Iniciar mi consulta <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    </div>
+  </section>
+
+  <section class="major-section alt" id="inversion">
+    <div class="container reveal">
+      <div class="section-identity"><img src="assets/img/logo-main.png" alt="GL&AS"><div><strong>GL<span>&</span>AS</strong><small>Family Office & Business Consulting</small></div></div>
+      <div class="center-head"><h2 class="page-title">Proyectos de inversión y estrategia</h2><h3 class="subtitle">Transformamos oportunidades en proyectos estructurados y financiables</h3><p class="copy">Acompañamos a empresas e inversores en todo el ciclo de un proyecto: identificación, estructuración, evaluación y ejecución, integrando visión estratégica, rigor técnico y acceso a capital.</p></div>
+      <div class="cards"><article class="card"><h4>Estrategia empresarial</h4><ul><li>Diagnóstico y planificación estratégica</li><li>Análisis de mercado y competencia</li><li>Modelos de negocio</li><li>Planes de crecimiento y expansión</li><li>Diversificación y nuevos negocios</li></ul></article><article class="card"><h4>Proyectos de inversión</h4><ul><li>Identificación y formulación de proyectos</li><li>Prefactibilidad y factibilidad</li><li>Evaluación económica y financiera</li><li>Proyecciones, flujo de fondos y rentabilidad</li><li>Análisis de escenarios y sensibilidad</li></ul></article><article class="card"><h4>Estructuración y financiamiento</h4><ul><li>Estructuración financiera</li><li>Búsqueda de fuentes de capital</li><li>Inversores privados y Family Offices</li><li>Fondos y organismos internacionales</li><li>Alianzas estratégicas</li><li>Dossiers y presentaciones para inversores</li></ul></article></div>
+      <div class="feature-card"><div class="lipfm-media"><img src="assets/img/lipfm.png" alt="LIPFM - Listello Industrial Project Finance Model"></div><div><div class="section-label">Metodología propia</div><h3 class="section-title">Listello Industrial Project Finance Model®</h3><p class="copy">Metodología propia para la estructuración, análisis y presentación de proyectos de inversión, integrando variables estratégicas, operativas, económicas y financieras para facilitar su evaluación y acceso a capital.</p></div></div>
+      <div class="section"><h3 class="section-title">Expansión y nuevos negocios</h3><p class="quote-line">Acompañamos procesos de expansión territorial, diversificación, asociaciones, alianzas estratégicas, nuevos mercados y operaciones corporativas.</p></div>
+      <div class="cta"><div class="cta-line">Estrategia · Estructuración · Capital · Crecimiento</div><a class="btn" href="#contacto" data-area="Inversión & Estrategia">Iniciar mi consulta <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    </div>
+  </section>
+
+  <section class="major-section" id="excelencia">
+    <div class="container reveal">
+      <div class="section-identity"><img src="assets/img/logo-main.png" alt="GL&AS"><div><strong>GL<span>&</span>AS</strong><small>Family Office & Business Consulting</small></div></div>
+      <div class="split"><div><h2 class="page-title">Mejora continua y excelencia operativa</h2><h3 class="subtitle">Elevamos la productividad y la rentabilidad de su empresa</h3><p class="copy">Ayudamos a mejorar la productividad, reducir costos, eliminar ineficiencias y aumentar la rentabilidad, a través de un enfoque integral que combina diagnóstico, rediseño de procesos y mejora continua.</p></div><div class="visual-panel media-panel excelencia-media"><img src="assets/img/excelencia-pdca.png" alt="Diagrama del ciclo PDCA: planificar, hacer, verificar y actuar"></div></div>
+      <div class="cards"><article class="card"><h4>Diagnóstico empresarial</h4><ul><li>Análisis integral de la empresa</li><li>Identificación de problemas y oportunidades</li><li>Análisis de costos y de productividad</li><li>Benchmarking</li></ul></article><article class="card"><h4>Reestructuración de procesos</h4><ul><li>Relevamiento y mapeo de procesos</li><li>Identificación de cuellos de botella</li><li>Rediseño y estandarización de procesos</li><li>Manuales, procedimientos e indicadores de gestión</li></ul></article><article class="card"><h4>Eficiencia operativa</h4><ul><li>Reducción de costos y optimización de recursos</li><li>Mejora de productividad y de tiempos</li><li>Gestión de inventarios, logística y abastecimiento</li><li>Optimización de capacidad instalada</li></ul></article><article class="card"><h4>Mejora continua</h4><ul><li>Lean Management, Kaizen y 5S</li><li>Gestión visual y eliminación de desperdicios</li><li>Análisis de causa raíz y ciclo PDCA</li><li>Mejora de estándares</li></ul></article><article class="card"><h4>Gestión por indicadores</h4><ul><li>KPI y tableros de control</li><li>Balanced Scorecard y análisis de Pareto</li><li>Seguimiento de objetivos y sistemas de alerta</li></ul></article><article class="card"><h4>Rentabilidad</h4><ul><li>Análisis de márgenes por producto, cliente y unidad de negocio</li><li>Punto de equilibrio y optimización de costos</li><li>Planes de recuperación de rentabilidad</li></ul></article></div>
+      <div class="cta"><div class="cta-line">Productividad · Procesos · Mejora continua · Rentabilidad</div><a class="btn" href="#contacto" data-area="Excelencia Operativa">Iniciar mi consulta <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    </div>
+  </section>
+
+  <section class="major-section alt" id="esg">
+    <div class="container reveal">
+      <div class="section-identity"><img src="assets/img/logo-main.png" alt="GL&AS"><div><strong>GL<span>&</span>AS</strong><small>Family Office & Business Consulting</small></div></div>
+      <div class="split"><div><h2 class="page-title">Gestión ambiental, sostenibilidad, ESG</h2><h3 class="subtitle">Integramos criterios ambientales, sociales y de gobernanza en la estrategia y operación de la empresa</h3><p class="copy">Acompañamos a las empresas en la incorporación de prácticas ambientales, sociales y de gobernanza, generando valor sostenible, gestionando riesgos y accediendo a nuevas fuentes de financiamiento.</p></div><div class="visual-panel media-panel esg-media"><img src="assets/img/esg-visual.png" alt="Diagrama ESG con ambiental, social y gobernanza"></div></div>
+      <div class="cards five"><article class="card"><h4>Gestión ambiental</h4><ul><li>Diagnóstico ambiental y cumplimiento normativo</li><li>Gestión de residuos, agua y energía</li><li>Gestión de emisiones y prevención de impactos</li></ul></article><article class="card"><h4>Sostenibilidad empresarial</h4><ul><li>Estrategias de sostenibilidad y economía circular</li><li>Producción y compras responsables</li><li>Cadenas de suministro y productos sostenibles</li></ul></article><article class="card"><h4>ESG</h4><ul><li>Estrategia y diagnóstico ESG</li><li>Identificación de riesgos e indicadores ambientales y sociales</li><li>Gobernanza corporativa, políticas y reportes de sostenibilidad</li></ul></article><article class="card"><h4>Impacto y responsabilidad social</h4><ul><li>Programas de impacto social y desarrollo local</li><li>Relación con comunidades</li><li>Inclusión, diversidad y responsabilidad empresarial</li></ul></article><article class="card"><h4>Finanzas sostenibles</h4><ul><li>Proyectos de inversión sostenible y fondos verdes</li><li>Financiamiento climático y fondos ESG</li><li>Bonos y mecanismos de financiamiento sostenible</li><li>Preparación de proyectos para cooperación internacional</li></ul></article></div>
+      <div class="cta"><div class="cta-line">Ambiente · Sostenibilidad · ESG · Impacto</div><a class="btn" href="#contacto" data-area="Sostenibilidad & ESG">Iniciar mi consulta <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    </div>
+  </section>
+
+  <section class="major-section" id="talento">
+    <div class="container reveal">
+      <div class="split talent-hero"><div class="visual-panel media-panel humanos-media"><img src="assets/img/humanos-con-recursos.png" alt="Humanos con Recursos"></div><div><div class="section-label">Consultora de Recursos Humanos</div><h2 class="page-title mixed">Impulsamos el <em>talento</em> y la eficiencia de tu organización</h2><p class="copy">Acompañamos a pequeñas, medianas y grandes empresas en la gestión estratégica de su capital humano y la optimización de sus procesos operativos.</p></div></div>
+      <div class="section sub-section"><div class="split"><div><div class="section-label">Quiénes somos</div><h3 class="section-title">Más de 15 años transformando equipos de trabajo</h3><div class="copy"><p>Somos una consultora integral de Recursos Humanos dedicada a potenciar el crecimiento empresarial a través del talento. Nuestra trayectoria abarca la administración masiva, operativa y la cobertura de puestos clave.</p><p>Contamos con un equipo de más de 10 asesores especializados en diversas verticales organizacionales, listos para brindar soluciones estratégicas adaptadas a las exigencias reales de tu mercado.</p></div></div><div class="visual-panel media-panel field-photo"><img src="assets/img/asesoria-terreno.png" alt="Asesoría en terreno con profesionales revisando documentación"></div></div></div>
+      <div class="section sub-section"><div class="section-label">Líneas de servicio</div><h3 class="section-title">Cuatro líneas integradas para cada etapa del talento</h3><div class="cards two"><article class="card"><h4>Selección de Personal & Headhunting</h4><ul><li>Masiva y operativa</li><li>Mandos medios y administrativos</li><li>Gerencias y headhunting</li></ul></article><article class="card"><h4>Capacitación a Medida</h4><ul><li>Habilidades blandas y liderazgo</li><li>Comercial: ventas, marketing y rentabilidad</li><li>Industrial: gestión, procesos y ciencia de datos</li></ul></article><article class="card"><h4>Asesoría Organizacional</h4><ul><li>RR.HH.: sistemas de gestión y desempeño</li><li>Comercial: estrategia y rentabilidad</li><li>Industrial: procesos y ciencia de datos</li></ul></article><article class="card"><h4>Tercerización Laboral (Outsourcing)</h4><ul><li>Desde la contratación hasta la supervisión</li><li>Cumplimiento normativo laboral de Paraguay</li><li>Informes y seguimiento periódico</li></ul></article></div></div>
+      <div class="section sub-section"><div class="split"><div><div class="section-label">Tercerización laboral</div><h3 class="section-title">Gestión integral con respaldo legal</h3><p class="copy">Asumimos la gestión integral de tu personal —desde la contratación hasta la supervisión directa— asegurando el cumplimiento estricto de la normativa laboral vigente en Paraguay.</p><ul class="copy bullet-list"><li>Optimización de costos administrativos y operativos</li><li>Enfoque total en el core business de tu empresa</li><li>Flexibilidad y escalabilidad ante variaciones de demanda</li><li>Seguridad y respaldo legal en materia laboral</li></ul></div><div class="timeline"><article><b>Evaluación</b><span>Diagnóstico detallado de las necesidades específicas del cliente.</span></article><article><b>Selección</b><span>Reclutamiento, evaluación y contratación del personal idóneo.</span></article><article><b>Gestión continuada</b><span>Supervisión activa y control de la operación en el día a día.</span></article><article><b>Seguimiento</b><span>Informes periódicos de desempeño y reporte de indicadores clave.</span></article></div></div></div>
+      <div class="section sub-section"><div class="section-label">Propuesta de valor</div><h3 class="section-title">¿Por qué elegirnos?</h3><div class="cards"><article class="card"><h4>Experiencia comprobada</h4><p>Más de 15 años de trayectoria en el mercado laboral respaldan nuestros resultados.</p></article><article class="card"><h4>Soluciones a medida</h4><p>Flexibilidad para adaptar cada servicio a la cultura y sector de tu empresa.</p></article><article class="card"><h4>Tranquilidad legal</h4><p>Garantía de cumplimiento riguroso de la legislación laboral vigente en Paraguay.</p></article></div></div>
+      <div class="cta"><a class="btn" href="#contacto" data-area="Talento & Organización">Iniciar mi consulta <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    </div>
+  </section>
+
+  <section class="major-section alt" id="innovacion">
+    <div class="container reveal">
+      <div class="section-identity"><img src="assets/img/logo-main.png" alt="GL&AS"><div><strong>GL<span>&</span>AS</strong><small>Family Office & Business Consulting</small></div></div>
+      <div class="split"><div><h2 class="page-title">Transformación digital e innovación</h2><h3 class="subtitle">Tecnología, datos e innovación para mejorar procesos y aumentar la competitividad</h3><p class="copy">Ayudamos a las empresas a utilizar tecnología, datos e innovación para mejorar procesos, generar nuevos negocios y aumentar su competitividad.</p></div><div class="visual-panel media-panel network-media"><img src="assets/img/network-visual.png" alt="Diagrama de transformación digital con datos, IA, procesos, innovación, automatización y seguridad"></div></div>
+      <div class="cards"><article class="card"><h4>Transformación digital</h4><ul><li>Diagnóstico de madurez digital</li><li>Digitalización de procesos y gestión documental</li><li>Integración de sistemas</li></ul></article><article class="card"><h4>Automatización</h4><ul><li>Automatización de tareas y procesos</li><li>Workflows e integración entre plataformas</li><li>Automatizaciones con IA</li></ul></article><article class="card"><h4>Datos y Business Intelligence</h4><ul><li>Excel avanzado y Power BI</li><li>Dashboards e indicadores (KPI)</li><li>Modelos de información gerencial e inteligencia comercial</li></ul></article><article class="card"><h4>Inteligencia Artificial</h4><ul><li>IA aplicada a ventas, marketing y atención al cliente</li><li>IA para procesos administrativos y análisis de información</li><li>Diseño de asistentes empresariales</li></ul></article><article class="card"><h4>Innovación</h4><ul><li>Estrategia de innovación y Design Thinking</li><li>Nuevos productos, servicios y modelos de negocio</li><li>Innovación de procesos y cultura de innovación</li></ul></article><article class="card"><h4>Ciberseguridad y gestión digital</h4><ul><li>Diagnóstico de riesgos digitales</li><li>Políticas de seguridad y gestión de accesos</li><li>Protección de información y continuidad operativa</li></ul></article></div>
+      <div class="cta"><div class="cta-line">Tecnología · Datos · Innovación · Competitividad</div><a class="btn" href="#contacto" data-area="Innovación & Tecnología">Iniciar mi consulta <i data-lucide="arrow-right" aria-hidden="true"></i></a></div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contacto">
+    <div class="container reveal">
+      <div class="section-identity compact"><img src="assets/img/sello-color.png" alt="GL&AS"><div><strong>GL<span>&</span>AS</strong><small>Family Office & Business Consulting</small></div></div>
+      <div class="contact-wrap">
+        <div class="contact-details">
+          <div class="section-label">Contacto</div>
+          <h2 class="page-title mixed">Iniciar una consulta</h2>
+          <p class="copy">Puede comunicarse directamente con GL&AS por teléfono, WhatsApp o correo electrónico.</p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-card phone-card">
+              <div class="contact-info-icon"><i data-lucide="phone" aria-hidden="true"></i></div>
+              <div class="contact-info-content">
+                <small>Teléfono</small>
+                <div class="contact-number-row">
+                  <a class="contact-number" href="tel:+595994257076">+595 994 257 076</a>
+                  <button class="copy-phone" type="button" data-copy-phone="+595994257076" aria-label="Copiar número de teléfono" title="Copiar número"><i data-lucide="copy" aria-hidden="true"></i></button>
+                </div>
+                <div class="contact-action-row">
+                  <a href="tel:+595994257076"><i data-lucide="phone-call" aria-hidden="true"></i>Llamar</a>
+                  <a class="whatsapp-inline" href="https://wa.me/595994257076?text=Hola%2C%20llegu%C3%A9%20desde%20la%20web%20de%20GL%26AS.%20Quisiera%20realizar%20una%20consulta%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i>WhatsApp</a>
+                </div>
+                <span class="copy-feedback" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="contact-info-card email-card">
+              <div class="contact-info-icon"><i data-lucide="mail" aria-hidden="true"></i></div>
+              <div class="contact-info-content">
+                <small>Correo</small>
+                <div class="contact-email-row">
+                  <a class="contact-email" href="mailto:Edgardo.listello@glyasfobc.com">Edgardo.listello@glyasfobc.com</a>
+                  <button class="copy-contact" type="button" data-copy-value="Edgardo.listello@glyasfobc.com" data-copy-label="Correo copiado" aria-label="Copiar correo Edgardo.listello@glyasfobc.com" title="Copiar correo"><i data-lucide="copy" aria-hidden="true"></i></button>
+                </div>
+                <span class="copy-feedback" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="contact-info-card email-card">
+              <div class="contact-info-icon"><i data-lucide="mail" aria-hidden="true"></i></div>
+              <div class="contact-info-content">
+                <small>Administración</small>
+                <div class="contact-email-row">
+                  <a class="contact-email" href="mailto:administracion@glyasfobc.com">administracion@glyasfobc.com</a>
+                  <button class="copy-contact" type="button" data-copy-value="administracion@glyasfobc.com" data-copy-label="Correo copiado" aria-label="Copiar correo administracion@glyasfobc.com" title="Copiar correo"><i data-lucide="copy" aria-hidden="true"></i></button>
+                </div>
+                <span class="copy-feedback" aria-live="polite"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="form contact-form" aria-label="Formulario de contacto" id="contact-form">
+          <input name="nombre" placeholder="Nombre y apellido" autocomplete="name" required>
+          <input name="empresa" placeholder="Empresa" autocomplete="organization">
+          <input type="email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+          <input name="telefono" placeholder="Teléfono" autocomplete="tel">
+          <select name="area" class="full"><option value="">Área de interés</option><option>Family Office</option><option>Inversión & Estrategia</option><option>Excelencia Operativa</option><option>Sostenibilidad & ESG</option><option>Talento & Organización</option><option>Innovación & Tecnología</option></select>
+          <textarea class="full" name="mensaje" placeholder="Cuéntenos brevemente sobre su consulta" required></textarea>
+          <div class="contact-form-actions full">
+            <button class="form-channel whatsapp-channel" type="button" data-send-whatsapp><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span><small>Enviar consulta por</small>WhatsApp</span></button>
+            <button class="form-channel email-channel" type="button" data-send-email><i data-lucide="mail" aria-hidden="true"></i><span><small>Enviar consulta por</small>Correo</span></button>
+          </div>
+          <p class="form-helper full">Complete el formulario y elija cómo desea enviar su consulta.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section" id="ubicacion">
+    <div class="container reveal">
+      <div class="map-section-head">
+        <div><div class="section-label">Ubicación</div><h2 class="section-title">Encuéntrenos en Google Maps</h2></div>
+        <a class="map-open-link" href="https://www.google.com/maps/search/?api=1&query=-25.281876,-57.576479" target="_blank" rel="noopener noreferrer">Abrir en Google Maps <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="map-frame-wrap">
+        <iframe title="Ubicación de GL&AS en Google Maps" src="https://www.google.com/maps?q=-25.281876,-57.576479&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="floating-whatsapp" href="https://wa.me/595994257076?text=Hola%2C%20llegu%C3%A9%20desde%20la%20web%20de%20GL%26AS.%20Quisiera%20realizar%20una%20consulta%20sobre%20sus%20servicios." target="_blank" rel="noopener noreferrer" aria-label="Escribir a GL&AS por WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span>
+</a>
+
+<footer class="site-footer premium-footer">
+  <div class="container footer-main reveal">
+    <div class="footer-brand">
+      <a class="footer-brand-lockup" href="#inicio" aria-label="GL&AS - volver al inicio">
+        <img src="assets/img/sello-color.png" alt="" class="footer-seal">
+        <span><strong>GL<span>&</span>AS</strong><small>Family Office & Business Consulting</small></span>
+      </a>
+      <p>Capital, estrategia, excelencia operativa, sostenibilidad, talento e innovación para empresas y familias empresarias.</p>
+      <a class="footer-cta" href="#contacto">Iniciar una consulta <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Áreas</h3>
+      <nav aria-label="Áreas de servicio">
+        <a href="#family-office">Family Office</a>
+        <a href="#inversion">Inversión & Estrategia</a>
+        <a href="#excelencia">Excelencia Operativa</a>
+        <a href="#esg">Sostenibilidad & ESG</a>
+        <a href="#talento">Talento & Organización</a>
+        <a href="#innovacion">Innovación & Tecnología</a>
+      </nav>
+    </div>
+
+    <div class="footer-column footer-alliance">
+      <h3>Alianza estratégica</h3>
+      <a class="footer-partner" href="https://grupolistello.com/index" target="_blank" rel="noopener noreferrer">
+        <img src="assets/img/grupo-listello-icon.png" alt="">
+        <span><small>Firma legal aliada</small><strong>Grupo Listello</strong></span>
+        <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+      </a>
+      <div class="footer-location"><i data-lucide="map-pin" aria-hidden="true"></i><span>Paraguay</span></div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© <span data-year>2026</span> GL&AS Family Office & Business Consulting. Todos los derechos reservados.</span>
+    <a class="footer-top" href="#inicio">Volver arriba <i data-lucide="arrow-up" aria-hidden="true"></i></a>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

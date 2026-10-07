@@ -783,6 +783,8 @@ const registerTrackingEvents = () => {
         threshold: 0.12,
       });
       floatingObserver.observe(examplesSection);
+    } else {
+      showFloatingButton();
     }
 
     const closeFloatingPopover = () => {

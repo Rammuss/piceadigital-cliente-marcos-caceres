@@ -273,7 +273,7 @@ if (ctaForm) {
     submitBtn.textContent = submitting ? "Enviando..." : "Enviar consulta";
   };
 
-  ctaForm.addEventListener("submit", (event) => {
+  ctaForm.addEventListener("submit", async (event) => {
     if (isSubmitting) {
       event.preventDefault();
       return;
@@ -292,6 +292,15 @@ if (ctaForm) {
       });
       return;
     }
+
+    const hCaptchaResponse = ctaForm.querySelector('textarea[name="h-captcha-response"]');
+    if (!hCaptchaResponse || !hCaptchaResponse.value.trim()) {
+      event.preventDefault();
+      if (status) status.textContent = "Completá la verificación de seguridad para enviar tu consulta.";
+      return;
+    }
+
+    event.preventDefault();
 
     setSubmittingState(true);
     if (status) status.textContent = "Estamos enviando tu consulta...";
@@ -319,6 +328,39 @@ if (ctaForm) {
     }, 9000);
 
     trackEvent("form_submit_attempt", { form_id: "cta-form" });
+
+    try {
+      const response = await fetch(ctaForm.action, {
+        method: "POST",
+        body: new FormData(ctaForm),
+        headers: { Accept: "application/json" },
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "No se pudo enviar la consulta.");
+      }
+
+      if (pendingTimer) clearTimeout(pendingTimer);
+      if (softAckTimer) clearTimeout(softAckTimer);
+      if (optimisticTimer) clearTimeout(optimisticTimer);
+      if (status) status.textContent = "Gracias, ya recibimos tu consulta.";
+      ctaForm.reset();
+      if (window.hcaptcha) window.hcaptcha.reset();
+      trackEvent("generate_lead", { form_id: "cta-form" });
+      trackEvent("form_submit_success", { form_id: "cta-form" });
+      trackPixelEvent("Lead", {
+        content_name: "cta-form",
+        content_category: "lead",
+      });
+    } catch (error) {
+      if (pendingTimer) clearTimeout(pendingTimer);
+      if (softAckTimer) clearTimeout(softAckTimer);
+      if (optimisticTimer) clearTimeout(optimisticTimer);
+      if (status) status.textContent = error.message || "No pudimos enviar tu consulta. Probá de nuevo.";
+      if (window.hcaptcha) window.hcaptcha.reset();
+    } finally {
+      setSubmittingState(false);
+    }
   });
 
   if (targetFrame) {
@@ -343,13 +385,41 @@ if (ctaForm) {
 document.querySelectorAll("[data-copy]").forEach((btn) => {
   btn.addEventListener("click", async () => {
     const value = btn.dataset.copy;
+    const defaultLabel = btn.getAttribute("aria-label") || "Copiar";
+    const showCopyFeedback = () => {
+      btn.classList.add("is-copied");
+      btn.setAttribute("aria-label", "Copiado");
+      btn.setAttribute("title", "Copiado");
+      clearTimeout(btn.copyFeedbackTimer);
+      btn.copyFeedbackTimer = setTimeout(() => {
+        btn.classList.remove("is-copied");
+        btn.setAttribute("aria-label", defaultLabel);
+        btn.setAttribute("title", defaultLabel);
+      }, 1600);
+    };
     try {
-      await navigator.clipboard.writeText(value);
-      btn.textContent = "Copiado";
-      setTimeout(() => { btn.textContent = "Copiar"; }, 1500);
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(value);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = value;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        const copied = document.execCommand("copy");
+        textarea.remove();
+        if (!copied) throw new Error("Copy failed");
+      }
+      showCopyFeedback();
     } catch (error) {
-      btn.textContent = "Error";
-      setTimeout(() => { btn.textContent = "Copiar"; }, 1500);
+      btn.setAttribute("aria-label", "No se pudo copiar");
+      btn.setAttribute("title", "No se pudo copiar");
+      setTimeout(() => {
+        btn.setAttribute("aria-label", defaultLabel);
+        btn.setAttribute("title", defaultLabel);
+      }, 1600);
     }
   });
 });

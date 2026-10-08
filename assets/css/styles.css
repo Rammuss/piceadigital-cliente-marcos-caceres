@@ -4934,6 +4934,11 @@ body.theme-light .portfolio-media img {
 .contact-disclosure:not([open]) .contact-disclosure-panel { display: none; }
 .contact-disclosure[open] .contact-disclosure-panel { animation: contactPanelIn 180ms ease-out; }
 .contact-disclosure .cta-form { margin-top: 2px; }
+.contact-disclosure .cta-form input,
+.contact-disclosure .cta-form textarea {
+  box-sizing: border-box;
+  max-width: 100%;
+}
 .contact-disclosure .form-note { margin: 0; }
 .contact-disclosure .h-captcha { justify-self: start; }
 

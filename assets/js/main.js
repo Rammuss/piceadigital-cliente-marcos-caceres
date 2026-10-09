@@ -303,7 +303,10 @@ if (ctaForm) {
     event.preventDefault();
 
     setSubmittingState(true);
-    if (status) status.textContent = "Estamos enviando tu consulta...";
+    if (status) {
+      status.classList.remove("is-success", "is-error");
+      status.textContent = "Estamos enviando tu consulta...";
+    }
 
     if (softAckTimer) clearTimeout(softAckTimer);
     softAckTimer = setTimeout(() => {
@@ -343,7 +346,11 @@ if (ctaForm) {
       if (pendingTimer) clearTimeout(pendingTimer);
       if (softAckTimer) clearTimeout(softAckTimer);
       if (optimisticTimer) clearTimeout(optimisticTimer);
-      if (status) status.textContent = "Gracias, ya recibimos tu consulta.";
+      if (status) {
+        status.classList.remove("is-error");
+        status.classList.add("is-success");
+        status.textContent = "¡Consulta enviada! Te responderemos muy pronto.";
+      }
       ctaForm.reset();
       if (window.hcaptcha) window.hcaptcha.reset();
       trackEvent("generate_lead", { form_id: "cta-form" });
@@ -356,7 +363,11 @@ if (ctaForm) {
       if (pendingTimer) clearTimeout(pendingTimer);
       if (softAckTimer) clearTimeout(softAckTimer);
       if (optimisticTimer) clearTimeout(optimisticTimer);
-      if (status) status.textContent = error.message || "No pudimos enviar tu consulta. Probá de nuevo.";
+      if (status) {
+        status.classList.remove("is-success");
+        status.classList.add("is-error");
+        status.textContent = error.message || "No pudimos enviar tu consulta. Probá de nuevo.";
+      }
       if (window.hcaptcha) window.hcaptcha.reset();
     } finally {
       setSubmittingState(false);

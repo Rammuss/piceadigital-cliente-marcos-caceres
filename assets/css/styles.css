@@ -4607,6 +4607,79 @@ body.theme-light .portfolio-media img {
   gap: 22px;
 }
 
+.portfolio-prototypes {
+  margin-top: 64px;
+}
+
+.portfolio-prototypes-heading {
+  max-width: 620px;
+  margin-bottom: 24px;
+}
+
+.portfolio-prototypes-heading h2 {
+  margin: 0;
+  color: #1b2d26;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: -0.035em;
+}
+
+.portfolio-prototypes-heading > p:last-child {
+  margin: 10px 0 0;
+  color: #62726b;
+}
+
+.portfolio-prototype-visual {
+  overflow: hidden;
+  display: block;
+  padding: 26px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 25% 70%, rgba(110, 193, 139, 0.85) 0 5px, transparent 6px),
+    radial-gradient(circle at 67% 36%, rgba(237, 203, 67, 0.9) 0 5px, transparent 6px),
+    radial-gradient(circle at 78% 76%, rgba(110, 193, 139, 0.85) 0 5px, transparent 6px),
+    linear-gradient(135deg, #103c2c, #176f48);
+}
+
+.portfolio-prototype-visual::after {
+  content: "";
+  position: absolute;
+  inset: 15% 10%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 48% 42% 50% 44%;
+  transform: rotate(-12deg);
+}
+
+.portfolio-prototype-visual strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.portfolio-prototype-pin {
+  position: absolute;
+  z-index: 1;
+  padding: 4px 7px;
+  border-radius: 99px;
+  color: #fff;
+  background: rgba(8, 40, 29, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.portfolio-prototype-pin::before {
+  content: "•";
+  margin-right: 4px;
+  color: #efd94d;
+}
+
+.pin-one { top: 60%; left: 16%; }
+.pin-two { top: 26%; right: 12%; }
+.pin-three { right: 18%; bottom: 16%; }
+
 .portfolio-catalog-body .portfolio-card {
   min-height: 0;
   border-radius: 22px;

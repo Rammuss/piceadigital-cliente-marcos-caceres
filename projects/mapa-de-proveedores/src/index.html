@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5f8f7" />
+  <meta name="description" content="Conocé la red de distribuidores de Grupo Listello en América." />
+  <title>Mapa de proveedores prototipo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="./assets/map.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">L.</div>
+        <div><div class="brand-name">GRUPO LISTELLO</div><div class="brand-subtitle">Red de distribuidores</div></div>
+      </div>
+      <div class="topbar-note"><span class="dot"></span> América</div>
+    </header>
+    <section class="titlebar" aria-labelledby="page-title">
+      <div><p class="eyebrow">Nuestra presencia</p><h1 id="page-title">Encontrá tu distribuidor</h1><p>Seleccioná una ubicación en el mapa o en la lista para consultar y copiar sus datos.</p></div>
+      <span class="count" id="count" aria-live="polite">Cargando...</span>
+    </section>
+    <main class="locator" aria-label="Mapa y lista de distribuidores">
+      <aside class="sidebar" aria-label="Listado de distribuidores">
+        <div class="sidebar-head">
+          <div class="sidebar-heading"><div><p class="sidebar-eyebrow">Explorá por región</p><h2>Distribuidores</h2></div><span id="list-count" class="list-count" aria-live="polite">—</span></div>
+          <label for="region" class="select-label">Región</label>
+          <div class="select-wrap"><select id="region" name="region" aria-label="Filtrar distribuidores por región">
+            <option value="todos">Toda América</option>
+            <option value="norte">América del Norte</option>
+            <option value="central">América Central</option>
+            <option value="sur">América del Sur</option>
+          </select></div>
+          <p id="region-caption" class="region-caption">Todas las ubicaciones disponibles</p>
+        </div>
+        <div class="locations" id="locations" role="list" aria-live="polite"><p class="loading-list">Cargando distribuidores...</p></div>
+        <div class="sidebar-foot"><span class="sidebar-foot-dot"></span> Seleccioná una ubicación para consultar los datos.</div>
+      </aside>
+      <section class="map-panel" aria-label="Mapa interactivo de distribuidores">
+        <div id="map" role="region" aria-label="Mapa interactivo de América con los distribuidores"></div>
+        <div class="map-actions"><button type="button" id="reset" class="reset-button">◎ Ver toda América</button></div>
+        <div id="message" class="map-message" role="alert" hidden></div>
+        <aside id="detail" class="detail" aria-labelledby="detail-title" hidden>
+          <div class="detail-head">
+            <div class="detail-badge"><span class="detail-badge-dot"></span> Ficha de distribuidor</div>
+            <button type="button" id="close-detail" class="detail-close" aria-label="Cerrar ficha" title="Cerrar ficha">×</button>
+          </div>
+          <div class="detail-scroll">
+            <h2 id="detail-title" class="detail-title" tabindex="-1"></h2>
+            <p id="detail-location" class="detail-location"></p>
+            <div class="detail-actions">
+              <button type="button" id="copy-all" class="copy-all-button" title="Copiar todos los datos del distribuidor">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+                Copiar ficha completa
+              </button>
+              <a id="open-maps" class="maps-button" href="#" target="_blank" rel="noopener noreferrer" aria-label="Abrir ubicación en Google Maps" title="Abrir en Google Maps">↗</a>
+            </div>
+            <div id="detail-fields" class="detail-fields"></div>
+            <p class="detail-hint">Copiá un dato con <span aria-hidden="true">⧉</span> o usá “Copiar ficha completa”.</p>
+          </div>
+        </aside>
+        <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+      </section>
+    </main>
+    <footer class="footer"><span>Datos de demostración. Reemplazar por distribuidores reales antes de publicar.</span><span>Grupo Listello · Mapa interactivo</span></footer>
+  </div>
+</body>
+</html>

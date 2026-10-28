@@ -25,9 +25,12 @@
       <span class="count" id="count" aria-live="polite">Cargando...</span>
     </section>
     <main class="locator" aria-label="Mapa y lista de distribuidores">
-      <aside class="sidebar" aria-label="Listado de distribuidores">
+      <div id="list-backdrop" class="mobile-backdrop" hidden></div>
+      <aside class="sidebar" id="sidebar" aria-label="Listado de distribuidores">
+        <div class="mobile-sheet-handle" aria-hidden="true"></div>
         <div class="sidebar-head">
-          <div class="sidebar-heading"><div><p class="sidebar-eyebrow">Explorá por región</p><h2>Distribuidores</h2></div><span id="list-count" class="list-count" aria-live="polite">—</span></div>
+          <div class="sidebar-heading"><div><p class="sidebar-eyebrow">Explorá por región</p><h2>Distribuidores</h2></div><span id="list-count" class="list-count" aria-live="polite">—</span>
+          <button id="close-list" class="mobile-close-list" type="button" aria-label="Cerrar listado">×</button></div>
           <label for="region" class="select-label">Región</label>
           <div class="select-wrap"><select id="region" name="region" aria-label="Filtrar distribuidores por región">
             <option value="todos">Toda América</option>
@@ -41,12 +44,24 @@
         <div class="sidebar-foot"><span class="sidebar-foot-dot"></span> Seleccioná una ubicación para consultar los datos.</div>
       </aside>
       <section class="map-panel" aria-label="Mapa interactivo de distribuidores">
+        <div class="mobile-map-toolbar" aria-label="Controles del mapa">
+          <label class="mobile-region-select"><span class="sr-only">Filtrar por región</span>
+            <select id="mobile-region" aria-label="Filtrar distribuidores por región">
+              <option value="todos">Toda América</option><option value="norte">América del Norte</option><option value="central">América Central</option><option value="sur">América del Sur</option>
+            </select></label>
+          <button type="button" id="list-toggle" class="mobile-list-toggle" aria-expanded="false" aria-controls="sidebar">
+            <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg>
+            Lista <span id="mobile-list-count">—</span>
+          </button>
+        </div>
         <div id="map" role="region" aria-label="Mapa interactivo de América con los distribuidores"></div>
         <div class="map-actions"><button type="button" id="reset" class="reset-button">◎ Ver toda América</button></div>
         <div id="message" class="map-message" role="alert" hidden></div>
         <aside id="detail" class="detail" aria-labelledby="detail-title" hidden>
+          <div class="mobile-detail-handle" aria-hidden="true"></div>
           <div class="detail-head">
             <div class="detail-badge"><span class="detail-badge-dot"></span> Ficha de distribuidor</div>
+            <button type="button" id="back-list" class="detail-back-list">← Lista</button>
             <button type="button" id="close-detail" class="detail-close" aria-label="Cerrar ficha" title="Cerrar ficha">×</button>
           </div>
           <div class="detail-scroll">

@@ -7,6 +7,43 @@
   const listCount = $('list-count');
   const list = $('locations');
   const selector = $('region');
+  const mobileSelector = $('mobile-region');
+  const sidebar = $('sidebar');
+  const listBackdrop = $('list-backdrop');
+  const listToggle = $('list-toggle');
+  const mobileListCount = $('mobile-list-count');
+  const mobileQuery = window.matchMedia('(max-width:680px)');
+  let listOpen = false;
+  function showList() {
+    if (!mobileQuery.matches) return;
+    closeDetail();
+    listOpen = true;
+    sidebar.classList.add('is-open');
+    sidebar.inert = false;
+    listBackdrop.hidden = false;
+    listToggle.setAttribute('aria-expanded','true');
+    $('close-list').focus({preventScroll:true});
+  }
+  function closeList({restoreFocus=false}={}) {
+    listOpen = false;
+    sidebar.classList.remove('is-open');
+    listBackdrop.hidden = true;
+    listToggle.setAttribute('aria-expanded','false');
+    sidebar.inert = mobileQuery.matches;
+    if (restoreFocus && mobileQuery.matches) listToggle.focus({preventScroll:true});
+  }
+  function mobileLayout() {
+    if (mobileQuery.matches) {if (!listOpen) sidebar.inert = true;}
+    else {sidebar.inert = false; closeList();}
+    setTimeout(()=>map.invalidateSize(), 80);
+  }
+  listToggle.addEventListener('click',showList);
+  $('close-list').addEventListener('click',()=>closeList({restoreFocus:true}));
+  listBackdrop.addEventListener('click',()=>closeList({restoreFocus:true}));
+  $('back-list').addEventListener('click',()=>{closeDetail();showList();});
+  mobileQuery.addEventListener('change', mobileLayout);
+  window.addEventListener('resize',()=>map.invalidateSize({pan:false}));
+
   const caption = $('region-caption');
   const detail = $('detail');
   const detailTitle = $('detail-title');
@@ -132,12 +169,13 @@
   function selectDistributor(id, {fly=false}={}) {
     const d=records.find(item=>item.id===id);
     if(!d || !visible.has(id)) return;
+    if (mobileQuery.matches && listOpen) closeList();
     current=d;selectedId=id;
     for(const [key,marker] of visible) marker.setIcon(key===id?iconSelected:icon);
     for(const el of list.querySelectorAll('[data-distribuidor]')) {
       const active=el.dataset.distribuidor===id;
       el.classList.toggle('active',active);el.setAttribute('aria-pressed',String(active));
-      if(active && fly) el.scrollIntoView({block:'nearest',behavior:'smooth'});
+      if(active && fly && !mobileQuery.matches) el.scrollIntoView({block:'nearest',behavior:'smooth'});
     }
     detailTitle.textContent=d.nombre;
     detailLocation.textContent=[d.ciudad,d.pais].filter(Boolean).join(' · ');
@@ -147,7 +185,8 @@
     if(fly && marker) {
       const target=marker.getLatLng();
       // En celular, el panel ocupa parte del mapa: evitamos un zoom excesivo.
-      map.flyTo(target,Math.max(map.getZoom(),5),{duration:.65});
+      map.flyTo(target,mobileQuery.matches ? Math.max(map.getZoom(),4) : Math.max(map.getZoom(),5),{duration:.55});
+      if(mobileQuery.matches) map.once('moveend',()=>map.panBy([0, 90],{animate:true,duration:.25}));
     }
   }
   function render() {
@@ -156,6 +195,7 @@
     closeDetail();layer.clearLayers();visible=new Map();list.replaceChildren();
     count.textContent=`${filtered.length} distribuidor${filtered.length===1?'':'es'}`;
     listCount.textContent=String(filtered.length);
+    mobileListCount.textContent=String(filtered.length);
     caption.textContent=regions[region] || regions.todos;
     if(!filtered.length) {
       const empty=document.createElement('p');empty.className='empty-list';empty.textContent='Todavía no hay distribuidores cargados en esta región.';
@@ -176,10 +216,15 @@
     else map.fitBounds(L.latLngBounds(filtered.map(d=>[d.lat,d.lng])).pad(.4),{padding:[36,36],maxZoom:5});
   }
   $('close-detail').addEventListener('click',closeDetail);
-  document.addEventListener('keydown',event=>{if(event.key==='Escape' && !detail.hidden) closeDetail();});
+  document.addEventListener('keydown',event=>{
+    if(event.key!=='Escape') return;
+    if(listOpen) closeList({restoreFocus:true});
+    else if(!detail.hidden) closeDetail();
+  });
   copyAllButton.addEventListener('click',()=>{if(current)copyText(printable(current),'Ficha completa copiada');});
-  selector.addEventListener('change',render);
-  $('reset').addEventListener('click',()=>{selector.value='todos';render();});
+  selector.addEventListener('change',()=>{mobileSelector.value=selector.value;render();});
+  mobileSelector.addEventListener('change',()=>{selector.value=mobileSelector.value;render();});
+  $('reset').addEventListener('click',()=>{selector.value='todos';mobileSelector.value='todos';render();});
   async function load() {
     try {
       const response=await fetch('./data/distribuidores.json',{cache:'no-store'});
@@ -196,5 +241,6 @@
       showError('No se pudieron leer los distribuidores. Abrí la página desde un servidor web.');
     }
   }
+  mobileLayout();
   load();
 })();

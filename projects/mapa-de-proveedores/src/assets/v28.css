@@ -1,0 +1,106 @@
+/* V28: Mobile bottom sheets: centered close controls, responsive handles,
+   drag-to-dismiss, and dedicated list overlay. */
+:root{--sheet-gold:#e9c17b;}
+.list-sheet-backdrop{display:none}
+@media(max-width:680px){
+  body.list-panel-open{overflow:hidden;overscroll-behavior:none}
+  .represent-section .locator{isolation:isolate}
+  .list-sheet-backdrop{
+    display:block;position:absolute;inset:0;z-index:610;
+    background:rgba(1,12,24,.46);opacity:0;visibility:hidden;
+    pointer-events:none;transition:opacity .25s ease,visibility .25s ease;
+  }
+  .list-sheet-backdrop.is-visible{
+    opacity:1;visibility:visible;pointer-events:auto;
+  }
+  .represent-section .locator-list-panel{
+    --sheet-drag-y:0px;
+    translate:0 var(--sheet-drag-y);
+    transition:transform .32s cubic-bezier(.22,.7,.2,1),translate .22s ease!important;
+    max-height:min(84%,560px)!important;
+    height:min(82%,510px)!important;
+    touch-action:pan-y;
+    overscroll-behavior:contain;
+  }
+  .represent-section .locator-list-panel.sheet-dragging,
+  .detail-pane.sheet-dragging{transition:none!important;}
+  .list-sheet-handle{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;height:27px;min-height:27px;flex:0 0 27px;
+    touch-action:none;cursor:grab;
+  }
+  .list-sheet-handle span{
+    display:block;width:46px;height:5px;background:rgba(238,200,133,.72);
+    border-radius:50px;
+  }
+  .represent-section .locator-list-panel .locator-list-header{
+    padding:6px 20px 16px 20px!important;
+    touch-action:none;
+  }
+  .represent-section .locator-list-panel .locator-list-header>span:first-child,
+  .represent-section .locator-list-panel .locator-list-header h3{margin-right:60px!important}
+  .represent-section .locator-list-panel .locator-list-header select{touch-action:auto}
+  .represent-section #close-list,
+  #detail-close{
+    display:flex!important;justify-content:center!important;align-items:center!important;
+    width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;
+    padding:0!important;margin:0!important;
+    flex:0 0 44px!important;
+    border:1px solid #d9b274!important;
+    border-radius:9px!important;
+    line-height:1!important;
+    transform:none!important;
+    box-sizing:border-box!important;
+    color:var(--sheet-gold)!important;
+  }
+  .represent-section #close-list{
+    position:absolute!important;top:7px!important;right:17px!important;
+    background:#18354c!important;z-index:2;
+  }
+  .represent-section #close-list svg,
+  #detail-close svg{
+    width:17px!important;height:17px!important;max-width:17px!important;max-height:17px!important;
+    display:block!important;flex:none!important;
+    fill:currentColor!important;stroke:none!important;
+    margin:0!important;padding:0!important;
+  }
+  .represent-section .locator-items{
+    overscroll-behavior-y:contain;
+    touch-action:pan-y;
+    -webkit-overflow-scrolling:touch;
+  }
+  .detail-pane{
+    --sheet-drag-y:0px;
+    translate:0 var(--sheet-drag-y);
+    transition:transform .34s cubic-bezier(.22,.7,.2,1),translate .22s ease!important;
+    max-height:min(88dvh,720px)!important;
+    border-radius:21px 21px 0 0!important;
+    touch-action:pan-y;
+  }
+  .detail-handle-region{
+    height:29px;flex:0 0 29px;
+    display:flex;align-items:center;justify-content:center;
+    touch-action:none;cursor:grab;
+  }
+  .detail-handle{
+    display:block!important;width:48px!important;height:5px!important;
+    border-radius:20px!important;background:#bea978!important;
+    margin:0!important;
+  }
+  .detail-top{
+    min-height:64px;align-items:center!important;
+    padding:7px 17px 13px 20px!important;
+    touch-action:none;
+  }
+  .detail-top>span{line-height:1.5;max-width:calc(100% - 65px)}
+  #detail-close{background:#f5ead5!important;color:#263c4b!important;}
+  .detail-scroll{
+    overscroll-behavior-y:contain;
+    touch-action:pan-y;
+    -webkit-overflow-scrolling:touch;
+  }
+  #locator-list-panel.open .list-sheet-handle,#detail-pane.open .detail-handle-region{cursor:grab}
+}
+@media(prefers-reduced-motion:reduce){
+  .represent-section .locator-list-panel,.detail-pane,.list-sheet-backdrop{transition:none!important}
+}

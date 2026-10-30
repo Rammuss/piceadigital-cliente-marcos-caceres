@@ -1,0 +1,27 @@
+/* V26: enlace al directorio geográfico más reconocible.
+   El anchor y data-nav-link permanecen iguales para la sección activa. */
+.site-header .main-nav > a.nav-map-link {
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center;
+  gap:6px!important;
+}
+.site-header .main-nav > a.nav-map-link .nav-map-icon {
+  display:block;
+  width:17px;
+  height:17px;
+  flex:none;
+  color:#ecc477;
+  transition:transform .24s ease;
+}
+.site-header .main-nav > a.nav-map-link:hover .nav-map-icon,
+.site-header .main-nav > a.nav-map-link.nav-active .nav-map-icon {
+  transform:translateY(-2px);
+}
+.site-header .main-nav > a.nav-map-link .nav-map-long { display:none; }
+@media(max-width:1024px){
+  .site-header .main-nav > a.nav-map-link { justify-content:flex-start; gap:12px!important; }
+  .site-header .main-nav > a.nav-map-link .nav-map-short {display:none;}
+  .site-header .main-nav > a.nav-map-link .nav-map-long {display:inline;}
+  .site-header .main-nav > a.nav-map-link .nav-map-icon { width:20px;height:20px; }
+}

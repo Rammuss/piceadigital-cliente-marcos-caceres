@@ -77,26 +77,36 @@
   const screenIsMobile = () => matchMedia('(max-width:680px)').matches;
 
   function openList() {
+    if (!screenIsMobile()) return;
     $('locator-list-panel')?.classList.add('open');
+    $('locator-list-panel')?.setAttribute('aria-modal','true');
+    $('list-sheet-backdrop')?.classList.add('is-visible');
+    document.body.classList.add('list-panel-open');
     $('open-list')?.setAttribute('aria-expanded','true');
   }
   function closeList() {
     $('locator-list-panel')?.classList.remove('open');
+    $('locator-list-panel')?.setAttribute('aria-modal','false');
+    $('list-sheet-backdrop')?.classList.remove('is-visible');
+    document.body.classList.remove('list-panel-open');
     $('open-list')?.setAttribute('aria-expanded','false');
   }
   $('open-list')?.setAttribute('aria-expanded','false');
   $('open-list')?.addEventListener('click',openList);
   $('close-list')?.addEventListener('click',closeList);
+  $('list-sheet-backdrop')?.addEventListener('click',closeList);
 
   function closeDetail() {
     active = null;
     detail?.classList.remove('open');
     if(detailHome && detail?.parentNode!==detailHome)detailHome.appendChild(detail); detail?.setAttribute('aria-hidden','true');
     if(backdrop) backdrop.hidden=true;
+    detail?.setAttribute('aria-modal','false');
     document.body.classList.remove('panel-open');
     document.querySelectorAll('.locator-item.active').forEach(el=>el.classList.remove('active'));
     pins.forEach(g=>g.classList.remove('selected'));
   }
+  window.addEventListener('resize', () => { if(!screenIsMobile()){closeList();if(detail?.classList.contains('open')){backdrop.hidden=true;document.body.classList.remove('panel-open');detail?.setAttribute('aria-modal','false');}} },{passive:true});
   $('detail-close')?.addEventListener('click',closeDetail);
   backdrop?.addEventListener('click',closeDetail);
   document.addEventListener('keydown', e=>{if(e.key==='Escape'){closeList();closeDetail();}});
@@ -121,7 +131,7 @@
     Object.entries(fieldNames).forEach(([key,label])=>addField(fields,label,item[key]));
     addField(fields,'Ciudad',item.ciudad);addField(fields,'País',item.pais);
     if(screenIsMobile() && detail.parentNode!==document.body)document.body.appendChild(detail);
-    detail.classList.add('open');detail.setAttribute('aria-hidden','false');
+    detail.classList.add('open');detail.setAttribute('aria-hidden','false');detail.setAttribute('aria-modal',screenIsMobile()?'true':'false');
     if(screenIsMobile()){backdrop.hidden=false;document.body.classList.add('panel-open');}
     document.querySelectorAll('.locator-item').forEach(el=>el.classList.toggle('active',el.dataset.id===item.id));
     pins.forEach((g,id)=>g.classList.toggle('selected',id===item.id));
@@ -297,7 +307,7 @@
           gs.from(el,{scrollTrigger:{trigger:el,start:'top 77%',once:true},opacity:0,y:52,rotateX:6,scale:.97,duration:.78,delay:(i%3)*.075,ease:'power3.out',clearProps:'all'});
         });
         // V19: photo reveals are triggered only once at mid-viewport by v19.js.
-        gs.from('.map-spotlight h3',{scrollTrigger:{trigger:'.map-spotlight',start:'top 89%',once:true},opacity:0,x:-90,duration:1.1,ease:'power3.out',clearProps:'all'});
+        gs.from('.atlas-heading h2',{scrollTrigger:{trigger:'.atlas-heading',start:'top 89%',once:true},opacity:0,x:-90,duration:1.1,ease:'power3.out',clearProps:'all'});
         gs.from('.map-topline,.locator',{scrollTrigger:{trigger:'.locator',start:'top 88%',once:true},opacity:0,y:70,duration:1.1,stagger:.12,ease:'power3.out',clearProps:'all'});
       }
     }

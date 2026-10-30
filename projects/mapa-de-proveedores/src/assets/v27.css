@@ -1,0 +1,137 @@
+/* V27 · Atlas de representantes + navegación con jerarquía de marcas */
+:root{--atlas-gold:#e4bf77;--atlas-dark:#061a2c;--atlas-mid:#0b2941;--atlas-line:rgba(221,180,105,.5)}
+/* El sitio actual se reconoce de inmediato. El asociado es un enlace externo independiente. */
+.site-header .nav-shell{gap:17px!important;padding:0 16px!important}
+.site-header .brand-group{min-width:0!important;flex:0 0 auto!important;margin-right:8px}
+.site-header .brand-chiaramonte img{width:204px!important;height:53px!important}
+.site-header .main-nav{gap:1px!important;min-width:0!important}
+.site-header .main-nav>a[href^="#"]{font-size:12px!important;padding-inline:7px!important}
+.site-header .nav-associate{display:flex;align-items:center;gap:10px;flex:none;padding:7px 11px;border:1px solid rgba(232,192,115,.28);border-radius:9px;background:rgba(255,255,255,.025);color:#edcd8b;transition:border-color .2s,background .2s}
+.site-header .nav-associate:hover{border-color:var(--atlas-gold);background:rgba(235,198,126,.1)}
+.site-header .nav-associate img{width:51px;height:42px;object-fit:contain;flex:none}
+.site-header .nav-associate-meta{display:flex;flex-direction:column;min-width:80px;gap:1px}
+.site-header .nav-associate-meta small{font-size:8px;letter-spacing:.06em;color:#b9bac0;white-space:nowrap}
+.site-header .nav-associate-meta>span{font-size:12px;font-weight:800;display:flex;gap:6px;align-items:center;white-space:nowrap}
+.site-header .nav-cta{flex:none;margin-left:0!important}
+.site-header .mobile-associate{display:none}
+/* Directorio con dirección de arte cartográfica editorial */
+.represent-section{background:#07192b!important;position:relative;isolation:isolate;padding-top:125px!important}
+.represent-section:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 85% 6%,rgba(83,103,107,.22),transparent 34%),radial-gradient(ellipse at -7% 50%,rgba(173,133,68,.14),transparent 31%),repeating-linear-gradient(135deg,transparent 0 170px,rgba(222,175,107,.025) 171px,transparent 172px)}
+.represent-section .container-wide{width:min(1400px,calc(100% - 70px))}
+.represent-intro.atlas-heading{grid-template-columns:minmax(0,1.4fr) minmax(270px,.6fr)!important;gap:5%!important;align-items:end!important;margin:0 0 40px!important}
+.atlas-heading .section-index{letter-spacing:.23em!important;color:#dbaf65!important;font-size:10px!important;margin-bottom:15px!important}
+.atlas-heading h2{color:#fff7ea;font-size:clamp(48px,5vw,77px)!important;line-height:1.04!important;letter-spacing:-.04em!important}
+.atlas-heading h2 em{color:var(--atlas-gold)!important}
+.atlas-heading>div:last-child{border-left:1px solid var(--atlas-line);padding-left:27px}
+.atlas-heading>div:last-child p{font-family:Georgia,serif;color:#dfdedb!important;font-size:17px!important;line-height:1.65!important;margin-bottom:12px}
+.atlas-heading .text-link{font-size:11px!important;color:#e6be78!important}
+.represent-section .map-topline{border:1px solid var(--atlas-line);border-bottom:none;border-radius:19px 19px 0 0;background:#0b2136!important;padding:12px 26px!important}
+.represent-section .map-topline>div{font-size:10px!important;letter-spacing:.18em!important;color:#e9c781!important}
+.represent-section .map-topline svg{color:#dfb673;fill:currentColor!important;width:15px;height:15px}
+.represent-section .demo-pill{border-color:rgba(222,176,105,.43)!important;color:#b8b6ac!important}
+.represent-section .locator{height:690px!important;grid-template-columns:minmax(310px,31%) minmax(0,1fr)!important;overflow:hidden!important;border:1px solid var(--atlas-line)!important;border-radius:0 0 19px 19px!important;box-shadow:0 24px 70px rgba(0,0,0,.35),0 0 0 1px rgba(210,167,94,.11)!important;background:var(--atlas-dark)!important}
+.represent-section .locator-list-panel{background:linear-gradient(150deg,#0c2238,#07192c 72%)!important;color:#faf0df!important;border-right:1px solid rgba(237,195,116,.62)!important}
+.represent-section .locator-list-header{padding:28px 24px 16px!important;position:relative}
+.represent-section .locator-list-header>span:first-child{font-size:9px!important;letter-spacing:.20em;color:#efc47a!important}
+.represent-section .locator-list-header h3{font:500 clamp(27px,2.7vw,39px)/1.14 Georgia,serif!important;color:#fff4e2!important;margin:10px 0 21px!important;letter-spacing:-.035em}
+.represent-section .locator-list-header h3:after{content:"";display:block;width:58px;height:2px;background:var(--atlas-gold);margin-top:16px}
+.represent-section .atlas-list-decoration{display:none}
+.represent-section .locator-list-header select{background:#071b2d!important;color:#f3e2c2!important;border:1px solid #be9a60!important;height:51px!important;font:500 14px Georgia,serif!important;border-radius:8px!important;padding:0 15px!important}
+.represent-section .count-label{margin-top:12px!important;color:#a2b0bc!important;font-size:11px!important}
+.represent-section .locator-items{padding:5px 15px 10px!important;scrollbar-color:#ab8954 transparent!important}
+.represent-section .locator-item{background:rgba(255,255,255,.025)!important;color:#eae8e4!important;border:1px solid rgba(199,159,101,.2)!important;border-radius:11px!important;padding:16px 11px!important;margin-bottom:8px!important;gap:12px!important;min-height:80px;box-shadow:none!important;transition:background .22s,border-color .22s,transform .22s!important}
+.represent-section .locator-item:hover,.represent-section .locator-item.active{background:#18364b!important;border-color:#e4b970!important;transform:translateX(2px)!important}
+.represent-section .locator-item.active{box-shadow:inset 3px 0 #ecc880!important}
+.represent-section .locator-item strong{font-size:12px!important;line-height:1.45!important;color:#f6eee1!important}
+.represent-section .locator-item small{font-size:10px!important;color:#acb5bc!important}
+.represent-section .locator-item .item-pin{color:#e9c77c!important;background:#142e45!important;box-shadow:0 0 0 1px #ad884b,0 0 14px rgba(213,164,90,.18);width:37px;height:37px;flex-basis:37px;border-radius:50%!important}
+.represent-section .locator-item .item-pin svg{width:18px;height:18px;fill:currentColor!important}
+.represent-section .locator-item .item-arrow{color:#e9bf72!important;font-size:20px!important}
+.represent-section .locator-list-footer{background:transparent!important;color:#8fa4b4!important;font-size:10px!important;border-top:1px solid rgba(199,159,101,.2);padding:14px 23px!important}
+.represent-section .map-pane{background:radial-gradient(ellipse at 60% 43%,#29526d 0%,#15364f 55%,#081d33 100%)!important}
+.represent-section .map-pane #map{background:transparent!important}
+.represent-section .map-pane #map svg{width:100%;height:100%;touch-action:pan-y!important}
+.represent-section .map-overlay-top{top:18px!important;left:18px!important;right:18px!important}
+.represent-section .map-overlay-top>*{font-size:10px!important;letter-spacing:.07em!important;padding:11px 15px!important;background:#fff0ce!important;border:1px solid #cfaa69!important;color:#10223a!important;border-radius:9px!important}
+.represent-section .map-overlay-top>button{background:#0b1c2c!important;color:#f4e7ce!important;border-color:#d0a766!important}
+.represent-section .map-note{bottom:17px!important;left:17px!important;background:rgba(7,21,34,.83)!important;color:#e2d4b6!important;border:1px solid #caa569!important;border-radius:8px!important;font-size:9px!important;padding:9px 12px!important}
+.represent-section .map-tools{bottom:18px!important;right:15px!important;z-index:420!important}
+.represent-section .map-tools button{background:#061b2c!important;border:1px solid #d0a96b!important;color:#f0c97c!important;border-radius:9px!important;width:44px!important;height:44px!important}
+.represent-section #map .map-pin .pin-halo{fill:#f3bc67!important;opacity:.26!important}
+.represent-section #map .map-pin .pin-ring{fill:#071e34!important;stroke:#efbb65!important;stroke-width:4!important;filter:drop-shadow(0 3px 7px #06182add)}
+.represent-section #map .map-pin .pin-core{fill:#f2d080!important}
+.represent-section #map .map-pin:hover .pin-ring,.represent-section #map .map-pin.selected .pin-ring{fill:#efc978!important;stroke:#081d33!important}
+.represent-section #map .map-pin.selected .pin-core{fill:#0a263b!important}
+.atlas-compass{position:absolute;z-index:4;right:27px;top:88px;width:88px;height:105px;pointer-events:none;opacity:.75;filter:drop-shadow(0 2px 8px #091524)}
+.atlas-compass svg{width:100%;height:100%}
+/* Main map drawer keeps its ivory background for high contrast of contact data. */
+.represent-section .detail-pane{background:#faf7f0!important;border-color:#d2ab6e!important}
+/* Mobile: genuine map interactions remain accessible, no tiny sidebar over the map. */
+@media(max-width:1240px){
+ .site-header .nav-shell{gap:8px!important;padding:0 10px!important}
+ .site-header .brand-chiaramonte img{width:162px!important}
+ .site-header .main-nav>a[href^="#"]{font-size:11px!important;padding-inline:6px!important}
+ .site-header .nav-associate{gap:5px;padding:4px 7px}
+ .site-header .nav-associate img{width:38px;height:37px}
+ .site-header .nav-associate-meta small{font-size:7px}
+ .site-header .nav-associate-meta>span{font-size:11px}
+}
+@media(max-width:1160px){
+ .site-header .main-nav{display:none!important;position:absolute;top:74px!important;left:15px!important;right:15px!important;align-items:stretch!important;flex-direction:column!important}
+ .site-header .main-nav.open{display:flex!important}
+ .site-header .main-nav>a[href^="#"]{font-size:14px!important;padding:15px 10px!important}
+ .site-header .nav-associate{display:none}
+ .site-header .mobile-associate{display:flex!important;gap:12px;align-items:center;margin:10px 0 8px;padding:13px 14px;background:rgba(215,177,102,.08);border:1px solid rgba(215,177,102,.4);color:#f4cf88;font-size:12px}
+ .site-header .mobile-associate img{width:72px;height:49px;object-fit:contain}
+ .site-header .menu-toggle{display:flex!important;margin-left:auto!important}
+ .site-header .nav-cta{margin-left:auto!important}
+}
+@media(max-width:980px){
+ .represent-section .container-wide{width:calc(100% - 38px)!important}
+ .represent-intro.atlas-heading{grid-template-columns:1fr!important;gap:12px!important;margin-bottom:30px!important}
+ .atlas-heading>div:last-child{border-left:0;padding-left:0;max-width:620px}
+ .atlas-heading h2{font-size:clamp(43px,6vw,62px)!important}
+ .represent-section .locator{grid-template-columns:minmax(270px,35%) minmax(0,1fr)!important;height:640px!important}
+ .represent-section .locator-list-header{padding:23px 14px 12px!important}
+ .represent-section .locator-items{padding:5px 9px 10px!important}
+ .atlas-compass{right:14px;top:78px;width:66px;height:85px}
+}
+@media(max-width:680px){
+ .site-header .brand-chiaramonte img{width:151px!important;height:49px!important}
+ .site-header .main-nav{top:70px!important;left:8px!important;right:8px!important}
+ .represent-section{padding-top:80px!important}
+ .represent-section .container-wide{width:calc(100% - 24px)!important}
+ .atlas-heading h2{font-size:clamp(38px,10.2vw,48px)!important}
+ .atlas-heading>div:last-child p{font-size:14px!important}
+ .represent-section .map-topline{padding:13px!important;border-radius:13px 13px 0 0!important}
+ .represent-section .map-topline>div{font-size:9px!important;letter-spacing:.07em!important}
+ .represent-section .locator{height:min(75svh,670px)!important;min-height:490px!important;display:block!important;grid-template-columns:none!important;border-radius:0 0 13px 13px!important}
+ .represent-section .locator-list-panel{height:min(80%,490px)!important;position:absolute!important;bottom:0!important;left:0!important;right:0!important;border-right:0!important;border-top:1px solid #d0a86c!important;border-radius:16px 16px 0 0!important;z-index:620!important;transform:translateY(110%);transition:transform .3s cubic-bezier(.2,.7,.1,1)}
+ .represent-section .locator-list-panel.open{transform:translateY(0)!important}
+ .represent-section .locator-list-header{padding:15px 20px 12px!important}
+ .represent-section .locator-list-header h3{margin:4px 0 14px!important;font-size:27px!important}
+ .represent-section .locator-list-header h3:after{display:none}
+ .represent-section .locator-list-header select{height:42px!important}
+ .represent-section .locator-list-panel .icon-button{background:#193651!important;color:#f3cd87!important}
+ .represent-section .map-pane{height:100%!important}
+ .represent-section .map-overlay-top{left:10px!important;right:10px!important;top:11px!important;gap:8px!important}
+ .represent-section .map-overlay-top>*{font-size:8px!important;padding:9px!important}
+ .represent-section .map-mobile-list-btn{background:#edc275!important;border:1px solid #ebd29b!important;color:#0a2236!important;border-radius:8px!important;bottom:53px!important;right:10px!important}
+ .represent-section .map-mobile-list-btn span{background:#0d253a!important;color:#f5d48c!important}
+ .represent-section .map-note{font-size:8px!important;bottom:12px!important;left:10px!important;padding:6px 7px!important}
+ .atlas-compass{right:11px;top:70px;width:63px;height:80px}
+ .represent-section .map-tools{right:9px!important;bottom:130px!important}
+ .represent-section .map-tools button{width:40px!important;height:40px!important}
+}
+/* Última prioridad: la cabecera del directorio hereda crema de la V13; mantenerla oscura. */
+.represent-section .locator-list-panel .locator-list-header{
+  background:linear-gradient(145deg,#0b253b,#071a2d)!important;
+  color:#f7e8cf!important;
+  border-bottom:1px solid rgba(219,177,103,.30)!important;
+}
+.represent-section .locator-list-panel .locator-list-header h3{color:#f8eddd!important}
+.represent-section .locator-list-panel .locator-list-header .count-label{color:#b0bac1!important}
+.represent-section .locator-list-panel .locator-list-header>span:first-child{color:#e8bf75!important}
+@media(max-width:1160px){
+  .site-header .main-nav,.site-header .main-nav.open{background:#071625!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important}
+}

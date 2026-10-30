@@ -1,22 +1,13 @@
-# GL&AS × Chiaramonte — V25
+# GL&AS × Chiaramonte — V28 · Paneles móviles tipo app
 
-- Nueva fotografía horizontal del chef aportada por el cliente, en el hero y en el reveal fullscreen.
-- Sello original oro/marino recortado y ajustado al círculo, sin margen oscuro perimetral.
-- Se conservan todos los módulos y el reveal sincronizado V24.
-- Deploy Coolify: Dockerfile; puerto interno 80.
+Basado en la V27. El mapa vectorial y sus datos no cambian.
 
-# GLAS × Chiaramonte Premium V24 — Hero con sello aportado + reveal sincronizado
+Mejoras: las fichas y la lista se cierran deslizando la barrita/cabecera hacia abajo (92 px o gesto rápido), tocando fuera, con X o con Escape. Se preserva el scroll interior. Las X tienen área táctil 44×44 y SVG centrado. En escritorio continúa el panel lateral de datos.
 
-## Cambio principal
-Las fotografías del chef y de los casos de experiencia se descubren **automáticamente al llegar a la sección**. El disparador tiene margen inferior negativo (38 % de la altura de pantalla) para retrasar el inicio hasta que las fotografías sean visibles. El efecto dura aproximadamente 1,7 segundos, independientemente de si el usuario sigue bajando. No hace falta controlar la apertura manualmente.
+# GL&AS × Chiaramonte · V27 — Atlas de América + Navbar jerarquizado
 
-- Foto del chef: reveal de derecha a izquierda.
-- Caso 1: reveal de derecha a izquierda.
-- Caso 2: reveal de izquierda a derecha.
-- Al regresar a la sección, la imagen permanece revelada.
-- El hero cinematográfico mantiene su revelado fullscreen vinculado al scroll.
-- Se respetan las preferencias del sistema de movimiento reducido.
+El enlace GL&AS está claramente separado del logo Chiaramonte en la cabecera, abre https://glyasfobc.com/ en otra pestaña. En móvil figura en el menú.
 
-## Despliegue
-Coolify: Dockerfile; puerto interno 80. Sin base de datos.
-Datos del directorio: `data/representantes.json` (datos de demostración). El formulario sigue usando `mailto:`; los textos institucionales necesitan aprobación.
+Mapa de América: vector SVG local recoloreado y decorado, con filtros Norte/Centro/Sur, marcadores interactivos, zoom, fichas y copia de datos. Las 12 ubicaciones siguen siendo demostraciones ficticias; reemplazar data/representantes.json con los datos confirmados.
+
+Despliegue: Dockerfile, puerto interno 80. No se requiere API key ni base de datos.

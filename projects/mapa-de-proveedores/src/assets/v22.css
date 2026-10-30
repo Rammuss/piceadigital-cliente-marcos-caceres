@@ -1,0 +1,166 @@
+/* V22 — cinematic hero inspired by the supplied visual reference. Fully interactive HTML/CSS. */
+:root{--cinematic-ivory:#fff7ed;--cinematic-gold:#f0c675;--cinematic-line:rgba(226,183,108,.53)}
+.prototype-ribbon{display:none!important}
+.site-header{position:sticky!important;top:16px!important;z-index:9999;margin-bottom:-102px!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;pointer-events:none}
+.site-header .nav-shell{pointer-events:auto;width:min(1450px,calc(100% - 64px))!important;min-height:86px!important;height:86px!important;display:flex;align-items:center;gap:20px;padding:0 18px 0 26px!important;border-radius:18px!important;
+ border:1px solid rgba(216,179,118,.42)!important;background:rgba(6,13,22,.77)!important;
+ box-shadow:0 13px 35px rgba(0,0,0,.25),inset 0 0 1px rgba(248,225,169,.4)!important;
+ backdrop-filter:blur(20px) saturate(120%)!important;-webkit-backdrop-filter:blur(20px) saturate(120%)!important}
+.site-header .brand-group{gap:18px!important;min-width:320px!important}
+.site-header .brand-group a{padding:0!important;background:transparent!important}
+.site-header .brand-glas img{width:151px!important;height:63px!important;object-fit:contain}
+.site-header .brand-chiaramonte img{width:186px!important;height:56px!important;object-fit:contain}
+.site-header .brand-divider{height:50px!important;border-color:rgba(232,198,134,.47)!important}
+.site-header .main-nav{gap:1px!important;justify-content:center!important}
+.site-header .main-nav>a[href^="#"]{font:600 12.6px/1.25 var(--font)!important;color:#f4eee4!important;letter-spacing:-.018em!important;background:transparent!important;border:0!important;padding:16px 9px!important;border-radius:0!important}
+.site-header .main-nav>a[href^="#"]:hover{color:#f1c875!important}
+.site-header .main-nav>a[href^="#"].nav-active{color:#f3d492!important;background:transparent!important}
+.site-header .main-nav>a[href^="#"].nav-active::before{height:2px!important;bottom:8px!important;background:#edc374!important;width:calc(100% - 18px)!important}
+.site-header .main-nav>a[data-nav-link="contacto"]{display:none!important}
+.site-header .nav-cta{min-height:49px!important;padding:0 19px!important;background:#efc373!important;color:#081628!important;
+ border:1px solid #f6d591!important;border-radius:10px!important;font-size:12px!important;font-weight:800!important;box-shadow:0 9px 24px rgba(0,0,0,.18)!important}
+.site-header .nav-cta:hover{background:#ffda8e!important;transform:translateY(-2px)}
+.site-header .nav-cta svg{fill:currentColor;width:14px;height:14px}
+.site-header .nav-progress{background:#e6ba70!important;height:2px;bottom:-1px}
+/* Cinematic atmosphere. No text baked into an image: SEO, links and animation stay live. */
+.hero.has-hero-pin{background:#081019!important}
+.hero.has-hero-pin .hero-pin-stage{background:#07121d!important;isolation:isolate!important}
+.hero-cinematic-bg{position:absolute;inset:0;z-index:-2;pointer-events:none;
+ background-image:linear-gradient(90deg,rgba(1,9,18,.77) 0%,rgba(5,11,19,.57) 42%,rgba(2,8,14,.30) 100%),
+ linear-gradient(0deg,rgba(2,9,17,.51),transparent 25%,transparent 75%,rgba(2,8,13,.35)),
+ url('restaurante-atmosfera.webp');
+ background-size:cover; background-position:center;filter:saturate(1.06)}
+.hero.has-hero-pin .hero-circle{display:block!important;opacity:.65;border-color:rgba(222,172,95,.2)!important}
+.hero.has-hero-pin .hero-circle-one{right:4%;top:9%;width:44vw;height:44vw}
+.hero.has-hero-pin .hero-circle-two{right:13%;top:14%;width:32vw;height:32vw}
+.hero.has-hero-pin .hero-layout{width:min(1340px,calc(100% - 100px))!important;padding:140px 0 26px!important;grid-template-columns:minmax(0,.99fr) minmax(0,1.01fr)!important;
+ gap:7%!important;align-items:center;max-height:none}
+.hero.has-hero-pin .hero-copy{max-width:650px!important;padding:0!important}
+.hero.has-hero-pin .eyebrow{display:block!important;color:#f0c977!important;letter-spacing:.175em!important;font-size:10px!important;margin:0 0 20px!important;font-weight:750!important}
+.hero.has-hero-pin h1{font:500 clamp(49px,4.5vw,72px)/1.035 var(--serif)!important;letter-spacing:-.058em!important;
+ margin:0 0 28px!important;max-width:660px!important;color:#fff!important;text-transform:none!important}
+.hero.has-hero-pin .hero-title-primary{font:inherit!important;letter-spacing:inherit!important;color:#fff!important;text-transform:none!important;max-width:none!important}
+.hero.has-hero-pin .hero-title-secondary{font:inherit!important;font-size:1.02em!important;font-weight:500!important;color:#edc678!important;letter-spacing:inherit!important;margin:0 0 8px!important;font-style:normal!important}
+.hero.has-hero-pin .hero-title-audience{font:inherit!important;font-size:.73em!important;color:#fff!important;font-weight:400!important;text-transform:none!important;border:0!important;margin:0!important;padding:0!important;letter-spacing:-.045em!important;line-height:1.19!important;max-width:none!important}
+.hero.has-hero-pin .hero-title-tail{display:block!important;font:italic 500 .82em/1.2 var(--serif)!important;color:#f0c477!important;letter-spacing:-.05em!important}
+.hero.has-hero-pin .hero-offer-kicker{max-width:560px!important;letter-spacing:.18em!important;font:750 11px/1.5 var(--font)!important;
+ color:#edc678!important;padding:17px 0 0!important;margin:0 0 17px!important;border-top:1px solid rgba(232,196,130,.34)!important}
+.hero.has-hero-pin .hero-description-support{max-width:500px!important;color:#e0e0de!important;font:420 14px/1.8 var(--font)!important;margin:0!important}
+.hero.has-hero-pin .hero-actions{gap:13px!important;margin-top:26px!important}
+.hero.has-hero-pin .hero-actions .hero-cta-v22{min-height:54px!important;padding:0 21px!important;gap:12px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ border-radius:10px!important;box-shadow:none!important;white-space:nowrap}
+.hero.has-hero-pin .hero-actions .button-gold{background:#eec177!important;border:1px solid #f3d194!important;color:#091a2c!important}
+.hero.has-hero-pin .hero-actions .button-outline{background:rgba(0,10,20,.55)!important;color:#f5efe4!important;border:1px solid #cfba91!important}
+.hero.has-hero-pin .hero-actions .hero-cta-v22 .hero-cta-icon{width:22px!important;height:22px!important;fill:none!important;flex:none!important}
+.hero.has-hero-pin .hero-actions .hero-cta-v22 .hero-button-label{font:800 12px/1.2 var(--font)!important;white-space:nowrap!important}
+.hero.has-hero-pin .hero-bottom{margin-top:36px!important;color:#d4ccc1!important;font-size:10px!important;letter-spacing:.11em!important}
+.hero.has-hero-pin .hero-bottom strong{color:#f2c575!important}
+.hero.has-hero-pin .hero-visual{max-width:620px!important;height:min(65svh,625px)!important;max-height:625px!important;width:100%;min-height:0;align-self:center}
+.hero.has-hero-pin .hero-image-shell{border-radius:34% 34% 11% 11% / 31% 31% 8% 8%!important;clip-path:none!important;
+ box-shadow:0 20px 65px rgba(0,0,0,.40)}
+.hero.has-hero-pin .hero-image-outline{border-radius:34% 34% 11% 11% / 31% 31% 8% 8%!important}
+.hero.has-hero-pin .hero-chef-img{object-position:64% center!important}
+.hero.has-hero-pin .hero-visual-title{left:7%;bottom:28px!important}
+.hero.has-hero-pin .hero-visual-title span{color:#f3d18f!important;letter-spacing:.23em!important}
+.hero.has-hero-pin .hero-visual-title strong{font:500 clamp(24px,2.7vw,39px)/1.1 var(--serif)!important;color:#fff;margin-top:10px}
+.hero-expansion-image{box-shadow:0 0 0 1px rgba(240,198,120,.42),0 28px 70px rgba(0,0,0,.35)!important}
+.hero-expansion-photo{object-position:64% center}
+.hero-expansion-shade{background:linear-gradient(180deg,transparent 45%,rgba(5,12,22,.77) 100%)!important}
+.hero-expansion-caption strong{font:500 clamp(25px,2.4vw,36px)/1.17 var(--serif)!important}
+.hero-expansion-caption::after{content:"";display:block;width:85px;height:3px;background:#f3ca81;margin-top:9px}
+/* Circular prestige seal from the visual reference; gold double ring, no artificial rotations. */
+.hero-seal,.hero-expansion-seal,.hero-seal.hero-plaque-v19,.hero-expansion-seal.hero-plaque-v19{
+ display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:5px!important;
+ width:130px!important;height:130px!important;padding:16px!important;border-radius:50%!important;
+ border:1px solid #e8c27b!important;outline:1px solid rgba(230,187,109,.65)!important;outline-offset:-7px!important;
+ background:#061625!important;color:#f2ce8b!important;box-shadow:0 5px 26px rgba(0,0,0,.33)!important;transform:none!important;text-align:center!important;letter-spacing:normal!important}
+.v22-seal-star{font:400 28px/1 var(--serif);color:#f0c87c}
+.v22-seal-words{font:600 11px/1.44 var(--serif);letter-spacing:.03em;color:#edc987}
+.hero-seal{position:absolute;top:16%!important;right:-38px!important;z-index:5!important}
+.hero-expansion-seal-holder{z-index:15!important}
+.hero.has-hero-pin .hero-footer{border-color:rgba(250,217,157,.26)!important;color:#f0e4cd!important;opacity:.75}
+.hero.has-hero-pin .hero-footer a{color:#edc574!important}
+/* slight depth during load; photo still expands only when scrolling */
+.hero.has-hero-pin.hero-intro-play .hero-expansion-image{animation:heroV16Photo 1.55s cubic-bezier(.22,1,.36,1) .44s both}
+@media(max-width:1430px){
+ .site-header .brand-group{min-width:270px!important;gap:10px!important}
+ .site-header .brand-glas img{width:113px!important}
+ .site-header .brand-chiaramonte img{width:151px!important}
+ .site-header .main-nav>a[href^="#"]{font-size:11px!important;padding-inline:7px!important}
+ .hero.has-hero-pin .hero-layout{gap:5%!important}
+ .hero.has-hero-pin h1{font-size:clamp(46px,4.55vw,68px)!important}
+ .hero.has-hero-pin .hero-visual{height:min(62svh,600px)!important}
+}
+@media(max-width:1024px){
+ .site-header .nav-shell{width:calc(100% - 30px)!important;min-height:74px!important;height:74px!important;padding:0 17px!important}
+ .site-header .brand-group{min-width:0!important}
+ .site-header .brand-glas img{width:120px!important;height:52px!important}
+ .site-header .brand-chiaramonte img{width:147px!important;height:50px!important}
+ .site-header .main-nav{background:rgba(5,15,28,.97)!important;border:1px solid #c29e62!important;border-radius:14px;box-shadow:0 20px 55px #0007!important}
+ .site-header .main-nav>a[href^="#"]{font-size:14px!important;padding:14px 10px!important;border-bottom:1px solid rgba(225,188,113,.18)!important;color:#fff!important}
+ .site-header .main-nav>a[data-nav-link="contacto"]{display:block!important}
+ .site-header .menu-toggle span{background:#eaca85!important}
+ .site-header .mobile-menu-contacts{color:#fff!important}
+ .hero.has-hero-pin .hero-layout{width:calc(100% - 56px)!important;gap:4%!important}
+ .hero.has-hero-pin h1{font-size:clamp(43px,5.1vw,60px)!important}
+ .hero.has-hero-pin .hero-visual{height:min(58svh,540px)!important}
+}
+@media(max-width:680px){
+ .site-header{top:8px!important;margin-bottom:-83px!important}
+ .site-header .nav-shell{width:calc(100% - 18px)!important;height:68px!important;min-height:68px!important;padding:0 13px!important;border-radius:13px!important;gap:6px!important}
+ .site-header .brand-group{gap:7px!important}
+ .site-header .brand-glas img{width:100px!important;height:44px!important}
+ .site-header .brand-chiaramonte img{width:124px!important;height:44px!important}
+ .site-header .brand-divider{height:32px!important}
+ .site-header .nav-cta{display:none!important}
+ .site-header .main-nav{top:72px!important;left:9px!important;right:9px!important;padding:12px 19px!important}
+ .site-header .menu-toggle{margin-left:auto!important;flex-shrink:0}
+ .hero.has-hero-pin .hero-layout{width:calc(100% - 36px)!important;padding:101px 0 10px!important;gap:0!important}
+ .hero.has-hero-pin .hero-copy{width:100%!important;max-width:none!important}
+ .hero.has-hero-pin .eyebrow{font-size:8px!important;letter-spacing:.1em!important;margin:0 0 12px!important}
+ .hero.has-hero-pin h1{font-size:clamp(40px,10.8vw,52px)!important;line-height:.98!important;margin:0 0 16px!important;letter-spacing:-.065em!important}
+ .hero.has-hero-pin .hero-title-secondary{margin:0 0 4px!important}
+ .hero.has-hero-pin .hero-title-audience{font-size:.69em!important;line-height:1.18!important}
+ .hero.has-hero-pin .hero-title-tail{font-size:.80em!important}
+ .hero.has-hero-pin .hero-offer-kicker{font-size:9px!important;letter-spacing:.10em!important;padding:12px 0 0!important;margin-bottom:9px!important}
+ .hero.has-hero-pin .hero-description-support{font-size:11px!important;line-height:1.55!important;max-width:385px!important}
+ .hero.has-hero-pin .hero-actions{display:flex!important;flex-wrap:nowrap!important;gap:8px!important;margin-top:15px!important}
+ .hero.has-hero-pin .hero-actions .hero-cta-v22{min-height:44px!important;padding:0 9px!important;gap:7px!important;flex:1 1 0!important}
+ .hero.has-hero-pin .hero-actions .hero-cta-v22 .hero-cta-icon{width:17px!important;height:17px!important}
+ .hero.has-hero-pin .hero-actions .hero-cta-v22 .hero-button-label{font-size:9px!important;white-space:normal!important}
+ .hero.has-hero-pin .hero-bottom{display:none!important}
+ .hero.has-hero-pin .hero-visual{width:min(100%,370px)!important;height:min(29svh,270px)!important;min-height:178px!important;max-width:none!important;margin:14px auto 0!important}
+ .hero-seal,.hero-expansion-seal,.hero-seal.hero-plaque-v19,.hero-expansion-seal.hero-plaque-v19{width:79px!important;height:79px!important;padding:8px!important;gap:1px!important;outline-offset:-4px!important}
+ .v22-seal-star{font-size:20px}
+ .v22-seal-words{font-size:7px;line-height:1.2}
+ .hero-seal{right:-9px!important;top:14%!important}
+ .hero.has-hero-pin .hero-visual-title strong{font-size:23px!important}
+ .hero.has-hero-pin .hero-visual-title{left:6%;bottom:16px!important}
+ .hero-pin-stage .hero-cinematic-bg{background-position:35% center}
+}
+@media(max-width:375px){
+ .site-header .brand-glas img{width:88px!important}
+ .site-header .brand-chiaramonte img{width:105px!important}
+ .hero.has-hero-pin .hero-layout{padding-top:90px!important}
+ .hero.has-hero-pin h1{font-size:39px!important}
+ .hero.has-hero-pin .hero-description-support{font-size:10px!important;line-height:1.45!important}
+ .hero.has-hero-pin .hero-actions .hero-cta-v22 .hero-button-label{font-size:8.2px!important}
+ .hero.has-hero-pin .hero-visual{height:25svh!important;min-height:152px!important;margin-top:10px!important}
+}
+@media(max-height:750px) and (max-width:680px){
+ .hero.has-hero-pin .hero-layout{padding-top:87px!important}
+ .hero.has-hero-pin h1{font-size:clamp(34px,9.5vw,45px)!important}
+ .hero.has-hero-pin .hero-visual{height:23svh!important;min-height:140px!important;margin-top:9px!important}
+ .hero.has-hero-pin .hero-actions{margin-top:10px!important}
+ .hero.has-hero-pin .hero-offer-kicker{padding-top:7px!important;margin-bottom:7px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero.has-hero-pin .hero-layout,.hero-expansion-image{animation:none!important}
+}
+/* The burger belongs to the dark glass bar, not to a cream button. */
+@media(max-width:1024px){
+ .site-header .menu-toggle{background:rgba(7,20,33,.9)!important;border:1px solid rgba(232,193,125,.55)!important;border-radius:8px!important;width:41px!important;height:41px!important;padding:10px!important;box-shadow:none!important}
+ .site-header .menu-toggle span{background:#f0ca81!important;height:2px!important}
+ .site-header .main-nav.open{display:flex!important}
+ .site-header .main-nav .mobile-menu-contacts{background:transparent!important}
+}

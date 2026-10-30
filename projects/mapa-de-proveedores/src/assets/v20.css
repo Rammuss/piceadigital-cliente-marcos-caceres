@@ -1,0 +1,17 @@
+/* V20 — WhatsApp flotante solo después del hero. */
+.floating-contact {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 18px, 0) scale(.96);
+  transition: opacity .42s ease, transform .42s cubic-bezier(.2,.75,.22,1), visibility .42s;
+}
+.floating-contact.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-contact { transition: none; transform: none; }
+}

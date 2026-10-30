@@ -1,0 +1,62 @@
+/* V9 · Footer minimalista editorial, con acentos brutalistas */
+.footer.footer-v9 {
+  position:relative; isolation:isolate; overflow:hidden;
+  background:#091a30; color:#eae8e1;
+  padding:94px 0 34px;
+  border-top:1px solid rgba(219,180,106,.55);
+}
+.footer-v9::before {
+  content:""; position:absolute; width:480px;height:480px; border-radius:50%;
+  top:-340px;left:50%;transform:translateX(-50%);pointer-events:none;
+  border:1px solid rgba(222,189,126,.11);
+  box-shadow:0 0 0 80px rgba(222,189,126,.025),0 0 0 160px rgba(222,189,126,.012);
+}
+.footer-v9-inner{position:relative;z-index:1;text-align:center;max-width:1050px;}
+.footer-v9-overline{color:#cba65d;display:flex;gap:18px;align-items:center;justify-content:center;font:800 10px/1.5 var(--font);letter-spacing:.28em;}
+.footer-v9-overline span{height:1px;width:42px;background:#cba65d;opacity:.65;}
+.footer-v9-headline{font:500 clamp(32px,4.5vw,55px)/1.2 var(--serif);letter-spacing:-.042em;color:#f4efe5;margin:18px 0 12px;}
+.footer-v9-headline em{color:#d6b36e;font-style:italic;font-weight:400;}
+.footer-v9-subtitle{font:500 12px/1.8 var(--font);color:#abb9c8;letter-spacing:.02em;margin:0 auto 42px;}
+.footer-v9-partners{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);align-items:center;gap:13px;margin:0 auto 39px;max-width:760px;}
+.footer-v9-brand{position:relative;min-width:0;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 18px 17px;
+  background:#10243e;border:1px solid rgba(213,172,102,.60);color:#dec38c;
+  box-shadow:5px 5px 0 #bb9656;
+  transition:transform .23s ease, box-shadow .23s ease,border-color .23s ease;
+}
+.footer-v9-brand::before,.footer-v9-brand::after{content:"";position:absolute;width:9px;height:9px;border:1px solid #e1bd78;pointer-events:none;}
+.footer-v9-brand::before{top:8px;left:8px;border-right:0;border-bottom:0;}
+.footer-v9-brand::after{right:8px;bottom:8px;border-top:0;border-left:0;}
+.footer-v9-brand:hover,.footer-v9-brand:focus-visible{transform:translate(-3px,-3px);box-shadow:8px 8px 0 #bb9656;border-color:#e4bf7c;}
+.footer-v9-brand img{display:block;object-fit:contain;height:auto;max-width:100%;width:auto;filter:none;}
+.footer-v9-brand-chiaramonte img{width:min(280px,90%);max-height:70px;}
+.footer-v9-brand-glas img{width:min(238px,90%);max-height:82px;}
+.footer-v9-brand-label{font:800 8px/1.4 var(--font);letter-spacing:.19em;color:#d9c18f;white-space:nowrap;}
+.footer-v9-brand-label span{margin-left:5px;font-size:12px;}
+.footer-v9-partners-cross{font:400 29px/1 var(--serif);color:#b99a60;}
+.footer-v9-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px;margin:0 auto 37px;}
+.footer-v9-links a{min-height:39px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(215,181,117,.24);padding:10px 18px;
+  background:transparent;color:#d6dbe1;font-size:11px;line-height:1.2;font-weight:700;letter-spacing:.03em;transition:background .2s,border-color .2s,color .2s,transform .2s;}
+.footer-v9-links a:hover{background:#233953;color:#f4dc9f;border-color:#c8a65e;transform:translateY(-2px);}
+.footer-v9-links a.footer-v9-back{color:#e4c57c;border-color:#a6844c;}
+.footer-v9-back span{font-size:16px;margin-left:10px;}
+.footer-v9-rule{height:1px;background:rgba(223,202,166,.18);position:relative;margin-bottom:24px;}
+.footer-v9-rule i{position:absolute;left:50%;top:-3px;transform:translateX(-50%) rotate(45deg);height:7px;width:7px;background:#c7a35f;}
+.footer-v9-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;font:600 10px/1.6 var(--font);color:#afbbc5;}
+.footer-v9-legal{font:400 10px/1.85 var(--font);color:#8492a3;text-align:center;max-width:780px;margin:17px auto 0;}
+@media(max-width:680px){
+ .footer.footer-v9{padding:66px 0 31px;}
+ .footer-v9-overline{font-size:8px;letter-spacing:.17em;gap:9px;}
+ .footer-v9-overline span{width:23px;}
+ .footer-v9-headline{font-size:clamp(31px,9.2vw,46px);margin:15px 0 12px;}
+ .footer-v9-subtitle{font-size:11px;line-height:1.7;max-width:290px;margin-bottom:31px;}
+ .footer-v9-partners{grid-template-columns:1fr;gap:10px;max-width:450px;margin-bottom:29px;}
+ .footer-v9-brand{height:136px;gap:10px;padding:16px 12px 13px;box-shadow:4px 4px 0 #bb9656;}
+ .footer-v9-brand-chiaramonte img{max-height:65px;width:min(245px,85%);}
+ .footer-v9-brand-glas img{max-height:70px;width:min(224px,85%);}
+ .footer-v9-partners-cross{font-size:22px;line-height:1;}
+ .footer-v9-links{gap:7px;margin-bottom:33px;}
+ .footer-v9-links a{font-size:10px;min-height:38px;padding:9px 12px;}
+ .footer-v9-bottom{display:grid;gap:5px;text-align:center;justify-content:center;font-size:10px;}
+ .footer-v9-legal{margin-top:17px;font-size:9px;line-height:1.65;}
+}
+@media(prefers-reduced-motion:reduce){.footer-v9-brand,.footer-v9-links a{transition:none}}

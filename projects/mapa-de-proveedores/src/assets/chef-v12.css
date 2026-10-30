@@ -1,0 +1,49 @@
+/* V12 | Chef — editorial credentials and scroll-driven biography */
+#chef.chef-section{padding-top:clamp(125px,12vw,192px);padding-bottom:clamp(120px,10vw,180px);background:radial-gradient(circle at 18% 13%,#1e3853 0%,transparent 35%),linear-gradient(125deg,#0b1e37 0%,#0d223e 56%,#091b31 100%);color:#faf3e7}
+.chef-v12-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:start;gap:clamp(34px,5.8vw,102px)}
+.chef-v12-photo{position:relative;margin:18px 0 0;max-width:none;overflow:hidden;border-radius:0 120px 0 0;border:1px solid #c5a36478;box-shadow:20px 22px 0 #c7a35b1a;isolation:isolate}
+.chef-v12-photo:after{content:'';position:absolute;inset:18px;z-index:2;pointer-events:none;border:1px solid #deb97154;border-radius:0 105px 0 0}
+.chef-v12-photo img{display:block;width:100%;height:clamp(590px,56vw,800px);object-fit:cover;object-position:50% 18%;filter:grayscale(100%)}
+.chef-v12-photo .chef-photo-caption{bottom:22px;right:18px;left:18px;z-index:4;color:#f4dfb5;text-align:center;letter-spacing:.14em;background:#0b2037d9;padding:12px 10px;font-size:9px}
+.chef-photo-vertical{position:absolute;z-index:3;right:24px;top:32px;writing-mode:vertical-rl;font-size:9px;letter-spacing:.24em;color:#fff5dcad}
+.chef-v12-biography{min-width:0}
+.chef-v12-biography .section-index{display:inline-block;margin:0 0 22px}
+.chef-v12-overline{margin:0 0 17px;color:#e6bf79;font-size:10px!important;font-weight:800;letter-spacing:.23em;line-height:1.6}
+.chef-v12-title{font:500 clamp(36px,4.1vw,61px)/1.1 var(--serif);letter-spacing:-.035em;color:#fcf8ef;max-width:700px;margin:0 0 28px}
+.chef-v12-title em{font-weight:400;font-style:italic;color:#e7bd77}
+.chef-v12-name{font:500 clamp(20px,2.25vw,29px)/1.38 var(--serif);color:#fff6e5;margin:0 0 9px}
+.chef-v12-name strong{font-weight:600}
+.chef-v12-descriptor{font:italic 17px/1.58 var(--serif);color:#d5ae67;max-width:610px;margin:0 0 30px}
+.chef-source-star{font:600 11px var(--font);vertical-align:super}
+.chef-v12-credentials{border-top:1px solid #d5b77d60}
+.chef-credential{position:relative;display:grid;grid-template-columns:38px minmax(0,1fr);gap:18px;padding:21px 10px 23px 3px;border-bottom:1px solid #c1aa7d40;overflow:hidden;transform-origin:top center;backface-visibility:hidden}
+.chef-credential:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#d0a85a17,transparent 72%);opacity:0;transition:opacity .35s}
+.chef-credential:hover:before,.chef-credential.chef-shown:before{opacity:1}
+.chef-credential-num{font:500 18px/1.45 var(--serif);color:#d5ad68}
+.chef-credential h3{margin:1px 0 7px;color:#fff4df;font-size:clamp(15px,1.25vw,18px);line-height:1.35;font-weight:700;letter-spacing:-.015em}
+.chef-credential p{margin:0;color:#c7d3df;font-size:12.5px;line-height:1.85}
+.chef-credential p strong{font-weight:600;color:#f4ece0}
+.chef-credential-line{position:absolute;bottom:0;left:0;height:2px;width:100%;background:#e8bd77;transform:scaleX(0);transform-origin:left center;transition:transform 1.05s cubic-bezier(.18,.8,.24,1)}
+.chef-credential.chef-shown .chef-credential-line{transform:scaleX(1)}
+.chef-v12-source{color:#a6b4c5;max-width:650px;font-size:10px;line-height:1.8;margin:20px 0 0}
+.chef-v12-history{position:relative;margin-top:clamp(83px,9vw,150px);padding-top:clamp(42px,5vw,76px);border-top:1px solid #d3b47a62}
+.chef-v12-history:before{content:'✦';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0c203a;color:#e2b772;padding:0 20px;font-size:21px}
+.chef-v12-history-head{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;margin-bottom:27px}
+.chef-v12-history-head h3{font:500 clamp(35px,4.5vw,62px)/1.12 var(--serif);color:#fff4e1;margin:0;letter-spacing:-.035em}
+.chef-v12-history-head h3 em{font-weight:400;color:#dcb779}
+.chef-v12-history-head>p{justify-self:end;max-width:460px;margin:0;color:#b6c6d7;font-size:13px;line-height:1.85}
+.chef-v12-timeline{max-width:1050px;margin:0 auto}
+.chef-v12-timeline .chef-points{margin:0 0 22px}
+.chef-v12-timeline .chef-milestone{padding:21px 18px!important}
+.chef-v12-timeline .milestone-info strong{font-size:17px}
+.chef-v12-timeline .milestone-info small{font-size:13px}
+.chef-v12-history-foot{display:flex;justify-content:space-between;align-items:center;gap:15px;padding-top:26px;border-top:1px solid #bca46b33;margin-top:15px}
+.chef-v12-history-foot>span{font-size:10px;letter-spacing:.19em;color:#e2ba73;font-weight:700}
+.chef-v12-history-foot .text-link{margin:0}
+/* Fallback, progressive reveal only if JS enabled */
+.chef-v12-motion .chef-credential{opacity:0;transform:translateY(35px)}
+.chef-v12-motion .chef-credential.chef-shown{opacity:1;transform:translateY(0);transition:opacity .85s ease,transform .85s cubic-bezier(.18,.8,.23,1)}
+@media(max-width:1050px){.chef-v12-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:38px}.chef-v12-photo img{height:640px}.chef-credential{gap:12px;padding:16px 5px 19px}.chef-v12-title{font-size:clamp(35px,4.1vw,54px)}}
+@media(max-width:750px){#chef.chef-section{padding-top:125px;padding-bottom:110px}.chef-v12-grid{grid-template-columns:1fr;gap:45px}.chef-v12-photo{max-width:530px;width:100%;margin:0 auto;border-radius:0 72px 0 0}.chef-v12-photo:after{border-radius:0 65px 0 0}.chef-v12-photo img{height:clamp(440px,116vw,650px)}.chef-v12-biography .section-index{margin-bottom:15px}.chef-v12-title{font-size:clamp(36px,8vw,54px)}.chef-v12-descriptor{font-size:16px}.chef-v12-history{margin-top:95px}.chef-v12-history-head{grid-template-columns:1fr;gap:13px}.chef-v12-history-head>p{justify-self:start}.chef-v12-timeline .chef-milestone{grid-template-columns:75px minmax(0,1fr) 18px;gap:9px;padding:22px 1px!important}.chef-v12-timeline .milestone-info strong{font-size:14px}.chef-v12-timeline .milestone-info small{font-size:12px}}
+@media(max-width:420px){.chef-v12-photo img{height:430px}.chef-v12-name{font-size:22px}.chef-v12-title{font-size:36px}.chef-credential{grid-template-columns:29px 1fr;gap:9px}.chef-credential-num{font-size:15px}.chef-credential p{font-size:12px}.chef-v12-history-foot{flex-direction:column;align-items:flex-start}.chef-v12-history-head h3{font-size:37px}}
+@media(prefers-reduced-motion:reduce){.chef-v12-motion .chef-credential{opacity:1!important;transform:none!important;transition:none!important}.chef-credential-line{transform:scaleX(1)!important;transition:none!important}}

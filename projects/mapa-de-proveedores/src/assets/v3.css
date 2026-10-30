@@ -1,0 +1,321 @@
+/* GL&AS × CHIARAMONTE — V3 premium UX. Visual identity: navy, muted gold, ivory. */
+:root{--v3-navy:#0a1b33;--v3-navy2:#132c4e;--v3-gold:#c7a35f;--v3-ivory:#f6f0e3;--v3-line:#d6c7aa}
+html{scroll-padding-top:108px;scroll-snap-type:none}
+body{overflow-x:clip}
+main>section{scroll-snap-align:none;scroll-margin-top:100px}
+@media(max-width:800px){html{scroll-snap-type:none}}
+/* Intentional restraint: motion progressively enhanced by GSAP, but no hidden content when CDN fails */
+.reveal,.text-entrance{opacity:1;transform:none;transition:none}
+img{color:transparent}
+section{position:relative}
+section h2{letter-spacing:-.036em}
+section p{line-height:1.85}
+.section-index{font-size:11px;letter-spacing:.20em}
+.button{transition:transform .3s,background .3s,color .3s,box-shadow .3s;border-radius:11px!important}
+.button:hover{transform:translateY(-3px);box-shadow:0 10px 25px #0002}
+/* Floating, faceted, pill-like premium navigation */
+.site-header{position:sticky;top:12px;z-index:999;background:transparent;box-shadow:none;backdrop-filter:none;margin-bottom:-92px;pointer-events:none;padding:0}
+.nav-shell{height:76px;padding:0 18px 0 23px;background:rgba(248,244,236,.94);border:1px solid #d6c3a3;border-radius:30px;box-shadow:0 20px 55px #07162932,0 1px 0 #fff8 inset;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);pointer-events:auto;transition:box-shadow .3s,border-color .3s}
+.nav-shell:focus-within{border-color:var(--v3-gold)}
+.brand-group{gap:14px;min-width:302px}
+.brand-glas img{width:124px;height:55px;object-fit:contain}
+.brand-chiaramonte img{width:155px;height:49px;object-fit:contain}
+.brand-group a{padding:5px;border-radius:8px;transition:filter .2s,transform .2s}
+.brand-group a:hover{filter:brightness(.9);transform:translateY(-2px)}
+.brand-divider{height:28px;border-color:#d5c7ac}
+.main-nav{gap:16px}
+.main-nav a{font-size:10px;font-weight:800;letter-spacing:.02em;padding:13px 2px;position:relative}
+.main-nav a:after{content:'';position:absolute;bottom:6px;left:3px;right:100%;border-bottom:2px solid #b5904b;transition:right .25s}
+.main-nav a:hover:after,.main-nav a:focus-visible:after{right:3px}
+.nav-cta{border-radius:12px!important;white-space:nowrap;padding-inline:20px;min-height:42px}
+.prototype-ribbon{position:relative;z-index:1001;letter-spacing:.14em;background:#10223b}
+/* Hero: bolder editorial presentation and truly directional entrance */
+.hero{isolation:isolate}
+.hero-layout{padding-top:160px;padding-bottom:105px;min-height:min(800px,100vh)}
+.hero-copy{padding-left:10px}
+.hero h1{line-height:1.06;max-width:760px;font-size:clamp(58px,5.7vw,98px);letter-spacing:-.06em}
+.hero-title-line{display:block;transform-origin:left center}
+.hero-title-line em{color:#e9c780}
+.hero-description{font-size:15px;max-width:570px;line-height:1.95}
+.hero-visual{will-change:transform;min-width:0;overflow:visible}
+.hero-chef-img{box-shadow:0 25px 65px #010a1880}
+.hero-seal{border-color:#b69753}
+.hero-footer{padding-bottom:32px}
+.hero-bottom{margin-top:66px}
+/* Metric tickers, separated and with strong legibility */
+.metrics{background:#efe5d2;border-block:1px solid #c9b78f}
+.metrics-grid{gap:0}
+.metrics-grid>div{padding-top:50px;padding-bottom:29px;min-height:158px;gap:11px}
+.metrics-grid>div>.bi{font-size:23px;top:19px;left:28px}
+.metrics strong{font-family:var(--serif);font-size:clamp(37px,3.1vw,58px);color:#92703e;line-height:1;font-variant-numeric:tabular-nums}
+.metrics span{font-size:12px;font-weight:700;color:#445164;letter-spacing:.025em}
+/* Better section rhythm */
+.philosophy-section{background:#f8f4ec}
+.advantages-section{background:#efe8db}
+.cert-section{background:#f9f6ee}
+.process-section{background:#112441}
+.chef-section{background:linear-gradient(120deg,#081931,#112747 64%,#0b1a30)}
+.training-section{background:#f2eadc}
+.cases-section{background:#faf7f0}
+.contact-section{background:#f4eddf}
+.philosophy-section,.advantages-section,.cert-section,.training-section{padding-top:138px;padding-bottom:138px}
+.advantages-section:before,.training-section:before,.cases-section:before{content:'';position:absolute;left:50%;top:0;transform:translateX(-50%);height:1px;width:min(1100px,88%);background:#c3ad8666}
+.philosophy-cards{gap:19px}
+.philosophy-card{border:1px solid #cbbb99;padding:33px!important;background:#fbf8f0;min-height:225px;box-shadow:0 8px 18px #3b2c0d08}
+.philosophy-card p{font-size:13px;line-height:1.85}
+/* Editorial benefits: more whitespace, outlined gold dividers, clearer card hierarchy */
+.adv-grid{gap:19px;background:transparent;overflow:visible}
+.adv-card{border:1px solid #ceb98f;background:#fffaf0;padding:35px 30px;min-height:295px;box-shadow:5px 5px 0 #dac9a7;transition:transform .27s,box-shadow .27s,background .27s}
+.adv-card:hover{transform:translate(-4px,-4px);box-shadow:9px 9px 0 #b99659;background:#fffdf8}
+.adv-card:nth-child(2),.adv-card:nth-child(5){background:#ebe3d2}
+.adv-card h3{font-size:clamp(23px,1.8vw,28px);line-height:1.25}
+.adv-card p{font-size:13px;line-height:1.85;max-width:340px}
+.adv-num{font-size:17px;letter-spacing:.05em;color:#8e723f}
+.adv-icon{border:1px solid #cdb785;background:#efe2c7;color:#886733}
+/* Certification cards distinguish audiences */
+.cert-grid{gap:23px}
+.cert-card{border-radius:12px;overflow:hidden;box-shadow:0 18px 35px #06182f20;transition:transform .3s}
+.cert-card:hover{transform:translateY(-6px)}
+.cert-deep-grid{gap:24px}
+.cert-deep-card{border:1px solid #cfba92;box-shadow:0 7px 0 #cdb78f24;background:#fffdf8}
+.process-grid{gap:17px;background:transparent;border:none}
+.process-step{border:1px solid #8f794f70;background:#182f50;padding:28px;min-height:290px;border-radius:10px}
+.process-step p{font-size:12px;line-height:1.85}
+/* Chef: cinematic mask image + gamified career progress */
+.chef-layout{gap:9%;align-items:center}
+.chef-photo-wrap{overflow:hidden;border-radius:0 90px 0 0;box-shadow:20px 20px 0 #c7a35b16}
+.chef-photo-wrap img{width:100%;height:650px;object-fit:cover}
+.chef-text>p{font-size:13px;line-height:1.95}
+.chef-points{--timeline-fill:0%;position:relative;border:0!important;padding-left:29px;margin:43px 0 37px}
+.chef-points>div{border:0}
+.chef-points>.timeline-track{position:absolute;left:6px;top:27px;bottom:34px;width:3px;padding:0!important;background:#c5ad7861;border:0;overflow:visible;z-index:0}
+.chef-points>.timeline-track>.timeline-progress{display:block;position:absolute;left:0;top:0;width:100%;height:var(--timeline-fill);background:#d8b66d;box-shadow:0 0 13px #e1b86677;transition:height .12s linear;margin:0}
+.chef-points .chef-milestone{position:relative;display:grid!important;grid-template-columns:106px minmax(0,1fr) 24px;gap:13px;min-height:96px;padding:20px 8px!important;border-bottom:1px solid #ffffff22!important;opacity:.56;transition:opacity .45s,background .45s,transform .45s;align-items:start!important}
+.chef-points .chef-milestone:before{content:'';position:absolute;left:-29px;top:27px;width:15px;height:15px;border:2px solid #bb995b;border-radius:50%;background:#102541;z-index:1;transition:background .35s,box-shadow .35s}
+.chef-points .chef-milestone.timeline-active{opacity:1;background:linear-gradient(90deg,#dec08012,transparent);transform:translateX(5px)}
+.chef-points .chef-milestone.timeline-active:before{background:#e2bc70;box-shadow:0 0 0 6px #d9b87325}
+.chef-points .chef-milestone .milestone-date{margin:0!important;grid-row:auto!important;color:#dfbf7a!important;font:600 12px/1.55 var(--font)!important;letter-spacing:.01em!important;white-space:normal}
+.chef-points .chef-milestone .milestone-info{display:flex;flex-direction:column;gap:6px}
+.chef-points .chef-milestone strong{font-size:15px;font-weight:700;color:#fbf6ec}
+.chef-points .chef-milestone small{font-size:12px;line-height:1.7;color:#b7c9da}
+.chef-points .chef-milestone .milestone-check{color:#e9c77e;font-size:17px;opacity:0;transform:scale(.75);transition:all .35s;margin:0!important;grid-row:auto!important}
+.chef-points .chef-milestone.timeline-active .milestone-check{opacity:1;transform:scale(1)}
+/* Clear brutalist training cards — palette stays navy/cream/gold */
+.training-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;background:none}
+.training-item.brutalist-card{position:relative;display:flex;flex-direction:column;align-items:start;min-height:278px;padding:34px 30px 30px;border:2px solid #23364b;border-radius:3px;background:#fffaf0;box-shadow:8px 8px 0 #ccb489;transition:transform .27s,box-shadow .27s,background .27s;overflow:hidden;isolation:isolate}
+.training-item.brutalist-card:before{content:'';position:absolute;top:0;left:0;width:100%;height:6px;background:#c6a35b}
+.training-item.brutalist-card:nth-child(3n+2){background:#f0e6d2;box-shadow:8px 8px 0 #b7a078}
+.training-item.brutalist-card:nth-child(4n){background:#132b49;color:#fff8eb;border-color:#09192e;box-shadow:8px 8px 0 #c7a35f}
+.training-item.brutalist-card:nth-child(4n) h3{color:#fff5df}
+.training-item.brutalist-card:nth-child(4n) p{color:#c5d1dc}
+.training-item.brutalist-card:nth-child(4n) .training-id{color:#ebc47e}
+.training-item.brutalist-card:nth-child(4n) .training-icon{background:#d8b66d;color:#11223a}
+.training-item.brutalist-card:hover{transform:translate(-5px,-5px);box-shadow:13px 13px 0 #b79759;z-index:2}
+.training-item.brutalist-card .training-icon{display:grid;place-items:center;background:#eaddbd;border-radius:8px;width:55px;height:55px;margin-bottom:30px;font-size:25px;color:#836331;border:1px solid #c5aa78}
+.training-item.brutalist-card .training-id{top:39px;right:25px;color:#967444;font-size:15px;letter-spacing:.11em;font-weight:800}
+.training-item.brutalist-card h3{font:600 clamp(21px,1.9vw,28px)/1.26 var(--serif);color:#10243a;margin:0 0 13px}
+.training-item.brutalist-card p{font-size:13px;line-height:1.8;margin:0;max-width:340px;color:#546273}
+.training-bottom{margin-top:50px;background:#fffaf0;border:1px solid #c6b18e;border-radius:10px;padding:27px}
+/* alternating photo reveals and clearer case spacing */
+.case-grid{gap:44px}
+.case{padding-bottom:23px}
+.case-image{position:relative;aspect-ratio:1.42;background:#d6c9b1;overflow:hidden;border-radius:10px;box-shadow:10px 10px 0 #e1d0ab}
+.case-image img{width:100%;height:100%;object-fit:cover}
+.case h3{font-size:clamp(25px,2.6vw,39px);line-height:1.25;margin:11px 0 14px}
+.case p{font-size:13px;line-height:1.95}
+.case-kicker{margin-top:38px;font-size:11px}
+/* Continental map: a full-width standalone showcase with no map API dependency */
+.represent-section{padding-top:125px;padding-bottom:125px;background:linear-gradient(145deg,#0b1d36,#132b4a 60%,#091a31);isolation:isolate}
+.represent-section:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 85% 30%,#c7a35b0e,transparent 40%);pointer-events:none}
+.represent-intro{grid-template-columns:1.1fr .9fr;gap:10%;margin-bottom:62px;align-items:center}
+.represent-intro h2{font-size:clamp(49px,5vw,82px);line-height:1.08}
+.represent-intro p{font-size:15px;max-width:425px;line-height:1.9}
+.map-spotlight{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:0 0 26px;padding:0 4px}
+.map-spotlight-kicker{color:#ebc780;font-size:10px;letter-spacing:.2em;font-weight:800;display:flex;align-items:center;gap:12px}
+.map-spotlight h3{font:500 clamp(26px,3.2vw,46px)/1.15 var(--serif);margin:11px 0 0}
+.map-spotlight h3 em{color:#e6c282}
+.map-spotlight-caption{font-size:11px;letter-spacing:.15em;color:#c1d1dd;white-space:nowrap}
+.map-topline{border-radius:15px 15px 0 0;background:#1b3658;padding:20px 24px;border:1px solid #9e885c80}
+.map-topline>div{font-size:11px;letter-spacing:.12em}
+.demo-pill{background:#e7d5ad14;border:1px solid #e7c48091;color:#f0d8a2;padding:9px 13px;border-radius:7px}
+.locator{height:770px;min-height:630px;grid-template-columns:345px minmax(0,1fr);background:#bfd5d6;border:1px solid #b7a07280;border-top:0;border-radius:0 0 18px 18px;box-shadow:0 33px 85px #0004;overflow:hidden}
+.locator-list-panel{background:#f9f4e9;border-right:1px solid #c6ba9b}
+.locator-list-header{padding:30px 23px 23px;background:#fffaf0;border-bottom:1px solid #dfd2bb}
+.locator-list-header h3{font-size:30px;line-height:1.2;margin:12px 0 20px}
+.locator-list-header select{border-radius:9px;min-height:50px;border:1px solid #cbb990;background:#fffdfa;font-size:13px;padding-inline:13px}
+.count-label{font-size:11px;color:#7f7563;padding-top:9px}
+.locator-item{padding:18px 21px;border-bottom:1px solid #ded2bb;min-height:82px;transition:background .25s}
+.locator-item:hover,.locator-item.active{background:#e9dec8}
+.locator-item strong{font-size:12px;line-height:1.5}
+.locator-item small{font-size:11px;line-height:1.55}
+.map-pane{position:relative;min-height:0;overflow:hidden;background:#b5d1d5}
+#map{width:100%;height:100%;background:#b5d1d5;position:relative;overflow:hidden;cursor:grab}
+#map:active{cursor:grabbing}
+#map svg{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y;user-select:none}
+#map svg.is-dragging{cursor:grabbing}
+.map-static-preview{width:100%;height:100%;object-fit:contain}
+.map-tools{position:absolute;right:19px;bottom:70px;z-index:420;display:flex;flex-direction:column;gap:6px}
+.map-tools button{width:45px;height:45px;border:1px solid #c4ad7f;background:rgba(250,247,237,.95);color:#152b47;border-radius:11px;box-shadow:0 8px 22px #07263b2b;font-size:19px;display:grid;place-items:center;transition:background .25s,transform .25s}
+.map-tools button:hover{background:#f1dfb7;transform:translateY(-2px)}
+.map-pin{cursor:pointer;outline:none}
+.map-pin .pin-halo{fill:#153a54;opacity:.10;transition:opacity .2s,transform .2s;transform-origin:center}
+.map-pin .pin-ring{fill:#fffaf1;stroke:#a88649;stroke-width:3;filter:drop-shadow(0 4px 5px #09283c69);transition:r .2s,fill .2s}
+.map-pin .pin-core{fill:#173a4d;transition:fill .2s}
+.map-pin:hover .pin-halo,.map-pin.selected .pin-halo{opacity:.27}
+.map-pin:hover .pin-ring,.map-pin.selected .pin-ring{fill:#ebc77d;stroke:#0b263c;r:19}
+.map-pin.selected .pin-core{fill:#062038}
+.map-pin:focus-visible .pin-ring{stroke:#102b44;stroke-width:6}
+.map-overlay-top{z-index:410;top:20px;left:22px;right:22px}
+.map-overlay-top>*{background:rgba(252,248,239,.96);border:1px solid #bba67c;box-shadow:0 8px 24px #0d354139;border-radius:9px!important;font-size:10px;letter-spacing:.06em}
+.map-overlay-top span{font-weight:800;color:#1d4150}
+.map-note{background:#f7f1e4bf;padding:8px 12px;border-radius:8px;color:#476270;font-size:10px}
+.map-error{position:absolute;left:20px;bottom:70px;background:#fff6e5;padding:12px;font-size:12px;border:1px solid #cca466;color:#283b4e;max-width:300px}
+.detail-pane{border-radius:14px;background:#fffaf0;box-shadow:0 25px 65px #041d31a6;border:1px solid #c9ad73;top:87px;bottom:25px}
+.detail-field{padding:13px 0;border-bottom:1px solid #e4dbc9}
+.detail-field label{font-size:10px;letter-spacing:.08em;color:#8a794f}
+.detail-field span{font-size:12px;word-break:break-word}
+.detail-field button{background:#f2e5c9;border:1px solid #d3bc91;border-radius:8px;min-width:34px;min-height:34px}
+.detail-field button:hover{background:#e4ca95}
+.roles-intro{display:flex;justify-content:space-between;align-items:end;gap:28px;margin:94px 0 28px;padding-top:42px;border-top:1px solid #c7a35f64}
+.roles-intro h3{font:500 clamp(31px,3.1vw,49px)/1.2 var(--serif);margin:12px 0 0;max-width:620px}
+.roles-intro h3 em{color:#e6c280}
+.roles-intro>p{max-width:390px;color:#bed0df;font-size:13px;line-height:1.9}
+.roles-grid{gap:25px}
+.role-card{border:1px solid #c5a56e91;background:#192f4d;border-radius:12px;padding:36px;transition:transform .25s,box-shadow .25s}
+.role-card:hover{transform:translateY(-5px);box-shadow:0 14px 35px #0003}
+.represent-footnote{margin-top:30px;font-size:12px;color:#bed0df}
+/* Floating WhatsApp: branded glyph, palette-aligned, never a generic chat bubble */
+.floating-contact{right:22px;bottom:24px;z-index:900}
+.floating-contact a{border-radius:25px;background:var(--v3-navy);color:#fff7e8;border:1px solid #b99455;box-shadow:0 13px 35px #03112366;padding:9px 17px 9px 9px;transition:transform .25s,box-shadow .25s}
+.floating-contact a:hover{transform:translateY(-5px);box-shadow:0 17px 46px #03112388}
+.float-wa-icon{background:#d8b36b;color:#0a1b33;border-radius:50%;font-size:27px}
+.float-wa-icon i{font-family:'bootstrap-icons'!important}
+.float-wa-label{font-size:12px;line-height:1.2}
+.float-wa-label small{color:#dfc98c}
+/* Footer transparent logo assets */
+.footer img{object-fit:contain}
+.footer-logo img{max-width:300px;height:auto}
+.footer-glas img{width:170px;height:auto}
+@media(max-width:1200px){
+ .nav-shell{height:73px;padding-inline:17px;gap:13px}
+ .brand-group{min-width:260px;gap:8px}
+ .brand-glas img{width:112px;height:49px}
+ .brand-chiaramonte img{width:136px;height:46px}
+ .main-nav{gap:9px}
+ .main-nav a{font-size:9px}
+ .nav-cta{padding-inline:12px;font-size:10px}
+ .locator{grid-template-columns:305px minmax(0,1fr)}
+ .training-grid{gap:19px}
+ .training-item.brutalist-card{padding:30px 23px;min-height:270px}
+}
+@media(max-width:980px){
+ .site-header{top:9px;margin-bottom:-84px}
+ .nav-shell{height:68px;border-radius:23px}
+ .main-nav{position:absolute;top:calc(100% + 7px);left:0;right:0;background:#fcf9f1;border:1px solid #cbb68d;border-radius:20px;box-shadow:0 20px 35px #08182b2f;display:none;flex-direction:column;align-items:stretch;padding:16px 18px;gap:0}
+ .main-nav.open{display:flex}
+ .main-nav a{font-size:13px;padding:12px}
+ .menu-toggle{display:flex}
+ .nav-cta{margin-left:auto}
+ .hero-layout{padding-top:140px}
+ .training-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:23px}
+ .locator{height:730px;grid-template-columns:290px minmax(0,1fr)}
+ .chef-layout{gap:6%}
+ .chef-photo-wrap img{height:560px}
+}
+@media(max-width:680px){
+ html{scroll-padding-top:95px}
+ main>section{scroll-snap-align:none}
+ .site-header{top:8px;margin-bottom:-77px}
+ .nav-shell{height:67px;width:calc(100% - 20px);padding:0 12px;border-radius:18px;gap:8px}
+ .brand-group{min-width:0;gap:7px}
+ .brand-glas img{height:46px;width:85px}
+ .brand-chiaramonte img{height:38px;width:114px}
+ .brand-divider{height:28px}
+ .nav-cta{display:none}
+ .hero-layout{padding:150px 0 28px}
+ .hero-copy{padding-left:0}
+ .hero h1{font-size:clamp(43px,10vw,65px);line-height:1.13;letter-spacing:-.045em}
+ .hero-title-line{display:block}
+ .hero-description{font-size:13px}
+ .hero-bottom{margin-top:33px}
+ .hero-visual{width:95%;height:415px;margin-top:38px}
+ .metrics-grid>div{padding:48px 10px 22px;min-height:120px}
+ .metrics-grid>div>.bi{top:17px;left:13px}
+ .metrics strong{font-size:37px}
+ .metrics span{font-size:10px}
+ .section,.chef-section,.cases-section,.represent-section,.contact-section{padding-top:86px;padding-bottom:94px}
+ .philosophy-cards{gap:12px}
+ .philosophy-card{padding:24px!important}
+ .adv-grid{gap:14px;grid-template-columns:1fr 1fr}
+ .adv-card{min-height:248px;padding:24px 17px;box-shadow:4px 4px 0 #d2bd91}
+ .adv-card h3{font-size:20px}
+ .adv-card p{font-size:12px}
+ .cert-grid{gap:14px}
+ .process-grid{gap:9px;background:transparent}
+ .process-step{border:1px solid #a9905d6a;min-height:236px;border-radius:8px}
+ .chef-photo-wrap{border-radius:0 62px 0 0}
+ .chef-photo-wrap img{max-height:none;height:auto}
+ .chef-points{padding-left:22px}
+ .chef-points .chef-milestone{grid-template-columns:76px minmax(0,1fr) 17px;gap:7px;min-height:104px;padding:17px 0!important}
+ .chef-points .chef-milestone:before{left:-24px;top:25px;width:11px;height:11px}
+ .chef-points .chef-milestone .milestone-date{font-size:10px!important}
+ .chef-points .chef-milestone strong{font-size:13px}
+ .chef-points .chef-milestone small{font-size:11px}
+ .training-grid{grid-template-columns:1fr;gap:19px}
+ .training-item.brutalist-card{min-height:216px;padding:24px 25px;box-shadow:6px 6px 0 #ceb58b}
+ .training-item.brutalist-card .training-icon{width:46px;height:46px;font-size:22px;margin-bottom:22px}
+ .training-item.brutalist-card h3{font-size:24px}
+ .training-item.brutalist-card p{font-size:12px}
+ .training-item.brutalist-card .training-id{top:30px;right:24px;font-size:13px}
+ .case-grid{gap:48px}
+ .case h3{font-size:30px}
+ .case-image{box-shadow:7px 7px 0 #d7c49c}
+ .map-spotlight{display:block;margin:14px 0 20px}
+ .map-spotlight h3{font-size:33px}
+ .map-spotlight-caption{display:block;margin-top:13px;font-size:9px}
+ .represent-intro{display:block;margin-bottom:37px}
+ .represent-intro h2{font-size:43px}
+ .represent-intro p{font-size:13px}
+ .map-topline{border-radius:12px 12px 0 0;padding:13px 11px}
+ .map-topline>div{font-size:8px}
+ .demo-pill{font-size:7px;letter-spacing:.03em}
+ .locator{height:min(72svh,690px);min-height:525px;grid-template-columns:1fr;border-radius:0 0 15px 15px}
+ .locator-list-panel{z-index:640;background:#fffaf0}
+ .locator-list-header{padding:23px 20px 16px}
+ .locator-list-header h3{font-size:25px}
+ .locator-item{min-height:76px}
+ .map-pane{height:100%}
+ .map-overlay-top{top:11px;left:11px;right:11px}
+ .map-overlay-top>*{padding:10px 8px;font-size:9px}
+ .map-overlay-top button{white-space:nowrap;font-size:9px}
+ .map-note{left:9px;bottom:12px;max-width:175px;font-size:8px}
+ .map-tools{bottom:98px;right:11px}
+ .map-tools button{width:40px;height:40px;border-radius:9px}
+ .map-mobile-list-btn{bottom:43px;right:11px;border-radius:11px}
+ .detail-pane{z-index:1100;top:auto;bottom:0;border-radius:20px 20px 0 0;max-height:80dvh}
+ .roles-intro{display:block;margin-top:75px}
+ .roles-intro h3{font-size:33px}
+ .roles-intro>p{font-size:12px;margin-top:17px}
+ .roles-grid{gap:14px}
+ .role-card{border-radius:12px;padding:27px}
+ .footer-logo img{max-width:245px}
+ .footer-glas img{width:165px}
+ .floating-contact a{padding:7px;border-radius:100px}
+ .float-wa-icon{width:47px;height:47px;font-size:27px}
+}
+@media(max-width:380px){
+ .nav-shell{padding-inline:10px}
+ .brand-glas img{width:75px}
+ .brand-chiaramonte img{width:100px}
+ .hero h1{font-size:43px}
+ .adv-grid{grid-template-columns:1fr}
+ .adv-card{min-height:auto}
+ .metrics strong{font-size:32px}
+ .map-topline>div{font-size:7px}
+ .demo-pill{font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-snap-type:none;scroll-behavior:auto}.training-item,.adv-card,.role-card,.case-image,.chef-milestone{transition:none!important}}
+/* True WhatsApp silhouette delivered inline as SVG; independent of any font CDN */
+.floating-contact .float-wa-icon{display:grid;place-items:center}
+.whatsapp-brand-mark{display:block;width:26px;height:29px;fill:currentColor;flex:none}
+@media(max-width:680px){.whatsapp-brand-mark{width:27px;height:30px}}

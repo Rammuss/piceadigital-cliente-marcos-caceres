@@ -1,0 +1,45 @@
+/* V24 — sello visual aportado por el cliente + hero con retrato vertical */
+.hero-seal.hero-seal-custom,
+.hero-expansion-seal.hero-seal-custom,
+.hero-seal.hero-seal-custom.hero-plaque-v19,
+.hero-expansion-seal.hero-seal-custom.hero-plaque-v19{
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  background:transparent!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.28)!important;
+  overflow:hidden!important;
+}
+.hero-seal-custom img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  display:block!important;
+  border-radius:50%!important;
+}
+.hero.has-hero-pin .hero-chef-img{
+  object-position:52% 24%!important;
+  filter:saturate(.97) contrast(1.04)!important;
+}
+.hero-expansion-photo{filter:saturate(.97) contrast(1.04)!important;}
+.hero.has-hero-pin .hero-image-shell{
+  background:#091425!important;
+}
+.hero.has-hero-pin .hero-visual-title{
+  left:6.2%!important;
+  bottom:24px!important;
+}
+.hero.has-hero-pin .hero-visual-title strong{
+  text-shadow:0 8px 22px rgba(0,0,0,.35)!important;
+}
+@media (min-width: 1025px){
+  .hero.has-hero-pin .hero-visual{max-width:600px!important;height:min(67svh,640px)!important}
+  .hero.has-hero-pin .hero-chef-img{object-position:52% 19%!important}
+
+}
+@media (max-width: 680px){
+  .hero-seal.hero-seal-custom,
+  .hero-expansion-seal.hero-seal-custom{width:90px!important;height:90px!important}
+  .hero.has-hero-pin .hero-chef-img{object-position:50% 18%!important}
+
+}

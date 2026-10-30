@@ -1,0 +1,7 @@
+Font Awesome Free 6.7.2 SVG icons by Fonticons, Inc.
+https://fontawesome.com/license/free
+License: Creative Commons Attribution 4.0 International (CC BY 4.0) for icons.
+https://creativecommons.org/licenses/by/4.0/
+Icons adapted to inline SVG, retaining the vector paths, for GL&AS × Chiaramonte V3.
+No font files are distributed in this project.
+Natural Earth cartography is public domain; see https://www.naturalearthdata.com/about/terms-of-use/

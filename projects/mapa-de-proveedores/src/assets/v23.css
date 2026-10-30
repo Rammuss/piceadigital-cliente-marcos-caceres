@@ -1,0 +1,72 @@
+/* V23 — Reveal automático disparado al llegar a la foto. No depende del scroll.
+   El marco decorativo se mantiene y solo la imagen se descubre. */
+#chef .chef-photo-wrap.media-reveal-auto,
+#experiencia .case-image.media-reveal-auto{
+  clip-path:none!important;
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+  isolation:isolate;
+  position:relative;
+}
+#chef .chef-photo-wrap.media-reveal-auto{
+  background:linear-gradient(145deg,#19314b 0%,#0b1d32 100%);
+}
+#experiencia .case-image.media-reveal-auto{
+  background:repeating-linear-gradient(135deg,#eae0cd 0,#eae0cd 2px,#f3ecdf 2px,#f3ecdf 18px);
+}
+#chef .chef-photo-wrap.media-reveal-auto > img,
+#experiencia .case-image.media-reveal-auto > img{
+  clip-path:inset(0 100% 0 0);
+  transform:translateX(3%) scale(1.055);
+  transition:clip-path 1.7s cubic-bezier(.24,.67,.16,1),transform 1.9s cubic-bezier(.19,1,.22,1)!important;
+  will-change:clip-path,transform;
+}
+#chef .chef-photo-wrap.media-reveal-auto.media-reveal-from-right > img,
+#experiencia .case-image.media-reveal-auto.media-reveal-from-right > img{
+  clip-path:inset(0 0 0 100%);
+  transform:translateX(-3%) scale(1.055);
+}
+#chef .chef-photo-wrap.media-reveal-auto.is-opening > img,
+#chef .chef-photo-wrap.media-reveal-auto.is-open > img,
+#experiencia .case-image.media-reveal-auto.is-opening > img,
+#experiencia .case-image.media-reveal-auto.is-open > img{
+  clip-path:inset(0 0 0 0);
+  transform:translateX(0) scale(1);
+}
+.media-reveal-auto .media-reveal-edge{
+  position:absolute;top:0;bottom:0;z-index:6;left:0;width:2px;
+  pointer-events:none;background:linear-gradient(to bottom,transparent,#e9c781 15%,#e3b968 80%,transparent);
+  box-shadow:0 0 14px 1px #d4ac69a8;
+  opacity:0;
+}
+.media-reveal-auto.media-reveal-from-right .media-reveal-edge{left:100%;}
+.media-reveal-auto.is-opening .media-reveal-edge{
+  opacity:1;
+  animation:reveal-sweep-left 1.7s cubic-bezier(.24,.67,.16,1) both;
+}
+.media-reveal-auto.is-opening:not(.media-reveal-from-right) .media-reveal-edge{
+  animation-name:reveal-sweep-right;
+}
+.media-reveal-auto.is-open .media-reveal-edge{opacity:0;}
+@keyframes reveal-sweep-left {0%{left:100%;opacity:0}8%{opacity:1}88%{opacity:1}100%{left:0%;opacity:0}}
+@keyframes reveal-sweep-right{0%{left:0%;opacity:0}8%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
+#chef .chef-photo-wrap.media-reveal-auto::before,
+#experiencia .case-image.media-reveal-auto::before{
+  content:'TRAYECTORIA · MARCELLO CHIARAMONTE';
+  position:absolute;top:20px;left:16px;z-index:1;
+  color:#d4b16d9c;font:800 9px/1.5 var(--font);letter-spacing:.14em;
+  transition:opacity .45s ease;
+}
+#experiencia .case-image.media-reveal-auto::before{content:'EXPERIENCIA · 01';color:#927a4b;}
+#experiencia .case:nth-child(2) .case-image.media-reveal-auto::before{content:'EXPERIENCIA · 02';}
+.media-reveal-auto.is-opening::before,.media-reveal-auto.is-open::before{opacity:0;}
+#chef .chef-photo-wrap.media-reveal-auto .chef-photo-caption{z-index:7;}
+@media(prefers-reduced-motion:reduce){
+  #chef .chef-photo-wrap.media-reveal-auto > img,
+  #experiencia .case-image.media-reveal-auto > img{
+    clip-path:none!important;transform:none!important;transition:none!important;
+  }
+  .media-reveal-auto .media-reveal-edge{display:none!important;}
+  .media-reveal-auto::before{display:none!important;}
+}

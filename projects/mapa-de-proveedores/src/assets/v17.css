@@ -1,0 +1,97 @@
+/* V17 · Iconografía editorial y placa de marca. No altera el fullscreen reveal V15. */
+.hero.has-hero-pin .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:11px}
+.hero.has-hero-pin .hero-actions .hero-button-v17{
+  min-height:47px;display:inline-flex;align-items:center;justify-content:center;
+  gap:11px;padding:0 18px;line-height:1.15;
+  border-radius:4px;transition:transform .3s cubic-bezier(.2,.8,.2,1),
+    box-shadow .3s ease,background-color .3s ease,border-color .3s ease;
+}
+.hero.has-hero-pin .hero-actions .hero-button-v17:hover{transform:translateY(-3px);box-shadow:0 11px 24px #020e2090}
+.hero-button-symbol{display:grid;place-items:center;flex-shrink:0;width:20px;height:20px;opacity:.94}
+.hero-button-symbol svg{height:20px;width:20px;display:block;stroke-width:1.65}
+.hero-button-text{font-size:inherit;white-space:nowrap;letter-spacing:.018em}
+.hero.has-hero-pin .hero-actions .button-outline .hero-button-symbol{color:#e8c782}
+.hero.has-hero-pin .hero-actions .button-gold .hero-button-symbol{color:#12233a}
+/* Discrete editorial plaque: rectangular, aligned to the portrait rather than a novelty stamp. */
+.hero-expansion-seal-holder{z-index:11;transform:none;pointer-events:none}
+.hero-expansion-seal.hero-plaque-v17,
+.hero-seal.hero-plaque-v17{
+  width:190px;height:86px;box-sizing:border-box;border:1px solid #ad8746;
+  border-radius:2px;background:linear-gradient(126deg,#0d2038 0%,#172d47 100%);
+  box-shadow:0 13px 30px #06152a55,0 0 0 4px rgba(6,20,38,.30);
+  color:#e8c889;display:flex;align-items:center;justify-content:center;gap:13px;
+  padding:12px 15px;transform:none;font-family:var(--font);text-align:left;
+  letter-spacing:normal;position:relative;
+}
+.hero-expansion-seal.hero-plaque-v17::before,
+.hero-seal.hero-plaque-v17::before{
+  content:"";position:absolute;inset:5px;border:1px solid rgba(205,166,94,.27);pointer-events:none;
+}
+.hero-plaque-mark{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  width:45px;height:53px;flex:0 0 45px;
+  border-right:1px solid rgba(226,195,137,.28);padding-right:11px;
+}
+.hero-plaque-monogram{font:400 42px/.98 var(--serif);color:#efcc85;letter-spacing:-.085em}
+.hero-plaque-star{position:absolute;top:1px;right:11px;font-size:9px;color:#e6c481}
+.hero-plaque-copy{display:flex;flex-direction:column;align-items:flex-start;gap:7px;min-width:0}
+.hero-plaque-overline{font:700 7px/1 var(--font);letter-spacing:.18em;color:#e6c891;white-space:nowrap}
+.hero-plaque-name{font:500 12px/1.18 var(--serif);letter-spacing:.07em;color:#f5e5c0;white-space:nowrap}
+.hero-seal.hero-plaque-fallback{
+  position:absolute;z-index:5;right:-27px;top:58px;
+}
+/* Replace the old spinning circular badge animations. */
+.hero.has-hero-pin.hero-intro-play .hero-expansion-seal.hero-plaque-v17{
+  animation:heroV17Plaque .95s cubic-bezier(.2,.8,.2,1) .95s both;
+}
+.hero.has-hero-pin.hero-intro-skip .hero-expansion-seal.hero-plaque-v17{opacity:1;transform:none}
+@keyframes heroV17Plaque{
+  from{opacity:0;transform:translate3d(12px,8px,0);filter:blur(4px)}
+  to{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+}
+@media(max-width:980px){
+  .hero-expansion-seal.hero-plaque-v17,.hero-seal.hero-plaque-v17{width:170px;height:77px;padding:10px 12px;gap:9px}
+  .hero-plaque-mark{width:39px;flex-basis:39px;height:49px;padding-right:7px}
+  .hero-plaque-monogram{font-size:36px}
+  .hero-plaque-star{right:7px}
+  .hero-plaque-name{font-size:11px}
+  .hero-plaque-overline{font-size:6.5px}
+}
+@media(max-width:680px){
+  .hero.has-hero-pin .hero-actions{gap:8px;flex-wrap:nowrap}
+  .hero.has-hero-pin .hero-actions .hero-button-v17{
+    min-height:39px;gap:6px;padding:0 9px;font-size:8.5px;flex:1 1 auto
+  }
+  .hero-button-symbol,.hero-button-symbol svg{width:16px;height:16px}
+  .hero-expansion-seal.hero-plaque-v17,.hero-seal.hero-plaque-v17{
+    width:143px;height:61px;padding:7px 10px;gap:7px;
+    box-shadow:0 7px 21px rgba(5,20,39,.45)
+  }
+  .hero-plaque-mark{height:40px;width:31px;flex-basis:31px;padding-right:6px}
+  .hero-plaque-monogram{font-size:30px}
+  .hero-plaque-star{font-size:7px;right:5px;top:1px}
+  .hero-plaque-copy{gap:4px}
+  .hero-plaque-overline{font-size:5.6px;letter-spacing:.12em}
+  .hero-plaque-name{font-size:9.3px;line-height:1.1;letter-spacing:.03em}
+  .hero-seal.hero-plaque-fallback{right:0;top:28px}
+}
+@media(max-width:360px){
+  .hero.has-hero-pin .hero-actions .hero-button-v17{font-size:7.7px;padding:0 7px;gap:5px}
+  .hero-button-symbol,.hero-button-symbol svg{width:15px;height:15px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero.has-hero-pin.hero-intro-play .hero-expansion-seal.hero-plaque-v17{animation:none!important;opacity:1!important;transform:none!important}
+}
+/* Last-layer fixes against V16 legacy button/span rules */
+.hero-expansion-seal.hero-plaque-v17,
+.hero-seal.hero-plaque-v17{flex-direction:row!important;}
+.hero.has-hero-pin .hero-actions .hero-button-v17 .hero-button-text{
+  font:800 11px/1.2 var(--font);
+  letter-spacing:.015em;display:block;white-space:nowrap;
+}
+@media(max-width:680px){
+  .hero.has-hero-pin .hero-actions .hero-button-v17 .hero-button-text{
+    font-size:9px;line-height:1.2;white-space:normal;text-wrap:balance;
+  }
+  .hero.has-hero-pin .hero-actions .hero-button-v17{min-width:0;max-width:none}
+}

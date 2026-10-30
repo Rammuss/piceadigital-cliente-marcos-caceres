@@ -1,0 +1,44 @@
+/* V25: user-supplied landscape chef photo and tightly fitted original gold seal. */
+.hero-seal.hero-seal-custom,
+.hero-expansion-seal.hero-seal-custom,
+.hero-seal.hero-seal-custom.hero-plaque-v19,
+.hero-expansion-seal.hero-seal-custom.hero-plaque-v19{
+  display:flex!important;
+  flex-direction:column!important;
+  padding:0!important;
+  border:2px solid #e3b85f!important;
+  outline:0!important;
+  outline-offset:0!important;
+  overflow:hidden!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  box-shadow:0 10px 34px rgba(0,0,0,.37)!important;
+}
+.hero-seal-custom img{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:fill!important;
+  border-radius:50%!important;
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+}
+/* Separate crops for the photo in the frame and the image that expands. */
+.hero.has-hero-pin .hero-chef-img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:67% 50%!important;
+  filter:saturate(.98) contrast(1.035)!important;
+}
+.hero-expansion-photo{
+  object-fit:cover!important;
+  filter:saturate(.98) contrast(1.035)!important;
+}
+@media(max-width:680px){
+  .hero.has-hero-pin .hero-chef-img{object-position:66% 50%!important}
+  .hero-seal.hero-seal-custom,
+  .hero-expansion-seal.hero-seal-custom{border-width:1.5px!important}
+}

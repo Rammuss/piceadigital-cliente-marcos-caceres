@@ -157,12 +157,12 @@
     const lines=['GL&AS × Chiaramonte — Ficha de representante',active.nombre,'Ubicación: '+[active.ciudad,active.pais].filter(Boolean).join(', ')];
     Object.entries(fieldNames).forEach(([key,label])=>{if(active[key])lines.push(label+': '+active[key]);});
     lines.push('Mapa: https://www.openstreetmap.org/?mlat='+active.lat+'&mlon='+active.lng+'#map=11/'+active.lat+'/'+active.lng);
-    lines.push('Demostración: datos de ejemplo');copyText(lines.join('\n'));
+    copyText(lines.join('\n'));
   });
 
   function renderList(){
     const holder=$('locator-items');if(!holder)return;holder.replaceChildren();
-    $('count-label').textContent=`${shown.length} ${shown.length===1?'ubicación':'ubicaciones'} de demostración`;
+    $('count-label').textContent=`${shown.length} ${shown.length===1?'ubicación':'ubicaciones'}`;
     $('mobile-count').textContent=String(shown.length);
     if(!shown.length){const p=document.createElement('p');p.className='locator-empty';p.textContent='Todavía no hay representantes cargados en esta región.';holder.append(p);return;}
     shown.forEach(item=>{

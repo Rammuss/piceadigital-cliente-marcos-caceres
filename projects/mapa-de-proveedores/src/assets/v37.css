@@ -1,0 +1,6 @@
+/* V37: pulido tras retirar notas de aprobación y prototipo. */
+.heritage-v18-bottom{display:flex;align-items:center}
+.heritage-v18-bottom p{margin:0}
+.form-actions{gap:0}
+.footer-v9-bottom{margin-bottom:0}
+@media(max-width:680px){.heritage-v18-bottom{padding-bottom:22px}.form-compact-intro{font-size:12px}}

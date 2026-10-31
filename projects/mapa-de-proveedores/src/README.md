@@ -1,13 +1,12 @@
-# GL&AS × Chiaramonte — V28 · Paneles móviles tipo app
+# GL&AS × Chiaramonte — V30 / Gestos de mapa en móvil
 
-Basado en la V27. El mapa vectorial y sus datos no cambian.
+Sobre V29, mapa SVG de América:
 
-Mejoras: las fichas y la lista se cierran deslizando la barrita/cabecera hacia abajo (92 px o gesto rápido), tocando fuera, con X o con Escape. Se preserva el scroll interior. Las X tienen área táctil 44×44 y SVG centrado. En escritorio continúa el panel lateral de datos.
+- **Un dedo:** scroll vertical de la web (sin secuestrar el movimiento).
+- **Dos dedos:** hacer zoom (pellizcar o separar) y trasladar mapa al arrastrar ambos dedos.
+- Zoom alrededor del punto medio de los dedos; transformación SVG real, marcadores siguen activos.
+- Se ocultan los controles +/- en móviles; permanecen disponibles en escritorio.
+- Indicador de gesto sutil que desaparece al usar el mapa.
+- Pin tocado con un dedo abre ficha como antes; gestos sobre el mapa no disparan clics accidentales.
 
-# GL&AS × Chiaramonte · V27 — Atlas de América + Navbar jerarquizado
-
-El enlace GL&AS está claramente separado del logo Chiaramonte en la cabecera, abre https://glyasfobc.com/ en otra pestaña. En móvil figura en el menú.
-
-Mapa de América: vector SVG local recoloreado y decorado, con filtros Norte/Centro/Sur, marcadores interactivos, zoom, fichas y copia de datos. Las 12 ubicaciones siguen siendo demostraciones ficticias; reemplazar data/representantes.json con los datos confirmados.
-
-Despliegue: Dockerfile, puerto interno 80. No se requiere API key ni base de datos.
+Todos los demás módulos se conservan. Coolify: Dockerfile, puerto 80, sin base de datos ni API key.

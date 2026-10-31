@@ -1,0 +1,80 @@
+/* V29 — Hero móvil legible y eliminación de notas demasiado pequeñas. */
+@media (max-width: 680px) {
+  /* El título queda al pie del marco, separado del sello. */
+  .hero-expansion-image { isolation: isolate; }
+  .hero-expansion-image::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 45% 0 0;
+    background: linear-gradient(to top, rgba(3, 11, 22, .93), rgba(3, 11, 22, .57) 42%, transparent);
+    pointer-events: none;
+  }
+  .hero-expansion-caption {
+    z-index: 3 !important;
+    left: 18px !important;
+    right: 12px !important;
+    bottom: 16px !important;
+    max-width: calc(100% - 30px) !important;
+    gap: 6px !important;
+    color: #fff !important;
+    opacity: 1;
+  }
+  .hero-expansion-caption small {
+    display: block !important;
+    width: fit-content;
+    padding: 5px 7px !important;
+    font: 800 10px/1.1 var(--font) !important;
+    letter-spacing: .12em !important;
+    color: #f4cc83 !important;
+    background: rgba(3, 13, 25, .66);
+    border-left: 2px solid #ecc57d;
+  }
+  .hero-expansion-caption strong {
+    display: block !important;
+    font: 500 clamp(24px, 6.2vw, 31px)/1.04 var(--serif) !important;
+    letter-spacing: -.035em !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,.72) !important;
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+  }
+  .hero-expansion-shade { opacity: 0 !important; }
+  /* Si se desactiva JS o la animación, el marco original también es legible. */
+  .hero.has-hero-pin .hero-visual-title {
+    z-index: 8 !important;
+    left: 16px !important;
+    right: 12px !important;
+    bottom: 14px !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+  .hero.has-hero-pin .hero-visual-title::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -28px -12px -14px -16px;
+    background: linear-gradient(0deg, rgba(3,11,22,.94), rgba(3,11,22,0));
+    pointer-events: none;
+  }
+  .hero.has-hero-pin .hero-visual-title span {
+    font: 800 10px/1.2 var(--font) !important;
+    letter-spacing: .12em !important;
+    color: #f4cc83 !important;
+  }
+  .hero.has-hero-pin .hero-visual-title strong {
+    font: 500 clamp(24px, 6vw, 31px)/1.04 var(--serif) !important;
+    margin-top: 6px !important;
+    color: white !important;
+  }
+  .hero-expansion-seal-holder { z-index: 15 !important; }
+  /* Evita que la insignia invada el rótulo al pie de la fotografía. */
+  .hero-seal.hero-seal-custom, .hero-expansion-seal.hero-seal-custom {
+    width: min(19vw, 82px) !important;
+    height: min(19vw, 82px) !important;
+  }
+}
+@media (max-width:375px) {
+  .hero-expansion-caption { left: 13px !important; bottom: 12px !important; }
+  .hero-expansion-caption small { font-size: 9px !important; }
+  .hero-expansion-caption strong { font-size: 23px !important; }
+}

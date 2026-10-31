@@ -1,0 +1,25 @@
+/* V30 — mapa táctil a dos dedos, scroll vertical de un dedo intacto. */
+.map-gesture-hint{display:none;}
+@media (max-width:680px){
+  /* The vertical gesture remains owned by page scrolling; JS claims two fingers only. */
+  .represent-section #map svg{touch-action:pan-y!important;-webkit-user-select:none;user-select:none;}
+  .represent-section .map-tools{display:none!important;}
+  .represent-section .map-gesture-hint{
+    position:absolute;left:50%;bottom:15px;transform:translateX(-50%);
+    z-index:405;display:flex;align-items:center;justify-content:center;gap:8px;
+    max-width:calc(100% - 32px);padding:9px 12px;border-radius:50px;
+    background:rgba(5,23,39,.91);border:1px solid rgba(237,194,119,.67);
+    color:#f3e6cc;font-size:10px;line-height:1.4;font-weight:650;text-align:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.18);pointer-events:none;white-space:nowrap;
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .represent-section .map-gesture-hint svg{width:20px;height:20px;flex:none;color:#f4cb80;}
+  .represent-section .map-pane.has-touch-explored .map-gesture-hint{opacity:0;transform:translate(-50%,10px);}
+  .represent-section .map-note{display:none!important;}
+  /* Keep list button clear of the hint and outside the map-gesture area. */
+  .represent-section .map-mobile-list-btn{bottom:58px!important;}
+}
+@media (max-width:375px){
+  .represent-section .map-gesture-hint{font-size:9px;gap:6px;padding:8px 9px;}
+  .represent-section .map-gesture-hint svg{width:17px;height:17px;}
+}

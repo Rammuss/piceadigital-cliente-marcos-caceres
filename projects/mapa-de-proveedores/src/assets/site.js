@@ -229,6 +229,62 @@
     });
     const finish=()=>{drag=null;svg.classList.remove('is-dragging');};
     svg.addEventListener('pointerup',finish);svg.addEventListener('pointercancel',finish);
+    // V30: two-finger map exploration on phones. One finger still scrolls the page.
+    // Map viewBox camera is native SVG; no external tile service is needed.
+    let gesture = null;
+    let suppressPinClickUntil = 0;
+    const midpoint = (a, b) => ({x:(a.clientX+b.clientX)/2,y:(a.clientY+b.clientY)/2});
+    const fingerDistance = (a, b) => Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
+    const worldAt = (clientX,clientY) => {
+      const p=svg.createSVGPoint();p.x=clientX;p.y=clientY;
+      const ctm=svg.getScreenCTM();
+      return ctm ? p.matrixTransform(ctm.inverse()) : {x:camera.x+camera.w/2,y:camera.y+camera.h/2};
+    };
+    svg.addEventListener('touchstart', event => {
+      if (!screenIsMobile() || event.touches.length!==2) return;
+      if (cameraTween) {cameraTween.kill?.();cameraTween=null;}
+      const [a,b]=event.touches;
+      const mid=midpoint(a,b);
+      const anchor=worldAt(mid.x,mid.y);
+      gesture={distance:Math.max(1,fingerDistance(a,b)),w:camera.w,anchor};
+      svg.classList.add('is-touch-exploring');
+      svg.closest('.map-pane')?.classList.add('has-touch-explored');
+      // Only the deliberate two-finger gesture suppresses browser page movement.
+      if (event.cancelable) event.preventDefault();
+    },{passive:false});
+    svg.addEventListener('touchmove', event => {
+      if(!gesture || event.touches.length!==2) return;
+      const [a,b]=event.touches;
+      const mid=midpoint(a,b);
+      const distance=Math.max(1,fingerDistance(a,b));
+      const w=clamp(gesture.w*gesture.distance/distance,190,MAP_W);
+      const h=w*MAP_H/MAP_W;
+      const rect=svg.getBoundingClientRect();
+      const scale=Math.min(rect.width/w,rect.height/h);
+      if(!Number.isFinite(scale)||scale<=0) return;
+      // Account for preserveAspectRatio="xMidYMid meet" letterboxing.
+      const contentLeft=rect.left+(rect.width-w*scale)/2;
+      const contentTop=rect.top+(rect.height-h*scale)/2;
+      Object.assign(camera,normalizeView({
+        x:gesture.anchor.x-(mid.x-contentLeft)/scale,
+        y:gesture.anchor.y-(mid.y-contentTop)/scale,
+        w
+      }));
+      paintCamera();
+      if(event.cancelable) event.preventDefault();
+    },{passive:false});
+    const endTouchGesture = event => {
+      if(!gesture || event.touches.length>=2) return;
+      gesture=null;
+      svg.classList.remove('is-touch-exploring');
+      suppressPinClickUntil=performance.now()+400;
+    };
+    svg.addEventListener('touchend',endTouchGesture,{passive:true});
+    svg.addEventListener('touchcancel',endTouchGesture,{passive:true});
+    // Don't open a pin accidentally as fingers leave the map after pinching.
+    svg.addEventListener('click',event=>{
+      if(performance.now()<suppressPinClickUntil){event.preventDefault();event.stopImmediatePropagation();}
+    },true);
     // Prevent scroll hijacking: zoom by buttons; Ctrl + wheel also supported on desktop.
     svg.addEventListener('wheel',e=>{
       if(!e.ctrlKey)return;e.preventDefault();zoom(e.deltaY>0?1.12:.89);

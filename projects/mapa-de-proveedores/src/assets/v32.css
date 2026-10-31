@@ -1,0 +1,46 @@
+/* V32 · MapLibre interactive atlas. The geometry stays in local GeoJSON.
+   MapLibre owns touch handling; old custom SVG gesture styles must not apply. */
+.represent-section #map{position:relative;overflow:hidden;background:#15364d!important;width:100%;height:100%;touch-action:pan-y}
+.represent-section #map .maplibregl-control-container,
+.represent-section #map .maplibregl-ctrl{font-family:var(--font)}
+.represent-section #map .maplibregl-ctrl-bottom-left{bottom:2px;left:4px;max-width:55%}
+.represent-section #map .maplibregl-ctrl-attrib{background:rgba(7,24,38,.76)!important;color:#e0c994!important;font-size:9px!important;padding:3px 5px!important}
+.represent-section #map .maplibregl-ctrl-attrib a{color:#f6d68e!important}
+.represent-section #map .maplibregl-ctrl-attrib-button{background-color:#0b283a!important;border-radius:100%}
+.represent-section #map .maplibregl-cooperative-gesture-screen{background:rgba(3,18,32,.42)!important}
+.represent-section #map .maplibregl-cooperative-gesture-screen p{background:rgba(6,23,39,.94);border:1px solid #dfb76e;border-radius:10px;padding:11px 13px;color:#fff1ce;font:600 12px/1.4 var(--font)}
+/* True DOM markers, anchored and projected by MapLibre itself. */
+.represent-section .atlas-maplibre-pin{
+ display:flex;align-items:center;justify-content:center;
+ width:30px;height:30px;padding:0;border-radius:50%;
+ border:3px solid #f2c778;background:#08233b;
+ box-shadow:0 0 0 6px rgba(235,195,119,.23),0 3px 14px rgba(1,12,24,.65);
+ transform:translateZ(0);cursor:pointer;transition:box-shadow .2s,background .2s,border-color .2s;
+ pointer-events:auto;
+}
+.represent-section .atlas-maplibre-pin .atlas-pin-core{width:9px;height:9px;border-radius:50%;background:#efcd87;pointer-events:none}
+.represent-section .atlas-maplibre-pin:hover,.represent-section .atlas-maplibre-pin.selected{background:#e1b563;border-color:#fff1c8;box-shadow:0 0 0 9px rgba(232,190,105,.3),0 5px 18px #001523}
+.represent-section .atlas-maplibre-pin.selected .atlas-pin-core{background:#071c2d}
+.represent-section .atlas-maplibre-pin:focus-visible{outline:3px solid #fff;outline-offset:7px}
+.represent-section .map-note{z-index:6;pointer-events:none;bottom:10px!important}
+.represent-section .map-overlay-top{z-index:7!important}
+.represent-section .map-mobile-list-btn{z-index:7!important}
+.represent-section .map-tools{z-index:7!important}
+.represent-section .atlas-compass{z-index:6!important}
+.represent-section #map .v32-fallback-map{width:100%;height:100%;object-fit:contain;background:#14364b}
+.represent-section #map .v32-fallback-notice{position:absolute;left:10%;right:10%;top:43%;padding:12px;background:#092239f0;border:1px solid #eac57e;border-radius:10px;color:#fff1cf;font-size:12px;line-height:1.5;text-align:center;z-index:4;box-shadow:0 15px 30px #0007}
+.represent-section .map-overlay-top>span{background:rgba(255,240,207,.97)!important}
+@media(max-width:680px){
+ .represent-section #map{touch-action:pan-y!important}
+ .represent-section .atlas-maplibre-pin{width:26px;height:26px;border-width:2.5px;box-shadow:0 0 0 5px rgba(234,191,110,.28),0 3px 12px #0007}
+ .represent-section .atlas-maplibre-pin .atlas-pin-core{width:8px;height:8px}
+ .represent-section #map .maplibregl-ctrl-bottom-left{bottom:1px;left:1px;max-width:47%}
+ .represent-section .map-note{display:none!important}
+ .represent-section .map-gesture-hint{bottom:9px!important;z-index:7}
+ .represent-section .map-mobile-list-btn{bottom:54px!important;right:9px!important}
+}
+
+/* V34: allow native tap events on MapLibre markers even with cooperative gestures. */
+@media(max-width:680px){
+ .represent-section .atlas-maplibre-pin{min-width:44px;min-height:44px;touch-action:manipulation}
+}

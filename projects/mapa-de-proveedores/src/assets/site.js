@@ -61,85 +61,96 @@
     });
   });
 
-  // --- American vector map: entirely local, no API keys / no tile CDN ---
-  const SVG_NS = 'http://www.w3.org/2000/svg';
-  const MAP_W = 1200, MAP_H = 980;
-  const FULL = {x:0, y:0, w:MAP_W, h:MAP_H};
-  const merc = lat => Math.log(Math.tan(Math.PI/4 + (Math.max(-83,Math.min(83,lat))*Math.PI/180)/2));
-  const mercMax=merc(83), mercMin=merc(-58);
-  const pt = (lon,lat) => ({x:(lon+171)/149*MAP_W, y:(mercMax-merc(lat))/(mercMax-mercMin)*MAP_H});
-  let svg = null, pinLayer = null, places = [], shown = [], active = null, pins = new Map();
-  let activeRegion = 'todos';
-  let camera = {...FULL}, cameraTween = null;
-  const regionSelect = $('region-filter'), detail = $('detail-pane'), backdrop = $('overlay-backdrop');
-  const detailHome = detail?.parentNode;
-  const fieldNames = {tipo:'Rol comercial',razon_social:'Razón social',contacto:'Persona de contacto',telefono:'Teléfono',whatsapp:'WhatsApp',email:'Correo electrónico',direccion:'Dirección',web:'Sitio web',horario:'Horario'};
-  const screenIsMobile = () => matchMedia('(max-width:680px)').matches;
-
-  function openList() {
-    if (!screenIsMobile()) return;
-    $('locator-list-panel')?.classList.add('open');
-    $('locator-list-panel')?.setAttribute('aria-modal','true');
-    $('list-sheet-backdrop')?.classList.add('is-visible');
-    document.body.classList.add('list-panel-open');
-    $('open-list')?.setAttribute('aria-expanded','true');
-  }
-  function closeList() {
+  // --- GL&AS V32 — MapLibre GL JS with local Natural Earth GeoJSON (only Americas) ---
+  let map=null, svgFallback=null, places=[],shown=[],active=null,markers=new Map(),activeRegion='todos';
+  const mapHolder=$('map'),regionSelect=$('region-filter'),detail=$('detail-pane'),backdrop=$('overlay-backdrop');
+  const detailHome=detail?.parentNode;
+  const mobile=()=>window.matchMedia('(max-width:680px)').matches;
+  const fieldNames={tipo:'Rol comercial',razon_social:'Razón social',contacto:'Persona de contacto',telefono:'Teléfono',whatsapp:'WhatsApp',email:'Correo electrónico',direccion:'Dirección',web:'Sitio web',horario:'Horario'};
+  const BOUNDS={
+    todos:[[-168,-57],[-30,79]],
+    norte:[[-170,9],[-49,77]],
+    central:[[-113,4],[-57,30]],
+    sur:[[-84,-57],[-31,16]]
+  };
+  const MAX_BOUNDS=[[-180,-61],[-20,84]];
+  const defaultPadding=()=>mobile()?{top:75,bottom:88,left:15,right:15}:{top:52,bottom:52,left:45,right:45};
+  const closeList=()=>{
     $('locator-list-panel')?.classList.remove('open');
     $('locator-list-panel')?.setAttribute('aria-modal','false');
     $('list-sheet-backdrop')?.classList.remove('is-visible');
     document.body.classList.remove('list-panel-open');
     $('open-list')?.setAttribute('aria-expanded','false');
-  }
-  $('open-list')?.setAttribute('aria-expanded','false');
+  };
+  const openList=()=>{
+    if(!mobile())return;
+    $('locator-list-panel')?.classList.add('open');
+    $('locator-list-panel')?.setAttribute('aria-modal','true');
+    $('list-sheet-backdrop')?.classList.add('is-visible');
+    document.body.classList.add('list-panel-open');
+    $('open-list')?.setAttribute('aria-expanded','true');
+  };
   $('open-list')?.addEventListener('click',openList);
   $('close-list')?.addEventListener('click',closeList);
   $('list-sheet-backdrop')?.addEventListener('click',closeList);
+  $('open-list')?.setAttribute('aria-expanded','false');
 
-  function closeDetail() {
-    active = null;
+  const closeDetail=()=>{
+    active=null;
     detail?.classList.remove('open');
-    if(detailHome && detail?.parentNode!==detailHome)detailHome.appendChild(detail); detail?.setAttribute('aria-hidden','true');
-    if(backdrop) backdrop.hidden=true;
+    if(detailHome&&detail?.parentNode!==detailHome)detailHome.appendChild(detail);
+    detail?.setAttribute('aria-hidden','true');
     detail?.setAttribute('aria-modal','false');
+    if(backdrop)backdrop.hidden=true;
     document.body.classList.remove('panel-open');
     document.querySelectorAll('.locator-item.active').forEach(el=>el.classList.remove('active'));
-    pins.forEach(g=>g.classList.remove('selected'));
-  }
-  window.addEventListener('resize', () => { if(!screenIsMobile()){closeList();if(detail?.classList.contains('open')){backdrop.hidden=true;document.body.classList.remove('panel-open');detail?.setAttribute('aria-modal','false');}} },{passive:true});
+    markers.forEach(m=>m.getElement()?.classList.remove('selected'));
+    svgFallback?.clearSelected();
+  };
   $('detail-close')?.addEventListener('click',closeDetail);
   backdrop?.addEventListener('click',closeDetail);
-  document.addEventListener('keydown', e=>{if(e.key==='Escape'){closeList();closeDetail();}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeList();closeDetail();}});
+  window.addEventListener('resize',()=>{
+    if(!mobile()){
+      closeList();
+      if(detail?.classList.contains('open')){
+        if(backdrop)backdrop.hidden=true;
+        document.body.classList.remove('panel-open');
+        detail?.setAttribute('aria-modal','false');
+      }
+    }
+    map?.resize();
+  },{passive:true});
 
-  function addField(container,label,value) {
-    if(value==null || String(value).trim()==='') return;
+  function addField(container,label,value){
+    if(value==null||String(value).trim()==='')return;
     const row=document.createElement('div');row.className='detail-field';
     const info=document.createElement('div'),k=document.createElement('label'),v=document.createElement('span');
     k.textContent=label;v.textContent=String(value);info.append(k,v);
     const copy=document.createElement('button');copy.type='button';copy.className='field-copy';
-    copy.innerHTML=svgIcon("copy");copy.title='Copiar '+label.toLowerCase();
+    copy.innerHTML=svgIcon('copy');copy.title='Copiar '+label.toLowerCase();
     copy.setAttribute('aria-label','Copiar '+label.toLowerCase());
     copy.addEventListener('click',()=>copyText(String(value)));
     row.append(info,copy);container.append(row);
   }
-  function selectPlace(item,move=true) {
-    if(!item) return;
+  function selectPlace(item,move=true){
+    if(!item)return;
     active=item;closeList();
     $('detail-title').textContent=item.nombre;
     $('detail-location').textContent=[item.ciudad,item.pais].filter(Boolean).join(' · ');
     const fields=$('detail-fields');fields.replaceChildren();
     Object.entries(fieldNames).forEach(([key,label])=>addField(fields,label,item[key]));
     addField(fields,'Ciudad',item.ciudad);addField(fields,'País',item.pais);
-    if(screenIsMobile() && detail.parentNode!==document.body)document.body.appendChild(detail);
-    detail.classList.add('open');detail.setAttribute('aria-hidden','false');detail.setAttribute('aria-modal',screenIsMobile()?'true':'false');
-    if(screenIsMobile()){backdrop.hidden=false;document.body.classList.add('panel-open');}
+    if(mobile()&&detail.parentNode!==document.body)document.body.appendChild(detail);
+    detail.classList.add('open');detail.setAttribute('aria-hidden','false');
+    detail.setAttribute('aria-modal',mobile()?'true':'false');
+    if(mobile()){if(backdrop)backdrop.hidden=false;document.body.classList.add('panel-open');}
     document.querySelectorAll('.locator-item').forEach(el=>el.classList.toggle('active',el.dataset.id===item.id));
-    pins.forEach((g,id)=>g.classList.toggle('selected',id===item.id));
-    const node=pins.get(item.id);if(node && pinLayer)pinLayer.appendChild(node);
-    if(move && svg){
-      const p=pt(item.lng,item.lat),w=screenIsMobile()?420:440,h=w*MAP_H/MAP_W;
-      moveCamera({x:p.x-w*(screenIsMobile()?.50:.62),y:p.y-h*.48,w,h});
-    }
+    markers.forEach((m,id)=>m.getElement().classList.toggle('selected',id===item.id));
+    svgFallback?.select(item.id);
+    if(move&&map){
+      map.easeTo({center:[item.lng,item.lat],zoom:Math.max(3.2,map.getZoom()),duration:850,essential:true});
+    } else if(move&&svgFallback){svgFallback.focus(item);}
   }
   $('copy-all')?.addEventListener('click',()=>{
     if(!active)return;
@@ -149,171 +160,168 @@
     lines.push('Demostración: datos de ejemplo');copyText(lines.join('\n'));
   });
 
-  const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
-  function normalizeView(v){
-    let w=clamp(v.w,190,MAP_W),h=w*MAP_H/MAP_W;
-    return {x:clamp(v.x,0,MAP_W-w),y:clamp(v.y,0,MAP_H-h),w,h};
-  }
-  function paintCamera(){if(svg)svg.setAttribute('viewBox',[camera.x,camera.y,camera.w,camera.h].map(x=>x.toFixed(2)).join(' '));}
-  function moveCamera(view,animate=true){
-    const to=normalizeView(view);
-    if(cameraTween){cameraTween.kill?.();cameraTween=null;}
-    if(animate && !reducedMotion && window.gsap){cameraTween=gsap.to(camera,{...to,duration:.9,ease:'power3.inOut',onUpdate:paintCamera});}
-    else {Object.assign(camera,to);paintCamera();}
-  }
-  function resetView(){moveCamera(FULL);}
-  const REGION_VIEWS={todos:FULL,norte:{x:18,y:5,w:885},central:{x:490,y:445,w:480},sur:{x:605,y:552,w:520}};
-  function viewFor(region){const o=REGION_VIEWS[region]||FULL;return { ...o,h:(o.w||1200)*MAP_H/MAP_W };}
-  $('map-reset')?.addEventListener('click',()=>{closeDetail();if(regionSelect){regionSelect.value='todos';activeRegion='todos';updateRegion(false);}resetView();});
-  function zoom(factor){const w=clamp(camera.w*factor,190,1200);const h=w*MAP_H/MAP_W;moveCamera({x:camera.x+(camera.w-w)/2,y:camera.y+(camera.h-h)/2,w,h});}
-  $('vector-zoom-in')?.addEventListener('click',()=>zoom(.72));
-  $('vector-zoom-out')?.addEventListener('click',()=>zoom(1.4));
-
-  function buildPin(item){
-    const p=pt(item.lng,item.lat),g=document.createElementNS(SVG_NS,'g');g.setAttribute('class','map-pin');
-    g.setAttribute('transform',`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`);
-    g.setAttribute('tabindex','0');g.setAttribute('role','button');
-    g.setAttribute('aria-label',`${item.nombre}, ${item.ciudad}, ${item.pais}. Abrir ficha`);
-    const halo=document.createElementNS(SVG_NS,'circle');halo.setAttribute('r','28');halo.setAttribute('class','pin-halo');
-    const ring=document.createElementNS(SVG_NS,'circle');ring.setAttribute('r','15');ring.setAttribute('class','pin-ring');
-    const core=document.createElementNS(SVG_NS,'circle');core.setAttribute('r','6');core.setAttribute('class','pin-core');
-    const title=document.createElementNS(SVG_NS,'title');title.textContent=item.nombre;
-    g.append(halo,ring,core,title);
-    g.addEventListener('click',e=>{e.stopPropagation();selectPlace(item);});
-    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectPlace(item);}});
-    return g;
-  }
-  function paintPins(){
-    if(!pinLayer) return;
-    pinLayer.replaceChildren();pins.clear();
-    for(const item of shown){const p=buildPin(item);pins.set(item.id,p);pinLayer.append(p);}
-  }
   function renderList(){
-    const holder=$('locator-items');holder.replaceChildren();
+    const holder=$('locator-items');if(!holder)return;holder.replaceChildren();
     $('count-label').textContent=`${shown.length} ${shown.length===1?'ubicación':'ubicaciones'} de demostración`;
     $('mobile-count').textContent=String(shown.length);
     if(!shown.length){const p=document.createElement('p');p.className='locator-empty';p.textContent='Todavía no hay representantes cargados en esta región.';holder.append(p);return;}
     shown.forEach(item=>{
       const b=document.createElement('button');b.type='button';b.className='locator-item';b.dataset.id=item.id;
-      const pin=document.createElement('span');pin.className='item-pin';pin.innerHTML=svgIcon("geo-alt");
+      const pin=document.createElement('span');pin.className='item-pin';pin.innerHTML=svgIcon('geo-alt');
       const content=document.createElement('span');content.className='item-content';
       const title=document.createElement('strong');title.textContent=item.nombre;
       const sub=document.createElement('small');sub.textContent=[item.ciudad,item.pais].filter(Boolean).join(', ');
       content.append(title,sub);
-      const arrow=document.createElement('span');arrow.className='item-arrow';arrow.innerHTML=svgIcon("arrow-up-right");
+      const arrow=document.createElement('span');arrow.className='item-arrow';arrow.innerHTML=svgIcon('arrow-up-right');
       b.append(pin,content,arrow);b.addEventListener('click',()=>selectPlace(item));holder.append(b);
+    });
+  }
+  function markerEl(item){
+    const el=document.createElement('button');el.type='button';el.className='atlas-maplibre-pin';
+    el.setAttribute('aria-label',`${item.nombre}, ${item.ciudad}, ${item.pais}. Abrir ficha`);
+    el.title=[item.nombre,item.ciudad,item.pais].filter(Boolean).join(' · ');
+    el.innerHTML='<span aria-hidden="true" class="atlas-pin-core"></span>';
+    // Some mobile WebGL engines cancel synthetic clicks when gestures are enabled.
+    // Handle a short, single-finger tap directly, without opening during a pinch.
+    let touchStart=null;
+    let ignoreClickUntil=0;
+    el.addEventListener('touchstart',e=>{
+      if(e.touches.length!==1){touchStart=null;return;}
+      const t=e.touches[0];
+      touchStart={id:t.identifier,x:t.clientX,y:t.clientY,time:performance.now(),moved:false};
+    },{passive:true});
+    el.addEventListener('touchmove',e=>{
+      if(!touchStart||e.touches.length!==1){touchStart=null;return;}
+      const t=e.touches[0];
+      if(Math.hypot(t.clientX-touchStart.x,t.clientY-touchStart.y)>12)touchStart.moved=true;
+    },{passive:true});
+    el.addEventListener('touchend',e=>{
+      const start=touchStart;touchStart=null;
+      if(!start||e.touches.length||start.moved)return;
+      const t=Array.from(e.changedTouches).find(t=>t.identifier===start.id);
+      if(!t||Math.hypot(t.clientX-start.x,t.clientY-start.y)>14||performance.now()-start.time>850)return;
+      ignoreClickUntil=performance.now()+900;
+      if(e.cancelable)e.preventDefault();
+      e.stopPropagation();
+      selectPlace(item,false);
+    },{passive:false});
+    el.addEventListener('touchcancel',()=>{touchStart=null;},{passive:true});
+    el.addEventListener('click',e=>{
+      e.stopPropagation();
+      if(performance.now()>=ignoreClickUntil)selectPlace(item,false);
+    });
+    return el;
+  }
+  function paintMarkers(){
+    markers.forEach(m=>m.remove());markers.clear();
+    if(svgFallback){svgFallback.setItems(shown);return;}
+    if(!map)return;
+    shown.forEach(item=>{
+      const marker=new maplibregl.Marker({element:markerEl(item),anchor:'center'})
+        .setLngLat([item.lng,item.lat]).addTo(map);
+      markers.set(item.id,marker);
     });
   }
   function updateRegion(move=true){
     activeRegion=regionSelect?.value||'todos';closeDetail();
     shown=places.filter(p=>activeRegion==='todos'||p.region===activeRegion);
-    renderList();paintPins();
-    if(move && svg)moveCamera(viewFor(activeRegion));
+    renderList();paintMarkers();
+    if(move&&map)map.fitBounds(BOUNDS[activeRegion],{padding:defaultPadding(),duration:750,essential:true,maxZoom:4.1});
+    else if(move&&svgFallback)svgFallback.region(activeRegion);
   }
   regionSelect?.addEventListener('change',()=>updateRegion(true));
+  $('map-reset')?.addEventListener('click',()=>{
+    if(regionSelect)regionSelect.value='todos';
+    updateRegion(false);
+    map?.fitBounds(BOUNDS.todos,{padding:defaultPadding(),duration:850,essential:true});
+    svgFallback?.reset();
+  });
+  $('vector-zoom-in')?.addEventListener('click',()=>{if(map)map.zoomIn({duration:350});else svgFallback?.zoom(.72);});
+  $('vector-zoom-out')?.addEventListener('click',()=>{if(map)map.zoomOut({duration:350});else svgFallback?.zoom(1.4);});
 
-  function addPanZoom(){
-    if(!svg)return;
-    let drag=null;
-    svg.addEventListener('pointerdown',e=>{
-      if(e.pointerType==='touch'||e.button!==0||e.target.closest('.map-pin'))return;
-      drag={clientX:e.clientX,clientY:e.clientY,view:{...camera}};
-      svg.classList.add('is-dragging');svg.setPointerCapture(e.pointerId);
-    });
-    svg.addEventListener('pointermove',e=>{
-      if(!drag)return;
-      const rect=svg.getBoundingClientRect();
-      const scale=Math.max(drag.view.w/rect.width,drag.view.h/rect.height);
-      Object.assign(camera,normalizeView({x:drag.view.x-(e.clientX-drag.clientX)*scale,y:drag.view.y-(e.clientY-drag.clientY)*scale,w:drag.view.w}));
-      paintCamera();
-    });
-    const finish=()=>{drag=null;svg.classList.remove('is-dragging');};
-    svg.addEventListener('pointerup',finish);svg.addEventListener('pointercancel',finish);
-    // V30: two-finger map exploration on phones. One finger still scrolls the page.
-    // Map viewBox camera is native SVG; no external tile service is needed.
-    let gesture = null;
-    let suppressPinClickUntil = 0;
-    const midpoint = (a, b) => ({x:(a.clientX+b.clientX)/2,y:(a.clientY+b.clientY)/2});
-    const fingerDistance = (a, b) => Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
-    const worldAt = (clientX,clientY) => {
-      const p=svg.createSVGPoint();p.x=clientX;p.y=clientY;
-      const ctm=svg.getScreenCTM();
-      return ctm ? p.matrixTransform(ctm.inverse()) : {x:camera.x+camera.w/2,y:camera.y+camera.h/2};
-    };
-    svg.addEventListener('touchstart', event => {
-      if (!screenIsMobile() || event.touches.length!==2) return;
-      if (cameraTween) {cameraTween.kill?.();cameraTween=null;}
-      const [a,b]=event.touches;
-      const mid=midpoint(a,b);
-      const anchor=worldAt(mid.x,mid.y);
-      gesture={distance:Math.max(1,fingerDistance(a,b)),w:camera.w,anchor};
-      svg.classList.add('is-touch-exploring');
-      svg.closest('.map-pane')?.classList.add('has-touch-explored');
-      // Only the deliberate two-finger gesture suppresses browser page movement.
-      if (event.cancelable) event.preventDefault();
-    },{passive:false});
-    svg.addEventListener('touchmove', event => {
-      if(!gesture || event.touches.length!==2) return;
-      const [a,b]=event.touches;
-      const mid=midpoint(a,b);
-      const distance=Math.max(1,fingerDistance(a,b));
-      const w=clamp(gesture.w*gesture.distance/distance,190,MAP_W);
-      const h=w*MAP_H/MAP_W;
-      const rect=svg.getBoundingClientRect();
-      const scale=Math.min(rect.width/w,rect.height/h);
-      if(!Number.isFinite(scale)||scale<=0) return;
-      // Account for preserveAspectRatio="xMidYMid meet" letterboxing.
-      const contentLeft=rect.left+(rect.width-w*scale)/2;
-      const contentTop=rect.top+(rect.height-h*scale)/2;
-      Object.assign(camera,normalizeView({
-        x:gesture.anchor.x-(mid.x-contentLeft)/scale,
-        y:gesture.anchor.y-(mid.y-contentTop)/scale,
-        w
-      }));
-      paintCamera();
-      if(event.cancelable) event.preventDefault();
-    },{passive:false});
-    const endTouchGesture = event => {
-      if(!gesture || event.touches.length>=2) return;
-      gesture=null;
-      svg.classList.remove('is-touch-exploring');
-      suppressPinClickUntil=performance.now()+400;
-    };
-    svg.addEventListener('touchend',endTouchGesture,{passive:true});
-    svg.addEventListener('touchcancel',endTouchGesture,{passive:true});
-    // Don't open a pin accidentally as fingers leave the map after pinching.
-    svg.addEventListener('click',event=>{
-      if(performance.now()<suppressPinClickUntil){event.preventDefault();event.stopImmediatePropagation();}
-    },true);
-    // Prevent scroll hijacking: zoom by buttons; Ctrl + wheel also supported on desktop.
-    svg.addEventListener('wheel',e=>{
-      if(!e.ctrlKey)return;e.preventDefault();zoom(e.deltaY>0?1.12:.89);
-    },{passive:false});
+  function linesGeojson(){
+    const feats=[];
+    for(let lon=-180;lon<=-20;lon+=20){
+      feats.push({type:'Feature',geometry:{type:'LineString',coordinates:Array.from({length:74},(_,i)=>[lon,-60+i*2])},properties:{}});
+    }
+    for(let lat=-60;lat<=80;lat+=20){
+      feats.push({type:'Feature',geometry:{type:'LineString',coordinates:Array.from({length:81},(_,i)=>[-180+i*2,lat])},properties:{}});
+    }
+    return {type:'FeatureCollection',features:feats};
+  }
+  function geoStyle(geo){
+    return {version:8,name:'Atlas GL&AS · América',sources:{
+      paises:{type:'geojson',data:geo},
+      cuadricula:{type:'geojson',data:linesGeojson()}
+    },layers:[
+      {id:'oceano',type:'background',paint:{'background-color':'#173b52'}},
+      {id:'cuadricula',type:'line',source:'cuadricula',paint:{'line-color':'#b7c7bc','line-opacity':0.18,'line-width':0.65}},
+      {id:'pais-sombra',type:'line',source:'paises',paint:{'line-color':'#081a29','line-opacity':.55,'line-width':3,'line-blur':2}},
+      {id:'territorios',type:'fill',source:'paises',paint:{'fill-color':'#eddfbe','fill-opacity':1}},
+      {id:'fronteras',type:'line',source:'paises',paint:{'line-color':'#c7a66e','line-opacity':0.9,'line-width':1.15}}
+    ]};
+  }
+  async function fallback(reason){
+    // The external MapLibre CDN or WebGL can be disabled by browser protection.
+    // Keep all filters, markers, touch gestures, and details working without it.
+    console.warn('MapLibre no disponible; activando atlas SVG interactivo local:',reason);
+    if(map){try{map.remove()}catch(_){ }map=null;}
+    if(!places.length){
+      try{const r=await fetch('data/representantes.json',{cache:'no-cache'});
+        if(r.ok){const rows=await r.json();places=Array.isArray(rows)?rows:[];}}
+      catch(_){/* continue with available list */}
+    }
+    shown=places.filter(p=>activeRegion==='todos'||p.region===activeRegion);
+    try{
+      svgFallback=new window.InteractiveAmericasFallback(mapHolder,(item)=>selectPlace(item,false));
+      await svgFallback.init();
+      renderList();svgFallback.setItems(shown);svgFallback.region(activeRegion);
+      const badge=mapHolder.closest('.map-pane')?.querySelector('.map-overlay-top>span');
+      if(badge)badge.textContent='◈  AMÉRICA · MAPA INTERACTIVO';
+      mapHolder.setAttribute('aria-label','Mapa SVG interactivo de América con representantes. Dos dedos para explorar en móviles.');
+    }catch(error){
+      console.error('Error en el mapa local:',error);
+      mapHolder.innerHTML='<img class="map-static-preview" alt="Mapa de América" src="assets/americas-base.svg"/><div class="v32-fallback-notice">No fue posible abrir el mapa. Consultá los representantes desde la lista.</div>';
+      renderList();
+    }
   }
   async function initMap(){
     try{
-      // SVG is shipped with the project. It never requests external tiles.
-      const [mapResult,dataResult]=await Promise.all([
-        fetch('assets/americas-base.svg'),fetch('data/representantes.json',{cache:'no-cache'})
+      const [geores,datares]=await Promise.all([
+        fetch('data/americas.geojson'),fetch('data/representantes.json',{cache:'no-cache'})
       ]);
-      if(!mapResult.ok||!dataResult.ok)throw Error('No se pudieron abrir los archivos locales');
-      const [svgText,source]=await Promise.all([mapResult.text(),dataResult.json()]);
-      if(!Array.isArray(source))throw Error('El JSON de representantes no es una lista');
-      places=source.filter(p=>p.nombre && ['norte','central','sur'].includes(p.region) && Number.isFinite(p.lat)&&Number.isFinite(p.lng) && p.lat>=-58&&p.lat<=83&&p.lng>=-171&&p.lng<=-22);
-      const parsed=new DOMParser().parseFromString(svgText,'image/svg+xml').documentElement;
-      if(parsed.tagName.toLowerCase()!=='svg')throw Error('SVG local inválido');
-      const holder=$('map');holder.replaceChildren(document.importNode(parsed,true));
-      svg=holder.querySelector('svg');svg.id='americas-svg';svg.setAttribute('preserveAspectRatio','xMidYMid meet');
-      svg.setAttribute('aria-label','Mapa interactivo vectorial únicamente de América');
-      pinLayer=svg.querySelector('#vector-marker-layer');
-      paintCamera();updateRegion(false);addPanZoom();
-      const badge=holder.closest('.map-pane')?.querySelector('.map-overlay-top>span');
-      if(badge)badge.innerHTML='<i></i> AMÉRICA · MAPA VECTORIAL';
-    }catch(error){
-      console.error('Error de mapa local:',error);
-      const h=$('map');h.insertAdjacentHTML('beforeend','<div class="map-error">La imagen base de América está disponible; verificá el servidor local para activar los marcadores.</div>');
-      try{const result=await fetch('data/representantes.json');if(result.ok){places=await result.json();updateRegion(false);}}catch(_){/* graceful fallback */}
-    }
+      if(!geores.ok||!datares.ok)throw Error('No se pudieron cargar los datos del atlas');
+      const [geo,data]=await Promise.all([geores.json(),datares.json()]);
+      if(!Array.isArray(data)||geo?.type!=='FeatureCollection')throw Error('Formato de datos inválido');
+      places=data.filter(p=>p.nombre&&['norte','central','sur'].includes(p.region)&&Number.isFinite(p.lat)&&Number.isFinite(p.lng)&&p.lat>=-60&&p.lat<=84&&p.lng>=-180&&p.lng<=-20);
+      renderList();
+      if(typeof window.maplibregl==='undefined'||!maplibregl.supported?.()){
+        fallback('MapLibre o WebGL no está disponible');return;
+      }
+      map=new maplibregl.Map({
+        container:mapHolder,
+        style:geoStyle(geo),
+        center:[-95,9],zoom:1.2,
+        cooperativeGestures:true,
+        renderWorldCopies:false,
+        maxBounds:MAX_BOUNDS,
+        minZoom:0.7,maxZoom:6.5,
+        maxPitch:0,
+        dragRotate:false,touchPitch:false,pitchWithRotate:false,
+        attributionControl:false
+      });
+      map.on('load',()=>{
+        updateRegion(false);
+        map.fitBounds(BOUNDS.todos,{padding:defaultPadding(),duration:0});
+      });
+      map.on('error',e=>{console.error('MapLibre:',e.error||e);});
+      map.on('touchstart',e=>{
+        if(e.originalEvent?.touches?.length>=2)mapHolder.closest('.map-pane')?.classList.add('has-touch-explored');
+      });
+      map.addControl(new maplibregl.AttributionControl({compact:true,customAttribution:'Natural Earth (dominio público)'}),'bottom-left');
+      const badge=mapHolder.closest('.map-pane')?.querySelector('.map-overlay-top>span');
+      if(badge)badge.textContent='◈  AMÉRICA · MAPLIBRE';
+    }catch(err){fallback(err.message||String(err));}
   }
 
   // --- premium motion. GSAP is progressive enhancement; the site works without its CDN. ---

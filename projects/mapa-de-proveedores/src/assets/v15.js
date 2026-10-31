@@ -40,8 +40,8 @@
       // Floating seal remains outside the photo clipping mask.
       const plaque=seal.firstElementChild;
       const badgeWidth=plaque?.offsetWidth || (innerWidth<=680?143:190);
-      const sealLeft=innerWidth<=680 ? left+8 : left+width-badgeWidth*.52;
-      const sealTop=innerWidth<=680 ? top+height*.07 : top+height*.095;
+      const sealLeft=innerWidth<=680 ? left+11 : left+width-badgeWidth*.52;
+      const sealTop=innerWidth<=680 ? top+10 : top+height*.095;
       seal.style.left=sealLeft.toFixed(2)+'px';
       seal.style.top=sealTop.toFixed(2)+'px';
     }

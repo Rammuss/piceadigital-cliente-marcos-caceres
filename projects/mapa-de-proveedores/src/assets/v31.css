@@ -1,0 +1,33 @@
+/* V31: iOS Safari pinch gestures and smaller hero badge. */
+@media (max-width: 680px) {
+  /* Suppress Safari native pinch/page pan only within the map surface.
+     One-finger page scrolling is emulated in site.js. */
+  .represent-section #map,
+  .represent-section #map svg,
+  .represent-section #map svg * { touch-action: none !important; }
+  .represent-section #map {
+    -webkit-user-select:none !important;
+    user-select:none !important;
+    -webkit-touch-callout:none;
+    overscroll-behavior:contain;
+  }
+  /* The badge no longer covers the role text beneath it. */
+  .hero-seal.hero-seal-custom,
+  .hero-expansion-seal.hero-seal-custom,
+  .hero-seal.hero-seal-custom.hero-plaque-v19,
+  .hero-expansion-seal.hero-seal-custom.hero-plaque-v19 {
+    width: 53px !important;
+    height: 53px !important;
+    min-width: 53px !important;
+    min-height: 53px !important;
+    border: none !important;
+  }
+  .hero.has-hero-pin .hero-seal.hero-seal-custom {
+    left: 11px !important;
+    right: auto !important;
+    top: 10px !important;
+  }
+}
+@media (min-width: 681px) {
+  /* Unchanged desktop badge and mouse map controls. */
+}

@@ -1,0 +1,19 @@
+/* Interactive offline SVG fallback — preserves the luxury atlas style. */
+.represent-section #map.v33-svg-active svg{display:block;width:100%;height:100%;touch-action:none!important;user-select:none;-webkit-user-select:none}
+.represent-section #map.v33-svg-active .map-pin{cursor:pointer;outline:none}
+.represent-section #map.v33-svg-active .map-pin:focus-visible .pin-ring{stroke:#fff!important;stroke-width:6!important}
+.represent-section #map.v33-svg-active{background:#133b56!important}
+.represent-section #map.v33-svg-active .pin-halo{fill:#e4b967;opacity:.3}
+.represent-section #map.v33-svg-active .pin-ring{fill:#082136;stroke:#eac57c;stroke-width:4;filter:drop-shadow(0 4px 7px #061627)}
+.represent-section #map.v33-svg-active .pin-core{fill:#f6d993}
+.represent-section #map.v33-svg-active .map-pin.selected .pin-ring{fill:#e5bc70;stroke:#062238}
+.represent-section #map.v33-svg-active .map-pin.selected .pin-core{fill:#082238}
+
+/* V34: larger invisible hit area around each SVG pin for thumb taps. */
+.represent-section #map.v33-svg-active .pin-touch-zone{
+ fill:rgba(0,0,0,0);pointer-events:all;stroke:none;
+}
+@media(max-width:680px){
+ .represent-section #map.v33-svg-active .map-pin{cursor:pointer}
+ .represent-section #map.v33-svg-active .map-pin:focus{outline:none}
+}

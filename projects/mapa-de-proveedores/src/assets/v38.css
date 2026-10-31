@@ -1,0 +1,57 @@
+/* V38 — doble presencia de marca en portada, directorio fuera de América. */
+.hero-co-brands{display:flex;align-items:center;gap:18px;width:max-content;max-width:100%;margin:0 0 24px;padding:8px 0 12px;border-bottom:1px solid rgba(232,194,121,.32);position:relative;z-index:5}
+.hero-co-brands .hero-brand{display:flex;align-items:center;justify-content:center;position:relative;flex:none;min-height:58px;max-width:100%;padding:5px 0;border-radius:4px;transition:opacity .25s ease,filter .25s ease}
+.hero-co-brands .hero-brand:hover{opacity:.88;filter:brightness(1.13)}
+.hero-co-brands .hero-brand:focus-visible{outline:2px solid #f0ca87;outline-offset:6px}
+.hero-brand-glas img{display:block!important;width:132px!important;height:48px!important;object-fit:contain!important}
+.hero-brand-chiaramonte img{display:block!important;width:229px!important;height:48px!important;object-fit:contain!important}
+.hero-brand-divider{display:block;flex:none;width:1px;height:42px;background:rgba(226,193,129,.50)}
+.hero-brand-external{position:absolute;color:#e8c17d;font-size:16px;right:-10px;top:0;line-height:1}
+.hero.has-hero-pin .hero-layout{padding-top:118px!important}
+/* A small horizontal section separate from the American atlas, no map enlargement. */
+.extra-network{margin-top:30px;background:linear-gradient(115deg,#10293e,#081c30);border:1px solid rgba(229,189,116,.52);border-radius:16px;overflow:hidden;box-shadow:0 18px 45px rgba(1,10,17,.23);color:#f8efdf}
+.extra-network-head{display:flex;gap:26px;justify-content:space-between;align-items:center;padding:29px 33px}
+.extra-network-intro{flex:1;min-width:0}
+.extra-network-eyebrow{display:block;color:#e3b86c;font-size:10px;letter-spacing:.17em;font-weight:800;margin-bottom:9px}
+.extra-network h3{font:500 clamp(27px,2.7vw,38px)/1.2 Georgia,'Times New Roman',serif;margin:0 0 8px;letter-spacing:-.02em;color:#fbf1dc}
+.extra-network-intro p{color:#bbc8d1;font-size:12px;line-height:1.6;margin:0}
+.extra-network-toggle{appearance:none;border:1px solid #e3bc79;background:#e5c17e;color:#091e33;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 19px;border-radius:7px;font:800 12px/1.3 var(--font,Arial,sans-serif);cursor:pointer;white-space:nowrap;transition:background .2s,transform .2s}
+.extra-network-toggle:hover{background:#f4d393;transform:translateY(-1px)}
+.extra-network-toggle:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.extra-network-button-icon{font-size:17px}
+.extra-network-chevron{font-size:24px;line-height:.5;transform:translateY(-3px);transition:transform .25s}
+.extra-network-toggle[aria-expanded="true"] .extra-network-chevron{transform:rotate(180deg) translateY(2px)}
+.extra-network-body{padding:24px 33px 28px;border-top:1px solid rgba(226,187,112,.3);background:#07192b}
+.extra-network-body[hidden]{display:none!important}
+.extra-network-results{display:grid;gap:20px}
+.extra-region{display:grid;grid-template-columns:180px minmax(0,1fr);gap:25px;align-items:start}
+.extra-region-title{margin:0;display:flex;align-items:center;gap:12px;color:#f1c97d;font:800 12px/1.3 var(--font,Arial,sans-serif);letter-spacing:.13em;text-transform:uppercase}
+.extra-region-title::before{content:'';width:22px;height:1px;background:#bd9658}
+.extra-country-list{display:grid;gap:8px}
+.extra-country{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:12px;align-items:center;background:rgba(255,255,255,.035);border:1px solid rgba(226,187,112,.22);padding:15px 16px;border-radius:8px}
+.extra-country-index{font:500 22px/1 Georgia,serif;color:#d3ad6c}
+.extra-country-name{font-size:15px;font-weight:700;color:#faf0dd}
+.extra-country-sub{font-size:11px;color:#adbcc6;margin-top:4px}
+.extra-country-meta{font-size:10px;font-weight:700;color:#e4c38d;text-align:right}
+.extra-country a{color:#eed094;text-decoration:underline;text-underline-offset:4px}
+.extra-network-empty{padding:16px 0;color:#c6cfd7;font-size:13px;line-height:1.6}
+@media(max-width:900px){.extra-region{grid-template-columns:1fr;gap:13px}}
+@media(max-width:680px){
+ .hero-co-brands{width:100%;justify-content:center;gap:11px;margin:0 0 15px;padding:3px 0 10px}
+ .hero-co-brands .hero-brand{min-height:41px;padding:0}
+ .hero-brand-glas img{width:105px!important;height:39px!important}
+ .hero-brand-chiaramonte img{width:187px!important;height:39px!important}
+ .hero-brand-divider{height:36px}
+ .hero-brand-external{font-size:13px;right:-5px}
+ .hero.has-hero-pin .hero-layout{padding-top:89px!important}
+ .extra-network{margin-top:19px;border-radius:12px}
+ .extra-network-head{display:grid;gap:17px;padding:23px 19px}
+ .extra-network h3{font-size:28px;line-height:1.14}
+ .extra-network-toggle{width:100%;justify-content:center;min-height:46px}
+ .extra-network-body{padding:21px 16px}
+ .extra-country{grid-template-columns:28px minmax(0,1fr);gap:9px;padding:13px}
+ .extra-country-meta{grid-column:2;text-align:left}
+ .extra-region-title{font-size:11px}
+}
+@media(max-width:375px){.hero-co-brands{gap:8px}.hero-brand-glas img{width:99px!important;height:35px!important}.hero-brand-chiaramonte img{width:176px!important;height:35px!important}}
+@media(prefers-reduced-motion:reduce){.hero-brand,.extra-network-toggle{transition:none!important}}

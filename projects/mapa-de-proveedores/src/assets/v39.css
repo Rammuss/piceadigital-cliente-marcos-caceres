@@ -1,0 +1,33 @@
+/* V39 — logotipos juntos a la izquierda en el navbar de escritorio.
+   Mobile (hasta 1160px) conserva EXACTAMENTE la estructura visual de V38. */
+@media (min-width:1161px) {
+ .site-header .nav-shell {gap:13px!important;padding-left:19px!important;padding-right:18px!important}
+ .site-header .brand-group {
+   display:flex!important;align-items:center!important;justify-content:flex-start!important;
+   flex:0 0 auto!important;min-width:0!important;gap:12px!important;margin-right:13px!important;
+ }
+ .site-header .brand-group .brand-glas {display:flex!important;align-items:center!important;justify-content:center!important;flex:none!important;}
+ .site-header .brand-group .brand-glas img {width:148px!important;height:53px!important;object-fit:contain!important;}
+ .site-header .brand-group .brand-divider {display:block!important;flex:none!important;height:43px!important;border-left:1px solid rgba(235,194,122,.48)!important;}
+ .site-header .brand-group .brand-chiaramonte img {width:219px!important;height:53px!important;object-fit:contain!important;}
+ .site-header .brand-group .brand-glas:hover {opacity:.85;}
+ .site-header .brand-group .brand-glas:focus-visible {outline:2px solid #e8bf76;outline-offset:4px;}
+ .site-header .main-nav {min-width:0!important;flex:1 1 auto!important;gap:0!important;}
+ .site-header .main-nav>a[href^="#"] {font-size:12px!important;padding-left:7px!important;padding-right:7px!important;}
+ .site-header .nav-cta {flex:none!important;}
+ .hero.has-hero-pin .hero-co-brands .hero-brand-glas img {width:150px!important;height:53px!important;}
+ .hero.has-hero-pin .hero-co-brands .hero-brand-chiaramonte img {width:245px!important;height:53px!important;}
+ .hero.has-hero-pin .hero-co-brands {gap:14px!important;}
+}
+@media (min-width:1161px) and (max-width:1360px) {
+ .site-header .nav-shell {gap:7px!important;padding-left:13px!important;padding-right:13px!important;}
+ .site-header .brand-group {gap:8px!important;margin-right:4px!important;}
+ .site-header .brand-group .brand-glas img {width:118px!important;height:48px!important;}
+ .site-header .brand-group .brand-chiaramonte img {width:180px!important;height:48px!important;}
+ .site-header .main-nav>a[href^="#"] {font-size:10.7px!important;padding-inline:5px!important;}
+}
+@media(max-width:1160px) {
+ .site-header .desktop-glas-link,
+ .site-header .desktop-brand-divider {display:none!important;}
+ /* Keep the original single-logo mobile navbar and its original dimensions. */
+}

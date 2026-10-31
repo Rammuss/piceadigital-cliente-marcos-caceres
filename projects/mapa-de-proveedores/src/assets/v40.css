@@ -1,0 +1,19 @@
+/* V40 — Marca en navbar; portada editorial sin logos duplicados. */
+/* Las marcas se presentan en el encabezado, no en el contenido principal. */
+@media (min-width:681px) {
+  .hero.has-hero-pin .hero-layout {
+    padding-top:144px!important;
+    padding-bottom:40px!important;
+  }
+  .hero.has-hero-pin .hero-copy .eyebrow {margin-bottom:23px!important;}
+}
+@media (max-width:680px) {
+  .hero.has-hero-pin .hero-layout {padding-top:112px!important;}
+  .hero.has-hero-pin .hero-copy .eyebrow {margin-bottom:15px!important;}
+}
+@media(max-width:375px) {
+  .hero.has-hero-pin .hero-layout {padding-top:103px!important;}
+}
+@media(max-width:680px) and (max-height:750px) {
+  .hero.has-hero-pin .hero-layout {padding-top:98px!important;}
+}

@@ -135,3 +135,12 @@ La imagen anterior `assets/award-5-colgante.png` estaba recortada por abajo desd
 - Móvil: siete reconocimientos en galería horizontal deslizable con zoom al tocar, en lugar del apilado vertical largo; escritorio conserva scroll stack.
 - Actualizados presets y orden de transiciones de sección, y estado activo del navbar.
 - Archivo CSS nuevo para evitar caché: assets/v50-distinciones.css?v=50-20261103.
+
+
+## V51 — Distinciones físicas en móvil
+- Galería horizontal con cards minimalistas y un solo borde.
+- Eliminadas las restricciones de 270–300 px en el área de imagen: ahora mantiene proporciones sin recorte.
+- Siete imágenes regeneradas de la lámina original de reconocimientos con margen real alrededor de cada pieza, incluidos los soportes inferiores.
+- Las ampliaciones utilizan los nuevos archivos de imagen.
+- Hoja de estilo nueva `assets/v51-distinciones-mobile.css` cargada al final para evitar conflictos de cascada/caché.
+- Se conserva la disposición Scroll Stack en PC.

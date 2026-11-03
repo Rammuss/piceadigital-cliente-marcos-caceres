@@ -8,57 +8,50 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Consultorio Demo, inicio"><span class="brand-mark">+</span><span>Consultorio <strong>Demo</strong></span></a>
+    <div class="header-detail"><span class="status-dot"></span> Turnos con confirmaci&oacute;n por WhatsApp</div>
+  </header>
   <main class="appointment-page">
-    <section class="intro">
+    <section class="intro" id="top">
       <span class="eyebrow">Demo de agendamiento</span>
-      <h1>Reservá tu consulta<br><em>en pocos pasos.</em></h1>
-      <p>Elegí el día, horario y dejá tus datos. La recepción recibirá tu solicitud por WhatsApp para confirmar el turno.</p>
-      <div class="intro-note"><span>✓</span> Confirmación personal por recepción</div>
-    </section>
-
-    <section class="booking-card" aria-labelledby="booking-title">
-      <div class="card-heading">
-        <p>Paso <span id="step-number">1</span> de 3</p>
-        <h2 id="booking-title">Elegí una fecha</h2>
+      <h1>Reserv&aacute; tu consulta<br><em>en pocos pasos.</em></h1>
+      <p>Eleg&iacute; el d&iacute;a, horario y dej&aacute; tus datos. La recepci&oacute;n recibir&aacute; tu solicitud por WhatsApp para confirmar el turno.</p>
+      <div class="intro-note"><span>&check;</span> Confirmaci&oacute;n personal por recepci&oacute;n</div>
+      <div class="how-it-works" aria-label="C&oacute;mo funciona">
+        <div><b>1</b><span>Eleg&iacute;s d&iacute;a<br>y horario</span></div>
+        <div><b>2</b><span>Complet&aacute;s<br>tus datos</span></div>
+        <div><b>3</b><span>Recepci&oacute;n<br>confirma</span></div>
       </div>
-
+    </section>
+    <section class="booking-card" aria-labelledby="booking-title">
+      <div class="card-heading"><p>Paso <span id="step-number">1</span> de 3</p><h2 id="booking-title">Eleg&iacute; una fecha</h2></div>
       <form id="booking-form">
         <fieldset class="booking-step is-active" data-step="1">
           <legend class="sr-only">Fecha de consulta</legend>
-          <label for="date">Fecha preferida</label>
-          <input id="date" name="date" type="date" required>
+          <label for="date">Fecha preferida</label><input id="date" name="date" type="date" required>
           <button class="button" type="button" data-next>Siguiente</button>
         </fieldset>
-
         <fieldset class="booking-step" data-step="2">
-          <legend class="sr-only">Horario de consulta</legend>
-          <p class="field-label">Horario preferido</p>
-          <div class="times" role="group" aria-label="Elegí un horario">
-            <button type="button" class="time" data-time="08:00">08:00</button>
-            <button type="button" class="time" data-time="09:00">09:00</button>
-            <button type="button" class="time" data-time="10:00">10:00</button>
-            <button type="button" class="time" data-time="14:00">14:00</button>
-            <button type="button" class="time" data-time="15:00">15:00</button>
-            <button type="button" class="time" data-time="16:00">16:00</button>
+          <legend class="sr-only">Horario de consulta</legend><p class="field-label">Horario preferido</p>
+          <div class="times" role="group" aria-label="Eleg&iacute; un horario">
+            <button type="button" class="time" data-time="08:00">08:00</button><button type="button" class="time" data-time="09:00">09:00</button><button type="button" class="time" data-time="10:00">10:00</button><button type="button" class="time" data-time="14:00">14:00</button><button type="button" class="time" data-time="15:00">15:00</button><button type="button" class="time" data-time="16:00">16:00</button>
           </div>
           <input id="time" name="time" type="hidden" required>
           <div class="actions"><button class="back" type="button" data-back>Volver</button><button class="button" type="button" data-next>Continuar</button></div>
         </fieldset>
-
         <fieldset class="booking-step" data-step="3">
           <legend class="sr-only">Datos de contacto</legend>
-          <label for="name">Nombre y apellido</label>
-          <input id="name" name="name" autocomplete="name" placeholder="Tu nombre completo" required>
-          <label for="phone">Teléfono</label>
-          <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="Ej.: 0981 000 000" required>
-          <label for="reason">Motivo de consulta <span>opcional</span></label>
-          <textarea id="reason" name="reason" rows="3" placeholder="Contanos brevemente en qué podemos ayudarte"></textarea>
-          <div class="actions"><button class="back" type="button" data-back>Volver</button><button class="button button-wa" type="submit">Enviar solicitud por WhatsApp <span>↗</span></button></div>
+          <label for="name">Nombre y apellido</label><input id="name" name="name" autocomplete="name" placeholder="Tu nombre completo" required>
+          <label for="phone">Tel&eacute;fono</label><input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="Ej.: 0981 000 000" required>
+          <label for="reason">Motivo de consulta <span>opcional</span></label><textarea id="reason" name="reason" rows="3" placeholder="Contanos brevemente en qu&eacute; podemos ayudarte"></textarea>
+          <div class="actions"><button class="back" type="button" data-back>Volver</button><button class="button button-wa" type="submit">Enviar solicitud por WhatsApp <span>&nearr;</span></button></div>
         </fieldset>
       </form>
-      <p class="privacy">Al enviar, se abrirá WhatsApp con tu solicitud. El turno queda sujeto a confirmación.</p>
+      <p class="privacy">Al enviar, se abrir&aacute; WhatsApp con tu solicitud. El turno queda sujeto a confirmaci&oacute;n.</p>
     </section>
   </main>
+  <footer class="site-footer"><span>Consultorio Demo</span><span>Atenci&oacute;n de lunes a viernes &middot; 08:00 a 17:00</span></footer>
   <script src="script.js"></script>
 </body>
 </html>

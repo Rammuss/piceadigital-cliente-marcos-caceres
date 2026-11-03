@@ -8,7 +8,7 @@
   const mapToNav={
     'inicio':'inicio','propuesta-en-cifras':'inicio',
     'filosofia':'ventajas','ventajas':'ventajas',
-    'certificaciones':'certificaciones','proceso':'certificaciones',
+    'distintivos':'distintivos','certificaciones':'certificaciones','proceso':'certificaciones',
     'chef':'chef','capacitacion':'capacitacion',
     'experiencia':'capacitacion','representantes':'representantes',
     'contacto':'contacto'

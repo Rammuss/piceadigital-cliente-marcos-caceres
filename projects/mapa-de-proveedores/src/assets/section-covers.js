@@ -7,12 +7,12 @@
   if (first < 1) return;
   const presets = [
     {name:'Ventajas',skin:'cover-parchment',shape:'wave'},
+    {name:'Distintivos',skin:'cover-awards',shape:'softarch'},
     {name:'Certificaciones',skin:'cover-ivory',shape:'crest'},
     {name:'El proceso',skin:'cover-ink',shape:'terrace'},
     {name:'El chef',skin:'cover-chef',shape:'arch'},
     {name:'Capacitación',skin:'cover-cream',shape:'valley'},
     {name:'Experiencias',skin:'cover-milk',shape:'facets'},
-    {name:'Distintivos',skin:'cover-awards',shape:'softarch'},
     {name:'Representantes',skin:'cover-slate',shape:'wave2'},
     {name:'Próximo paso',skin:'cover-ink',shape:'softarch'},
     {name:'Contacto',skin:'cover-contact',shape:'arch2'}

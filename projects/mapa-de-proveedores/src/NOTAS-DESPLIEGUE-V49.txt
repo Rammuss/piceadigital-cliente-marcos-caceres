@@ -1,0 +1,15 @@
+Chiaramonte V49 — CORRECCIÓN DE CACHÉ Y PANEL MÓVIL
+
+1. Se agregó assets/v49-mobile-panel.css, cargado AL FINAL del HTML.
+2. Nuevo identificador <meta name="build-version" content="Chiaramonte-V49-20261103">.
+3. El Nginx incluido no cachea index.html. Si el sitio se publica en piceadigital.com/projects/... mediante otro servidor, ese servidor debe invalidar su propio caché.
+
+DIAGNÓSTICO DE DESPLIEGUE
+A. Abrir https://piceadigital.com/projects/mapa-de-proveedores/src/index.html?rev=49-20261103
+B. Ctrl+U (ver fuente) y buscar "Chiaramonte-V49-20261103".
+   - No aparece: el contenido nuevo no llegó a esa ruta (o HTML cacheado por CDN).
+   - Sí aparece: abrir DevTools / Network, activar Disable cache, recargar y revisar que assets/v49-mobile-panel.css?v=49-20261103 devuelve 200.
+C. Si el CSS carga y se ve mal, revisar en inspector #categorias .rating-v13-stage: height debe ser auto, min-height 384px, display grid.
+D. Si usás Cloudflare, purgar los dos paths exactos del HTML y CSS. Si el deploy es por git, comprobar que se actualizaron ambos archivos en el directorio público que corresponde a /projects/mapa-de-proveedores/src/.
+
+No basta con subir el ZIP si el sitio que estás visitando está publicado en otra carpeta o contenedor.

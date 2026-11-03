@@ -1,0 +1,83 @@
+/* V50 — distintivos físicos: posición adelantada, costo visible y móvil legible */
+#distintivos{scroll-margin-top:124px;}
+#distintivos .awards-v41-intro{max-width:510px;}
+.awards-v50-cost{
+ display:flex;align-items:flex-start;gap:13px;padding:17px 18px;
+ border:1px solid #dcb979;background:rgba(6,20,34,.48);
+ border-left:4px solid #e6be74;border-radius:9px;
+ margin:2px 0 23px;color:#f9eed8;
+ box-shadow:0 12px 28px rgba(0,0,0,.11);
+}
+.awards-v50-cost-icon{font-size:22px;line-height:1;color:#f5cf80;flex:0 0 24px;margin-top:1px;}
+.awards-v50-cost strong{font:800 13px/1.4 var(--font);color:#f5d28e;display:block;margin-bottom:5px;}
+#distintivos .awards-v50-cost p{font:500 13px/1.65 var(--font);color:#ecedf0;margin:0;max-width:none;}
+.awards-v50-swipe-hint{display:none;}
+.cert-v50-recognition-link{display:inline-flex;gap:8px;margin:0 0 28px;border-bottom:1px solid #b18a50;
+ color:#8d6b35;font:800 12px/1.5 var(--font);padding:4px 0;text-decoration:none;}
+.cert-v50-recognition-link:hover{color:#122b45;border-color:#122b45;}
+/* leave extra width in the header without shrinking tap targets */
+.main-nav .nav-distinctive-v50{white-space:nowrap;}
+@media(max-width:980px){
+ #distintivos{scroll-margin-top:92px;}
+ .main-nav .nav-distinctive-v50{font-size:12px;}
+}
+@media(max-width:760px){
+ #distintivos{scroll-margin-top:86px;}
+ #distintivos .awards-v41-shell{display:block;}
+ #distintivos .awards-v41-intro{position:relative;top:auto;max-width:none;margin-bottom:22px;}
+ #distintivos .awards-v41-intro h2{font-size:clamp(38px,10vw,49px);margin-bottom:13px;}
+ #distintivos .awards-v41-intro > p{max-width:450px;margin-bottom:16px;}
+ #distintivos .awards-v50-cost{padding:15px 14px;gap:10px;margin-bottom:20px;}
+ #distintivos .awards-v50-cost p{font-size:13px;line-height:1.55;}
+ #distintivos .awards-v41-cta{padding:13px 16px;}
+ #distintivos .awards-v41-foot{margin-top:14px;font-size:8px;line-height:1.8;letter-spacing:.11em;}
+ .awards-v50-swipe-hint{display:block;color:#efcc88;font:750 12px/1.55 var(--font);margin:0 0 14px;}
+ /* On mobile, switch seven tall sticky cards to one swipeable gallery. */
+ #distintivos .awards-v42-grid.awards-v43-stack{
+   display:flex!important;flex-direction:row;gap:14px;
+   width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;
+   scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+   padding:0 2px 19px;margin:0;
+   -webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#d5ad65 #102b45;
+ }
+ #distintivos .awards-v42-grid.awards-v43-stack .awards-v42-card,
+ #distintivos .awards-v42-grid.awards-v43-stack .awards-v42-card-wide,
+ #distintivos .awards-v42-grid.awards-v43-stack .awards-v42-card--colgante {
+   position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+   flex:0 0 min(83vw,355px);width:min(83vw,355px);min-width:0;min-height:420px!important;
+   max-height:none;scroll-snap-align:start;
+   display:flex!important;flex-direction:column!important;
+   padding:14px!important;gap:12px!important;
+   transform:none!important;
+ }
+ #distintivos .awards-v43-stack .awards-v42-card-media,
+ #distintivos .awards-v43-stack .awards-v42-card--colgante .awards-v42-card-media{
+   display:grid!important;place-items:center!important;flex:1 1 auto;
+   min-height:280px!important;height:290px!important;
+   max-height:300px!important;padding:10px!important;
+   overflow:hidden!important;
+ }
+ #distintivos .awards-v43-stack .awards-v42-card-media img,
+ #distintivos .awards-v43-stack .awards-v42-card--colgante .awards-v42-card-media img{
+   position:static!important;inset:auto!important;
+   width:100%!important;height:100%!important;
+   max-height:100%!important;max-width:100%!important;
+   object-fit:contain!important;object-position:center!important;
+ }
+ #distintivos .awards-v43-stack .awards-v42-card-body{
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:7px;
+  padding-top:4px;min-width:0;
+ }
+ #distintivos .awards-v43-stack .awards-v42-card-body strong{font-size:clamp(24px,7vw,30px);line-height:1.13;}
+ #distintivos .awards-v43-stack .awards-v42-card-body small{max-width:none;text-align:left;font-size:11px;}
+}
+@media(max-width:390px){
+ #distintivos .awards-v42-grid.awards-v43-stack .awards-v42-card,
+ #distintivos .awards-v42-grid.awards-v43-stack .awards-v42-card--colgante{
+  flex-basis:84vw;width:84vw;min-height:390px!important;
+ }
+ #distintivos .awards-v43-stack .awards-v42-card-media,
+ #distintivos .awards-v43-stack .awards-v42-card--colgante .awards-v42-card-media{
+  min-height:260px!important;height:270px!important;max-height:275px!important;
+ }
+}

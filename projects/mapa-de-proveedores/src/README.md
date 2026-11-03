@@ -120,3 +120,18 @@ V46: corrección reforzada de la card "Cartel colgante" con área de imagen más
 
 ## V47 - Corrección definitiva del cartel colgante
 La imagen anterior `assets/award-5-colgante.png` estaba recortada por abajo desde su extracción de la lámina original. Se recuperó el cartel completo desde `assets/cliente-diseno-6.png`, se publicó con nombre nuevo (`award-5-colgante-completo-v47.png`) para evitar cache y se actualizó tanto la tarjeta como el visor. Se simplificó CSS retirando los parches V45 y V46 que solamente agrandaban la caja.
+
+
+### Cambios V49
+- Panel de distinciones móvil con altura según contenido, badge ligeramente más compacto y barra inferior sin cortar.
+- Nueva hoja assets/v49-mobile-panel.css para invalidar la caché por nombre; etiqueta de versión en index.html.
+- Cabeceras no-cache del HTML en Nginx. Consultar NOTAS-DESPLIEGUE-V49.txt si la URL pública sigue antigua.
+
+
+### V50 — Distinciones físicas a la vista
+- Bloque «Distinciones físicas» adelantado inmediatamente después de Ventajas y antes de Certificaciones.
+- Acceso directo «Distinciones» en navbar y menú hamburguesa.
+- Aviso visible: los costos de fabricación de las distinciones físicas corren por cuenta del interesado.
+- Móvil: siete reconocimientos en galería horizontal deslizable con zoom al tocar, en lugar del apilado vertical largo; escritorio conserva scroll stack.
+- Actualizados presets y orden de transiciones de sección, y estado activo del navbar.
+- Archivo CSS nuevo para evitar caché: assets/v50-distinciones.css?v=50-20261103.

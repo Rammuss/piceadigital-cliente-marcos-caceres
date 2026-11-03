@@ -1,3 +1,22 @@
+# GL&AS × Chiaramonte — Prototipo Premium V41
+
+## Cambios de esta versión
+- Se integraron **las 6 imágenes originales enviadas por Edgardo** (archivos `assets/cliente-diseno-{1..6}.png`).
+- Diseños 1 y 2: sección editorial de identidad conjunta al final de «Nuestra filosofía».
+- Diseño 3: bordados en «Certificaciones».
+- Diseños 4 y 5: calcomanías y categorización en «Certificaciones», antes de la escala interactiva.
+- Diseño 6: modelos físicos de reconocimiento, bloque breve antes del directorio del mapa. El panel azul claro `#253f59` y el ajuste **CSS** de brillo hacen que se vea más claro sin modificar el archivo original del cliente.
+- El **navbar y el footer** incorporan la firma conjunta del cliente (**diseño 2**) en reemplazo del bloqueo visual anterior de dos logos. El navbar mantiene un acceso separado, explícito, a **GL&AS corporativo** (en móvil dentro del menú) para no confundir los destinos. El diseño 1 también aparece en la presentación institucional.
+- Las 6 imágenes se amplían mediante una galería modal accesible.
+
+## Importante
+Las imágenes del cliente son composiciones y propuestas de diseño. La integración no implica que las distintas formas físicas sean productos fabricados, disponibles o incluidos con cada certificación. Confirmar con Edgardo antes de publicar una promesa comercial sobre entregables, avales o premios.
+
+## Despliegue
+Coolify: Dockerfile, puerto 80. Sin base de datos para directorio; registros en JSON. Dependencias de mapas/GSAP pueden usar CDN; se conserva el fallback del atlas.
+
+---
+
 # GL&AS × Chiaramonte — V39 · Logos juntos en navbar de escritorio
 
 - **Escritorio:** GL&AS aparece primero (izquierda) y Chiaramonte después en el mismo extremo del navbar, con altura equivalente. Cada marca conserva su enlace independiente: GL&AS abre https://glyasfobc.com/ en otra pestaña; Chiaramonte vuelve al inicio de esta web.
@@ -69,3 +88,35 @@ El modo SVG funciona sin CDN y mantiene marcadores, fichas, copia de datos, filt
 - Se mantienen GL&AS y Chiaramonte en la navegación de escritorio, en su orden y con sus enlaces independientes.
 - Se conserva el menú móvil y las marcas asociadas en ese menú, sin modificar otras secciones.
 - Espaciado del hero ajustado para escritorio y teléfono; se preserva el scroll fullscreen.
+
+
+## Ajustes V42
+- Se elimina la sección redundante “Una firma, dos trayectorias”.
+- La escala de categorías ahora muestra el diseño real de cada insignia en cada punto.
+- La sección de materiales gana mayor protagonismo visual con marco más premium y fondo más claro.
+- La colección de reconocimientos se separa en 7 cards individuales.
+- El cierre visual de logos se limpia: placa blanca más contenida sobre fondo oscuro.
+
+
+## V43 — Reveal + scroll stack + insignias originales
+- Primera galería: reveal horizontal de derecha a izquierda al entrar en pantalla, sincronizado con decodificación de imagen.
+- Siete formatos individuales: tarjetas sticky apiladas al desplazarse, sin pin de JavaScript ni bloquear scroll.
+- Escala de cinco tenedores y cinco copas: diez archivos nuevos entregados por el cliente, completos y optimizados a WebP.
+- La imagen principal y las tarjetas laterales leen los mismos distintivos.
+- Navegación, enlaces, mapa, formulario y contenido restante se conservan.
+
+
+### Cambios V44
+- Logo oficial entregado por el cliente (PNG RGBA con transparencia) en navbar de escritorio, navbar móvil y footer.
+- Fondo marfil de contraste para mantener legible su tipografía azul; sin rectángulo blanco incrustado en la imagen.
+- El logo GL&AS del enlace externo corporativo continúa siendo el de esa web para que el destino siga claramente diferenciado.
+- No se modifica el hero ni las animaciones de la V43.
+
+
+V45: ajuste de card del formato "Cartel colgante" para evitar recorte visual dentro del stack de formatos.
+
+V46: corrección reforzada de la card "Cartel colgante" con área de imagen más alta y alineación superior para verse completa.
+
+
+## V47 - Corrección definitiva del cartel colgante
+La imagen anterior `assets/award-5-colgante.png` estaba recortada por abajo desde su extracción de la lámina original. Se recuperó el cartel completo desde `assets/cliente-diseno-6.png`, se publicó con nombre nuevo (`award-5-colgante-completo-v47.png`) para evitar cache y se actualizó tanto la tarjeta como el visor. Se simplificó CSS retirando los parches V45 y V46 que solamente agrandaban la caja.

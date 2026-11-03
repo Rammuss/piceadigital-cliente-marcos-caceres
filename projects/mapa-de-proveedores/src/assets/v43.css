@@ -1,0 +1,97 @@
+/* V43 — visible right-to-left reveal, stacked awards, faithful standalone badges */
+/* Material image: the mask is activated only after the observer has attached. */
+.material-v41-card-large .material-v41-frame{background:radial-gradient(circle at 30% 15%,#284866,#091b30 78%);}
+html.v43-ready .material-v43-reveal .material-v41-frame img{
+ clip-path:inset(0 0 0 100%); transform:translateX(6%) scale(1.035);
+ transition:clip-path 1.22s cubic-bezier(.25,.85,.18,1),transform 1.22s cubic-bezier(.2,.72,.2,1);
+ will-change:clip-path,transform;
+}
+html.v43-ready .material-v43-reveal.v43-is-visible .material-v41-frame img{
+ clip-path:inset(0 0 0 0); transform:translateX(0) scale(1);
+}
+.material-v41-card-large .material-v41-frame{overflow:hidden;}
+/* Stacked awards: each successive panel covers the preceding one in normal scroll flow. */
+.awards-v41{overflow:visible!important;isolation:isolate;}
+.awards-v41-shell.awards-v42-shell{grid-template-columns:minmax(260px,.42fr) minmax(0,.58fr);gap:5%;align-items:start;}
+.awards-v41-intro{position:sticky;top:clamp(132px,15vh,178px);align-self:start;}
+.awards-v41-intro h2{font-size:clamp(40px,4vw,68px);}
+.awards-v42-grid.awards-v43-stack{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;position:relative;padding-bottom:clamp(100px,18vh,180px);}
+.awards-v42-grid.awards-v43-stack .awards-v42-card,
+.awards-v42-grid.awards-v43-stack .awards-v42-card-wide{
+ position:sticky;top:clamp(112px,13vh,142px);z-index:calc(20 + var(--stack-index));
+ display:grid;grid-template-columns:1fr;gap:10px;
+ min-height:440px;padding:20px;background:linear-gradient(160deg,#314963 0%,#152b46 73%);
+ border-radius:28px;border:1px solid #c4a672;box-shadow:0 26px 46px rgba(0,0,0,.3);
+ transform:none;
+ transition:border-color .22s ease,filter .25s ease;
+}
+.awards-v42-grid.awards-v43-stack .awards-v42-card:hover{transform:none;border-color:#edd39a;}
+.awards-v43-stack .awards-v42-card-no{font-size:12px;margin:0;}
+.awards-v43-stack .awards-v42-card-media{
+ min-height:290px;height:clamp(290px,27vw,380px);border:1px solid #c6ab7844;
+ background:radial-gradient(ellipse at 50% 30%,#2c4b68,#0e1f34 76%);
+ border-radius:18px;padding:12px;
+}
+.awards-v43-stack .awards-v42-card-media img{height:100%;width:100%;max-height:none;max-width:100%;object-fit:contain;}
+.awards-v43-stack .awards-v42-card-body{padding-top:4px;display:flex;align-items:center;flex-direction:row;gap:14px;}
+.awards-v43-stack .awards-v42-card-body strong{font-size:clamp(25px,2.25vw,37px);}
+.awards-v43-stack .awards-v42-card-body small{font-size:11px;}
+/* The level assets are now complete images. They become the focal point. */
+.rating-v13-stage-center{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 15px;}
+.rating-v13-stage-center #rating-v13-category{order:0;margin-bottom:8px;}
+.rating-v13-badge-wrap{order:1;margin:0 auto 5px;}
+.rating-v13-badge-wrap img{display:block;width:clamp(172px,17vw,246px);aspect-ratio:1;object-fit:contain;filter:drop-shadow(0 18px 24px rgba(0,0,0,.32));}
+.rating-v13-big-number{order:2;gap:10px;}
+.rating-v13-big-number strong{font-size:clamp(66px,6.1vw,105px);line-height:.9;}
+.rating-v13-big-number span{font-size:20px;}
+#rating-v13-word{order:3;margin:4px 0 8px;font-size:clamp(21px,2.1vw,29px);}
+.rating-v13-symbols{order:4;min-height:42px;gap:8px;}
+.rating-v13-symbol{height:35px;}
+.rating-v13-symbol svg{height:31px;width:23px;}
+.rating-v13-step-media{background:linear-gradient(145deg,#1d3552,#0b1f34);border-radius:16px;box-shadow:inset 0 0 0 1px #d5b4786b;}
+.rating-v13-step-media img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;}
+.rating-v13-step-center{display:grid;grid-template-columns:auto 100px minmax(0,1fr);gap:18px;}
+@media(max-width:980px){
+ .awards-v41-shell.awards-v42-shell{grid-template-columns:1fr;gap:32px;}
+ .awards-v41-intro{position:relative;top:auto;max-width:690px;}
+ .awards-v42-grid.awards-v43-stack{width:min(100%,720px);margin:0 auto;}
+ .awards-v42-grid.awards-v43-stack .awards-v42-card{min-height:400px;}
+ .rating-v13-stage-center{padding-top:10px;}
+}
+@media(max-width:620px){
+ .awards-v42-grid.awards-v43-stack{padding-bottom:80px;gap:18px;}
+ .awards-v42-grid.awards-v43-stack .awards-v42-card,
+ .awards-v42-grid.awards-v43-stack .awards-v42-card-wide{top:105px;min-height:355px;padding:14px 15px;border-radius:20px;}
+ .awards-v43-stack .awards-v42-card-media{min-height:210px;height:clamp(210px,56vw,280px);padding:8px;}
+ .awards-v43-stack .awards-v42-card-body{display:flex;flex-direction:column;align-items:flex-start;gap:6px;}
+ .awards-v43-stack .awards-v42-card-body strong{font-size:26px;}
+ .awards-v43-stack .awards-v42-card-body small{text-align:left;}
+ .rating-v13-step-center{grid-template-columns:72px minmax(0,1fr);gap:12px;}
+ .rating-v13-step-center > strong{grid-row:span 2;font-size:72px;}
+ .rating-v13-step-media{width:92px;height:92px;}
+ .rating-v13-badge-wrap img{width:clamp(158px,55vw,210px);}
+}
+@media(prefers-reduced-motion:reduce){
+ html.v43-ready .material-v43-reveal .material-v41-frame img{clip-path:none!important;transform:none!important;transition:none!important;}
+ .awards-v42-grid.awards-v43-stack .awards-v42-card{transition:none!important;}
+}
+/* Contain the independent award image fully inside the fixed artwork window. */
+.awards-v43-stack .awards-v42-card-media { position:relative; overflow:hidden; min-width:0; }
+.awards-v43-stack .awards-v42-card-media img {
+  position:absolute; inset:10px; display:block;
+  width:calc(100% - 20px); height:calc(100% - 20px);
+  max-width:calc(100% - 20px); max-height:calc(100% - 20px);
+  object-fit:contain;
+}
+/* Mobile: prioritize the complete insignia instead of a large repeated number. */
+@media(max-width:700px){
+ .rating-v13-stage{height:330px;}
+ .rating-v13-stage-center{padding:3px 0 5px;gap:2px;}
+ .rating-v13-stage-center #rating-v13-category{margin-bottom:3px;font-size:9px;}
+ .rating-v13-badge-wrap{margin:0 auto;}
+ .rating-v13-badge-wrap img{width:min(43vw,165px);height:auto;}
+ .rating-v13-stage-center .rating-v13-big-number,
+ .rating-v13-stage-center .rating-v13-symbols{display:none;}
+ #rating-v13-word{margin:2px 0 1px;font-size:18px;}
+}
+@media(max-width:390px){.rating-v13-stage{height:317px;}}

@@ -24,6 +24,7 @@
   const label=root.querySelector('#rating-v13-word');
   const progress=root.querySelector('#rating-v13-progress');
   const index=root.querySelector('#rating-v13-position');
+  const badge=root.querySelector('#rating-v13-badge');
   const tabs=[...root.querySelectorAll('[data-rating-jump]')];
   const signs={restaurant:'<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 4v12m8-12v12m8-12v12M12 16c0 5 3 8 8 8s8-3 8-8M20 24v12"/></svg>',bar:'<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M10 7h20l-2.5 10a8 8 0 0 1-15 0L10 7ZM20 25v8m-8 0h16"/></svg>'};
   let active=-1;let scrollFrame=0;let targetFromClick=-1;
@@ -42,6 +43,7 @@
     symbolsRoot.setAttribute('aria-label',`${level} de 5 ${plural}`);
     progress.style.width=`${((i+1)/steps.length)*100}%`;
     index.textContent=`${String(i+1).padStart(2,'0')} / 10`;
+    if(badge && item.dataset.ratingStoryKind && item.dataset.ratingStoryLevel){ badge.src = item.dataset.badgeSrc || `assets/rating-${item.dataset.ratingStoryKind}-${item.dataset.ratingStoryLevel}.webp`; }
     steps.forEach((s,j)=>s.classList.toggle('is-active',i===j));
     tabs.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.ratingJump===kind)));
   };

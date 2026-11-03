@@ -12,6 +12,7 @@
     {name:'El chef',skin:'cover-chef',shape:'arch'},
     {name:'Capacitación',skin:'cover-cream',shape:'valley'},
     {name:'Experiencias',skin:'cover-milk',shape:'facets'},
+    {name:'Distintivos',skin:'cover-awards',shape:'softarch'},
     {name:'Representantes',skin:'cover-slate',shape:'wave2'},
     {name:'Próximo paso',skin:'cover-ink',shape:'softarch'},
     {name:'Contacto',skin:'cover-contact',shape:'arch2'}

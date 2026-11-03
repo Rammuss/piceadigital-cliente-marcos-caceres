@@ -1,0 +1,72 @@
+/* V44 – Logo proporcionado por el cliente, transparencia intacta. */
+/* El texto azul del arte requiere una base marfil, no una caja blanca en la propia imagen. */
+.site-header .brand-group a.v41-brand-home {
+  width:clamp(225px,19vw,276px) !important;
+  height:75px !important;
+  padding:4px 8px !important;
+  border:1px solid rgba(227,199,141,.76) !important;
+  border-radius:10px !important;
+  background:linear-gradient(135deg,#fffdfa 0%,#f3e9d6 100%) !important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.56),0 5px 14px rgba(0,0,0,.10) !important;
+}
+.site-header .brand-group a.v41-brand-home:hover {background:#fffaf0 !important;border-color:#f3ce7c !important;}
+.site-header .brand-group a.v41-brand-home img {height:100% !important;width:100% !important;object-fit:contain !important;object-position:center !important;}
+.footer-v41-joint {width:min(100%,730px) !important; background:transparent !important;border:0 !important;}
+.footer-v41-plaque {
+  background:linear-gradient(145deg,#fffefa,#f5ecdc) !important;
+  border:1px solid #d9bb7b !important;
+  border-radius:8px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:20px 25px !important;
+  box-shadow:0 14px 0 rgba(3,12,24,.24),0 25px 45px rgba(0,0,0,.17) !important;
+}
+.footer-v41-plaque img {width:100% !important;height:auto !important;max-height:245px !important;object-fit:contain !important;}
+@media(max-width:1360px) and (min-width:1161px){
+ .site-header .brand-group a.v41-brand-home {width:235px !important;height:67px !important;padding:4px 6px !important;}
+}
+@media(max-width:1160px){
+ .site-header .brand-group a.v41-brand-home {width:clamp(200px,54vw,260px) !important;height:61px !important;padding:3px 7px !important;}
+}
+@media(max-width:680px){
+ .site-header .brand-group a.v41-brand-home {width:min(65vw,233px) !important;height:57px !important;padding:3px 7px !important;border-radius:8px !important;}
+ .footer-v41-plaque {padding:12px 14px !important;box-shadow:0 8px 0 rgba(3,12,24,.23) !important;}
+}
+@media(max-width:380px){
+ .site-header .brand-group a.v41-brand-home {width:205px !important;height:55px !important;padding:3px 5px !important;}
+}
+
+/* V47 — artwork corrected at source. Preserve entire image within the card. */
+.awards-v42-grid.awards-v43-stack .awards-v42-card--colgante {
+  min-height: 475px;
+}
+.awards-v43-stack .awards-v42-card--colgante .awards-v42-card-media {
+  height: clamp(325px, 28vw, 395px);
+  min-height: 325px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.awards-v43-stack .awards-v42-card--colgante .awards-v42-card-media img {
+  position: static;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+@media(max-width: 620px) {
+  .awards-v42-grid.awards-v43-stack .awards-v42-card--colgante {
+    min-height: 405px;
+  }
+  .awards-v43-stack .awards-v42-card--colgante .awards-v42-card-media {
+    height: clamp(262px, 78vw, 340px);
+    min-height: 262px;
+    padding: 8px;
+  }
+}

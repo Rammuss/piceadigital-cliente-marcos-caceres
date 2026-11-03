@@ -85,13 +85,15 @@ html.v43-ready .material-v43-reveal.v43-is-visible .material-v41-frame img{
 }
 /* Mobile: prioritize the complete insignia instead of a large repeated number. */
 @media(max-width:700px){
- .rating-v13-stage{height:330px;}
- .rating-v13-stage-center{padding:3px 0 5px;gap:2px;}
+ .rating-v13-stage{height:auto;min-height:356px;padding:15px 16px 14px;}
+ .rating-v13-stage-center{padding:2px 0 4px;gap:2px;min-height:0;}
  .rating-v13-stage-center #rating-v13-category{margin-bottom:3px;font-size:9px;}
  .rating-v13-badge-wrap{margin:0 auto;}
- .rating-v13-badge-wrap img{width:min(43vw,165px);height:auto;}
+ .rating-v13-badge-wrap img{width:min(40vw,154px);height:auto;}
  .rating-v13-stage-center .rating-v13-big-number,
  .rating-v13-stage-center .rating-v13-symbols{display:none;}
- #rating-v13-word{margin:2px 0 1px;font-size:18px;}
+ #rating-v13-word{margin:2px 0 2px;font-size:18px;}
+ .rating-v13-stage-bottom{padding-top:10px;gap:8px;font-size:7px;}
+ .rating-v13-progress{margin-top:0;}
 }
-@media(max-width:390px){.rating-v13-stage{height:317px;}}
+@media(max-width:390px){.rating-v13-stage{min-height:340px;}}

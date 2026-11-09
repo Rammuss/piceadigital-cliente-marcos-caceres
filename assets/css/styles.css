@@ -2215,6 +2215,73 @@ body.theme-light .plan-examples-btn--focus {
   display: block;
 }
 
+.portfolio-fb-visual,
+.portfolio-chiaramonte-visual {
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+  color: #fff;
+}
+
+.portfolio-fb-visual {
+  background:
+    radial-gradient(circle at 78% 28%, rgba(34, 174, 205, .38), transparent 25%),
+    linear-gradient(135deg, #051b34, #0d4e70);
+}
+
+.portfolio-chiaramonte-visual {
+  color: #173348;
+  background:
+    radial-gradient(circle at 22% 75%, rgba(203, 161, 70, .32), transparent 26%),
+    linear-gradient(135deg, #f3eee5, #dbe7e5);
+}
+
+.portfolio-fb-visual > strong,
+.portfolio-chiaramonte-visual > strong {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: .78;
+  letter-spacing: -.075em;
+}
+
+.portfolio-fb-visual > strong em,
+.portfolio-chiaramonte-visual > strong em {
+  font-family: Georgia, serif;
+  font-size: .48em;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .18em;
+}
+
+.portfolio-card-domain {
+  position: absolute;
+  left: 22px;
+  top: 22px;
+  z-index: 1;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  opacity: .76;
+}
+
+.portfolio-fb-shield,
+.portfolio-chiaramonte-seal {
+  position: absolute;
+  right: 25px;
+  bottom: 18px;
+  display: grid;
+  width: 62px;
+  height: 62px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 1.6rem;
+}
+
+.portfolio-fb-shield { color: #81d8e5; }
+.portfolio-chiaramonte-seal { color: #b88c38; font-family: Georgia, serif; font-size: 2rem; }
+
 .portfolio-card-body {
   padding: 16px 18px 20px;
   display: grid;

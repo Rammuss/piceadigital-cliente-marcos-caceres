@@ -1,94 +1,233 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7f8f4">
-<meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Explorá los proyectos reales de Picea Digital en una galería interactiva con movimiento libre y zoom.">
-<title>Portafolio interactivo · Picea Digital</title>
-<link rel="stylesheet" href="canvas-assets/css/canvas.css?v=1">
-<script src="canvas-assets/js/canvas.js?v=1" defer></script>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#f7f8f4" name="theme-color"/>
+<meta content="index,follow" name="robots"/>
+<meta content="Conocé proyectos reales de diseño web de Picea Digital. Elegí una galería clásica o explorá un lienzo interactivo con zoom." name="description"/>
+<title>Portafolio de páginas web | Picea Digital</title>
+<link href="canvas-assets/css/canvas.css?v=2" rel="stylesheet"/>
+<script defer="" src="canvas-assets/js/canvas.js?v=2"></script>
+<link href="canvas-assets/css/dual.css?v=4" rel="stylesheet"/><script defer="True" src="canvas-assets/js/dual.js?v=4"></script><link href="https://piceadigital.com/portfolio.html" rel="canonical"/></head>
 <body>
-<a class="skip" href="#canvas" >Saltar a proyectos</a>
-<div class="app">
-  <aside class="sidebar">
-    <a class="brand" href="index.html#inicio" aria-label="Picea Digital, ir a inicio"><img src="canvas-assets/img/picea-logo.png" alt="Picea Digital"></a>
-    <div class="sidebar-content">
-      <div class="eyebrow"><span class="eyebrow-line"></span> PORTAFOLIO / 2026</div>
-      <h1>Explorá<br>nuestros<br><em>proyectos.</em></h1>
-      <p class="sidebar-copy">Un mapa para recorrer las webs que creamos. Movete libremente, acercate y descubrí cada trabajo.</p>
-      <div class="sidebar-separator"></div>
-      <div class="feature"><span class="feature-icon">▣</span><span><b>Sitios reales</b><small>Proyectos para negocios</small></span></div>
-      <div class="feature"><span class="feature-icon">↗</span><span><b>Diseño a medida</b><small>Adaptado a cada rubro</small></span></div>
-      <div class="feature"><span class="feature-icon">⌖</span><span><b>Exploración libre</b><small>Arrastrá y hacé zoom</small></span></div>
-    </div>
-    <div class="sidebar-bottom">
-<a class="cta" href="https://wa.me/595986716583?text=Hola%2C%20quiero%20consultar%20por%20una%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer">Solicitar una web <span>↗</span></a>
-      <div class="sidebar-footer"><span>PICEA DIGITAL © 2026</span><a href="index.html#inicio">Volver al inicio ↗</a></div>
-    </div>
-  </aside>
-  <div class="workspace">
-    <header class="topbar">
-      <div class="mobile-brand"><a href="index.html#inicio"><img src="canvas-assets/img/picea-logo.png" alt="Picea Digital"></a></div>
-      <div class="top-title"><span class="top-signal">///</span><strong>Portafolio interactivo</strong><span class="title-sep">/</span><small>07 proyectos reales</small></div>
-      <div class="top-actions">
-        <button type="button" class="pill fit" id="fit-btn" aria-label="Mostrar todos los proyectos"><span class="fit-icon" aria-hidden="true">▦</span><span>Vista general</span></button>
-        <div class="zoom-controls" aria-label="Controles de zoom"><button id="zoom-out" type="button" aria-label="Alejar">−</button><output id="zoom-label" aria-label="Nivel de zoom">100%</output><button id="zoom-in" type="button" aria-label="Acercar">+</button></div>
-        <button class="fullscreen" type="button" id="fullscreen-btn" aria-label="Ver en pantalla completa" title="Pantalla completa">⛶</button>
-      </div>
-    </header>
-    <main class="canvas-view" id="canvas" aria-label="Lienzo de proyectos. Arrastrar para explorar y rueda para zoom." tabindex="0">
-      <div class="world" id="world" aria-label="Mapa de siete proyectos">
-        <button class="canvas-card" type="button" style="--x:80px;--y:92px;--accent:#2a8ab6" data-id="friogar" aria-label="Explorar proyecto Friogar E.A.S.">
-      <span class="card-screen"><img src="canvas-assets/img/friogar-desktop.webp" alt="Vista del sitio de Friogar E.A.S." loading="eager" width="1700" height="900" draggable="false"></span>
-      <span class="card-bottom"><span class="card-index">01</span><span class="card-info"><strong>Friogar E.A.S.</strong><small>Refrigeración · Servicios técnicos</small></span><span class="card-go" aria-hidden="true">↗</span></span>
-    </button><button class="canvas-card" type="button" style="--x:575px;--y:92px;--accent:#1674cc" data-id="cooling" aria-label="Explorar proyecto Cooling and Power">
-      <span class="card-screen"><img src="canvas-assets/img/cooling-desktop.webp" alt="Vista del sitio de Cooling and Power" loading="eager" width="1700" height="900" draggable="false"></span>
-      <span class="card-bottom"><span class="card-index">02</span><span class="card-info"><strong>Cooling and Power</strong><small>Electricidad · Climatización</small></span><span class="card-go" aria-hidden="true">↗</span></span>
-    </button><button class="canvas-card" type="button" style="--x:1070px;--y:92px;--accent:#39a7d6" data-id="frioexpert" aria-label="Explorar proyecto FríoExpert">
-      <span class="card-screen"><img src="canvas-assets/img/frioexpert-desktop.webp" alt="Vista del sitio de FríoExpert" loading="lazy" width="1700" height="900" draggable="false"></span>
-      <span class="card-bottom"><span class="card-index">03</span><span class="card-info"><strong>FríoExpert</strong><small>Aire acondicionado · Refrigeración</small></span><span class="card-go" aria-hidden="true">↗</span></span>
-    </button><button class="canvas-card" type="button" style="--x:1565px;--y:92px;--accent:#f0713a" data-id="fb" aria-label="Explorar proyecto FB Seguridad Electrónica">
-      <span class="card-screen"><img src="canvas-assets/img/fb-desktop.webp" alt="Vista del sitio de FB Seguridad Electrónica" loading="lazy" width="1700" height="900" draggable="false"></span>
-      <span class="card-bottom"><span class="card-index">04</span><span class="card-info"><strong>FB Seguridad Electrónica</strong><small>CCTV · Alarmas · Redes</small></span><span class="card-go" aria-hidden="true">↗</span></span>
-    </button><button class="canvas-card" type="button" style="--x:80px;--y:557px;--accent:#2e9bc4" data-id="gsa" aria-label="Explorar proyecto Grupo Security Avizor">
-      <span class="card-screen"><img src="canvas-assets/img/gsa-desktop.webp" alt="Vista del sitio de Grupo Security Avizor" loading="lazy" width="1700" height="900" draggable="false"></span>
-      <span class="card-bottom"><span class="card-index">05</span><span class="card-info"><strong>Grupo Security Avizor</strong><small>Seguridad privada</small></span><span class="card-go" aria-hidden="true">↗</span></span>
-    </button><button class="canvas-card" type="button" style="--x:575px;--y:557px;--accent:#c69b51" data-id="chiaramonte" aria-label="Explorar proyecto GL&amp;AS × Chiaramonte">
-      <span class="card-screen"><img src="canvas-assets/img/chiaramonte-desktop.webp" alt="Vista del sitio de GL&amp;AS × Chiaramonte" loading="lazy" width="1700" height="900" draggable="false"></span>
-      <span class="card-bottom"><span class="card-index">06</span><span class="card-info"><strong>GL&amp;AS × Chiaramonte</strong><small>Certificación gastronómica</small></span><span class="card-go" aria-hidden="true">↗</span></span>
-    </button><button class="canvas-card" type="button" style="--x:1070px;--y:557px;--accent:#c9a042" data-id="fobc" aria-label="Explorar proyecto GL&amp;AS FOBC E.A.S.">
-      <span class="card-screen"><img src="canvas-assets/img/fobc-desktop.webp" alt="Vista del sitio de GL&amp;AS FOBC E.A.S." loading="lazy" width="1700" height="900" draggable="false"></span>
-      <span class="card-bottom"><span class="card-index">07</span><span class="card-info"><strong>GL&amp;AS FOBC E.A.S.</strong><small>Family Office · Consultoría</small></span><span class="card-go" aria-hidden="true">↗</span></span>
-    </button>
-      </div>
-      <div class="canvas-label"><span class="pulse-dot"></span><span>LIENZO LIBRE</span><span class="view-hint">· DESPLAZATE EN CUALQUIER DIRECCIÓN</span></div>
-      <div class="canvas-credit">ARRASTRAR · ZOOM · EXPLORAR</div>
-      <div class="map-box" id="map-box" aria-label="Minimapa de proyectos">
-        <div class="map-top"><span>MAPA DE PROYECTOS</span><button id="map-fit" type="button" aria-label="Centrar mapa">⌗</button></div>
-        <div class="mini-world" id="mini-world"><button type="button" class="mini-card" data-jump="friogar" title="Ir a Friogar E.A.S." aria-label="Ir a Friogar E.A.S." style="--mx:80;--my:92;--accent:#2a8ab6"></button><button type="button" class="mini-card" data-jump="cooling" title="Ir a Cooling and Power" aria-label="Ir a Cooling and Power" style="--mx:575;--my:92;--accent:#1674cc"></button><button type="button" class="mini-card" data-jump="frioexpert" title="Ir a FríoExpert" aria-label="Ir a FríoExpert" style="--mx:1070;--my:92;--accent:#39a7d6"></button><button type="button" class="mini-card" data-jump="fb" title="Ir a FB Seguridad Electrónica" aria-label="Ir a FB Seguridad Electrónica" style="--mx:1565;--my:92;--accent:#f0713a"></button><button type="button" class="mini-card" data-jump="gsa" title="Ir a Grupo Security Avizor" aria-label="Ir a Grupo Security Avizor" style="--mx:80;--my:557;--accent:#2e9bc4"></button><button type="button" class="mini-card" data-jump="chiaramonte" title="Ir a GL&amp;AS × Chiaramonte" aria-label="Ir a GL&amp;AS × Chiaramonte" style="--mx:575;--my:557;--accent:#c69b51"></button><button type="button" class="mini-card" data-jump="fobc" title="Ir a GL&amp;AS FOBC E.A.S." aria-label="Ir a GL&amp;AS FOBC E.A.S." style="--mx:1070;--my:557;--accent:#c9a042"></button><div class="mini-viewport" id="mini-viewport"></div></div>
-      </div>
-      <div class="hint-bar"><span><b>↔</b> Arrastrá para moverte</span><i></i><span><b>⊕</b> Rueda para zoom</span><i></i><span><b>↗</b> Tocá una web para explorar</span></div>
-      <div class="mobile-tools"><button id="mobile-fit" type="button">▦ <span>Ver todas</span></button><button id="mobile-minus" type="button" aria-label="Alejar">−</button><output id="mobile-zoom">100%</output><button id="mobile-plus" type="button" aria-label="Acercar">+</button></div>
-    </main>
-  </div>
+<a class="skip" href="#classic-view">Saltar a proyectos</a>
+<div class="app" data-view="classic">
+<aside class="sidebar">
+<a aria-label="Picea Digital, ir a inicio" class="brand" href="https://piceadigital.com/#inicio"><img alt="Picea Digital" src="canvas-assets/img/picea-logo.png"/></a>
+<div class="sidebar-content">
+<div class="eyebrow"><span class="eyebrow-line"></span> PORTAFOLIO / 2026</div>
+<h1>Portafolio</h1>
+<p class="sidebar-copy">Algunas páginas web que desarrollamos para negocios y empresas.</p>
+<div class="sidebar-separator"></div>
+<div class="feature"><span class="feature-icon">▣</span><span><b>Sitios reales</b><small>Proyectos para negocios</small></span></div>
+<div class="feature"><span class="feature-icon">↗</span><span><b>Diseño a medida</b><small>Adaptado a cada rubro</small></span></div>
+<div class="feature"><span class="feature-icon">⌖</span><span><b>Exploración libre</b><small>Arrastrá y hacé zoom</small></span></div>
 </div>
-<div class="detail-backdrop" id="detail-backdrop" hidden></div>
-<aside class="detail-panel" id="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title" aria-hidden="true" inert>
-  <div class="detail-header"><span>DETALLES DEL PROYECTO</span><button type="button" id="close-detail" aria-label="Cerrar detalles">×</button></div>
-  <div class="detail-scroll">
-    <div class="detail-num" id="detail-num">01 / 07</div>
-    <h2 id="detail-title">Proyecto</h2>
-    <p id="detail-desc" class="detail-description"></p>
-    <div class="screen-switch" role="group" aria-label="Elegir vista de captura"><button type="button" class="selected" data-screen="desktop" aria-pressed="true">Escritorio</button><button type="button" data-screen="mobile" aria-pressed="false">Móvil</button></div>
-    <div class="detail-image"><img id="detail-img" alt="Captura de la web seleccionada" loading="lazy"></div>
-    <div class="detail-tags"><span id="detail-cat"></span><span id="detail-tag"></span></div>
-    <a id="detail-link" class="detail-visit" href="#" target="_blank" rel="noopener noreferrer">Visitar web <span>↗</span></a>
-    <p class="detail-note">La captura muestra una vista del proyecto. Para navegar la web completa, abrí el enlace.</p>
-  </div>
+<div class="sidebar-bottom">
+<a class="cta" href="https://wa.me/595986716583?text=Hola%2C%20quiero%20consultar%20por%20una%20web%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">Solicitar una web <span>↗</span></a>
+<div class="sidebar-footer"><span>PICEA DIGITAL © 2026</span><a href="https://piceadigital.com/#inicio">Volver al inicio ↗</a></div>
+</div>
 </aside>
-<script type="application/json" id="project-data">[{"id": "friogar", "code": "01", "title": "Friogar E.A.S.", "tag": "Refrigeración · Servicios técnicos", "cat": "Sitio corporativo", "url": "https://friogareas.com/", "x": 80, "y": 92, "accent": "#2a8ab6", "note": "Sitio empresarial para servicios de refrigeración, climatización y reparaciones."}, {"id": "cooling", "code": "02", "title": "Cooling and Power", "tag": "Electricidad · Climatización", "cat": "Sitio corporativo", "url": "https://coolingandpowereas.com/", "x": 575, "y": 92, "accent": "#1674cc", "note": "Web de soluciones técnicas para instalaciones eléctricas, aire acondicionado y redes."}, {"id": "frioexpert", "code": "03", "title": "FríoExpert", "tag": "Aire acondicionado · Refrigeración", "cat": "Sitio de servicios", "url": "projects/frioexpert-new-v8/frioexpert-demo/index.html", "x": 1070, "y": 92, "accent": "#39a7d6", "note": "Propuesta de sitio web para servicio técnico de aires acondicionados."}, {"id": "fb", "code": "04", "title": "FB Seguridad Electrónica", "tag": "CCTV · Alarmas · Redes", "cat": "Sitio corporativo", "url": "https://fbseguridad.com.py/", "x": 1565, "y": 92, "accent": "#f0713a", "note": "Web corporativa para soluciones de videovigilancia, alarmas e infraestructura tecnológica."}, {"id": "gsa", "code": "05", "title": "Grupo Security Avizor", "tag": "Seguridad privada", "cat": "Sitio corporativo", "url": "https://gsasaavizor.com/", "x": 80, "y": 557, "accent": "#2e9bc4", "note": "Presencia digital corporativa para empresa de vigilancia y protección."}, {"id": "chiaramonte", "code": "06", "title": "GL&AS × Chiaramonte", "tag": "Certificación gastronómica", "cat": "Sitio corporativo", "url": "https://glyaschiaramonte.com/", "x": 575, "y": 557, "accent": "#c69b51", "note": "Plataforma informativa de certificación gastronómica y red de representantes."}, {"id": "fobc", "code": "07", "title": "GL&AS FOBC E.A.S.", "tag": "Family Office · Consultoría", "cat": "Sitio corporativo", "url": "https://glyasfobc.com/", "x": 1070, "y": 557, "accent": "#c9a042", "note": "Presentación corporativa para consultoría empresarial y servicios de family office."}]</script>
+<div class="workspace">
+<header class="topbar">
+<div class="mobile-brand"><a href="https://piceadigital.com/#inicio"><img alt="Picea Digital" src="canvas-assets/img/picea-logo.png"/></a></div>
+<div class="top-title"><span class="top-signal">///</span><strong>Portafolio interactivo</strong><span class="title-sep">/</span><small>07 proyectos reales</small></div>
+<div class="top-actions"><div aria-label="Elegir tipo de vista del portafolio" class="view-switch" role="group">
+<button aria-pressed="true" class="view-option is-active" data-view-choice="classic" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><rect height="8" rx="1.5" width="8" x="3" y="3"></rect><rect height="8" rx="1.5" width="8" x="13" y="3"></rect><rect height="8" rx="1.5" width="8" x="3" y="13"></rect><rect height="8" rx="1.5" width="8" x="13" y="13"></rect></svg><span>Clásica</span></button>
+<button aria-pressed="false" class="view-option" data-view-choice="canvas" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24" width="16"><rect height="16" rx="3" stroke-dasharray="2.5 3" width="16" x="4" y="4"></rect><path d="M8 12h8m-4-4v8"></path></svg><span>Lienzo</span></button>
+</div>
+<button aria-label="Mostrar todos los proyectos" class="pill fit canvas-toolbar-only" id="fit-btn" type="button"><span aria-hidden="true" class="fit-icon">▦</span><span>Vista general</span></button>
+<div aria-label="Controles de zoom" class="zoom-controls canvas-toolbar-only"><button aria-label="Alejar" class="canvas-toolbar-only" id="zoom-out" type="button">−</button><output aria-label="Nivel de zoom" id="zoom-label">100%</output><button aria-label="Acercar" class="canvas-toolbar-only" id="zoom-in" type="button">+</button></div>
+<button aria-label="Ver en pantalla completa" class="fullscreen canvas-toolbar-only" id="fullscreen-btn" title="Pantalla completa" type="button">⛶</button>
+<div class="top-links">
+<a aria-label="Ir a la página principal de Picea Digital" class="top-link" href="https://piceadigital.com/#inicio">Inicio ↗</a>
+<a class="top-contact" href="https://wa.me/595986716583?text=Hola%2C%20quiero%20consultar%20por%20una%20web%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">WhatsApp ↗</a>
+</div></div>
+</header>
+<main aria-label="Galería clásica de proyectos" class="classic-view" id="classic-view" tabindex="-1">
+<div class="classic-inner">
+<div class="classic-hero">
+<div class="classic-kicker"><span></span> PORTAFOLIO</div>
+<h2>Proyectos realizados</h2>
+<p>Conocé algunas de las páginas web que desarrollamos.</p>
+<div class="classic-intro-actions"><button class="classic-try-canvas" data-view-choice="canvas" type="button">Ver en lienzo <span>↗</span></button><span class="classic-project-count">7 PROYECTOS</span></div>
+</div>
+<div class="classic-grid-title"><strong>PROYECTOS</strong><span>01 — 07</span></div>
+<div class="classic-grid"><article class="classic-card" data-project="friogar" style="--project-accent:#2a8ab6">
+<button aria-label="Ver detalles del proyecto Friogar E.A.S." class="classic-preview" data-open-project="friogar" type="button">
+<picture>
+<source media="(max-width: 680px)" srcset="canvas-assets/img/friogar-mobile.webp" type="image/webp"/>
+<img alt="Captura de la web de Friogar E.A.S." draggable="false" loading="eager" src="canvas-assets/img/friogar-desktop.webp"/>
+</picture>
+<span class="classic-number">01 / 07</span>
+<span aria-hidden="true" class="classic-preview-more">Ver detalles <b>↗</b></span>
+</button>
+<div class="classic-card-content">
+<div class="classic-card-overline"><span class="classic-pin"></span> PROYECTO WEB <span class="classic-overline-num">01 / 07</span></div>
+<h3>Friogar E.A.S.</h3><p>Refrigeración · Servicios técnicos</p>
+<div class="classic-card-actions"><button class="classic-detail-btn" data-open-project="friogar" type="button">Explorar diseño <span>↗</span></button><a class="classic-visit-btn" href="https://friogareas.com/" rel="noopener noreferrer" target="_blank">Visitar web <span>↗</span></a></div>
+</div>
+</article><article class="classic-card" data-project="cooling" style="--project-accent:#1674cc">
+<button aria-label="Ver detalles del proyecto Cooling and Power" class="classic-preview" data-open-project="cooling" type="button">
+<picture>
+<source media="(max-width: 680px)" srcset="canvas-assets/img/cooling-mobile.webp" type="image/webp"/>
+<img alt="Captura de la web de Cooling and Power" draggable="false" loading="eager" src="canvas-assets/img/cooling-desktop.webp"/>
+</picture>
+<span class="classic-number">02 / 07</span>
+<span aria-hidden="true" class="classic-preview-more">Ver detalles <b>↗</b></span>
+</button>
+<div class="classic-card-content">
+<div class="classic-card-overline"><span class="classic-pin"></span> PROYECTO WEB <span class="classic-overline-num">02 / 07</span></div>
+<h3>Cooling and Power</h3><p>Electricidad · Climatización</p>
+<div class="classic-card-actions"><button class="classic-detail-btn" data-open-project="cooling" type="button">Explorar diseño <span>↗</span></button><a class="classic-visit-btn" href="https://coolingandpowereas.com/" rel="noopener noreferrer" target="_blank">Visitar web <span>↗</span></a></div>
+</div>
+</article><article class="classic-card" data-project="frioexpert" style="--project-accent:#39a7d6">
+<button aria-label="Ver detalles del proyecto FríoExpert" class="classic-preview" data-open-project="frioexpert" type="button">
+<picture>
+<source media="(max-width: 680px)" srcset="canvas-assets/img/frioexpert-mobile.webp" type="image/webp"/>
+<img alt="Captura de la web de FríoExpert" draggable="false" loading="lazy" src="canvas-assets/img/frioexpert-desktop.webp"/>
+</picture>
+<span class="classic-number">03 / 07</span>
+<span aria-hidden="true" class="classic-preview-more">Ver detalles <b>↗</b></span>
+</button>
+<div class="classic-card-content">
+<div class="classic-card-overline"><span class="classic-pin"></span> PROYECTO WEB <span class="classic-overline-num">03 / 07</span></div>
+<h3>FríoExpert</h3><p>Aire acondicionado · Refrigeración</p>
+<div class="classic-card-actions"><button class="classic-detail-btn" data-open-project="frioexpert" type="button">Explorar diseño <span>↗</span></button><a class="classic-visit-btn" href="projects/frioexpert-new-v8/frioexpert-demo/index.html" rel="noopener noreferrer" target="_blank">Visitar web <span>↗</span></a></div>
+</div>
+</article><article class="classic-card" data-project="fb" style="--project-accent:#f0713a">
+<button aria-label="Ver detalles del proyecto FB Seguridad Electrónica" class="classic-preview" data-open-project="fb" type="button">
+<picture>
+<source media="(max-width: 680px)" srcset="canvas-assets/img/fb-mobile.webp" type="image/webp"/>
+<img alt="Captura de la web de FB Seguridad Electrónica" draggable="false" loading="lazy" src="canvas-assets/img/fb-desktop.webp"/>
+</picture>
+<span class="classic-number">04 / 07</span>
+<span aria-hidden="true" class="classic-preview-more">Ver detalles <b>↗</b></span>
+</button>
+<div class="classic-card-content">
+<div class="classic-card-overline"><span class="classic-pin"></span> PROYECTO WEB <span class="classic-overline-num">04 / 07</span></div>
+<h3>FB Seguridad Electrónica</h3><p>CCTV · Alarmas · Redes</p>
+<div class="classic-card-actions"><button class="classic-detail-btn" data-open-project="fb" type="button">Explorar diseño <span>↗</span></button><a class="classic-visit-btn" href="https://fbseguridad.com.py/" rel="noopener noreferrer" target="_blank">Visitar web <span>↗</span></a></div>
+</div>
+</article><article class="classic-card" data-project="gsa" style="--project-accent:#2e9bc4">
+<button aria-label="Ver detalles del proyecto Grupo Security Avizor" class="classic-preview" data-open-project="gsa" type="button">
+<picture>
+<source media="(max-width: 680px)" srcset="canvas-assets/img/gsa-mobile.webp" type="image/webp"/>
+<img alt="Captura de la web de Grupo Security Avizor" draggable="false" loading="lazy" src="canvas-assets/img/gsa-desktop.webp"/>
+</picture>
+<span class="classic-number">05 / 07</span>
+<span aria-hidden="true" class="classic-preview-more">Ver detalles <b>↗</b></span>
+</button>
+<div class="classic-card-content">
+<div class="classic-card-overline"><span class="classic-pin"></span> PROYECTO WEB <span class="classic-overline-num">05 / 07</span></div>
+<h3>Grupo Security Avizor</h3><p>Seguridad privada</p>
+<div class="classic-card-actions"><button class="classic-detail-btn" data-open-project="gsa" type="button">Explorar diseño <span>↗</span></button><a class="classic-visit-btn" href="https://gsasaavizor.com/" rel="noopener noreferrer" target="_blank">Visitar web <span>↗</span></a></div>
+</div>
+</article><article class="classic-card" data-project="chiaramonte" style="--project-accent:#c69b51">
+<button aria-label="Ver detalles del proyecto GL&amp;AS × Chiaramonte" class="classic-preview" data-open-project="chiaramonte" type="button">
+<picture>
+<source media="(max-width: 680px)" srcset="canvas-assets/img/chiaramonte-mobile.webp" type="image/webp"/>
+<img alt="Captura de la web de GL&amp;AS × Chiaramonte" draggable="false" loading="lazy" src="canvas-assets/img/chiaramonte-desktop.webp"/>
+</picture>
+<span class="classic-number">06 / 07</span>
+<span aria-hidden="true" class="classic-preview-more">Ver detalles <b>↗</b></span>
+</button>
+<div class="classic-card-content">
+<div class="classic-card-overline"><span class="classic-pin"></span> PROYECTO WEB <span class="classic-overline-num">06 / 07</span></div>
+<h3>GL&amp;AS × Chiaramonte</h3><p>Certificación gastronómica</p>
+<div class="classic-card-actions"><button class="classic-detail-btn" data-open-project="chiaramonte" type="button">Explorar diseño <span>↗</span></button><a class="classic-visit-btn" href="https://glyaschiaramonte.com/" rel="noopener noreferrer" target="_blank">Visitar web <span>↗</span></a></div>
+</div>
+</article><article class="classic-card" data-project="fobc" style="--project-accent:#c9a042">
+<button aria-label="Ver detalles del proyecto GL&amp;AS FOBC E.A.S." class="classic-preview" data-open-project="fobc" type="button">
+<picture>
+<source media="(max-width: 680px)" srcset="canvas-assets/img/fobc-mobile.webp" type="image/webp"/>
+<img alt="Captura de la web de GL&amp;AS FOBC E.A.S." draggable="false" loading="lazy" src="canvas-assets/img/fobc-desktop.webp"/>
+</picture>
+<span class="classic-number">07 / 07</span>
+<span aria-hidden="true" class="classic-preview-more">Ver detalles <b>↗</b></span>
+</button>
+<div class="classic-card-content">
+<div class="classic-card-overline"><span class="classic-pin"></span> PROYECTO WEB <span class="classic-overline-num">07 / 07</span></div>
+<h3>GL&amp;AS FOBC E.A.S.</h3><p>Family Office · Consultoría</p>
+<div class="classic-card-actions"><button class="classic-detail-btn" data-open-project="fobc" type="button">Explorar diseño <span>↗</span></button><a class="classic-visit-btn" href="https://glyasfobc.com/" rel="noopener noreferrer" target="_blank">Visitar web <span>↗</span></a></div>
+</div>
+</article></div>
+<section class="classic-end"><span>PICEA DIGITAL</span><h2>¿Necesitás una página web?</h2><a href="https://wa.me/595986716583?text=Hola%2C%20quiero%20consultar%20por%20una%20web%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">Consultar por WhatsApp ↗</a></section>
+<div class="classic-footer"><span>© 2026 PICEA DIGITAL</span><a href="https://piceadigital.com/#inicio">Volver a inicio ↗</a></div>
+</div>
+</main><main aria-hidden="true" aria-label="Lienzo de proyectos. Arrastrar para explorar y rueda para zoom." class="canvas-view" hidden="" id="canvas" tabindex="0">
+<div aria-label="Mapa de siete proyectos" class="world" id="world">
+<button aria-label="Explorar proyecto Friogar E.A.S." class="canvas-card" data-id="friogar" style="--x:80px;--y:92px;--accent:#2a8ab6" type="button">
+<span class="card-screen"><img alt="Vista del sitio de Friogar E.A.S." draggable="false" height="900" loading="eager" src="canvas-assets/img/friogar-desktop.webp" width="1700"/></span>
+<span class="card-bottom"><span class="card-index">01</span><span class="card-info"><strong>Friogar E.A.S.</strong><small>Refrigeración · Servicios técnicos</small></span><span aria-hidden="true" class="card-go">↗</span></span>
+</button><button aria-label="Explorar proyecto Cooling and Power" class="canvas-card" data-id="cooling" style="--x:575px;--y:92px;--accent:#1674cc" type="button">
+<span class="card-screen"><img alt="Vista del sitio de Cooling and Power" draggable="false" height="900" loading="eager" src="canvas-assets/img/cooling-desktop.webp" width="1700"/></span>
+<span class="card-bottom"><span class="card-index">02</span><span class="card-info"><strong>Cooling and Power</strong><small>Electricidad · Climatización</small></span><span aria-hidden="true" class="card-go">↗</span></span>
+</button><button aria-label="Explorar proyecto FríoExpert" class="canvas-card" data-id="frioexpert" style="--x:1070px;--y:92px;--accent:#39a7d6" type="button">
+<span class="card-screen"><img alt="Vista del sitio de FríoExpert" draggable="false" height="900" loading="lazy" src="canvas-assets/img/frioexpert-desktop.webp" width="1700"/></span>
+<span class="card-bottom"><span class="card-index">03</span><span class="card-info"><strong>FríoExpert</strong><small>Aire acondicionado · Refrigeración</small></span><span aria-hidden="true" class="card-go">↗</span></span>
+</button><button aria-label="Explorar proyecto FB Seguridad Electrónica" class="canvas-card" data-id="fb" style="--x:1565px;--y:92px;--accent:#f0713a" type="button">
+<span class="card-screen"><img alt="Vista del sitio de FB Seguridad Electrónica" draggable="false" height="900" loading="lazy" src="canvas-assets/img/fb-desktop.webp" width="1700"/></span>
+<span class="card-bottom"><span class="card-index">04</span><span class="card-info"><strong>FB Seguridad Electrónica</strong><small>CCTV · Alarmas · Redes</small></span><span aria-hidden="true" class="card-go">↗</span></span>
+</button><button aria-label="Explorar proyecto Grupo Security Avizor" class="canvas-card" data-id="gsa" style="--x:80px;--y:557px;--accent:#2e9bc4" type="button">
+<span class="card-screen"><img alt="Vista del sitio de Grupo Security Avizor" draggable="false" height="900" loading="lazy" src="canvas-assets/img/gsa-desktop.webp" width="1700"/></span>
+<span class="card-bottom"><span class="card-index">05</span><span class="card-info"><strong>Grupo Security Avizor</strong><small>Seguridad privada</small></span><span aria-hidden="true" class="card-go">↗</span></span>
+</button><button aria-label="Explorar proyecto GL&amp;AS × Chiaramonte" class="canvas-card" data-id="chiaramonte" style="--x:575px;--y:557px;--accent:#c69b51" type="button">
+<span class="card-screen"><img alt="Vista del sitio de GL&amp;AS × Chiaramonte" draggable="false" height="900" loading="lazy" src="canvas-assets/img/chiaramonte-desktop.webp" width="1700"/></span>
+<span class="card-bottom"><span class="card-index">06</span><span class="card-info"><strong>GL&amp;AS × Chiaramonte</strong><small>Certificación gastronómica</small></span><span aria-hidden="true" class="card-go">↗</span></span>
+</button><button aria-label="Explorar proyecto GL&amp;AS FOBC E.A.S." class="canvas-card" data-id="fobc" style="--x:1070px;--y:557px;--accent:#c9a042" type="button">
+<span class="card-screen"><img alt="Vista del sitio de GL&amp;AS FOBC E.A.S." draggable="false" height="900" loading="lazy" src="canvas-assets/img/fobc-desktop.webp" width="1700"/></span>
+<span class="card-bottom"><span class="card-index">07</span><span class="card-info"><strong>GL&amp;AS FOBC E.A.S.</strong><small>Family Office · Consultoría</small></span><span aria-hidden="true" class="card-go">↗</span></span>
+</button>
+</div>
+<div class="canvas-label"><span class="pulse-dot"></span><span>LIENZO LIBRE</span><span class="view-hint">· DESPLAZATE EN CUALQUIER DIRECCIÓN</span></div>
+<div class="canvas-credit">ARRASTRAR · ZOOM · EXPLORAR</div>
+<div aria-label="Minimapa de proyectos" class="map-box" id="map-box">
+<div class="map-top"><span>MAPA DE PROYECTOS</span><button aria-label="Centrar mapa" id="map-fit" type="button">⌗</button></div>
+<div class="mini-world" id="mini-world"><button aria-label="Ir a Friogar E.A.S." class="mini-card" data-jump="friogar" style="--mx:80;--my:92;--accent:#2a8ab6" title="Ir a Friogar E.A.S." type="button"></button><button aria-label="Ir a Cooling and Power" class="mini-card" data-jump="cooling" style="--mx:575;--my:92;--accent:#1674cc" title="Ir a Cooling and Power" type="button"></button><button aria-label="Ir a FríoExpert" class="mini-card" data-jump="frioexpert" style="--mx:1070;--my:92;--accent:#39a7d6" title="Ir a FríoExpert" type="button"></button><button aria-label="Ir a FB Seguridad Electrónica" class="mini-card" data-jump="fb" style="--mx:1565;--my:92;--accent:#f0713a" title="Ir a FB Seguridad Electrónica" type="button"></button><button aria-label="Ir a Grupo Security Avizor" class="mini-card" data-jump="gsa" style="--mx:80;--my:557;--accent:#2e9bc4" title="Ir a Grupo Security Avizor" type="button"></button><button aria-label="Ir a GL&amp;AS × Chiaramonte" class="mini-card" data-jump="chiaramonte" style="--mx:575;--my:557;--accent:#c69b51" title="Ir a GL&amp;AS × Chiaramonte" type="button"></button><button aria-label="Ir a GL&amp;AS FOBC E.A.S." class="mini-card" data-jump="fobc" style="--mx:1070;--my:557;--accent:#c9a042" title="Ir a GL&amp;AS FOBC E.A.S." type="button"></button><div class="mini-viewport" id="mini-viewport"></div></div>
+</div>
+<div class="hint-bar"><span><b>↔</b> Arrastrá para moverte</span><i></i><span><b>⊕</b> Rueda para zoom</span><i></i><span><b>↗</b> Tocá una web para explorar</span></div>
+<div aria-label="Controles para ampliar o alejar el lienzo" class="mobile-tools"><button id="mobile-fit" type="button">▦ <span>Ver todas</span></button><button aria-label="Alejar" id="mobile-minus" type="button">−</button><output id="mobile-zoom">100%</output><button aria-label="Acercar" id="mobile-plus" type="button">+</button></div>
+</main>
+</div>
+</div>
+<nav aria-label="Navegación principal" class="mobile-bottom-nav">
+<a aria-label="Volver a la página principal de Picea Digital" class="mobile-bottom-link" href="https://piceadigital.com/#inicio">
+<svg aria-hidden="true" fill="none" height="21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="21"><path d="m3 10 9-7 9 7"></path><path d="M5 9v11h14V9"></path><path d="M9 20v-7h6v7"></path></svg><span>Inicio</span>
+</a>
+<button aria-label="Cambiar a vista de lienzo" class="mobile-bottom-link mobile-bottom-explore" id="mobile-bottom-mode" type="button">
+<svg aria-hidden="true" fill="none" height="21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="21"><circle cx="12" cy="12" r="8"></circle><path d="m15 9-2 5-4 1 2-5z"></path></svg><span>Ver lienzo</span>
+</button>
+<a aria-label="Consultar por WhatsApp" class="mobile-bottom-link mobile-bottom-whatsapp" href="https://wa.me/595986716583?text=Hola%2C%20quiero%20consultar%20por%20una%20web%20para%20mi%20negocio." rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" fill="currentColor" height="22" viewbox="0 0 24 24" width="22"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0 12 12 0 0 0 1.7 17.9L0 24l6.3-1.6a12 12 0 0 0 5.8 1.5h.1a12 12 0 0 0 8.3-20.4ZM12.1 21.9a10 10 0 0 1-5.1-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1 1 12.1 22Zm5.5-7.4c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2c-.2.3-.8 1-.9 1.2-.2.2-.3.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.2-.6l.5-.6.3-.5c.1-.2 0-.4-.1-.6L9 6.9c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 3 1.3 3.2c.2.2 2.2 3.2 5.2 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3Z"></path></svg><span>WhatsApp</span>
+</a>
+</nav>
+<div class="mode-chooser" hidden="" id="mode-chooser">
+<div class="mode-chooser-shade"></div>
+<section aria-describedby="chooser-desc" aria-labelledby="chooser-title" aria-modal="true" class="mode-chooser-panel" role="dialog">
+<div class="chooser-top"><span>PORTAFOLIO PICEA DIGITAL</span><button aria-label="Cerrar y continuar con vista clásica" id="chooser-close" type="button">×</button></div>
+<div class="chooser-content"><div class="chooser-eyebrow"><span></span> DOS FORMAS DE EXPLORAR</div><h2 id="chooser-title">¿Cómo querés ver los proyectos?</h2><p id="chooser-desc">Elegí una vista. Podés cambiarla cuando quieras.</p>
+<div class="chooser-options">
+<button class="chooser-option chooser-classic" data-view-choice="classic" type="button"><div class="chooser-preview chooser-classic-preview"><span class="tiny-preview"></span><span class="tiny-preview"></span><span class="tiny-preview"></span></div><div class="chooser-option-copy"><span><b>Vista clásica</b><small>Recorré los proyectos bajando.</small></span><strong>↗</strong></div></button>
+<button class="chooser-option chooser-canvas" data-view-choice="canvas" type="button"><div class="chooser-preview chooser-canvas-preview"><span class="tiny-preview first"></span><span class="tiny-preview second"></span><span class="tiny-preview third"></span><span class="tiny-preview fourth"></span></div><div class="chooser-option-copy"><span><b>Lienzo interactivo</b><small>Arrastrá el plano y usá el zoom.</small></span><strong>↗</strong></div></button>
+</div><p class="chooser-hint">Inicio y WhatsApp siempre disponibles.</p></div>
+</section>
+</div><div class="detail-backdrop" hidden="" id="detail-backdrop"></div>
+<aside aria-hidden="true" aria-labelledby="detail-title" aria-modal="true" class="detail-panel" id="detail-panel" inert="" role="dialog">
+<div class="detail-header"><span>DETALLES DEL PROYECTO</span><button aria-label="Cerrar detalles" id="close-detail" type="button">×</button></div>
+<div class="detail-scroll">
+<div class="detail-num" id="detail-num">01 / 07</div>
+<h2 id="detail-title">Proyecto</h2>
+<p class="detail-description" id="detail-desc"></p>
+<div aria-label="Elegir vista de captura" class="screen-switch" role="group"><button aria-pressed="true" class="selected" data-screen="desktop" type="button">Escritorio</button><button aria-pressed="false" data-screen="mobile" type="button">Móvil</button></div>
+<div class="detail-image"><img alt="Captura de la web seleccionada" id="detail-img" loading="lazy"/></div>
+<div class="detail-tags"><span id="detail-cat"></span><span id="detail-tag"></span></div>
+<a class="detail-visit" href="#" id="detail-link" rel="noopener noreferrer" target="_blank">Visitar web <span>↗</span></a>
+<p class="detail-note">La captura muestra una vista del proyecto. Para navegar la web completa, abrí el enlace.</p>
+</div>
+</aside>
+<script id="project-data" type="application/json">[{"id": "friogar", "code": "01", "title": "Friogar E.A.S.", "tag": "Refrigeración · Servicios técnicos", "cat": "Sitio corporativo", "url": "https://friogareas.com/", "x": 80, "y": 92, "accent": "#2a8ab6", "note": "Sitio empresarial para servicios de refrigeración, climatización y reparaciones."}, {"id": "cooling", "code": "02", "title": "Cooling and Power", "tag": "Electricidad · Climatización", "cat": "Sitio corporativo", "url": "https://coolingandpowereas.com/", "x": 575, "y": 92, "accent": "#1674cc", "note": "Web de soluciones técnicas para instalaciones eléctricas, aire acondicionado y redes."}, {"id": "frioexpert", "code": "03", "title": "FríoExpert", "tag": "Aire acondicionado · Refrigeración", "cat": "Sitio de servicios", "url": "projects/frioexpert-new-v8/frioexpert-demo/index.html", "x": 1070, "y": 92, "accent": "#39a7d6", "note": "Propuesta de sitio web para servicio técnico de aires acondicionados."}, {"id": "fb", "code": "04", "title": "FB Seguridad Electrónica", "tag": "CCTV · Alarmas · Redes", "cat": "Sitio corporativo", "url": "https://fbseguridad.com.py/", "x": 1565, "y": 92, "accent": "#f0713a", "note": "Web corporativa para soluciones de videovigilancia, alarmas e infraestructura tecnológica."}, {"id": "gsa", "code": "05", "title": "Grupo Security Avizor", "tag": "Seguridad privada", "cat": "Sitio corporativo", "url": "https://gsasaavizor.com/", "x": 80, "y": 557, "accent": "#2e9bc4", "note": "Presencia digital corporativa para empresa de vigilancia y protección."}, {"id": "chiaramonte", "code": "06", "title": "GL&AS × Chiaramonte", "tag": "Certificación gastronómica", "cat": "Sitio corporativo", "url": "https://glyaschiaramonte.com/", "x": 575, "y": 557, "accent": "#c69b51", "note": "Plataforma informativa de certificación gastronómica y red de representantes."}, {"id": "fobc", "code": "07", "title": "GL&AS FOBC E.A.S.", "tag": "Family Office · Consultoría", "cat": "Sitio corporativo", "url": "https://glyasfobc.com/", "x": 1070, "y": 557, "accent": "#c9a042", "note": "Presentación corporativa para consultoría empresarial y servicios de family office."}]</script>
 </body>
 </html>

@@ -17,7 +17,7 @@
  const W=2100,H=1060;
  const MIN=.14,MAX=2.65;
  let scale=.75,x=0,y=0,initialized=false,raf=0,animation=null,selected=null,screenMode='desktop';
- let lastW=0,lastH=0;
+ let lastW=0,lastH=0,detailPreviousFocus=null;
  const pointers=new Map();
  let single=null,pinch=null;
  const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
@@ -106,7 +106,7 @@
  }
  function openDetail(id){
    const p=byId.get(id);if(!p)return;
-   selected=p.id;updateSelected();
+   detailPreviousFocus=document.activeElement;selected=p.id;updateSelected();
    document.querySelector('#detail-num').textContent=`${p.code} / 07 — PROYECTO REAL`;
    document.querySelector('#detail-title').textContent=p.title;
    document.querySelector('#detail-desc').textContent=p.note;
@@ -126,7 +126,7 @@
    detail.classList.remove('open');
    detail.setAttribute('aria-hidden','true');
    detail.inert=true;backdrop.hidden=true;
-   stage.focus({preventScroll:true});
+   if(detailPreviousFocus && detailPreviousFocus.isConnected && detailPreviousFocus.getClientRects().length) detailPreviousFocus.focus({preventScroll:true}); else if(stage.getClientRects().length) stage.focus({preventScroll:true});
  }
  document.querySelector('#close-detail').addEventListener('click',closeDetail);
  backdrop.addEventListener('click',closeDetail);
@@ -134,6 +134,7 @@
  document.querySelector('#fit-btn').addEventListener('click',()=>fitAll(true));
  document.querySelector('#map-fit').addEventListener('click',()=>fitAll(true));
  document.querySelector('#mobile-fit').addEventListener('click',()=>fitAll(true));
+ document.querySelector('#mobile-bottom-fit')?.addEventListener('click',()=>fitAll(true));
  const zoomStep=(direction)=>{const r=stage.getBoundingClientRect();zoomAt(scale*(direction>0?1.24:1/1.24),r.left+r.width/2,r.top+r.height/2,true);};
  document.querySelector('#zoom-in').addEventListener('click',()=>zoomStep(1));
  document.querySelector('#zoom-out').addEventListener('click',()=>zoomStep(-1));
@@ -220,6 +221,7 @@
    if(e.key==='0'){e.preventDefault();fitAll(true)}
  });
  const onResize=()=>{
+    if(stage.hidden || size().w<10 || size().h<10)return;
     if(!initialized){initial();return;}
     const {w,h}=size();
     if(lastW===w&&lastH===h)return;
@@ -229,11 +231,13 @@
     lastW=w;lastH=h;
  };
  new ResizeObserver(onResize).observe(stage);
+ document.addEventListener('picea:canvas-shown',()=>{requestAnimationFrame(()=>{if(!initialized)initial();else onResize();});});
+ window.PiceaProjects={openDetail,closeDetail};
  // Position minimap buttons in percentage coordinates, no CSS division compatibility issues.
  document.querySelectorAll('.mini-card').forEach(el=>{
     const p=byId.get(el.dataset.jump);
     el.style.left=`${p.x/W*100}%`;el.style.top=`${p.y/H*100}%`;
     el.style.width=`${460/W*100}%`;el.style.height=`${353/H*100}%`;
  });
- initial();
+ if(!stage.hidden && stage.clientWidth>10)initial();
 })();
